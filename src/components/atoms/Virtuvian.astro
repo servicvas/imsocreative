@@ -1,0 +1,67 @@
+---
+
+---
+
+<div class="virtuvian_cover">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" class="virtuvian_bg">
+		<defs>
+			<style>
+				.virtuvian_bg--square,
+				.virtuvian_bg--round {
+					fill: none;
+				}
+				.virtuvian_bg--controls {
+					fill: var(--color-bg-main);
+				}
+			</style>
+		</defs>
+		<rect id="virtuvian_bg--square" class="virtuvian_bg--square" x="98.64" y="186.33" width="802.72" height="802.72"></rect>
+		<circle id="virtuvian_bg--round" class="virtuvian_bg--round" cx="500" cy="500" r="489.29"></circle>
+		<g id="virtuvian_bg--controls">
+			<rect class="virtuvian_bg--controls" x="88.22" y="175.9" width="20.84" height="20.84"></rect>
+			<rect class="virtuvian_bg--controls" x="88.22" y="978.63" width="20.84" height="20.84"></rect>
+			<rect class="virtuvian_bg--controls" x="88.22" y="577.27" width="20.84" height="20.84"></rect>
+			<rect class="virtuvian_bg--controls" x="890.94" y="175.9" width="20.84" height="20.84"></rect>
+			<rect class="virtuvian_bg--controls" x="890.94" y="978.63" width="20.84" height="20.84"></rect>
+			<rect class="virtuvian_bg--controls" x="890.94" y="577.27" width="20.84" height="20.84"></rect>
+			<rect class="virtuvian_bg--controls" x="489.58" y="175.9" width="20.84" height="20.84"></rect>
+			<rect class="virtuvian_bg--controls" x="489.58" y="978.63" width="20.84" height="20.84"></rect>
+		</g>
+	</svg>
+	<picture>
+		<source media="(max-width: 960px)" srcset="/assets/img/main/sv_virtuvian_mobile.webp" />
+		<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/main/sv_virtuvian_hd.webp" />
+		<source media="(min-width: 961px) and (resolution: 2dppx), 
+            (min-width: 961px) and (resolution: 3dppx),
+            (min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/main/sv_virtuvian_uhd.webp" />
+		<img src="/assets/img/main/sv_virtuvian_uhd.webp" class="virtuvian_cover--img" alt="Сергей Васильев — мультидисциплинарный продуктовый дизайнер с опытом в веб-разработке, медиа и менеджменте IT-проектов" />
+	</picture>
+</div>
+
+<style>
+	.virtuvian_cover {
+		width: min(100%, 80vh);
+		height: auto;
+		aspect-ratio: 1 / 1;
+		position: relative;
+		@media screen and (width >= 1600 px) {
+			width: min(100%, 90vh);
+		}
+	}
+	.virtuvian_cover--img,
+	.virtuvian_bg {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+	}
+  .virtuvian_bg * {
+    stroke: var(--color-brand-main);
+    stroke-width: 3;
+		stroke-miterlimit: 3;
+    @media screen and (width >= 1200px) {
+      stroke-width: 1.5;
+      stroke-miterlimit: 1.5;
+    }
+  }
+</style>

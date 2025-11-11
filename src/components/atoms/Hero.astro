@@ -1,0 +1,138 @@
+---
+import Virtuvian from './Virtuvian.astro';
+import Skills from './Skills.astro';
+---
+
+<section class="hero">
+    <section class="hero_heading">
+      <p class="hero_heading--hello">Будем знакомы!</p>
+      <h1 class="hero_heading--title">Сергей Васильев</h1>
+      <h2 class="hero_heading--subtitle"><mark class="subtitle_mark--first">мультидисциплинарный</mark><br/><mark class="subtitle_mark--second">продуктовый дизайнер</mark><br/>с опытом создания и развития дизайн&#8209;систем, управления медиа и IT&#8209;проектами, навыками веб&#8209;разработки и аналитики пользовательского поведения</h2>
+      <svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;">
+        <defs>
+          <filter id="marker-shape">
+            <feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1" result="warp" />
+            <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warp" />
+          </filter>
+          <filter id="marker-shape--second">
+            <feTurbulence type="fractalNoise" baseFrequency="0 0.18" numOctaves="1" result="warp" />
+            <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="28" in="SourceGraphic" in2="warp" />
+          </filter>
+        </defs>
+      </svg>
+    </section>
+    <section class="hero_cover">
+      <Virtuvian />
+    </section>
+    <section class="hero_skills">
+      <Skills />
+    </section>
+    <!-- <div class="golden-grid">
+      <div class="padding-inline-start"></div>
+      <div class="padding-inline-end"></div>
+      <div class="padding-block-start"></div>
+      <div class="padding-block-end"></div>
+    </div> -->
+  </section>
+
+  <style>
+  .hero {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding-inline: var(--spacing-main);
+    padding-block: var(--spacing-xxl) 0;
+    color: var(--color-content-main);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:  "cover" 
+                          "heading"
+                          "skills";
+    gap: var(--spacing-l);
+    @media screen and (width >= 1200px) {
+      padding-inline: var(--spacing-xl);
+      padding-block: var(--spacing-l);
+      grid-template-columns: 2fr 3fr 2fr;
+      grid-template-areas: "heading cover skills";
+      gap: var(--spacing-xxs);
+    }
+    @media screen and (width >= 1600px) {
+      grid-template-columns: 3fr 5fr 3fr;
+    }
+  }
+  .hero_heading {
+    grid-area: heading;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  .hero_cover {
+    grid-area: cover;
+    display: grid;
+    place-items: center;
+  }
+
+  .hero_heading--hello {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+    margin-block-end: var(--spacing-xxs);
+    letter-spacing: -0.007em;
+  }
+  .hero_heading--title {
+    font-size: var(--font-size-xxl);
+    line-height: 1;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.025em;
+    margin-block-end: var(--spacing-xs);
+    &:after {
+      content: ',';
+    }
+  }
+  .hero_heading--subtitle {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.4;
+    letter-spacing: 0.002em;
+  }
+
+  .hero_heading--subtitle mark {
+    position: relative;
+    background: none;
+    color: var(--color-content-main);
+    z-index: +1;
+  }
+
+  .hero_heading--subtitle mark:before {
+    position: absolute;
+    left: -0.25em;
+    top: 0.1em;
+    z-index: -1;
+    content: '';
+    rotate: -.6deg;
+    background-color: var(--color-mark);
+    width: 105%;
+    height: 1.25em;
+  }
+
+  mark.subtitle_mark--first:before {
+    filter: url(#marker-shape);
+  }
+  mark.subtitle_mark--second:before {
+    filter: url(#marker-shape--second);
+  }
+  
+  .hero_skills {
+    grid-area: skills;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media screen and (width >= 1200px) {
+      align-items: end;
+    }
+  }
+
+</style>

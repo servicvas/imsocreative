@@ -1,0 +1,169 @@
+:root {
+  --color-const-white:   #ffffff;
+  --color-const-light:   #fcfcfc;
+  --color-const-black:   #000000;
+  --color-const-dark:    #111111;
+
+  --color-content-main:    oklch(0.20 0.003 240); /* #151617 */
+  --color-content-s:       oklch(0.30 0.004 240); /* #2c2e30 */
+  --color-content-xs:      oklch(0.40 0.005 240); /* #45484a */
+  --color-content-xxs:     oklch(0.54 0.006 240); /* #6c6f72 */
+  --color-content-xxxs:    oklch(0.75 0.005 240); /* #abaeb1 */
+  --color-content-softest: oklch(0.85 0.004 240); /* #cbced0 */
+
+  --color-bg-xxxh:  oklch(0.8 0.000 0.0);     /* #bebebd */
+  --color-bg-xxh:   oklch(0.88 0.000 0.0);    /* #d7d7d7 */
+  --color-bg-xh:    oklch(0.952 0.000 0.0);   /* #efefef */
+  --color-bg-h:     oklch(0.961 0.000 0.0);   /* #f2f2f2 */
+  --color-bg-main:  oklch(0.982 0.000 0.0);   /* #f9f9f9 */
+  --color-bg-s:     oklch(0.99 0.000 0.0);    /* #fcfcfc / oklch(from var(--color-bg-main) 99% c h) */
+  --color-bg-xs:    oklch(1 0.000 0.0);       /* #ffffff */
+
+  --color-brand-hardest:   oklch(0.1 0.021 283.52);   /* #030309 / rgb(3, 3, 9) */
+  --color-brand-xxxd:      oklch(0.2 0.047 281.74);  /* #13132b / rgb(19, 19, 43) */
+  --color-brand-xxd:       oklch(0.27 0.065 281.13);  /* #212145 / rgb(33, 33, 69) */
+  --color-brand-xd:        oklch(0.34 0.082 280.7);  /* #313161 / rgb(49, 49, 97) */
+  --color-brand-d:         oklch(0.4 0.097 280.72);  /* #3f407a / rgb(102, 103, 171) */
+  --color-brand-main:      oklch(0.543 0.105 281.7);  /* #6667AB  / rgb(102, 103, 171) / oklch(0.543 0.105 281.7); - Pantone 17-3938 Very Peri - Color of the Year 2022 */
+  --color-brand-s:         oklch(0.62 0.087 286.15);  /* #827eb8 / rgb(130, 126, 184) */
+  --color-brand-xs:        oklch(0.704 0.066 288.04);  /* #9d9ac7 / rgb(157, 154, 199) */
+  --color-brand-xxs:       oklch(0.82 0.037 289.03);  /* #c3c1db / rgb(195, 193, 219) */
+  --color-brand-xxxs:      oklch(0.88 0.023 289.86);  /* #d7d5e6 / rgb(215, 213, 230) */
+  --color-brand-softest:   oklch(0.95 0.008 290.4);  /* #eeedf3 / rgb(238, 237, 243) */
+
+  --color-safe-main: #19ca19;
+  
+  --color-mark: var(--color-brand-xxxs);
+
+  accent-color: var(--color-brand-main);
+
+  
+  --spacing-xxs:  calc(0.25 * var(--spacing-main)); 
+  --spacing-xs:   calc(0.5 * var(--spacing-main));
+  --spacing-s:    calc(0.75 * var(--spacing-main));
+  --spacing-main: 1rem;
+  --spacing-md:   calc(1.25 * var(--spacing-main));
+  --spacing-l:    calc(2 * var(--spacing-main));
+  --spacing-xl:   calc(3.25 * var(--spacing-main));
+  --spacing-xxl:  calc(5.25 * var(--spacing-main));
+
+  --font-family-primary: "Inter", system-ui, sans-serif;
+  --font-family-secondary: "JetBrains Mono", monospace, system-ui;
+
+  --font-size-display:  clamp(11rem, 10.8rem + 1vw, 12rem);
+  --font-size-xxl:      clamp(2rem, 2vw + 1.5rem, 3.5rem);
+	--font-size-xl:       clamp(1.5rem, 1.3rem + 1vw, 2rem);
+	--font-size-l:        clamp(1.25rem, 1.2rem + 0.25vw, 1.5rem);
+	--font-size-main:     clamp(1.1rem, 1.08rem + 0.1vw, 1.2rem);
+	--font-size-xs:       clamp(1rem, 0.9rem + 0.3vw, 1.15rem);
+	--font-size-xxs:      clamp(0.9rem, 0.87rem + 0.15vw, 1.05rem);
+	--font-size-xxxs:     clamp(0.7rem, 0.66rem + 0.2vw, 0.9rem);
+	--font-size-smallest:  clamp(0.5rem, 0.46rem + 0.2vw, 0.7rem);
+
+  --font-weight-light:      300;
+  --font-weight-regular:    350;
+  --font-weight-medium:     400;
+  --font-weight-semibold:   500;
+  --font-weight-bold:       600;
+  --font-weight-extrabold:  700;
+  --font-weight-black:      800;
+  --font-weight-extrablack: 900;
+
+  --icon-stroke: 10;
+}
+
+:focus-visible {
+	outline-color: var(--color-brand-main);
+}
+::selection {
+	background-color: var(--color-mark);
+}
+::marker {
+	color: var(--color-brand-main);
+}
+
+:is(::-webkit-calendar-picker-indicator, ::-webkit-clear-button, ::-webkit-inner-spin-button, ::-webkit-outer-spin-button) {
+	color: var(--color-brand-main);
+}
+
+::-webkit-scrollbar-track {
+	background: var(--color-brand-softest);
+}
+::-webkit-scrollbar-thumb {
+	background: var(--color-brand-xxs);
+}
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color-brand-main);
+}
+
+body.dark-mode {
+  --color-content-main:    oklch(0.99 0.000 0.0); /*  */
+  --color-content-s:       oklch(0.982 0.000 0.0); /*  */
+  --color-content-xs:      oklch(0.952 0.000 0.0); /*  */
+  --color-content-xxs:     oklch(0.88 0.000 0.0); /*  */
+  --color-content-xxxs:    oklch(0.8 0.000 0.0); /* #abaeb1 */
+  --color-content-softest: oklch(0.65 0.000 0.0); /*  */
+
+  --color-bg-xxxh:  oklch(0.75 0.005 240);     /*  */
+  --color-bg-xxh:   oklch(0.54 0.006 240);    /*  */
+  --color-bg-xh:    oklch(0.40 0.005 240);   /*  */
+  --color-bg-h:     oklch(0.30 0.004 240);   /*  */
+  --color-bg-main:  oklch(0.20 0.003 240);   /*  */
+  --color-bg-s:     oklch(0.14 0.001 240);    /*  */
+  --color-bg-xs:    oklch(0.0 0.000 0.0);       /*  */
+
+  --color-mark: var(--color-brand-s);
+}
+
+html,
+body {
+  @view-transition {
+    navigation: auto;
+  }
+  font-family: var(--font-family-primary);
+  color: var(--color-content-main);
+  background: var(--color-bg-main);
+}
+
+h1 {
+	font-size: var(--font-size-xxl);
+	line-height: 1.03;
+	font-weight: var(--font-weight-extrabold);
+	white-space: pre-wrap;
+  text-wrap: balance;
+}
+
+h2 {
+	font-size: var(--font-size-xl);
+	line-height: 1.15;
+  font-weight: var(--font-weight-extrabold);
+	white-space: pre-wrap;
+  text-wrap: balance;
+}
+
+p {
+  font-size: var(--font-size-main);
+	line-height: 1.35;
+  font-weight: var(--font-weight-regular);
+  text-wrap: pretty;
+}
+
+/* NB !!!!!!!!!!! */
+.golden-grid {
+  display: grid;
+  grid-template-rows: 6fr 6fr 12fr 24fr 16fr 32fr 32fr 26fr 17fr 21fr 21fr 17fr 26fr 32fr 32fr 16fr 24fr 12fr 6fr 6fr;
+  grid-template-columns: 6fr 6fr 12fr 24fr 16fr 32fr 32fr 26fr 17fr 21fr 21fr 17fr 26fr 32fr 32fr 16fr 24fr 12fr 6fr 6fr;
+  opacity: .3;
+}
+.golden-grid--show {
+  position: absolute;
+  inset: 0;
+  & .padding-inline-start {
+    grid-area: 1 / 1 / -1 / span 2;
+    background-color: beige;
+  }
+  & .padding-block-start {
+    grid-area: 1 / 1 / span 2 / -1;
+    background-color: chartreuse;
+  }
+}
