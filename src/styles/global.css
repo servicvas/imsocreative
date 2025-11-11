@@ -168,8 +168,8 @@ p {
 p a {
   color: var(--color-brand-main);
   text-decoration: none;
-  @:focus,
-  @:target {
+  &:focus,
+  &:target {
     text-decoration: underline;
   }
   @media (hover: hover) and (pointer: fine) {
