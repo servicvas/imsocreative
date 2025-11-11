@@ -1,9 +1,9 @@
 ---
-import Logo from "../components/atoms/Logo.astro";
-import HeaderControls from "../components/atoms/HeaderControls.astro";
+import Logo from "../atoms/Logo.astro";
+import HeaderControls from "./HeaderControls.astro";
 ---
 
-<header>
+<header class="header">
 	<Logo />
 	<HeaderControls />
 </header>
@@ -18,7 +18,8 @@ import HeaderControls from "../components/atoms/HeaderControls.astro";
 </div>
 
 <style is:global>
-	header {
+	header.header {
+    flex-shrink: 0;
 		position: fixed;
 		top: 0;
 		z-index: +10000;

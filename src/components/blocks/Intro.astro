@@ -68,7 +68,7 @@
 
 <style>
 .intro {
-  z-index: +1000000;
+  z-index: +100000;
   position: fixed;
   inset: 0;
   width: 100%;
@@ -79,7 +79,7 @@
   display: grid;
   place-items: center;
   padding: var(--spacing-main);
-  /* transition: transform .9s cubic-bezier(0.77, 0, 0.175, 1), opacity .7s cubic-bezier(0.77, 0, 0175, 1); */
+  will-change: clip-path;
   &.intro--out {
     animation-name: hideBlockToTop;
     animation-duration: 1s;

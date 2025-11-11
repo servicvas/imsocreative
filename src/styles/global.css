@@ -11,6 +11,8 @@
   --color-content-xxxs:    oklch(0.75 0.005 240); /* #abaeb1 */
   --color-content-softest: oklch(0.85 0.004 240); /* #cbced0 */
 
+  --color-separator-main: var(--color-content-xxs);
+
   --color-bg-xxxh:  oklch(0.8 0.000 0.0);     /* #bebebd */
   --color-bg-xxh:   oklch(0.88 0.000 0.0);    /* #d7d7d7 */
   --color-bg-xh:    oklch(0.952 0.000 0.0);   /* #efefef */
@@ -104,6 +106,8 @@ body.dark-mode {
   --color-content-xxxs:    oklch(0.8 0.000 0.0); /* #abaeb1 */
   --color-content-softest: oklch(0.65 0.000 0.0); /*  */
 
+  --color-separator-main: var(--color-content-xxs);
+
   --color-bg-xxxh:  oklch(0.75 0.005 240);     /*  */
   --color-bg-xxh:   oklch(0.54 0.006 240);    /*  */
   --color-bg-xh:    oklch(0.40 0.005 240);   /*  */
@@ -123,6 +127,7 @@ body {
   font-family: var(--font-family-primary);
   color: var(--color-content-main);
   background: var(--color-bg-main);
+  height: auto;
 }
 
 h1 {
@@ -131,6 +136,7 @@ h1 {
 	font-weight: var(--font-weight-extrabold);
 	white-space: pre-wrap;
   text-wrap: balance;
+  margin-block-end: 1em;
 }
 
 h2 {
@@ -139,6 +145,16 @@ h2 {
   font-weight: var(--font-weight-extrabold);
 	white-space: pre-wrap;
   text-wrap: balance;
+  margin-block-end: 1em;
+}
+
+h3 {
+	font-size: var(--font-size-l);
+	line-height: 1.2;
+  font-weight: var(--font-weight-extrabold);
+	white-space: pre-wrap;
+  text-wrap: balance;
+  margin-block-end: 1em;
 }
 
 p {
@@ -146,6 +162,28 @@ p {
 	line-height: 1.35;
   font-weight: var(--font-weight-regular);
   text-wrap: pretty;
+  margin-block-end: 1em;
+}
+
+p a {
+  color: var(--color-brand-main);
+  text-decoration: none;
+  @:focus,
+  @:target {
+    text-decoration: underline;
+  }
+  @media (hover: hover) and (pointer: fine) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+}
+
+.wrapper--inlinepadding {
+  padding-inline: var(--spacing-main);
+  @media screen and (width >= 1200px) {
+    padding-inline: var(--spacing-xl);
+  }
 }
 
 /* NB !!!!!!!!!!! */

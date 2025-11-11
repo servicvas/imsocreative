@@ -2,41 +2,41 @@
 
 ---
 <section class="depart_section">
-  <div class="depart_tag">svg</div>
+  <div class="depart_tag">User flow</div>
   <div class="depart_tag">JTBD</div>
   <div class="depart_tag">исследования</div>
   <div class="depart_tag">html</div>
   <div class="depart_tag">Tilda</div>
-  <div class="depart_tag">tokens</div>
-  <div class="depart_tag">арт-дирекшн</div>
-  <div class="depart_tag">Goggle Analytics</div>
-  <div class="depart_tag">A/B</div>
-  <div class="depart_tag">variables</div>
+  <div class="depart_tag">design tokens</div>
   <div class="depart_tag">дизайн-системы</div>
-  <div class="depart_tag">Figma</div>
-  <div class="depart_tag">CX</div>
+  <div class="depart_tag">--variables</div>
+  <div class="depart_tag">арт-дирекшн</div>
+  <div class="depart_tag">Storybook</div>
   <div class="depart_tag">веб-разработка</div>
   <div class="depart_tag">AI</div>
-  <div class="depart_tag">js</div>
   <div class="depart_tag">CJM</div>
   <div class="depart_tag">прототип</div>
-  <div class="depart_tag">Lottie</div>
   <div class="depart_tag">Token Studio</div>
   <div class="depart_tag">Яндекс Метрика</div>
-  <div class="depart_tag">Storybook</div>
+  <div class="depart_tag">Figma</div>
   <div class="depart_tag">менторство</div>
   <div class="depart_tag">гайдлайн</div>
-  <div class="depart_tag">Penpot</div>
-  <div class="depart_tag">тепловая карта</div>
-  <div class="depart_tag">css</div>
+  <div class="depart_tag">сторителлинг</div>
+  <div class="depart_tag">анимации</div>
+  <div class="depart_tag">css</div> 
+  <div class="depart_tag">UX</div>
+  <div class="depart_tag">UI</div>
+  <div class="depart_tag">медиа</div>
+  <!-- <div class="depart_tag">js</div>
+  <div class="depart_tag">A/B</div>
+  <div class="depart_tag">CX</div>
+  <div class="depart_tag">Lottie</div>
   <div class="depart_tag">SvelteKit</div>
   <div class="depart_tag">Photoshop</div>
-  <div class="depart_tag">UI</div>
-  <div class="depart_tag">UX</div>
-  <div class="depart_tag">брендбук</div>
-  <!-- <div class="depart_tag">SMIL</div>
+  <div class="depart_tag">Goggle Analytics</div>
+  <div class="depart_tag">SMIL</div>
   <div class="depart_tag">маркетинг</div>
-  <div class="depart_tag">сторителлинг</div>
+  <div class="depart_tag">Penpot</div>
   <div class="depart_tag">Vue</div>
   <div class="depart_tag">Illustrator</div>
   <div class="depart_tag">брендинг</div>
@@ -77,17 +77,18 @@
 		block-size: 100svh;
 		perspective: 1000px;
 		transform-style: preserve-3d;
-
 		display: grid;
 		grid: repeat(4, 25dvh) / repeat(4, 25dvw);
 		place-items: center;
-
 		position: absolute;
-		top: -20%;
-    height: 180vh;
-
+		top: -10%;
+    height: 110vh;
 		overflow: clip;
-
+    pointer-events: none!important;
+    @media screen and (width >= 1200px) {
+      top: 35%;
+      height: 100vh;
+    }
 		& > .depart_tag {
       font-family: var(--font-family-secondary);
       font-size: var(--font-size-l);
@@ -108,81 +109,81 @@
 			}
 
 			&:nth-of-type(1) {
-				animation-range: 40% 50%;
+				animation-range: 00% 65%;
 			}
 			&:nth-of-type(2) {
-				animation-range: 20% 30%;
+				animation-range: 10% 94%;
 			}
 			&:nth-of-type(3) {
-				animation-range: 52% 62%;
+				animation-range: 52% 82%;
 			}
 			&:nth-of-type(4) {
-				animation-range: 50% 60%;
+				animation-range: 50% 80%;
 			}
 			&:nth-of-type(5) {
-				animation-range: 45% 55%;
+				animation-range: 45% 75%;
 			}
 			&:nth-of-type(6) {
-				animation-range: 10% 20%;
+				animation-range: -2% 90%;
 			}
 			&:nth-of-type(7) {
-				animation-range: 90% 100%;
+				animation-range: -4% 100%;
 			}
 			&:nth-of-type(8) {
-				animation-range: 30% 40%;
+				animation-range: 0% 60%;
 			}
 			&:nth-of-type(9) {
-				animation-range: 80% 90%;
+				animation-range: -1% 65%;
 			}
 			&:nth-of-type(10) {
-				animation-range: 70% 80%;
+				animation-range: 5% 64%;
 			}
 			&:nth-of-type(11) {
-				animation-range: -10% 50%;
+				animation-range: -10% 55%;
 			}
 			&:nth-of-type(12) {
-				animation-range: 52% 62%;
+				animation-range: 52% 82%;
 			}
 			&:nth-of-type(13) {
-				animation-range: 15% 25%;
+				animation-range: 15% 55%;
 			}
 			&:nth-of-type(14) {
-				animation-range: 7% 17%;
+				animation-range: 7% 57%;
 			}
 			&:nth-of-type(15) {
-				animation-range: 75% 85%;
+				animation-range: 45% 55%;
 			}
 			&:nth-of-type(16) {
-				animation-range: 3% 13%;
+				animation-range: 3% 63%;
 			}
 			&:nth-of-type(17) {
-				animation-range: 87% 97%;
+				animation-range: 7% 97%;
 			}
 			&:nth-of-type(18) {
-				animation-range: 42% 52%;
+				animation-range: 32% 82%;
 			}
 			&:nth-of-type(19) {
-				animation-range: 57% 67%;
+				animation-range: 47% 77%;
 			}
 			&:nth-of-type(20) {
-				animation-range: 37% 47%;
+				animation-range: 37% 67%;
 			}
 			&:nth-of-type(21) {
-				animation-range: 12% 22%;
+				animation-range: 12% 32%;
 			}
 			&:nth-of-type(22) {
-				animation-range: 8% 18%;
+				animation-range: 8% 28%;
 			}
 			&:nth-of-type(23) {
-				animation-range: 84% 94%;
+				animation-range: 4% 74%;
 			}
 			&:nth-of-type(24) {
-				animation-range: 33% 43%;
+				animation-range: -4% 64%;
 			}
 			&:nth-of-type(25) {
-				animation-range: 48% 58%;
+				animation-range: 48% 68%;
 			}
-			&:nth-of-type(26) {
+			/* &:nth-of-type(26) {
 				animation-range: 13% 23%;
 			}
 			&:nth-of-type(27) {
@@ -256,7 +257,7 @@
 			}
 			&:nth-of-type(50) {
 				animation-range: 6% 16%;
-			}
+			} */
 
 			@supports (animation-timeline: scroll()) {
 				&:nth-of-type(1) {
@@ -334,7 +335,7 @@
 				&:nth-of-type(25) {
 					grid-area: 1/1;
 				}
-				&:nth-of-type(26) {
+				/* &:nth-of-type(26) {
 					grid-area: 1/2;
 				}
 				&:nth-of-type(27) {
@@ -414,7 +415,7 @@
 				}
 				&:nth-of-type(52) {
 					grid-area: 3/4;
-				}
+				} */
 			}
 		}
 	}
