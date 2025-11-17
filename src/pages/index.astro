@@ -1,16 +1,14 @@
 ---
-import LayoutIndex from "../layouts/LayoutIndex.astro";
+import Layout from "../layouts/Layout.astro";
 import Intro from "../components/blocks/Intro.astro";
 import Hero from "../components/blocks/Hero.astro";
 import DepartTags from "../components/blocks/DepartTags.astro";
 import MainAbout from "../components/blocks/MainAbout.astro";
-
 ---
 
-<LayoutIndex title="Сергей Васильев: портфолио" description="Портфолио, биография и навыки работы продуктового дизайнера, веб-разработчика, редактора, журналиста, фотографа и менеджера IT-проектов Сергей Васильева из Пскова">
-	<Intro />
+<Layout title="Сергей Васильев: портфолио" description="Портфолио, биография и навыки работы продуктового дизайнера, веб-разработчика, редактора, журналиста, фотографа и менеджера IT-проектов Сергей Васильева из Пскова">
+	<!-- <Intro /> -->
   <Hero />
   <DepartTags />
   <MainAbout />
-</LayoutIndex>
-
+</Layout>

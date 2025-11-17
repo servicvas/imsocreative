@@ -40,14 +40,20 @@
 
 <style>
 	.virtuvian_cover {
-		width: min(100%, 80vh);
+		width: min(100%, 60vh);
 		height: auto;
 		aspect-ratio: 1 / 1;
 		position: relative;
-		@media screen and (width >= 1600 px) {
+    @media screen and (width >= 1200px) {
+			width: min(100%, 80vh);
+		}
+		@media screen and (width >= 1600px) {
 			width: min(100%, 90vh);
 		}
 	}
+  .virtuvian_cover svg {
+    overflow: visible;
+  }
 	.virtuvian_cover--img,
 	.virtuvian_bg {
 		position: absolute;

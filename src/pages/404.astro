@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MainAbout from "../components/blocks/MainAbout.astro";
+---
+
+<Layout title="Сергей Васильев: портфолио. Страница не найдена" description="Страница ошибки 404: запрашиваемая страница не найдена. Возможно, допущена ошибка в адресе страницы">
+	<main class="error-404--wrapper">
+		<section class="error-404">
+			<p>Ошибка <strong>404</strong></p>
+			<h1>Cтраница не найдена :(</h1>
+			<p>
+				Или её адрес указан некорректно, или она временно недоступна.<br/> В любом случае, на сайте есть ещё много других материалов.<br/> Возможно, вас заинтересует что-нибудь в разделах <a href="/design" title="Раздел с кейсами в области дизайна">«Дизайн»</a>,  
+        <a href="/webdev" title="Раздел с кейсами в области веб-разработки">«Веб-разработка»</a>, <a href="/video" title="Раздел с документальными фильмами">«Видео»</a>, <a href="/photo" title="Раздел с примерами репортажных и видовых съёмок">«Фото»</a> или <a href="/articles" title="Раздел с примерами публицистических текстов">Тексты</a>, либо узнайте больше обо мне в разделе, который так и называется — <a href="/about" title="Раздел с описанием биографии и списком мест работы и достижений">«Обо мне»</a>.
+			</p>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	.error-404--wrapper {
+		height: 80vh;
+		padding-top: 7rem;
+		padding-inline: var(--layout-padding-inline);
+		display: grid;
+		place-items: center;
+		& .error-404 {
+			width: min(100%, 85ch);
+			text-align: center;
+			text-wrap: balance;
+			& p {
+				font-family: var(--font-family-secondary);
+			}
+      & a {
+        font-weight: var(--font-weight-extrabold);
+      }
+		}
+	}
+</style>

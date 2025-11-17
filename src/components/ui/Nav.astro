@@ -1,0 +1,174 @@
+---
+
+---
+
+<section class="header-menu" id="menu">
+	<nav aria-labelledby="menu-title" role="navigation">
+    <h2 id="menu-title" hidden>Навигационное меню сайта</h2>
+		<ul>
+			<li><a href="/design" title="Раздел с кейсами в области дизайна">Дизайн</a></li>
+			<li><a href="/webdev" title="Раздел с кейсами в области веб-разработки">Веб-разработка</a></li>
+			<li><a href="/video" title="Раздел с документальными фильмами">Видео</a></li>
+			<li><a href="/photo" title="Раздел с примерами репортажных и видовых съёмок">Фото</a></li>
+      <li><a href="/articles" title="Раздел с примерами публицистических текстов">Тексты</a></li>
+			<li><a href="/about" title="Раздел с описанием биографии и списком мест работы и достижений">Обо мне</a></li>
+		</ul>
+	</nav>
+  <section class="menu-contacts">
+		<div class="contact_phone">
+			<p>Телеграм: <a href="https://t.me/sergeyvasilyev" class="contact--link">@sergeyvasilyev</a></p>
+		</div>
+		<div class="contact_phone">
+			<p>Почта: <a href="mailto:servicvas@ya.ru" class="contact--link">servicvas@ya.ru</a></p>
+		</div>
+	</section>
+</section>
+
+<style is:global>
+	nav {
+		font-family: var(--font-family-secondary);
+	}
+
+	@media screen and (width < 1200px) {
+		.header-menu {
+			width: 85vw;
+			height: 100vh;
+			background: radial-gradient(circle at 90% 95%, var(--color-brand-d), var(--color-brand-xs) 90%);
+			position: fixed;
+			top: 0;
+			right: 0;
+      will-change: transform;
+			transform: translateX(103%);
+			padding: var(--spacing-l);
+			color: var(--color-const-light);
+      border-radius: 14rem 0 0 18rem;
+			transition: transform 0.4s cubic-bezier(0.74, 0.29, 0.33, 1.12);
+      @supports (corner-shape: squircle) {
+        corner-shape: squircle;
+      }
+			& ul {
+				list-style: none;
+				padding-block: 4rem;
+        font-size: var(--font-size-xl);
+        & li {
+          padding-block-end: var(--spacing-main);
+        }
+			}
+			& a {
+				text-decoration: none;
+			}
+			&.show_menu {
+				transform: translateX(3%);
+				box-shadow: -4px 0 40px rgba(1, 1, 1, 0.4);
+			}
+		}
+    .menu-contacts {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacing-main);
+			& .contact--link {
+				font-family: var(--font-family-secondary);
+				font-size: var(--font-size-main);
+        font-weight: var(--font-weight-black);
+				color: var(--color-const-light);
+			}
+    }
+	}
+
+	@media screen and (width >= 1200px) {
+		nav {
+			width: fit-content;
+			height: var(--size-button-main);
+			margin: 0 auto;
+			background: var(--color-button_bg-main);
+			padding: 0.1rem;
+			border-radius: 0.5rem;
+			box-shadow: 2px 6px 8px rgba(1, 1, 1, 0.05);
+			isolation: isolate;
+			anchor-name: --hovered-link;
+			& li:is(:hover, :focus) {
+				anchor-name: --hovered-link;
+			}
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+        /* will-change: top, left, right, bottom; */
+				top: calc(anchor(bottom) - 0.15rem);
+				left: calc(anchor(left) + 0.9rem);
+				right: calc(anchor(right) + 0.9rem);
+				bottom: anchor(bottom);
+				border-radius: 0.7rem;
+				position-anchor: --hovered-link;
+				transition: 500ms linear(0, 0.029 1.6%, 0.123 3.5%, 0.651 10.6%, 0.862 14.1%, 1.002 17.7%, 1.046 19.6%, 1.074 21.6%, 1.087 23.9%, 1.086 26.6%, 1.014 38.5%, 0.994 46.3%, 1);
+			}
+
+			&::before {
+				z-index: -1;
+				background: var(--color-button_bg-focus);
+			}
+
+			&::after {
+				z-index: -2;
+				background: var(--color-button_bg-focus);
+			}
+
+			&:has(a:is(:hover, :focus))::before,
+			&:has(a:is(:hover, :focus))::after {
+				top: anchor(top);
+				left: anchor(left);
+				right: anchor(right);
+				bottom: anchor(bottom);
+
+				@supports (corner-shape: squircle) {
+					corner-shape: squircle;
+					border-radius: 2rem;
+				}
+			}
+
+			&:has(li:first-of-type a:is(:hover, :focus))::before,
+			&:has(li:first-of-type a:is(:hover, :focus))::after {
+				@supports (corner-shape: squircle) {
+					border-radius: 2rem;
+				}
+			}
+
+			&:has(li:last-of-type a:is(:hover, :focus))::before,
+			&:has(li:last-of-type a:is(:hover, :focus))::after {
+				@supports (corner-shape: squircle) {
+					border-radius: 2rem;
+				}
+			}
+
+			@supports (corner-shape: squircle) {
+				border-radius: 2rem;
+				corner-shape: squircle;
+			}
+
+			& > ul {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				display: flex;
+			}
+
+			& a {
+				display: block;
+				padding: 0.75rem;
+				text-decoration: none;
+				color: currentColor;
+				@media (hover: hover) and (pointer: fine) {
+					&:hover {
+						color: var(--color-const-light);
+					}
+				}
+				&:focus {
+					color: var(--color-const-light);
+				}
+			}
+		}
+    .menu-contacts {
+      display: none;
+    }
+	}
+</style>

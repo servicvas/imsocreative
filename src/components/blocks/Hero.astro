@@ -7,7 +7,7 @@ import Skills from './Skills.astro';
     <section class="hero_heading">
       <p class="hero_heading--hello">Будем знакомы!</p>
       <h1 class="hero_heading--title">Сергей Васильев</h1>
-      <h2 class="hero_heading--subtitle"><mark class="subtitle_mark--first">мультидисциплинарный</mark><br/><mark class="subtitle_mark--second">продуктовый дизайнер</mark><br/>с опытом создания и развития дизайн&#8209;систем, управления медиа и IT&#8209;проектами, навыками веб&#8209;разработки и аналитики пользовательского поведения</h2>
+      <p class="hero_heading--subtitle"><mark class="subtitle_mark--first">мультидисциплинарный</mark><br/><mark class="subtitle_mark--second">продуктовый дизайнер</mark><br/>с опытом создания и развития дизайн&#8209;систем, управления медиа и IT&#8209;проектами, навыками веб&#8209;разработки и аналитики пользовательского поведения</p>
       <svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;">
         <defs>
           <filter id="marker-shape">
@@ -40,7 +40,7 @@ import Skills from './Skills.astro';
     width: 100%;
     height: auto;
     min-height: 100vh;
-    padding-inline: var(--spacing-main);
+    padding-inline: var(--layout-padding-inline);
     padding-block: var(--spacing-xxl) 0;
     color: var(--color-content-main);
     display: grid;
@@ -51,7 +51,6 @@ import Skills from './Skills.astro';
                           "skills";
     gap: var(--spacing-l);
     @media screen and (width >= 1200px) {
-      padding-inline: var(--spacing-xl);
       padding-block: var(--spacing-l);
       grid-template-columns: 2fr 3fr 2fr;
       grid-template-areas: "heading cover skills";

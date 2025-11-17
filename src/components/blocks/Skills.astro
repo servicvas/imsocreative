@@ -49,18 +49,21 @@
   <li>html</li> 
   <li>css</li>
   <li>js</li>
+  <li>JSON</li>
   <li>svg</li>
   <li>SMIL</li>
   <li>Astro</li>
   <li>SvelteKit</li>
   <li>Git</li>
-  <li>Tilda</li>
-  <li class="skills_more">ещё 10</li>
+  <li class="skills_more">ещё 5</li>
 </ul>
 </section>
 
 <style>
 .skills {
+  @media screen and (width >= 1200px) {
+    text-align: right;
+  }
   & h3 {
     margin-block-end: var(--spacing-main);
   }
@@ -70,9 +73,12 @@
     gap: var(--spacing-xs);
     list-style-type: none;
     margin-block-end: var(--spacing-main);
+    @media screen and (width >= 1200px) {
+      justify-content: end;
+    }
     & li {
       font-family: var(--font-family-secondary);
-      font-size: var(--font-size-xxxs);
+      font-size: var(--font-size-xxs);
       background: var(--color-bg-xh);
       padding-inline: var(--spacing-xs);
       padding-block: var(--spacing-xxs);

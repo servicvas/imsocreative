@@ -3,38 +3,34 @@
 ---
 
 <footer class="footer">
-  <section class="contacts">
-    <div class="contact_phone">
-      <p>Телеграм: <a href="https://t.me/sergeyvasilyev" class="contact--link">@sergeyvasilyev</a></p>
-    </div>
-    <div class="contact_phone">
-      <p>Почта: <a href="mailto:servicvas@ya.ru" class="contact--link">servicvas@ya.ru</a></p>
-    </div>
-  </section>
+	<section class="contacts">
+		<div class="contact_phone">
+			<p>Телеграм: <a href="https://t.me/sergeyvasilyev" class="contact--link">@sergeyvasilyev</a></p>
+		</div>
+		<div class="contact_phone">
+			<p>Почта: <a href="mailto:servicvas@ya.ru" class="contact--link">servicvas@ya.ru</a></p>
+		</div>
+	</section>
 </footer>
 
-
 <style is:global>
-footer.footer {
-  z-index: +1000;
-  flex-shrink: 0;
-  padding-inline: var(--spacing-main);
-  padding-block-start: var(--spacing-l);
-  padding-block-end: var(--spacing-xl);
-  border-block-start: var(--color-brand-main) 1px solid;
-  color: var(--color-content-main);
-  @media screen and (width >= 1200px) {
-    padding-inline: var(--spacing-xl);
-  }
-  & .contacts {
-    font-size: var(--font-size-xs);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-main);
-    & .contact--link {
-      font-family: var(--font-family-secondary);
-      color: var(--color-brand-main);
-    }
-  }
-}
+	footer.footer {
+		flex-shrink: 0;
+		padding-inline: var(--layout-padding-inline);
+		padding-block-start: var(--spacing-l);
+		padding-block-end: var(--spacing-xl);
+		border-block-start: var(--color-brand-main) 1px solid;
+		color: var(--color-content-main);
+		& .contacts {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacing-main);
+			& .contact--link {
+				font-family: var(--font-family-secondary);
+				font-size: var(--font-size-l);
+        font-weight: var(--font-weight-black);
+				color: var(--color-link);
+			}
+		}
+	}
 </style>
