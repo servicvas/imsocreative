@@ -3,14 +3,12 @@
 ---
 
 <section class="header-menu" id="menu">
-	<nav aria-labelledby="menu-title" role="navigation">
+	<nav class="site-navigation" aria-labelledby="menu-title" role="navigation">
     <h2 id="menu-title" hidden>Навигационное меню сайта</h2>
 		<ul>
 			<li><a href="/design" title="Раздел с кейсами в области дизайна">Дизайн</a></li>
 			<li><a href="/webdev" title="Раздел с кейсами в области веб-разработки">Веб-разработка</a></li>
-			<li><a href="/video" title="Раздел с документальными фильмами">Видео</a></li>
-			<li><a href="/photo" title="Раздел с примерами репортажных и видовых съёмок">Фото</a></li>
-      <li><a href="/articles" title="Раздел с примерами публицистических текстов">Тексты</a></li>
+			<li><a href="/media" title="Раздел с примерами работы в медиа: фото, тексты, видео">Медиа</a></li>
 			<li><a href="/about" title="Раздел с описанием биографии и списком мест работы и достижений">Обо мне</a></li>
 		</ul>
 	</nav>
@@ -25,7 +23,7 @@
 </section>
 
 <style is:global>
-	nav {
+	nav.site-navigation {
 		font-family: var(--font-family-secondary);
 	}
 
@@ -41,7 +39,7 @@
 			transform: translateX(103%);
 			padding: var(--spacing-l);
 			color: var(--color-const-light);
-      border-radius: 14rem 0 0 18rem;
+      border-radius: 4rem 0 0 6rem;
 			transition: transform 0.4s cubic-bezier(0.74, 0.29, 0.33, 1.12);
       @supports (corner-shape: squircle) {
         corner-shape: squircle;
@@ -55,7 +53,8 @@
         }
 			}
 			& a {
-				text-decoration: none;
+        all: unset;
+        cursor: pointer;
 			}
 			&.show_menu {
 				transform: translateX(3%);
@@ -76,7 +75,7 @@
 	}
 
 	@media screen and (width >= 1200px) {
-		nav {
+		nav.site-navigation {
 			width: fit-content;
 			height: var(--size-button-main);
 			margin: 0 auto;
@@ -93,7 +92,7 @@
 			&::after {
 				content: "";
 				position: absolute;
-        /* will-change: top, left, right, bottom; */
+        will-change: top, left, right, bottom;
 				top: calc(anchor(bottom) - 0.15rem);
 				left: calc(anchor(left) + 0.9rem);
 				right: calc(anchor(right) + 0.9rem);

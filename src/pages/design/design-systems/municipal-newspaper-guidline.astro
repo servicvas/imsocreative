@@ -1,0 +1,101 @@
+---
+import Layout from "/src/layouts/Layout.astro";
+import Breadcrumbs from "/src/components/ui/Breadcrumbs.astro";
+import ReleaseInfo from "/src/components/ui/ReleaseInfo.astro";
+// import Intro from "../components/blocks/Intro.astro";
+
+const breadcrumbsLabels = {
+	"municipal-newspaper-guidline": "Дизайн-система для объединённой редакции газет",
+};
+
+import { Image } from "astro:assets";
+
+const imagePaths = Array.from({ length: 36 }, (_, i) => {
+	const index = String(i + 1).padStart(2, "0");
+	return `/assets/img/design/design-systems/municipal-newspaper/Municipal_newspaper_guidline_Page_${index}.webp`;
+});
+
+const chunks = [];
+for (let i = 0; i < imagePaths.length; i += 12) {
+	chunks.push(imagePaths.slice(i, i + 12));
+}
+---
+
+<Layout title="Дизайн-система для объединённой редакции газет" description="Кейс разработки дизайн-системы и унифицированного шаблона для объединения муниципальных газет Псковской области. 2019 год | Порфолио Сергея Васильева">
+	<!-- <Intro /> -->
+	<article class="article--wrapper">
+		<section class="article-head">
+			<Breadcrumbs breadcrumbsLabels={breadcrumbsLabels} />
+			<h1 class="article-title">Разработка и внедрение дизайн&#8209;системы и унифицированного шаблона для объединения муниципальных газет Псковской области</h1>
+			<ReleaseInfo date="2019 год" customer="АНО ИД «Медиа 60»" customer_link="/about#mhpo" />
+			<h2 class="article-subtitle">Как с помощью дизайн-системы сэкономить 2640 человекочасов в месяц</h2>
+		</section>
+		<section class="article-lid fullwidth">
+			<p>
+				В конце 2018 года в Администрации Псковской области было принято решение инициировать реформу муниципальных СМИ, объединив все районные газеты (а их было 24 не считая муниципальных изданий городских округов) в один холдинг. Одной из задач, реализуемых в рамках этого процесса, было снижение
+				издержек на производство, в частности, на вёрстку, с одновременным увеличением качества визуального оформлени многих газет. <mark>
+					Проще говоря, вместо 20+ верстальщиков (по одному в каждой газете) предлагалось оставить не больше 7, которым  за несколько дней предстояло качественно сверстать и подготовить к печати макеты сразу 3-4 изданий.
+				</mark>
+			</p>
+		</section>
+		<section class="article-body">
+			<h3 class="article-section-title">Задача</h3>
+			<p class="article-text">Руководством государственного мениахолдинга, на базе которого планировалось объединение газет, передо мной была поставлена задача разработать такие дизайн-систему и унифицированный макет, которые позволили бы</p>
+			<section class="crosscrolling fullwidth">
+				{
+					chunks.map((chunk) => (
+						<div class="scrollline">
+							{chunk.map((src) => (
+								<Image src={src} alt="Страница документации дизайн-системы и инструкций по использованию унифицированного шаблона муниципальных газет" width={283} height={400} loading="lazy" class="scrolline-item" />
+							))}
+						</div>
+					))
+				}
+			</section>
+		</section>
+	</article>
+</Layout>
+
+<style>
+	.crosscrolling {
+		overflow-x: clip;
+		white-space: nowrap;
+		margin-block: var(--spacing-xl);
+		& .scrollline {
+			display: flex;
+			gap: var(--spacing-main);
+			margin-block-end: var(--spacing-main);
+			animation: horizontal-scrolling-to-right linear forwards;
+			animation-timeline: view();
+			animation-range: entry 0% cover 90%;
+			&:nth-child(even) {
+				animation: horizontal-scrolling-to-left linear forwards;
+				animation-timeline: view();
+				animation-range: entry 0% cover 90%;
+			}
+		}
+		& .scrolline-item {
+			@media screen and (width < 1200px) {
+				width: 150px;
+				height: 212px;
+			}
+		}
+	}
+
+	@keyframes horizontal-scrolling-to-right {
+		from {
+			transform: translateX(90%);
+		}
+		to {
+			transform: translateX(-150%);
+		}
+	}
+	@keyframes horizontal-scrolling-to-left {
+		from {
+			transform: translateX(-200%);
+		}
+		to {
+			transform: translateX(90%);
+		}
+	}
+</style>

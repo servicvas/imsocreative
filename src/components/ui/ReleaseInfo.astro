@@ -1,0 +1,83 @@
+---
+interface Props {
+	date?: string;
+	customer?: string;
+	customer_link?: string;
+}
+
+const { date, customer, customer_link } = Astro.props;
+
+const isExternalLink = (url: string): boolean => {
+	try {
+		const link = new URL(url, Astro.site);
+		return link.origin !== Astro.site?.origin;
+	} catch {
+		return false;
+	}
+};
+---
+
+<section class="release-info">
+	{date && <span class="release-info-date">{date}</span>}
+	{
+		customer && (
+			<span class="release-info-customer">
+				{customer_link ? (
+					<a href={customer_link} title={`К профилю заказчика: ${customer} →`} aria-label={`К профилю заказчика: ${customer}`} {...(isExternalLink(customer_link) ? { target: "_blank", rel: "noopener" } : {})}>
+						{customer}
+					</a>
+				) : (
+					customer
+				)}
+			</span>
+		)
+	}
+</section>
+
+<style is:global>
+	.release-info {
+		display: flex;
+		gap: var(--spacing-s);
+    flex-wrap: wrap;
+		font-family: var(--font-family-secondary);
+		font-size: var(--font-size-xs);
+    & > span {
+      flex: 0 1 auto;
+      text-wrap-style: pretty;
+      text-wrap-mode: wrap;
+    }
+		& > * {
+			color: var(--color-content-main);
+			background: var(--color-bg-xh);
+			padding-inline: var(--spacing-s);
+			padding-block: var(--spacing-xs);
+			border-radius: var(--radius-button-xl);
+			transition: background 0.07s ease-in-out;
+			@supports (corner-shape: squircle) {
+				corner-shape: squircle;
+			}
+		}
+		& .release-info-customer:has(a:hover) {
+			background: var(--color-brand-main);
+		}
+		& a {
+			all: unset;
+			cursor: pointer;
+			&:focus,
+			&:target {
+				text-decoration: underline;
+				text-decoration-color: var(--color-link);
+				color: var(--color-const-light);
+				background: var(--color-link);
+			}
+			@media (hover: hover) and (pointer: fine) {
+				&:hover {
+					text-decoration: underline;
+					text-decoration-color: var(--color-link);
+					color: var(--color-const-light);
+					background: var(--color-link);
+				}
+			}
+		}
+	}
+</style>

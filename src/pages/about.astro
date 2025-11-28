@@ -1,64 +1,65 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import MainAbout from "../components/blocks/MainAbout.astro";
 ---
 
-<Layout title="Сергей Васильев: портфолио. Биография" description="Биография, опыт работы и достижения Сергея Васильева — продуктового дизайнера с опытом веб-разработки и управления медиа и IT-проектами">
-	<article class="article--wrapper">
-    <h1>Обо мне</h1>
-		<section id="aboutpage-intro">
-      <h2>Биография</h2>
-      <p>Я родился в Пскове в 1984 году в семье журналистов. В 90-е родители создали один из первых в стране частных издательско-полиграфических комплексов «Курсив», и всё детство я проводил в типографии. С 9 класса начал подрабатывать на каникулах в компьютерном цеху, верстал в тогда ещё Aldus PageMaker и осваивал компьютерную графику в CorelDraw и Adobe Photoshop 3&#8209;й версии — в нём только-только появились слои.</p>
-      <p>Интерес к дизайну поддерживала и школа — я учился в классе отделения искусств Псковского педагогического комплекса по направлению изобразительного искусства и мировой художественной культуры.</p>
-      <p>Высшее образование получил на филологическом факультете Псковского государственного педагогического университета, который окончил с отличием в 2006 году. В вузе делал упор на изучение <strong>семиотики</strong> (науки о знаках и знаковых системах). В какой-то мере семиотические подходы к изучению различных аспектов коммуникации, например, коммуникации визуальной, можно сравнить с декомпозицией дизайн-системы, определении её законов и ключевых токенов.</p>
-      <p>Ещё в школе начал изучать программирование (Pascal, C++) и только зарождавшуюся тогда веб-разработку. Первые свои сайты написал в «Блокноте». Кстати, они уже тогда имели в меру адаптивный дизайн и модульную структуру. Подробнее об этом можно прочитать в разделе <strong><a href="/webdev" title="Раздел с кейсами в области веб-разработки">«Веб-разработка»</a></strong>. 
-    </section>
-    <section id="about-experience" class="about-experience">
-      <h2>Опыт работы</h2>
-      <section class="workplace">
-        <span class="workplace-period">Август 2024 — по настоящее время</span>
-        <div class="workplace-container">
-          <div class="workplace-head">
-            <h3 class="workplace-name">ООО «Конкурент» (CoffeeStudio)</h3>
-            <span class="workplace-position">Менеджер IT-проектов</span>
-          </div>
-          <div class="workplace-body">
-            <p><strong>Совмещаю управленческую и дизайнерскую экспертизу</strong> для создания цифровых продуктов от этапа брифинга клиента, исследований и планирования до проектирования, разработки, тестирования и запуска. Помимо этого, <strong>выполняю роль дизайн-лида</strong>: курирую работу нескольких дизайнеров студии, планирую их загрузку в связке с внутренним заказчиком — отделом маркетинга, провожу дизайн-ревью и даю консультации по новым для сотрудников областям.</p>
-          </div>
-        </div>
-        
-      </section>
-    </section>
+<Layout title="Сергей Васильев: биография" description="Биография, опыт работы и достижения Сергея Васильева — продуктового дизайнера с опытом веб-разработки и управления медиа и IT-проектами из Пскова">
+	<article class="article--wrapper wrapper--indentation">
+		<h1>Обо мне</h1>
+		<section id="aboutpage-intro" class="wrapper--indentation">
+			<h2 class="article-section-title">Биография</h2>
+			<p class="article-text">Я родился в Пскове в 1984 году в семье журналистов. В 90-е родители создали один из первых в стране частных издательско-полиграфических комплексов «Курсив», и всё детство я проводил в типографии. С 9 класса начал подрабатывать на каникулах в компьютерном цеху, верстал в тогда ещё Aldus PageMaker и осваивал компьютерную графику в CorelDraw и Adobe Photoshop 3&#8209;й версии.</p>
+			<p class="article-text">Интерес к дизайну поддерживала и школа — я учился в классе отделения искусств по направлению изобразительного искусства и мировой художественной культуры.</p>
+			<p class="article-text">Высшее образование получил на филологическом факультете Псковского государственного педагогического университета, который окончил с отличием в 2006 году. В вузе делал упор на изучение <strong>семиотики</strong> (науки о знаках и знаковых системах). В какой-то мере семиотические подходы к изучению различных аспектов коммуникации можно сравнить с декомпозицией дизайн-системы, определении её законов и ключевых токенов.</p>
+			<p class="article-text">Ещё в школе начал изучать программирование (Pascal, C++) и только зарождавшуюся тогда веб-разработку. Первые свои сайты написал в «Блокноте». Кстати, они уже тогда имели в меру адаптивный дизайн и модульную структуру. Подробнее об этом можно прочитать в разделе <strong><a href="/webdev" title="Раздел с кейсами в области веб-разработки">«Веб-разработка»</a></strong>.</p>
+			<section id="about-experience" class="about-experience wrapper--indentation">
+				<h2 class="article-section-title">Опыт работы</h2>
+				<section class="workplace">
+					<span class="workplace-period">Август 2024 — по настоящее время</span>
+					<div class="workplace-container wrapper--indentation">
+						<div class="workplace-head">
+							<h3 class="workplace-name">CoffeeStudio (ООО «Конкурент»)</h3>
+							<span class="workplace-position">Менеджер IT-проектов</span>
+						</div>
+						<div class="workplace-body">
+							<p class="article-text">
+								<strong>Совмещаю управленческую и дизайнерскую экспертизу</strong> для создания цифровых продуктов от этапа брифинга клиента, исследований и планирования до проектирования, разработки, тестирования и запуска. Помимо этого, <strong>выполняю роль дизайн-лида</strong>: курирую работу
+								нескольких дизайнеров студии, планирую их загрузку в связке с внутренним заказчиком — отделом маркетинга, провожу дизайн-ревью и даю консультации по новым для сотрудников областям.
+							</p>
+						</div>
+					</div>
+				</section>
+			</section>
+		</section>
 	</article>
 </Layout>
 
 <style>
-  .workplace {
-    & > .workplace-period {
-      font-size: var(--font-size-s);
-      font-family: var(--font-family-secondary);
-      display: block;
-      opacity: .5;
-      margin-block-end: var(--spacing-xxs);
-    }
-    & .workplace-head {
-      display: flex;
-      gap: var(--spacing-main);
-      align-items: baseline;
-    }
-    & .workplace-name {
-      &:after {
-        content: '/';
-        padding-inline-start: var(--spacing-main);
-        font-weight: var(--font-weight-regular);
-        color: var(--color-brand-main);
-      }
-    }
-    & .workplace-position {
-      background: var(--color-bg-xh);
-      border-radius: var(--radius-button-main);
-      padding-block: var(--spacing-xxs);
-      padding-inline: var(--spacing-xs);
-    }
-  }
+	.workplace {
+		& > .workplace-period {
+			font-size: var(--font-size-s);
+			font-family: var(--font-family-secondary);
+			display: block;
+			opacity: 0.5;
+			margin-block-end: var(--spacing-xxs);
+		}
+		& .workplace-head {
+			display: flex;
+			gap: var(--spacing-main);
+			align-items: baseline;
+		}
+		& .workplace-name {
+			&:after {
+				content: "/";
+				padding-inline-start: var(--spacing-main);
+				font-weight: var(--font-weight-regular);
+				color: var(--color-brand-main);
+			}
+		}
+		& .workplace-position {
+			background: var(--color-bg-xh);
+			border-radius: var(--radius-button-main);
+			padding-block: var(--spacing-xxs);
+			padding-inline: var(--spacing-xs);
+		}
+	}
 </style>

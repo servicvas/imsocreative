@@ -1,36 +1,61 @@
 ---
-
+import AsciiArt from "./AsciiArt.astro";
 ---
 
 <footer class="footer">
 	<section class="contacts">
 		<div class="contact_phone">
-			<p>Телеграм: <a href="https://t.me/sergeyvasilyev" class="contact--link">@sergeyvasilyev</a></p>
+			<p>Телеграм: <a href="https://t.me/sergeyvasilyev" class="contact--link" data-value="@sergeyvasilyev">@sergeyvasilyev</a></p>
 		</div>
 		<div class="contact_phone">
-			<p>Почта: <a href="mailto:servicvas@ya.ru" class="contact--link">servicvas@ya.ru</a></p>
+			<p>Почта: <a href="mailto:servicvas@ya.ru" class="contact--link" data-value="servicvas@ya.ru">servicvas@ya.ru</a></p>
 		</div>
 	</section>
+	<div class="footer-bg">
+    <AsciiArt />
+	</div>
 </footer>
 
 <style is:global>
 	footer.footer {
 		flex-shrink: 0;
 		padding-inline: var(--layout-padding-inline);
-		padding-block-start: var(--spacing-l);
-		padding-block-end: var(--spacing-xl);
 		border-block-start: var(--color-brand-main) 1px solid;
 		color: var(--color-content-main);
+		position: relative;
 		& .contacts {
 			display: flex;
 			flex-direction: column;
 			gap: var(--spacing-main);
+      margin-block: var(--spacing-l);
+      @media screen and (width > 1200px) {
+        margin-block: var(--spacing-xxl);
+      }
+			& p {
+				font-weight: var(--font-weight-bold);
+			}
 			& .contact--link {
 				font-family: var(--font-family-secondary);
-				font-size: var(--font-size-l);
-        font-weight: var(--font-weight-black);
-				color: var(--color-link);
+				font-weight: var(--font-weight-regular);
 			}
+		}
+		& .footer-bg {
+			position: absolute;
+			width: min(100%, 70rem);
+      max-height: 100%;
+			inset-inline-end: 0;
+			inset-block-end: 0;
+			display: flex;
+			justify-content: end;
+      @media screen and (width < 960px) {
+        inset-block-start: 4rem;
+      }
+			@media screen and (width > 1050px) {
+        inset-block-start: -1rem;
+      }
+      @media screen and (width > 1360px) {
+        inset-block-start: -3rem;
+      }
 		}
 	}
 </style>

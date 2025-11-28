@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Сергей Васильев: веб-разработка" description="Описание проектов в области веб-разработки: первые сайты, примеры выполненных сайтов и лендингов, истории создания UI-китов">
+	<article class="article--wrapper wrapper--indentation">
+		<h1>Веб-разработка</h1>
+		<section id="webdev-intro" class="wrapper--indentation">
+			<h2 class="article-section-title">Первые сайты</h2>
+			<p class="article-text">Первые сайты я написал в обычном «Блокноте» в 2000&#8209;м году, когда мне было лет 16. Сначала был <strong><a href="https://pleskov.narod.ru/" rel="nofollow" target="_blank">сайт, посвящен моему родному городу — Пскову</a></strong>, а затем — уже настоящее <strong><a href="https://web.archive.org/web/20010603221923/http://province.hut.ru/files.shtml" rel="nofollow" target="_blank">онлай&#8209;медиа под названием «Взгляд из провинции»</a></strong> — авторское СМИ, в котором под псевдонимом публиковались статьи моего отца — Виктора Васильева, работал форум и действовала рассылка. (Кстати, «Взгляд из провинции», фактически, был первым или одним из первых интернет&#8209;СМИ в истории Псковской области).</p>
+			<p class="article-text">На удивление, без фронтенд-фремворков, сборщиков и даже отдельных файлов CSS, с помощью табличной вёрстки мне тогда удалось сделать многостраничные адаптивные сайты, дизайн которых не разваливается даже на современных 4К-мониторах.</p>
+      <div id="first-site-examples">
+        <a href="https://pleskov.narod.ru/" title="Посмотреть сайт pleskov.narod.ru" target="_blank">
+          <img src="/assets/img/dev/old-site-pleskov.webp" id="old-site-pleskov" class="old-site-img" alt="Сайт pleskov.narod.ru" />
+        </a>
+        <a href="https://web.archive.org/web/20010517002351/http://province.hut.ru/" title="Посмотреть сайт «Взгляд из провинции» province.hut.ru в web-архиве" target="_blank">
+          <img src="/assets/img/dev/old-site-province.webp" id="old-site-province" class="old-site-img" alt="Сайт «Взгляд из провинции» province.hut.ru" />
+        </a>
+      </div>
+      <div class="article-inset article-inset--columns wrapper--indentation">
+        <p class="article-text">Вообще, время было крайне увлекательное: интернет был маленьким, и мы с друзьями после школы делали сайты, которые упоминали на федеральном ТВ и в обзорах звёзд тогдашнего рунета! Не удивительно, что позднее, увидев документальный сериал об истории рунета, я задумал снять нечно подобное, но на нашем псковском материале — об истории рунета в провинции. К сожалению, <a href="/video#runet">удалось выпустить только 1&#8209;й выпуск</a> из подготовленного сценарного плана…</p>
+        <div class="article-inset--video">
+          <iframe src="https://vkvideo.ru/video_ext.php?oid=-1205247&id=456254320" width="100%" height="auto" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0"></iframe>
+        </div>
+      </div>
+		</section>
+	</article>
+</Layout>
+
+<style>
+#first-site-examples {
+  width: min(100%, 250rem);
+  margin-inline: auto;
+  display: flex;
+  gap: var(--spacing-main);
+  justify-content: center;
+  & > * {
+    width: min(100%, 420px);
+  }
+  & #old-site-pleskov {
+    transform: translate(1rem, 1.5rem);
+    rotate: -15deg;
+  }
+  & #old-site-province {
+    transform: translate(1rem, 1rem);
+    rotate: 12deg;
+  }
+}
+</style>

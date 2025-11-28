@@ -2,6 +2,7 @@
 import "../styles/reset.css";
 import "../styles/global.css";
 
+import Intro from "../components/blocks/Intro.astro";
 import Header from "../components/ui/Header.astro";
 import Footer from "../components/ui/Footer.astro";
 
@@ -48,6 +49,7 @@ const socialImageURL = new URL("/assets/img/portrait-1920.webp", Astro.url);
 		</script>
 	</head>
 	<body>
+    <Intro />
 		<Header />
 		<main>
 			<slot />
@@ -61,6 +63,7 @@ const socialImageURL = new URL("/assets/img/portrait-1920.webp", Astro.url);
 	body {
 		display: flex;
 		flex-direction: column;
+    min-height: 100vh;
 	}
 
 	main {
