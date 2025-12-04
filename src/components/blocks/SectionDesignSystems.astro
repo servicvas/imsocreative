@@ -1,0 +1,204 @@
+---
+
+---
+
+<section class="section_cards">
+	<h2 class="section_cards_subtitle">Дизайн-системы</h2>
+	<section class="section_cards_wrapper">
+		<a href="/design/design-systems/pln-redesign" class="page_card_linkwrapper">
+			<article class="page_card">
+				<div class="page_card_cover">
+					<img src="/assets/img/design/design-systems/pln/cover-pln-m.webp" class="page_card_cover--primary" alt="Дизайн-токены и фрагмент кода нового сайта ПЛН" />
+					<img src="/assets/img/design/design-systems/pln/bg-pln-m.webp" class="page_card_cover--secondary" alt="Создание дизайн-системы и редизайн сайта самого популярного онлайн-медиа Псковской области — «Псковской ленты новостей»" />
+				</div>
+				<div class="page_card_timeline">
+					<span class="tag">2024&ndash;2025 годы</span>
+				</div>
+				<div class="page_card_description">
+					<h3 class="page_card_title">Cоздание дизайн&#8209;системы и редизайн сайта самого посещаемого онлайн&#8209;СМИ Псковской области</h3>
+					<div class="page_card_tags">
+						<span class="tag">UX</span>
+						<span class="tag">Дизайн-система</span>
+						<span class="tag">UI</span>
+						<span class="tag">Веб-разработка</span>
+					</div>
+				</div>
+			</article>
+		</a>
+		<a href="/design/design-systems/municipal-newspaper-guidline" class="page_card_linkwrapper">
+			<article class="page_card">
+				<div class="page_card_cover">
+					<img src="/assets/img/design/design-systems/pln/cover-pln-m.webp" class="page_card_cover--primary" alt="Фон с шаблонами газет" />
+					<img src="/assets/img/design/design-systems/municipal-newspaper/bg-newspaper-m.webp" class="page_card_cover--secondary" alt="Разработка и внедрение дизайн‑системы и унифицированного шаблона для объединения муниципальных газет Псковской области" />
+				</div>
+				<div class="page_card_timeline">
+					<span class="tag">2019 год</span>
+				</div>
+				<div class="page_card_description">
+					<h3 class="page_card_title">Разработка и внедрение дизайн&#8209;системы и унифицированного шаблона для объединения муниципальных газет Псковской области</h3>
+					<div class="page_card_tags">
+						<span class="tag">Дизайн-система</span>
+						<span class="tag">Полиграфия</span>
+						<span class="tag">Менторство</span>
+					</div>
+				</div>
+			</article>
+		</a>
+		<a href="/design/design-systems/pln-redesign" class="page_card_linkwrapper">
+			<article class="page_card">
+				<div class="page_card_cover">
+					<img src="/assets/img/design/design-systems/pln/cover-pln-m.webp" class="page_card_cover--primary" alt="Дизайн-токены и фрагмент кода нового сайта ПЛН" />
+					<img src="/assets/img/design/design-systems/pln/bg-pln-m.webp" class="page_card_cover--secondary" alt="Создание дизайн-системы и редизайн сайта самого популярного онлайн-медиа Псковской области — «Псковской ленты новостей»" />
+				</div>
+				<div class="page_card_description">
+					<h3 class="page_card_title">Cоздание дизайн&#8209;системы и редизайн сайта самого посещаемого онлайн&#8209;СМИ Псковской области</h3>
+					<div class="page_card_tags">
+						<span class="tag">UX</span>
+						<span class="tag">Дизайн-система</span>
+						<span class="tag">UI</span>
+						<span class="tag">Веб-разработка</span>
+					</div>
+				</div>
+			</article>
+		</a>
+	</section>
+</section>
+
+<style>
+	section.section_cards {
+		margin-block-end: var(--spacing-xl);
+		& > *:not(.fullwidth) {
+			padding-inline: var(--layout-padding-inline);
+		}
+		& .section_cards_subtitle {
+			margin-block-end: var(--spacing-l);
+		}
+		& .section_cards_wrapper {
+			display: flex;
+			flex-direction: row;
+			gap: var(--spacing-main);
+			@media screen and (width > 1200px) {
+				gap: var(--spacing-l);
+			}
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			scroll-behavior: smooth;
+			overscroll-behavior-x: contain;
+			transition: scroll 0.5s ease;
+			scroll-padding-inline: 1.2rem;
+			scrollbar-width: none;
+			position: relative;
+			animation: card--show 0.7s ease-in-out;
+			-webkit-animation: card--show 0.7s ease-in-out;
+			animation-timeline: view(block);
+			animation-range-start: cover 5%;
+			animation-range-end: cover 45%;
+			@starting-style {
+				transform: translateY(200px);
+			}
+		}
+	}
+	a.page_card_linkwrapper {
+		all: unset;
+		cursor: pointer;
+		@media (hover: hover) {
+			&:hover,
+			&:focus {
+				& .page_card_title {
+					text-decoration: underline;
+					text-decoration-color: var(--color-link);
+				}
+				& .page_card_cover--primary {
+					transform: scale(110%) rotate(15deg);
+				}
+				& .page_card_cover--secondary {
+					filter: blur(2px);
+				}
+			}
+		}
+	}
+	.page_card {
+		scroll-snap-align: start;
+		width: 100%;
+		min-width: 330px;
+		max-width: 600px;
+		height: 100%;
+		background: var(--color-bg-xh);
+		overflow: hidden;
+		border-radius: var(--radius-button-xxxl);
+		position: relative;
+		@supports (corner-shape: squircle) {
+			corner-shape: squircle;
+		}
+		& .page_card_cover {
+			position: relative;
+			aspect-ratio: 3 / 2;
+			overflow: hidden;
+			& .page_card_cover--primary {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				position: relative;
+				z-index: +1;
+				transition:
+					transform 0.2s,
+					rotate 0.2s;
+			}
+			& .page_card_cover--secondary {
+				position: absolute;
+				inset: 0;
+				opacity: 0.3;
+				mask: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 100%);
+				transition: filter 0.4s;
+			}
+		}
+		& .page_card_timeline {
+			position: absolute;
+			inset-block-start: var(--spacing-md);
+			inset-inline-start: var(--spacing-md);
+			@media screen and (width > 1200px) {
+				inset-block-start: var(--spacing-l);
+				inset-inline-start: var(--spacing-l);
+			}
+			& > .tag {
+				font-weight: var(--font-weight-semibold);
+			}
+		}
+		& .page_card_description {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacing-main);
+			padding-block: var(--spacing-md);
+			padding-inline: var(--spacing-md);
+			@media screen and (width > 1200px) {
+				padding-block-start: var(--spacing-l);
+				padding-inline: var(--spacing-l);
+			}
+			& .page_card_tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: var(--spacing-xs);
+				padding-inline-end: var(--spacing-md);
+				@media screen and (width > 1200px) {
+					padding-inline-end: var(--spacing-l);
+				}
+			}
+		}
+		& .tag {
+			color: var(--color-content-xs);
+			-webkit-backdrop-filter: blur(2px);
+			backdrop-filter: blur(3px);
+		}
+	}
+
+	@keyframes card--show {
+		from {
+			opacity: 0;
+			transform: translateY(200px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0px);
+		}
+	}
+</style>

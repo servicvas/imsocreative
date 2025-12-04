@@ -1,6 +1,6 @@
 ---
-import Virtuvian from './Virtuvian.astro';
-import Skills from './Skills.astro';
+import Virtuvian from '$components/blocks/Virtuvian.astro';
+import Skills from '$components/blocks/Skills.astro';
 ---
 
 <section class="hero">
@@ -8,7 +8,7 @@ import Skills from './Skills.astro';
       <p class="hero_heading--hello">Будем знакомы!</p>
       <h1 class="hero_heading--title">Сергей Васильев</h1>
       <p class="hero_heading--subtitle"><mark class="subtitle_mark--first">мультидисциплинарный</mark><br/><mark class="subtitle_mark--second">продуктовый дизайнер</mark><br/>с опытом создания и развития дизайн&#8209;систем, управления медиа и IT&#8209;проектами, навыками веб&#8209;разработки и аналитики пользовательского поведения</p>
-      <svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;">
+      <svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;" fetchpriority="high">
         <defs>
           <filter id="marker-shape">
             <feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1" result="warp" />

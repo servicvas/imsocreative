@@ -3,7 +3,7 @@
 ---
 
 <section class="header_controls">
-	<button type="button" role="button" aria-label="Toggle theme" id="theme-toggle" class="button_smilicon button_themetoggle" title="Переключение светлой/тёмной темы">
+	<button type="button" role="button" aria-label="Переключить тему (светлая/тёмная)" id="theme-toggle" class="button_smilicon button_themetoggle" title="Переключить тему (светлая/тёмная)">
 		<svg version="1.2" baseProfile="tiny" id="icon--themetoggle" class="smilicon icon--themetoggle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 128" overflow="visible" xml:space="preserve">
 			<path d="M 83 14 C 111 24 127.88 60.47 111 90 C 91 125 48 124 26 102 C 26 102 62 91 75 74 C 85.95 59.68 87 37 83 14 M 62 28 L 62 42 M 46 76 L 46 62 M 53 69 L 39 69 M 55 35 L 69 35 M 9 55 L 23 55 M 16 62 L 16 48 M 29 13 L 29 27 M 22 20 L 36 20">
 				<animate
@@ -27,7 +27,7 @@
 			</path>
 		</svg>
 	</button>
-	<button type="button" role="menu" class="button_smilicon button_menu" title="Открыть меню">
+	<button id="button_menu" type="button" role="menu" aria-expanded="false" aria-controls="menu" class="button_smilicon button_menu" title="Открыть меню">
 		<svg version="1.1" id="icon--burger" class="smilicon icon--burger" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 128" overflow="visible" xml:space="preserve">
 			<path d="M 0 4 L 64 4 M 0 64 L 128 64 M 0 124 L 96 124">
 				<animate class="close" begin="indefinite" fill="freeze" attributeName="d" dur="0.15s" to="M 0 4 L 64 4 M 0 64 L 128 64 M 0 124 L 96 124"></animate>
@@ -56,12 +56,11 @@
 		height: var(--size-button-main);
 		border-radius: var(--radius-button-main);
 		cursor: pointer;
-		padding: 0.9rem;
-		background: var(--color-button_bg-main);
-		box-shadow: 2px 6px 8px rgba(1, 1, 1, 0.05);
+		padding: calc(var(--spacing-s) * 1.1);
+		background: var(--color-button-bg-main);
 		@media (hover: hover) and (pointer: fine) {
 			&:hover {
-				background: var(--color-button_bg-focus);
+				background: var(--color-button-bg-focus);
 				& > svg path {
 					stroke: var(--color-const-light);
 				}
@@ -74,10 +73,13 @@
 	}
 	.button_smilicon svg path {
 		fill: none;
-		stroke: var(--color-brand-main);
+		stroke: var(--color-button-icon-controls);
 		stroke-width: var(--icon-stroke);
 		stroke-linecap: round;
 		stroke-linejoin: round;
 		stroke-miterlimit: var(--icon-stroke);
 	}
+  .button_smilicon.button_smilicon--onmenu svg path {
+    stroke: var(--color-const-light);
+  }
 </style>

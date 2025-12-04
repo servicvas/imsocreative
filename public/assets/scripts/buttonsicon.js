@@ -56,7 +56,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
 		if (icon.classList.contains("button_menu")) {
 			const menu = document.querySelector("#menu");
+      const headerButtons = document.querySelectorAll('.button_smilicon');
+      const menuButton = document.querySelector("#button_menu");
+      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
 			menu.classList.toggle("show_menu");
+      menuButton.setAttribute('aria-expanded', !isExpanded);
+      headerButtons.forEach(element => {
+        element.classList.toggle('button_smilicon--onmenu');
+      });
 		}
 	});
 });

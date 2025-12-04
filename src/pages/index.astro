@@ -1,11 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Hero from "../components/blocks/Hero.astro";
-import DepartTags from "../components/blocks/DepartTags.astro";
-// import MainAbout from "../components/blocks/MainAbout.astro";
+import Layout from "$layouts/Layout.astro";
+import Hero from "$components/blocks/Hero.astro";
+import DepartTags from "$components/blocks/DepartTags.astro";
+import SectionDesignSystems from "$components/blocks/SectionDesignSystems.astro";
 ---
 
-<Layout title="Сергей Васильев: портфолио" description="Портфолио, биография и навыки работы продуктового дизайнера, веб-разработчика, редактора, журналиста, фотографа и менеджера IT-проектов Сергей Васильева из Пскова">
+<Layout title="Сергей Васильев: портфолио" description="Продуктовый дизайнер, веб-разработчик, менеджер IT-проектов, редактор и бильд-редактор, журналист, фотограф">
   <Hero />
   <DepartTags />
+  <SectionDesignSystems />
 </Layout>

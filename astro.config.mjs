@@ -14,5 +14,16 @@ export default defineConfig({
     inlineStylesheets: `never`,
     target: ['es2020', 'edge88', 'firefox78', 'chrome87', 'safari13'],
   },
-  integrations: [sitemap()]
+  integrations: [sitemap()],
+  vite: {
+    resolve: {
+      alias: {
+        '$components': '/src/components',
+        '$data': '/src/data',
+        '$layouts': '/src/layouts',
+        '$pages': '/src/pages',
+        '$styles': '/src/styles'
+      }
+    }
+  }
 });

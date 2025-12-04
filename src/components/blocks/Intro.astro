@@ -3,7 +3,7 @@
 ---
 
 <article class="intro">
-	<svg id="intro_signature" class="intro_signature" data-name="intro_signature" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 24">
+	<svg id="intro_signature" class="intro_signature" data-name="intro_signature" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 24" fetchpriority="high">
 		<defs>
 			<style>
 				path {
@@ -87,38 +87,30 @@
 </style>
 
 <script>
-  const intro = document.querySelector('.intro');
-
-	document.addEventListener("DOMContentLoaded", function() {
-  // Проверяем наличие флага в sessionStorage
-  if (sessionStorage.getItem("hasSeenIntro") !== "true") {
-    // Если флага нет, запускаем анимацию
-    if (intro) {
-      intro.style.display = 'grid';
-    }
-    const introLastAnimation = document.getElementById('introsign5_a');
-    let timeoutID;
-
-    introLastAnimation.addEventListener('endEvent', () => {
-      clearTimeout(timeoutID);
-      setTimeout(() => {
-        if (intro) {
-          intro.classList.add('intro--out');
-          setTimeout(() => {
-            intro.classList.add('intro--hide');
-          }, 1200);
-        }
-      }, 1000);
-    });
-
-    // Устанавливаем флаг в sessionStorage после первого просмотра
-    sessionStorage.setItem("hasSeenIntro", "true");
-  } else {
-    // Если флаг есть, скрываем интро сразу
-    if (intro) {
-      intro.classList.add('intro--hide');
-    }
-  }
-});
-
+	const intro = document.querySelector(".intro");
+	document.addEventListener("DOMContentLoaded", function () {
+		if (sessionStorage.getItem("hasSeenIntro") !== "true") {
+			if (intro) {
+				intro.style.display = "grid";
+			}
+			const introLastAnimation = document.getElementById("introsign5_a");
+			let timeoutID;
+			introLastAnimation.addEventListener("endEvent", () => {
+				clearTimeout(timeoutID);
+				setTimeout(() => {
+					if (intro) {
+						intro.classList.add("intro--out");
+						setTimeout(() => {
+							intro.classList.add("intro--hide");
+						}, 1200);
+					}
+				}, 1000);
+			});
+			sessionStorage.setItem("hasSeenIntro", "true");
+		} else {
+			if (intro) {
+				intro.classList.add("intro--hide");
+			}
+		}
+	});
 </script>

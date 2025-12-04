@@ -3,7 +3,7 @@
 ---
 
 <section class="header-menu" id="menu">
-	<nav class="site-navigation" aria-labelledby="menu-title" role="navigation">
+	<nav class="site-navigation" aria-labelledby="menu-title" role="navigation" aria-label="Меню с навигацией по сайту и контактными данными">
     <h2 id="menu-title" hidden>Навигационное меню сайта</h2>
 		<ul>
 			<li><a href="/design" title="Раздел с кейсами в области дизайна">Дизайн</a></li>
@@ -29,9 +29,9 @@
 
 	@media screen and (width < 1200px) {
 		.header-menu {
-			width: 85vw;
+			width: 90vw;
 			height: 100vh;
-			background: radial-gradient(circle at 90% 95%, var(--color-brand-d), var(--color-brand-xs) 90%);
+			background: radial-gradient(circle at 90% 95%, var(--color-brand-xxs), var(--color-brand-xd) 90%);
 			position: fixed;
 			top: 0;
 			right: 0;
@@ -47,9 +47,9 @@
 			& ul {
 				list-style: none;
 				padding-block: 4rem;
-        font-size: var(--font-size-xl);
         & li {
-          padding-block-end: var(--spacing-main);
+          font-size: var(--font-size-l);
+          padding-block-end: var(--spacing-l);
         }
 			}
 			& a {
@@ -64,10 +64,15 @@
     .menu-contacts {
 			display: flex;
 			flex-direction: column;
-			gap: var(--spacing-main);
+			gap: var(--spacing-l);
+      & > * > p {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+      }
 			& .contact--link {
 				font-family: var(--font-family-secondary);
-				font-size: var(--font-size-main);
+				font-size: var(--font-size-l);
         font-weight: var(--font-weight-black);
 				color: var(--color-const-light);
 			}
@@ -79,10 +84,9 @@
 			width: fit-content;
 			height: var(--size-button-main);
 			margin: 0 auto;
-			background: var(--color-button_bg-main);
+			background: var(--color-button-bg-main);
 			padding: 0.1rem;
 			border-radius: 0.5rem;
-			box-shadow: 2px 6px 8px rgba(1, 1, 1, 0.05);
 			isolation: isolate;
 			anchor-name: --hovered-link;
 			& li:is(:hover, :focus) {
@@ -90,7 +94,7 @@
 			}
 			&::before,
 			&::after {
-				content: "";
+				content: '';
 				position: absolute;
         will-change: top, left, right, bottom;
 				top: calc(anchor(bottom) - 0.15rem);
@@ -104,12 +108,12 @@
 
 			&::before {
 				z-index: -1;
-				background: var(--color-button_bg-focus);
+				background: var(--color-button-bg-focus);
 			}
 
 			&::after {
 				z-index: -2;
-				background: var(--color-button_bg-focus);
+				background: var(--color-button-bg-focus);
 			}
 
 			&:has(a:is(:hover, :focus))::before,
@@ -157,12 +161,10 @@
 				text-decoration: none;
 				color: currentColor;
 				@media (hover: hover) and (pointer: fine) {
-					&:hover {
+					&:hover,
+					&:focus {
 						color: var(--color-const-light);
 					}
-				}
-				&:focus {
-					color: var(--color-const-light);
 				}
 			}
 		}

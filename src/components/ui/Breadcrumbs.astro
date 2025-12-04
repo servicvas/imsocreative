@@ -61,9 +61,9 @@ const breadcrumbs = segments.map((segment, index) => {
 			breadcrumbs.map((crumb, index) => (
 				<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
 					{crumb.isLast ? (
-						<span itemprop="name">{crumb.label}</span>
+						<span title={crumb.label} itemprop="name">{crumb.label}</span>
 					) : (
-						<a href={crumb.href} itemprop="item">
+						<a href={crumb.href} title={crumb.label} itemprop="item">
 							<span itemprop="name">{crumb.label}</span>
 						</a>
 					)}
@@ -80,12 +80,12 @@ const breadcrumbs = segments.map((segment, index) => {
 	}
 
 	.breadcrumb {
+    width: 100%;
 		font-family: var(--font-family-secondary);
 		font-size: var(--font-size-s);
 		display: flex;
 		flex-wrap: wrap;
 		list-style: none;
-		margin-block-end: var(--spacing-main);
 	}
 
 	.icon-home {
@@ -107,16 +107,22 @@ const breadcrumbs = segments.map((segment, index) => {
 	}
 
 	.breadcrumb a {
-		color: var(--color-brand-main);
 		text-decoration: none;
-	}
-
-	.breadcrumb a:hover {
-		text-decoration: underline;
+		@media (hover: hover) and (pointer: fine) {
+			&:hover,
+			&:focus {
+				& span {
+					color: var(--color-const-light) !important;
+				}
+			}
+			&:has(svg) {
+				background: none !important;
+			}
+		}
 	}
 
 	.breadcrumb span {
-		color: var(--color-content-xxxs);
+		color: var(--color-content-xxs);
 	}
 
 	.breadcrumb li:not(:last-child)::after {

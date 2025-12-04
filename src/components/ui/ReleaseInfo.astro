@@ -2,10 +2,10 @@
 interface Props {
 	date?: string;
 	customer?: string;
-	customer_link?: string;
+	customerLink?: string;
 }
 
-const { date, customer, customer_link } = Astro.props;
+const { date, customer, customerLink } = Astro.props;
 
 const isExternalLink = (url: string): boolean => {
 	try {
@@ -18,12 +18,12 @@ const isExternalLink = (url: string): boolean => {
 ---
 
 <section class="release-info">
-	{date && <span class="release-info-date">{date}</span>}
+	{date && <span class="release-info-date" title="Дата работы над проектом">{date}</span>}
 	{
 		customer && (
 			<span class="release-info-customer">
-				{customer_link ? (
-					<a href={customer_link} title={`К профилю заказчика: ${customer} →`} aria-label={`К профилю заказчика: ${customer}`} {...(isExternalLink(customer_link) ? { target: "_blank", rel: "noopener" } : {})}>
+				{customerLink ? (
+					<a href={customerLink} title={`К профилю заказчика: ${customer} →`} aria-label={`К профилю заказчика: ${customer}`} {...(isExternalLink(customerLink) ? { target: "_blank", rel: "noopener" } : {})}>
 						{customer}
 					</a>
 				) : (
@@ -57,25 +57,20 @@ const isExternalLink = (url: string): boolean => {
 				corner-shape: squircle;
 			}
 		}
-		& .release-info-customer:has(a:hover) {
-			background: var(--color-brand-main);
+		& .release-info-customer:has(a:hover),
+		& .release-info-customer:has(a:focus) {
+			background: var(--color-link);
 		}
 		& a {
 			all: unset;
 			cursor: pointer;
-			&:focus,
-			&:target {
-				text-decoration: underline;
-				text-decoration-color: var(--color-link);
-				color: var(--color-const-light);
-				background: var(--color-link);
-			}
+      color: var(--color-link)!important;
 			@media (hover: hover) and (pointer: fine) {
-				&:hover {
-					text-decoration: underline;
-					text-decoration-color: var(--color-link);
-					color: var(--color-const-light);
-					background: var(--color-link);
+				&:hover,
+				&:focus {
+					text-decoration: none!important;
+					color: var(--color-const-light)!important;
+					background: none!important;
 				}
 			}
 		}

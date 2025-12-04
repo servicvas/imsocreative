@@ -1,0 +1,55 @@
+---
+import Layout from "$layouts/Layout.astro";
+import Breadcrumbs from "$components/ui/Breadcrumbs.astro";
+import ReleaseInfo from "$components/ui/ReleaseInfo.astro";
+
+interface Props {
+  title: string;
+  headingTitle?: string;
+  description?: string;
+  ogImage?: string;
+  breadcrumbsLabels?: Record<string, string>;
+  date?: string;
+  customer?: string;
+  customerLink?: string;
+  subtitle?: string;
+}
+
+const {
+  title,
+  description,
+  headingTitle,
+  ogImage,
+  breadcrumbsLabels = {},
+  date,
+  customer,
+  customerLink,
+  subtitle = ''
+} = Astro.props as Props;
+
+const hasBreadcrumbLabels = Object.keys(breadcrumbsLabels).length > 0;
+
+if (!title || !date || !customer || !customerLink) {
+  throw new Error('ArticleLayout требует: title, date, customer, customerLink');
+}
+
+if (!hasBreadcrumbLabels) {
+  console.warn('breadcrumbsLabels пуст. Будут использованы дефолтные метки или сегменты URL.');
+}
+---
+
+<Layout title={title} description={description} ogImage={ogImage}>
+	<article class="article--wrapper">
+		<section class="article-head">
+			<Breadcrumbs breadcrumbsLabels={breadcrumbsLabels} />
+			<ReleaseInfo date={date} customer={customer} customerLink={customerLink} />
+			{headingTitle ? (
+        <h1 class="article-title">{headingTitle}</h1>
+      ) : (
+        <h1 class="article-title">{title}</h1>
+      )}
+			{subtitle && <h2 class="article-subtitle">{subtitle}</h2>}
+		</section>
+		<slot />
+	</article>
+</Layout>
