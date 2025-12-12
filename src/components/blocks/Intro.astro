@@ -1,12 +1,12 @@
 ---
 
 ---
-
+<div id="page-overlay" class="overlay"></div>
 <article class="intro">
 	<svg id="intro_signature" class="intro_signature" data-name="intro_signature" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 24" fetchpriority="high">
 		<defs>
 			<style>
-				path {
+				path.introsugnature_sign {
 					fill: none;
 					stroke: var(--color-brand-main, #6667ab);
 					stroke-linejoin: miter;
@@ -14,7 +14,7 @@
 					stroke-width: 0.75px;
 				}
 				@media (prefers-color-scheme: dark) {
-					path {
+					path.introsugnature_sign {
 						stroke: var(--color-brand-xs, #ccccff);
 					}
 				}
@@ -49,6 +49,19 @@
 </article>
 
 <style>
+	.overlay {
+		position: fixed;
+		inset: 0;
+		background: var(--color-bg-main);
+		z-index: 99999;
+		pointer-events: none;
+		opacity: 1;
+		transition: opacity .2s ease-out;
+		&.overlay--hide {
+			opacity: 0;
+		}
+	}
+
 	.intro {
 		display: none;
 		z-index: +100000;
@@ -87,8 +100,9 @@
 </style>
 
 <script>
-	const intro = document.querySelector(".intro");
 	document.addEventListener("DOMContentLoaded", function () {
+		const overlay = document.querySelector("#page-overlay");
+		const intro = document.querySelector(".intro");
 		if (sessionStorage.getItem("hasSeenIntro") !== "true") {
 			if (intro) {
 				intro.style.display = "grid";
@@ -100,6 +114,10 @@
 				setTimeout(() => {
 					if (intro) {
 						intro.classList.add("intro--out");
+						overlay.classList.add("overlay--hide");
+						overlay.addEventListener('transitionend', () => {
+							overlay.remove();
+						}, { once: true });
 						setTimeout(() => {
 							intro.classList.add("intro--hide");
 						}, 1200);
@@ -109,6 +127,10 @@
 			sessionStorage.setItem("hasSeenIntro", "true");
 		} else {
 			if (intro) {
+				overlay.classList.add("overlay--hide");
+				overlay.addEventListener('transitionend', () => {
+					overlay.remove();
+				}, { once: true });
 				intro.classList.add("intro--hide");
 			}
 		}

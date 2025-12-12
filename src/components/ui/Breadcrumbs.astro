@@ -67,7 +67,7 @@ const breadcrumbs = segments.map((segment, index) => {
 							<span itemprop="name">{crumb.label}</span>
 						</a>
 					)}
-					<meta itemprop="position" content={index + 2} />
+					<meta itemprop="position" content={String(index + 2)} />
 				</li>
 			))
 		}
@@ -76,7 +76,7 @@ const breadcrumbs = segments.map((segment, index) => {
 
 <style>
 	.breadcrumb--wrapper {
-		align-self: start;
+		/* align-self: start; */
 	}
 
 	.breadcrumb {
@@ -101,6 +101,7 @@ const breadcrumbs = segments.map((segment, index) => {
 	.breadcrumb li {
 		display: flex;
 		align-items: center;
+		font-size: inherit;
 		&:last-child {
 			display: none;
 		}
@@ -122,6 +123,7 @@ const breadcrumbs = segments.map((segment, index) => {
 	}
 
 	.breadcrumb span {
+		font-size: inherit;
 		color: var(--color-content-xxs);
 	}
 

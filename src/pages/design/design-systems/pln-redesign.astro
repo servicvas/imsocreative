@@ -1,5 +1,6 @@
 ---
 import LayoutArticle from "$layouts/LayoutArticle.astro";
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '$components/ui/tabs';
 
 const breadcrumbsLabels = {
 	"pln-redesign": "Редизайн ПЛН",
@@ -14,17 +15,22 @@ const chunks = [];
 for (let i = 0; i < imagePaths.length; i += 12) {
 	chunks.push(imagePaths.slice(i, i + 12));
 }
+
+const inboxIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 16H5V5h14v14z"/></svg>`;
+const sentIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>`;
+const draftIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>`;
 ---
 
 <LayoutArticle
   title="Редизайн «Псковской ленты новостей»" 
   description="Кейс cоздания дизайн-системы и редизайна сайта самого посещаемого онлайн-СМИ Псковской области — «Псковской ленты новостей». 2023-2025 годы"
   headingTitle="Cоздание дизайн&#8209;системы и редизайн сайта самого посещаемого онлайн&#8209;СМИ Псковской области — «Псковской ленты новостей»"
-  subtitle="Как обеспечить производственные потребности крупного медиа с большим количеством продуктов лёгкой в обслуживании дизайн-системой"
+  subtitle="Как обеспечить производственные потребности крупного медиа с большим количеством продуктов гибкой дизайн&#8209;системой"
   breadcrumbsLabels={breadcrumbsLabels}
   date="2023–2025 годы"
   customer="Медиахолдинг «Гражданская пресса»"
   customerLink="/about#pln"
+	ogImage="/assets/img/design/design-systems/pln/ogcover-pln.webp"
 >
 	<section class="article-cover article-cover--pln fullwidth">
 		<picture>
@@ -42,12 +48,36 @@ for (let i = 0; i < imagePaths.length; i += 12) {
 		</picture>
 	</section>
 	<section class="article-lid fullwidth">
-		<p>«Псковская лента новостей» (далее — ПЛН) — флагманское СМИ частного медиахолдинга «Гражданская пресса» с 25&#8209;летней историей и ежемесячной аудиторией порядка полумиллионна уникальных посетителей. В период 2022–2023 годов на сайте ПЛН были проведены исследования пользовательского поведения на фоне общей для рынка коррекции типовых моделей медиапотребления. Выводы из этих исследований подсветили проблемы, требовавшие корректировки интерфейса, а набор технических ограничений действовавшей версии сайта достиг порога, который уже серьёзно влиял на бизнес-метрики. Поэтому был запущен процесс очередного редизайна.</p>
-    <p>Поскольку в этот же период в рамках бренда ПЛН запускались новые продукты (например, ежедневные онлайн-трансляции радиоэфиров, требовавшие потоковое изготовление обложек, или ПЛН-ТВ, выпускавшее различные информационные ролики и фильмы), <mark>было решено разрабатывать редизайн сайта в качестве базы для целостной мультиформатной дизайн-системы. Она должна была стать простой и утилитарной, чтобы, во-первых, не конкурировать с медиаконтентом, а, во-вторых, обеспечивать быстрый — «конвейерный» — выпуск большого объема разноплановых дизайн-продуктов — и при этом должна была оставаться достаточно уникальной и узнаваемой.</mark></p>
+		<p>«Псковская лента новостей» (ПЛН) — лидер среди онлайн&#8209;медиа Псковской области, флагманское СМИ частного медиахолдинга «Гражданская пресса» — к началу 2020&#8209;х годов столкнулась с необходимостью очередного редизайна и одновременно — создания достаточно простой (чтобы её можно было использовать без собственных полноценных отделов дизайна и разработки), но при этом гибкой дизайн&#8209;системы для обслуживания всевозрастающего количества внутренних продуктов. Для решения этой задачи я <mark>провёл UX&#8209;исследования, определил основные проблемные зоны, влияющие на ключевые метрики, сформулировал и согласовал требования к новому визуальному языку медиа, разработал систему базовых и семантических дизайн-токенов. Затем на базе фреймворка SvelteKit я разработал и спрограммировал необходимые атомарные и функциональные компоненты, шаблоны страниц и сделал интерактивный адаптивный прототип на основе собранных в JSON&#8209;файлы моковых данных для тестирования интерфейса.</mark></p>
 	</section>
 	<section class="article-body">
 		<h3 class="article-section-title">Исследования и контекст</h3>
 		<p class="article-text">ПЛН на протяжении порядка 10 лет в 2&#8209;2,5 раза опережает ближайших преследователей на региональном медиарынке по посещаемости. Ключевые метрики сайта <strong><a href="https://pln-pskov.ru" target="_blank" title="">pln-pskov.ru</a></strong> в 2022-2023 годах:</p>
+
+
+<Tabs id="pln-logo-compare" defaultTab={1}>
+  <TabList label="Варианты логотипа ПЛН: старый и новый">
+    <Tab id="pln-logo-compare-tab-1" controls="pln-logo-compare-panel-q">Было</Tab>
+    <Tab id="pln-logo-compare-tab-2" controls="pln-logo-compare-panel-2" selected>Стало</Tab>
+  </TabList>
+		
+  <TabPanels>
+    <TabPanel id="pln-logo-compare-panel-1" labelledby="pln-logo-compare-tab-1" selected>
+      <section class="pln-logo-compare">
+				<img src="/assets/img/design/design-systems/pln/pln-logo-old.svg" class="pln-logo-compare--img" alt="Старый логотип «Псковской ленты новостей» (2013-2020 годы)"/>
+			</section>
+    </TabPanel>
+
+    <TabPanel id="pln-logo-compare-panel-2" labelledby="pln-logo-compare-tab-1">
+      <section class="pln-logo-compare">
+				<img src="/assets/img/design/design-systems/pln/pln-logo-new.svg" class="pln-logo-compare--img" alt="Новый логотип «Псковской ленты новостей» (с 2020 года)"/>
+			</section>
+    </TabPanel>
+
+  </TabPanels>
+</Tabs>
+
+
 		<table class="table-main pln-metrics" id="table-pln-metrics">
 			<thead>
 				<tr>
@@ -130,7 +160,7 @@ for (let i = 0; i < imagePaths.length; i += 12) {
 		}
 	}
   table.pln-metrics {
-    width: var(--text-width-main);
+    width: calc(var(--content-width-main) - (var(--layout-padding-inline) * 2));
     & th, td {
       width: 28%;
     }

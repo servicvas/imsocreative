@@ -24,6 +24,22 @@ export default defineConfig({
         '$pages': '/src/pages',
         '$styles': '/src/styles'
       }
-    }
+    },
+		build: {
+      // Отключаем встраивание CSS в HTML
+      cssCodeSplit: true,
+      // Минимизируем CSS
+      minify: true,
+      // Настройки для долгосрочных имён файлов
+      rollupOptions: {
+        output: {
+          assetFileNames: 'assets/[name]-[hash][extname]',
+        },
+      },
+    },
+    css: {
+      // Включаем оптимизацию CSS
+      postcss: {},
+    },
   }
 });

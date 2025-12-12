@@ -1,0 +1,238 @@
+---
+export interface Props {
+  id: string;
+  defaultTab?: number;
+  variant?: 'default' | 'pills' | 'underline' | 'vertical';
+  size?: 'small' | 'medium' | 'large';
+  fullWidth?: boolean;
+  lazy?: boolean;
+  class?: string;
+}
+
+const {
+  id,
+  defaultTab = 0,
+  variant = 'default',
+  size = 'medium',
+  fullWidth = false,
+  lazy = false,
+  class: className = '',
+} = Astro.props;
+
+const tabsClass = [
+  'tabs',
+  `tabs--${variant}`,
+  `tabs--${size}`,
+  fullWidth && 'tabs--full-width',
+  className,
+].filter(Boolean).join(' ');
+---
+
+<div
+  class={tabsClass}
+  data-tabs={id}
+  data-default-tab={defaultTab}
+  data-lazy={lazy}
+>
+  <slot />
+</div>
+
+<style>
+  .tabs {
+		--tabs-font: var(--font-family-secondary);
+    --tabs-gap: var(--spacing-s);
+		--tabs-padding-to-wrapper: var(--spacing-xs);
+    --tabs-radius: var(--radius-button-xl);
+    --tabs-border-color: var(--color-separator-s);
+    --tabs-bg: var(--color-bg-h);
+    --tabs-active-bg: var(--color-button-bg-focus);
+    --tabs-active-color: var(--color-const-light);
+    --tabs-inactive-color: var(--color-button-inactive);
+    --tabs-hover-bg: var(--color-button-bg-hover);
+    --tabs-focus-ring: var(--color-button-bg-focus);
+    --tabs-indicator-color: var(--color-button-bg-focus);
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .tabs--vertical {
+    flex-direction: row;
+  }
+
+  .tabs--full-width {
+    width: 100%;
+  }
+
+  .tabs--small {
+    --tabs-padding-x: var(--spacing-s);
+    --tabs-padding-y: var(--spacing-xxs);
+    --tabs-font-size: var(--font-size-s);
+  }
+
+  .tabs--medium {
+    --tabs-padding-x: var(--spacing-main);
+    --tabs-padding-y: var(--spacing-xs);
+    --tabs-font-size: var(--font-size-main);
+  }
+
+  .tabs--large {
+    --tabs-padding-x: var(--spacing-md);
+    --tabs-padding-y: var(--spacing-s);
+    --tabs-font-size: var(--font-size-l);
+  }
+</style>
+
+<script>
+  class TabsController {
+    private container: HTMLElement;
+    private tabList: HTMLElement | null;
+    private tabs: HTMLButtonElement[];
+    private panels: HTMLElement[];
+    private lazy: boolean;
+    private currentIndex: number;
+
+    constructor(container: HTMLElement) {
+      this.container = container;
+      this.tabList = container.querySelector('[role="tablist"]');
+      this.tabs = Array.from(container.querySelectorAll('[role="tab"]'));
+      this.panels = Array.from(container.querySelectorAll('[role="tabpanel"]'));
+      this.lazy = container.dataset.lazy === 'true';
+      this.currentIndex = parseInt(container.dataset.defaultTab || '0', 10);
+
+      this.init();
+    }
+
+    private init(): void {
+      // Set initial state
+      this.activateTab(this.currentIndex, false);
+
+      // Add event listeners
+      this.tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => this.activateTab(index));
+        tab.addEventListener('keydown', (e) => this.handleKeyDown(e, index));
+      });
+
+      // Handle hash navigation
+      this.handleHashNavigation();
+      window.addEventListener('hashchange', () => this.handleHashNavigation());
+    }
+
+    private activateTab(index: number, updateHash: boolean = true): void {
+      // Deactivate all tabs
+      this.tabs.forEach((tab, i) => {
+        const isActive = i === index;
+        tab.setAttribute('aria-selected', String(isActive));
+        tab.setAttribute('tabindex', isActive ? '0' : '-1');
+
+        if (isActive) {
+          tab.classList.add('is-active');
+        } else {
+          tab.classList.remove('is-active');
+        }
+      });
+
+      // Show/hide panels
+      this.panels.forEach((panel, i) => {
+        const isActive = i === index;
+        panel.hidden = !isActive;
+
+        if (isActive) {
+          panel.classList.add('is-active');
+          // Lazy loading: render content on first activation
+          if (this.lazy && !panel.dataset.loaded) {
+            panel.dataset.loaded = 'true';
+            panel.dispatchEvent(new CustomEvent('tab:activated', { bubbles: true }));
+          }
+        } else {
+          panel.classList.remove('is-active');
+        }
+      });
+
+      this.currentIndex = index;
+
+      // Update URL hash for SEO and bookmarking
+      if (updateHash && this.tabs[index]) {
+        const panelId = this.tabs[index].getAttribute('aria-controls');
+        if (panelId) {
+          history.replaceState(null, '', `#${panelId}`);
+        }
+      }
+
+      // Dispatch custom event
+      this.container.dispatchEvent(
+        new CustomEvent('tabs:change', {
+          detail: { index, tabId: this.tabs[index]?.id, panelId: this.panels[index]?.id },
+          bubbles: true,
+        })
+      );
+    }
+
+    private handleKeyDown(event: KeyboardEvent, currentIndex: number): void {
+      const isVertical = this.container.classList.contains('tabs--vertical');
+      const prevKey = isVertical ? 'ArrowUp' : 'ArrowLeft';
+      const nextKey = isVertical ? 'ArrowDown' : 'ArrowRight';
+
+      let newIndex: number | null = null;
+
+      switch (event.key) {
+        case prevKey:
+          newIndex = currentIndex > 0 ? currentIndex - 1 : this.tabs.length - 1;
+          break;
+        case nextKey:
+          newIndex = currentIndex < this.tabs.length - 1 ? currentIndex + 1 : 0;
+          break;
+        case 'Home':
+          newIndex = 0;
+          break;
+        case 'End':
+          newIndex = this.tabs.length - 1;
+          break;
+        case 'Enter':
+        case ' ':
+          event.preventDefault();
+          this.activateTab(currentIndex);
+          return;
+      }
+
+      if (newIndex !== null) {
+        event.preventDefault();
+        this.tabs[newIndex].focus();
+        this.activateTab(newIndex);
+      }
+    }
+
+    private handleHashNavigation(): void {
+      const hash = window.location.hash.slice(1);
+      if (!hash) return;
+
+      const panelIndex = this.panels.findIndex((panel) => panel.id === hash);
+      if (panelIndex !== -1) {
+        this.activateTab(panelIndex, false);
+        // Scroll to tabs if needed
+        this.container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }
+
+  // Initialize all tabs on page
+  function initTabs(): void {
+    document.querySelectorAll('[data-tabs]').forEach((container) => {
+      if (container instanceof HTMLElement && !container.dataset.initialized) {
+        new TabsController(container);
+        container.dataset.initialized = 'true';
+      }
+    });
+  }
+
+  // Initialize on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTabs);
+  } else {
+    initTabs();
+  }
+
+  // Re-initialize on Astro page transitions
+  document.addEventListener('astro:page-load', initTabs);
+</script>

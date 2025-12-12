@@ -13,7 +13,9 @@
 	--color-content-xxxs: oklch(0.75 0.005 240); /* #abaeb1 */
 	--color-content-softest: oklch(0.85 0.004 240); /* #cbced0 */
 
+	--color-separator-s: var(--color-content-softest);
 	--color-separator-main: var(--color-content-xxs);
+	--color-separator-h: var(--color-content-xs);
 
 	--color-bg-xxxh: oklch(0.8 0 0); /* #bebebd */
 	--color-bg-xxh: oklch(0.88 0 0); /* #d7d7d7 */
@@ -35,9 +37,13 @@
 	--color-brand-xxxs: oklch(0.88 0.023 289.86); /* #d7d5e6 / rgb(215, 213, 230) */
 	--color-brand-softest: oklch(0.95 0.008 290.4); /* #eeedf3 / rgb(238, 237, 243) */
 
+
 	--color-button-icon-controls: var(--color-brand-main);
 	--color-button-bg-main: oklch(from var(--color-bg-xxh) l c h / 40%);
 	--color-button-bg-focus: oklch(from var(--color-brand-main) l c h / 90%);
+	--color-button-bg-hover: oklch(from var(--color-brand-main) l c h / 40%);
+	--color-button-bg-colored: oklch(from var(--color-brand-main) l c h / 75%);
+	--color-button-inactive: var(--color-brand-s);
 
 	--color-safe-main: #379f37;
 
@@ -55,7 +61,7 @@
 	--spacing-xl: calc(3.25 * var(--spacing-main));
 	--spacing-xxl: calc(5.25 * var(--spacing-main));
 
-	--font-family-primary: "Inter Variable", system-ui, sans-serif;
+	--font-family-primary: "Roboto Flex Variable", system-ui, sans-serif;
 	--font-family-secondary: "JetBrains Mono Variable", monospace, system-ui;
 
 	--font-size-display: clamp(11rem, 10.8rem + 1vw, 12rem);
@@ -77,6 +83,9 @@
 	--font-weight-black: 800;
 	--font-weight-extrablack: 900;
 
+	--font-grade-main: -50;
+	--font-grade-strong: -30;
+
 	--radius-button-xs: 0.15rem;
 	--radius-button-s: 0.3rem;
 	--radius-button-main: 0.5rem;
@@ -95,11 +104,9 @@
 
 	/* Расчет размеров на основе последовательности как у чисел Фибоначчи. Коррекции - -*s (short) и -*w (wide) */
 
-	--text-width-xs: min(100%, 16rem);
-	--text-width-s: min(100%, 24rem);
-	--text-width-main: min(100%, 40rem); /* Строка не более 64ch для базового размера шрифта */
-	--text-width-w: min(100%, 64rem);
-	--text-width-xw: min(100%, 104rem);
+	--content-width-s: min(100%, 28rem);
+	--content-width-main: min(100%, 48rem); /* Строка не более 67ch для базового размера шрифта */
+	--content-width-w: min(100%, 76rem);
 
 	--layout-padding-inline: var(--spacing-main);
 	@media screen and (width >= 1200px) {
@@ -139,7 +146,9 @@
 	--color-content-xxxs: oklch(0.8 0 0); /* #abaeb1 */
 	--color-content-softest: oklch(0.65 0 0); /*  */
 
-	--color-separator-main: var(--color-content-xxs);
+	--color-separator-s: var(--color-bg-xh);
+	--color-separator-main: var(--color-bg-xxh);
+	--color-separator-h: var(--color-bg-xxxh);
 
 	--color-bg-xxxh: oklch(0.75 0.005 240); /*  */
 	--color-bg-xxh: oklch(0.54 0.006 240); /*  */
@@ -152,20 +161,27 @@
 	--color-button-icon-controls: var(--color-brand-xs);
 	--color-button-bg-main: oklch(from var(--color-content-xxs) l c h / 25%);
 	--color-button-bg-focus: oklch(from var(--color-brand-main) l c h / 90%);
+	--color-button-bg-hover: oklch(from var(--color-brand-main) l c h / 55%);
+	--color-button-bg-colored: oklch(from var(--color-brand-main) l c h / 75%);
+	--color-button-inactive: var(--color-brand-xs);
 
 	--color-safe-main: #61c21c;
 
 	--color-mark: var(--color-brand-s);
 	--color-link: var(--color-brand-xs);
+
+	--font-grade-main: -100;
+	--font-grade-strong: 40;
 }
 
 /* Global */
 
+@view-transition {
+	navigation: auto;
+}
+
 html,
 body {
-	@view-transition {
-		navigation: auto;
-	}
 	font-family: var(--font-family-primary);
 	color: var(--color-content-main);
 	background: var(--color-bg-main);
@@ -173,88 +189,41 @@ body {
 	interpolate-size: allow-keywords;
 }
 
+.hidden {
+	display: none;
+}
+
 /* Typographics */
-
-/* inter-cyrillic-wght-normal */
-@font-face {
-	font-family: "Inter Variable";
-	font-style: normal;
-	font-display: swap;
-	font-weight: 100 900;
-	src: url(@fontsource-variable/inter/files/inter-cyrillic-opsz-normal.woff2) format("woff2-variations");
-	unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-
-/* inter-cyrillic-wght-italic */
-@font-face {
-	font-family: "Inter Variable";
-	font-style: italic;
-	font-display: swap;
-	font-weight: 100 900;
-	src: url(@fontsource-variable/inter/files/inter-cyrillic-opsz-italic.woff2) format("woff2-variations");
-	unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-
-/* inter-latin-wght-normal */
-@font-face {
-	font-family: "Inter Variable";
-	font-style: normal;
-	font-display: swap;
-	font-weight: 100 900;
-	src: url(@fontsource-variable/inter/files/inter-latin-opsz-normal.woff2) format("woff2-variations");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* inter-latin-wght-italic */
-@font-face {
-	font-family: "Inter Variable";
-	font-style: italic;
-	font-display: swap;
-	font-weight: 100 900;
-	src: url(@fontsource-variable/inter/files/inter-latin-opsz-italic.woff2) format("woff2-variations");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* jetbrains-mono-cyrillic-wght-normal */
-@font-face {
-	font-family: "JetBrains Mono Variable";
-	font-style: normal;
-	font-display: swap;
-	font-weight: 100 800;
-	src: url(@fontsource-variable/jetbrains-mono/files/jetbrains-mono-cyrillic-wght-normal.woff2) format("woff2-variations");
-	unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-
-/* jetbrains-mono-latin-wght-normal */
-@font-face {
-	font-family: "JetBrains Mono Variable";
-	font-style: normal;
-	font-display: swap;
-	font-weight: 100 800;
-	src: url(@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2) format("woff2-variations");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 
 h1 {
 	font-size: var(--font-size-xxl);
+	font-kerning: auto;
+	font-optical-sizing: auto;
 	line-height: 1.03;
-	font-weight: var(--font-weight-extrabold);
+	letter-spacing: -0.001em;
+	font-variation-settings: "opsz" 11, "wght" var(--font-weight-extrabold), "GRAD" 50;
 	white-space: pre-wrap;
 	text-wrap: balance;
 }
 
 h2 {
 	font-size: var(--font-size-xl);
+	font-kerning: auto;
+	font-optical-sizing: auto;
 	line-height: 1.15;
-	font-weight: var(--font-weight-extrabold);
+	letter-spacing: -0.005em;
+	font-variation-settings: "opsz" 25, "wght" var(--font-weight-extrabold), "GRAD" -30;
 	white-space: pre-wrap;
 	text-wrap: balance;
 }
 
 h3 {
 	font-size: var(--font-size-l);
+	font-kerning: auto;
+	font-optical-sizing: auto;
+	letter-spacing: -0.005em;
 	line-height: 1.2;
-	font-weight: var(--font-weight-extrabold);
+	font-variation-settings: "opsz" 13, "wght" var(--font-weight-extrabold), "GRAD" 0;
 	white-space: pre-wrap;
 	text-wrap: balance;
 }
@@ -263,9 +232,15 @@ p,
 span,
 li {
 	font-size: var(--font-size-main);
+	font-kerning: auto;
+	font-optical-sizing: auto;
 	line-height: 1.35;
 	font-weight: var(--font-weight-regular);
 	text-wrap: pretty;
+	font-variation-settings: "opsz" 8, "GRAD" var(--font-grade-main);
+	& strong {
+		font-variation-settings: "wght" 670, "GRAD" var(--font-grade-strong);
+	}
 }
 
 :is(p, span, .article--wrapper li) a {
@@ -347,46 +322,41 @@ li {
 		padding-inline: var(--layout-padding-inline);
 	}
 	& .article-text {
-		width: var(--text-width-main);
+		width: var(--content-width-main);
 		margin-inline: auto;
 	}
 	& mark {
 		background: var(--color-brand-xxxs);
 	}
+	& .article-title {
+		font-variation-settings: "opsz" 11, "wght" var(--font-weight-extrabold), "GRAD" 140 !important;
+		letter-spacing: -.0175em;
+	}
 	& .article-subtitle {
 		color: var(--color-content-xxs);
 		font-weight: var(--font-weight-medium);
+		font-variation-settings: "opsz" 11, "wght" var(--font-weight-medium), "GRAD" -50 !important;
 	}
 	& .article-lid {
 		margin-inline: auto;
 		margin-block: var(--spacing-l);
 		& p {
 			padding-inline: var(--layout-padding-inline);
-			width: var(--text-width-w);
+			width: var(--content-width-w);
 			font-weight: var(--font-weight-semibold);
 			font-size: var(--font-size-l);
+			font-variation-settings: "opsz" 8, "wght" 425, "xtra" 550;
 			margin-inline: auto;
 		}
-		/* &:first-letter {
-        font-size: calc(var(--font-size-l) * 2.2);
-        line-height: 1;
-        vertical-align: baseline;
-        display: inline-block;
-        float: left;
-        margin: 0 .2em 0 0;
-        color: var(--color-const-light);
-        background: var(--color-brand-main);
-        padding: .1em .3em;
-        border-radius: var(--radius-button-xl);
-        @supports (corner-shape: squircle) {
-          corner-shape: squircle;
-        }
-    } */
 	}
 	& .article-section-title {
-		width: var(--text-width-w);
+		width: var(--content-width-w);
 		margin-inline: auto;
 		color: var(--color-content-s);
+	}
+	& .tabs {
+		width: var(--content-width-w)!important;
+    margin-inline: auto;
 	}
 	& .article-inset {
 		font-family: var(--font-family-secondary);
@@ -423,10 +393,14 @@ li {
 			}
 		}
 	}
-	& ul,
-	ol {
-		width: var(--text-width-main);
+	& :is(ul, ol):not(.breadcrumb) {
+		width: var(--content-width-main);
 		margin-inline: auto;
+		padding-inline-start: calc(var(--layout-padding-inline) + 1em)!important;
+		& li {
+			padding-inline-start: 1em!important;
+			list-style-position: outside;
+		}
 	}
 }
 
@@ -443,6 +417,7 @@ li {
 }
 
 .table-main {
+	display: table !important;
 	--table-item--spacing: 0.8em;
 	margin-inline: auto;
 	text-align: left;
@@ -453,7 +428,6 @@ li {
 	td {
 		padding-block: 0.4em;
 		border-block-end: 1px solid var(--color-brand-main);
-		width: 100%;
 	}
 	& tr > :is(th, td):not(:first-child):not(:last-child) {
 		padding-inline: var(--table-item--spacing);

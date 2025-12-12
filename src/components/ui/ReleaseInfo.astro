@@ -40,17 +40,18 @@ const isExternalLink = (url: string): boolean => {
 		gap: var(--spacing-s);
     flex-wrap: wrap;
 		font-family: var(--font-family-secondary);
-		font-size: var(--font-size-xs);
+		font-size: var(--font-size-s);
     & > span {
       flex: 0 1 auto;
       text-wrap-style: pretty;
       text-wrap-mode: wrap;
+			font-size: inherit;
     }
 		& > * {
 			color: var(--color-content-main);
 			background: var(--color-bg-xh);
 			padding-inline: var(--spacing-s);
-			padding-block: var(--spacing-xs);
+			padding-block: var(--spacing-xxs);
 			border-radius: var(--radius-button-xl);
 			transition: background 0.07s ease-in-out;
 			@supports (corner-shape: squircle) {
