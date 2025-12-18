@@ -74,7 +74,7 @@
 </section>
 
 <style>
-	section.section_cards {
+	.section_cards {
 		margin-block-end: var(--spacing-xl);
 		& > *:not(.fullwidth) {
 			padding-inline: var(--layout-padding-inline);
@@ -219,12 +219,14 @@
 			gap: var(--spacing-xs);
 		}
 		& .page_card_title {
-			font-variation-settings: "opsz" 12, "wght" var(--font-weight-extrabold), "GRAD" 70 !important;
+			font-variation-settings: "opsz" 13, "wght" var(--font-weight-bold), "GRAD" var(	--font-grade-chapter-subtitle) !important;
+			line-height: 1.07;
 		}
 		& .page_card_subtitle {
-			font-size: var(--font-size-s);
-			font-variation-settings: "opsz" 8, "wght" var(--font-weight-medium), "GRAD" -30 !important;
+			font-size: var(--font-size-md);
+			font-variation-settings: "opsz" 8, "wght" var(--font-weight-medium), "GRAD" var(--font-grade-medium) !important;
 			opacity: .7;
+			line-height: 1.45;
 		}
 		& .page_card_description {
 			grid-area: 2 / 1 / -1 / -1;

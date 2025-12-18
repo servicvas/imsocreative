@@ -105,22 +105,22 @@ const tabsClass = [
     }
 
     private init(): void {
-      // Set initial state
+      // Устанавливаем начальное состояние
       this.activateTab(this.currentIndex, false);
 
-      // Add event listeners
+      // Добавляем слушателей на клики и мышью и клавиатурой
       this.tabs.forEach((tab, index) => {
         tab.addEventListener('click', () => this.activateTab(index));
         tab.addEventListener('keydown', (e) => this.handleKeyDown(e, index));
       });
 
-      // Handle hash navigation
+      // Обрабатываем навигацию по хэшу
       this.handleHashNavigation();
       window.addEventListener('hashchange', () => this.handleHashNavigation());
     }
 
     private activateTab(index: number, updateHash: boolean = true): void {
-      // Deactivate all tabs
+      // Деактивация всех табов
       this.tabs.forEach((tab, i) => {
         const isActive = i === index;
         tab.setAttribute('aria-selected', String(isActive));
@@ -133,14 +133,14 @@ const tabsClass = [
         }
       });
 
-      // Show/hide panels
+      // Скрытие или показ панели
       this.panels.forEach((panel, i) => {
         const isActive = i === index;
         panel.hidden = !isActive;
 
         if (isActive) {
           panel.classList.add('is-active');
-          // Lazy loading: render content on first activation
+          // Lazy-loading для контента табов
           if (this.lazy && !panel.dataset.loaded) {
             panel.dataset.loaded = 'true';
             panel.dispatchEvent(new CustomEvent('tab:activated', { bubbles: true }));
@@ -152,15 +152,15 @@ const tabsClass = [
 
       this.currentIndex = index;
 
-      // Update URL hash for SEO and bookmarking
-      if (updateHash && this.tabs[index]) {
-        const panelId = this.tabs[index].getAttribute('aria-controls');
-        if (panelId) {
-          history.replaceState(null, '', `#${panelId}`);
-        }
-      }
+      // // Замена УРЛА 
+      // if (updateHash && this.tabs[index]) {
+      //   const panelId = this.tabs[index].getAttribute('aria-controls');
+      //   if (panelId) {
+      //     history.replaceState(null, '', `#${panelId}`);
+      //   }
+      // }
 
-      // Dispatch custom event
+      // Отправка пользовательских событий
       this.container.dispatchEvent(
         new CustomEvent('tabs:change', {
           detail: { index, tabId: this.tabs[index]?.id, panelId: this.panels[index]?.id },
@@ -210,13 +210,13 @@ const tabsClass = [
       const panelIndex = this.panels.findIndex((panel) => panel.id === hash);
       if (panelIndex !== -1) {
         this.activateTab(panelIndex, false);
-        // Scroll to tabs if needed
+        // Просскролл до табов если нужно плавный
         this.container.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
   }
 
-  // Initialize all tabs on page
+  // Инициализация всех табов на страницы
   function initTabs(): void {
     document.querySelectorAll('[data-tabs]').forEach((container) => {
       if (container instanceof HTMLElement && !container.dataset.initialized) {
@@ -226,13 +226,13 @@ const tabsClass = [
     });
   }
 
-  // Initialize on DOM ready
+  // Инициализация только когда загружен и сформирован DOM
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initTabs);
   } else {
     initTabs();
   }
 
-  // Re-initialize on Astro page transitions
+  // Переинициализация при срабатывании встроенного в Astro View page transition
   document.addEventListener('astro:page-load', initTabs);
 </script>

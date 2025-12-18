@@ -1,79 +1,75 @@
 ---
 // src/components/Tabs/TabList.astro
 export interface Props {
-  label: string;
-  class?: string;
+	label: string;
+	class?: string;
 }
 
-const { label, class: className = '' } = Astro.props;
+const { label, class: className = "" } = Astro.props;
 ---
 
-<div
-  role="tablist"
-  aria-label={label}
-  class:list={['tabs__list', className]}
->
-  <slot />
+<div role="tablist" aria-label={label} class:list={["tabs__list", className]}>
+	<slot />
 </div>
 
 <style>
-  .tabs__list {
+	.tabs__list {
 		width: fit-content;
-    display: flex;
+		display: flex;
 		align-self: center;
-    flex-wrap: wrap;
-    gap: var(--tabs-gap, 0.25rem);
-    padding: var(--tabs-padding-to-wrapper, 0.25rem);
-    margin: 0;
-    list-style: none;
-    background: var(--tabs-bg);
-    border-radius: calc(var(--tabs-radius) + var(--tabs-padding-to-wrapper));
+		flex-wrap: wrap;
+		gap: var(--tabs-gap, 0.25rem);
+		padding: var(--tabs-padding-to-wrapper, 0.25rem);
+		margin: 0;
+		list-style: none;
+		background: var(--tabs-bg);
+		border-radius: calc(var(--tabs-radius) + var(--tabs-padding-to-wrapper));
 		@supports (corner-shape: squircle) {
 			corner-shape: squircle;
 		}
-  }
+	}
 
-  /* Default variant */
-  :global(.tabs--default) .tabs__list {
-    background: var(--tabs-bg);
-    /* border: 1px solid var(--tabs-border-color); */
-  }
+	/* Default variant */
+	:global(.tabs--default) .tabs__list {
+		background: var(--tabs-bg);
+		/* border: 1px solid var(--tabs-border-color); */
+	}
 
-  /* Pills variant */
-  :global(.tabs--pills) .tabs__list {
-    background: transparent;
-    border: none;
-    padding: 0;
-  }
+	/* Pills variant */
+	:global(.tabs--pills) .tabs__list {
+		background: transparent;
+		border: none;
+		padding: 0;
+	}
 
-  /* Underline variant */
-  :global(.tabs--underline) .tabs__list {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid var(--tabs-border-color);
-    border-radius: 0;
-    padding: 0;
-    gap: 0;
-  }
+	/* Underline variant */
+	:global(.tabs--underline) .tabs__list {
+		background: transparent;
+		border: none;
+		border-bottom: 2px solid var(--tabs-border-color);
+		border-radius: 0;
+		padding: 0;
+		gap: 0;
+	}
 
-  /* Vertical variant */
-  :global(.tabs--vertical) .tabs__list {
-    flex-direction: column;
-    flex-shrink: 0;
-    width: auto;
-    min-width: 100px;
-    border-radius: calc(var(--tabs-radius) + var(--tabs-padding-to-wrapper));
+	/* Vertical variant */
+	:global(.tabs--vertical) .tabs__list {
+		flex-direction: column;
+		flex-shrink: 0;
+		width: auto;
+		min-width: 100px;
+		border-radius: calc(var(--tabs-radius) + var(--tabs-padding-to-wrapper));
 		@supports (corner-shape: squircle) {
 			corner-shape: squircle;
 		}
-  }
+	}
 
-  /* Full width tabs */
-  :global(.tabs--full-width) .tabs__list {
-    width: 100%;
-  }
+	/* Full width tabs */
+	:global(.tabs--full-width) .tabs__list {
+		width: 100%;
+	}
 
-  :global(.tabs--full-width) .tabs__list > :global(*) {
-    flex: 1;
-  }
+	:global(.tabs--full-width) .tabs__list > :global(*) {
+		flex: 1;
+	}
 </style>

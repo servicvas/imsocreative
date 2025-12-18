@@ -1,23 +1,22 @@
 ---
-// src/components/Tabs/TabPanels.astro
 export interface Props {
-  class?: string;
+	class?: string;
 }
 
-const { class: className = '' } = Astro.props;
+const { class: className = "" } = Astro.props;
 ---
 
-<div class:list={['tabs__panels', className]}>
-  <slot />
+<div class:list={["tabs__panels", className]}>
+	<slot />
 </div>
 
 <style>
-  .tabs__panels {
-    flex: 1;
-    min-width: 0;
-  }
+	.tabs__panels {
+		flex: 1;
+		min-width: 0;
+	}
 
-  :global(.tabs--vertical) .tabs__panels {
-    padding-left: 1.5rem;
-  }
+	:global(.tabs--vertical) .tabs__panels {
+		padding-inline-start: var(--spacing-md);
+	}
 </style>

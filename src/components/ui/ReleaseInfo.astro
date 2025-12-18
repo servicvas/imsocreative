@@ -18,7 +18,13 @@ const isExternalLink = (url: string): boolean => {
 ---
 
 <section class="release-info">
-	{date && <span class="release-info-date" title="Дата работы над проектом">{date}</span>}
+	{
+		date && (
+			<span class="release-info-date" title="Дата работы над проектом">
+				{date}
+			</span>
+		)
+	}
 	{
 		customer && (
 			<span class="release-info-customer">
@@ -38,15 +44,15 @@ const isExternalLink = (url: string): boolean => {
 	.release-info {
 		display: flex;
 		gap: var(--spacing-s);
-    flex-wrap: wrap;
+		flex-wrap: wrap;
 		font-family: var(--font-family-secondary);
 		font-size: var(--font-size-s);
-    & > span {
-      flex: 0 1 auto;
-      text-wrap-style: pretty;
-      text-wrap-mode: wrap;
+		& > span {
+			flex: 0 1 auto;
+			text-wrap-style: pretty;
+			text-wrap-mode: wrap;
 			font-size: inherit;
-    }
+		}
 		& > * {
 			color: var(--color-content-main);
 			background: var(--color-bg-xh);
@@ -58,20 +64,28 @@ const isExternalLink = (url: string): boolean => {
 				corner-shape: squircle;
 			}
 		}
-		& .release-info-customer:has(a:hover),
+		@media (hover: hover) and (pointer: fine) {
+			& .release-info-customer:has(a:hover) {
+				background: var(--color-link);
+			}
+		}
 		& .release-info-customer:has(a:focus) {
 			background: var(--color-link);
 		}
 		& a {
 			all: unset;
 			cursor: pointer;
-      color: var(--color-link)!important;
+			color: var(--color-link) !important;
+			&:focus {
+				text-decoration: none !important;
+				color: var(--color-const-light) !important;
+				background: none !important;
+			}
 			@media (hover: hover) and (pointer: fine) {
-				&:hover,
-				&:focus {
-					text-decoration: none!important;
-					color: var(--color-const-light)!important;
-					background: none!important;
+				&:hover {
+					text-decoration: none !important;
+					color: var(--color-const-light) !important;
+					background: none !important;
 				}
 			}
 		}
