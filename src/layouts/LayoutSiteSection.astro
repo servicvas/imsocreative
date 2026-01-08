@@ -1,0 +1,35 @@
+---
+import Layout from "$layouts/Layout.astro";
+import ScrollProgress from "$components/ui/ScrollProgress.astro";
+
+interface Props {
+	title: string;
+	headingTitle?: string;
+	description?: string;
+	ogImage?: string;
+}
+
+const { title, description, headingTitle, ogImage } = Astro.props as Props;
+
+if (!title) {
+	throw new Error("ArticleSiteSection требует: title");
+}
+---
+
+<Layout title={title} description={description} ogImage={ogImage}>
+	<ScrollProgress />
+	<article itemscope itemtype="http://schema.org/Article" class="article--wrapper">
+		<section class="article-head">
+			<section class="article-heading">
+				{
+					headingTitle ? (
+						<h1 itemprop="headline" class="article-title">{headingTitle}</h1>
+					) : (
+						<h1 itemprop="headline" class="article-title">{title}</h1>
+					)
+				}
+			</section>
+		</section>
+		<slot />
+	</article>
+</Layout>

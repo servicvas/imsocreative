@@ -8,10 +8,9 @@ import Breadcrumbs from "$components/ui/Breadcrumbs.astro";
     <Breadcrumbs />
 		<section class="error-404 wrapper--indentation">
 			<p>Ошибка <strong>404</strong></p>
-			<h1>Cтраница не найдена :(</h1>
+			<h1>Cтраница не найдена<br/>:(</h1>
 			<p>
-				Или её адрес указан некорректно, или она временно недоступна.<br/> В любом случае, на сайте есть ещё много других материалов.<br/> Возможно, вас заинтересует что-нибудь в разделах <a href="/design" title="Раздел с кейсами в области дизайна">дизайн</a>,  
-        <a href="/webdev" title="Раздел с кейсами в области веб-разработки">веб-разработка</a> или <a href="/media" title="Раздел с примерами работ в медиа: фильмы, фото, тексты">медиа</a>, в котором опубликованы примеры моих работ в СМИ — фильмы, фото, тексты. Либо узнайте больше <a href="/about" title="Раздел с описанием биографии и списком мест работы и достижений">обо мне</a> в биографическом разделе.
+				Её адрес указан некорректно, или она временно недоступна либо вовсе была удалена.<br/> В любом случае, на сайте есть много других материалов, чтобы вы могли составить мнение обо мне и моих навыках.<br/> Смотрите примеры моих работ в разделах <a href="/design" title="Раздел с кейсами в области дизайна">дизайн</a> и <a href="/webdev" title="Раздел с кейсами в области веб-разработки">веб-разработка</a>, либо узнайте больше <a href="/about" title="Раздел с описанием биографии и списком мест работы и достижений">обо мне</a> в биографическом разделе.
 			</p>
 		</section>
 	</article>
@@ -19,7 +18,7 @@ import Breadcrumbs from "$components/ui/Breadcrumbs.astro";
 
 <style>
 	.error-404--wrapper {
-		padding-top: 6.5rem;
+		margin-top: 6.5rem;
 		padding-inline: var(--layout-padding-inline);
 		& .error-404 {
       margin-inline: auto;
@@ -28,7 +27,7 @@ import Breadcrumbs from "$components/ui/Breadcrumbs.astro";
       text-align: center;
 			text-wrap: balance;
 			& h1 {
-        margin-block-end: var(--spacing-xl);
+        margin-block-end: var(--space-xl);
       }
       & p {
 				font-family: var(--font-family-secondary);

@@ -75,20 +75,20 @@
 
 <style>
 	.section_cards {
-		margin-block-end: var(--spacing-xl);
+		margin-block-end: var(--space-xl);
 		& > *:not(.fullwidth) {
 			padding-inline: var(--layout-padding-inline);
 		}
 		& .section_cards_subtitle {
-			margin-block-end: var(--spacing-xs);
+			margin-block-end: var(--space-xs);
 		}
 		& .section_cards_wrapper {
-			padding-block: var(--spacing-s);
+			padding-block: var(--space-s);
 			display: flex;
 			flex-direction: row;
-			gap: var(--spacing-main);
+			gap: var(--space-main);
 			@media screen and (width > 1200px) {
-				gap: var(--spacing-l);
+				gap: var(--space-l);
 			}
 			overflow-x: auto;
 			scroll-snap-type: x mandatory;
@@ -203,11 +203,11 @@
 			height: min-content;
 			grid-area: 1 / 1 / 2 / 2;
 			z-index: +1;
-			padding-block: var(--spacing-md);
-			padding-inline: var(--spacing-md);
+			padding-block: var(--space-md);
+			padding-inline: var(--space-md);
 			@media screen and (width > 1200px) {
-				padding-block: var(--spacing-l);
-				padding-inline: var(--spacing-l);
+				padding-block: var(--space-l);
+				padding-inline: var(--space-l);
 			}
 			& > .tag {
 				font-weight: var(--font-weight-semibold);
@@ -216,7 +216,7 @@
 		& .page_card_heading {
 			display: flex;
 			flex-direction: column;
-			gap: var(--spacing-xs);
+			gap: var(--space-xs);
 		}
 		& .page_card_title {
 			font-variation-settings: "opsz" 13, "wght" var(--font-weight-bold), "GRAD" var(	--font-grade-chapter-subtitle) !important;
@@ -232,20 +232,20 @@
 			grid-area: 2 / 1 / -1 / -1;
 			display: grid;
 			grid-template-rows: 1fr min-content;
-			gap: var(--spacing-main);
-			padding-block-end: var(--spacing-md);
-			padding-inline: var(--spacing-md);
+			gap: var(--space-main);
+			padding-block-end: var(--space-md);
+			padding-inline: var(--space-md);
 			@media screen and (width > 1200px) {
-				padding-block-end: var(--spacing-l);
-				padding-inline: var(--spacing-l);
+				padding-block-end: var(--space-l);
+				padding-inline: var(--space-l);
 			}
 			& .page_card_tags {
 				display: flex;
 				flex-wrap: wrap;
-				gap: var(--spacing-xxs);
-				padding-inline-end: var(--spacing-md);
+				gap: var(--space-xxs);
+				padding-inline-end: var(--space-md);
 				@media screen and (width > 1200px) {
-					padding-inline-end: var(--spacing-l);
+					padding-inline-end: var(--space-l);
 				}
 			}
 		}

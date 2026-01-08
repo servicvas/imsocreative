@@ -1,65 +1,99 @@
 ---
-import Layout from "$layouts/Layout.astro";
+import LayoutSiteSection from "$layouts/LayoutSiteSection.astro";
 ---
 
-<Layout title="Сергей Васильев: биография" description="Биография, опыт работы и достижения Сергея Васильева — продуктового дизайнера с опытом веб-разработки и управления медиа и IT-проектами из Пскова">
-	<article class="article--wrapper wrapper--indentation">
-		<h1>Обо мне</h1>
-		<section id="aboutpage-intro" class="wrapper--indentation">
-			<h2 class="article-section-title">Биография</h2>
-			<p class="article-text">Я родился в Пскове в 1984 году в семье журналистов. В 90-е родители создали один из первых в стране частных издательско-полиграфических комплексов «Курсив», и всё детство я проводил в типографии. С 9 класса начал подрабатывать на каникулах в компьютерном цеху, верстал в тогда ещё Aldus PageMaker и осваивал компьютерную графику в CorelDraw и Adobe Photoshop 3&#8209;й версии.</p>
-			<p class="article-text">Интерес к дизайну поддерживала и школа — я учился в классе отделения искусств по направлению изобразительного искусства и мировой художественной культуры.</p>
-			<p class="article-text">Высшее образование получил на филологическом факультете Псковского государственного педагогического университета, который окончил с отличием в 2006 году. В вузе делал упор на изучение <strong>семиотики</strong> (науки о знаках и знаковых системах). В какой-то мере семиотические подходы к изучению различных аспектов коммуникации можно сравнить с декомпозицией дизайн-системы, определении её законов и ключевых токенов.</p>
-			<p class="article-text">Ещё в школе начал изучать программирование (Pascal, C++) и только зарождавшуюся тогда веб-разработку. Первые свои сайты написал в «Блокноте». Кстати, они уже тогда имели в меру адаптивный дизайн и модульную структуру. Подробнее об этом можно прочитать в разделе <strong><a href="/webdev" title="Раздел с кейсами в области веб-разработки">«Веб-разработка»</a></strong>.</p>
-			<section id="about-experience" class="about-experience wrapper--indentation">
-				<h2 class="article-section-title">Опыт работы</h2>
-				<section class="workplace">
-					<span class="workplace-period">Август 2024 — по настоящее время</span>
-					<div class="workplace-container wrapper--indentation">
-						<div class="workplace-head">
-							<h3 class="workplace-name">CoffeeStudio (ООО «Конкурент»)</h3>
-							<span class="workplace-position">Менеджер IT-проектов</span>
-						</div>
-						<div class="workplace-body">
-							<p class="article-text">
-								<strong>Совмещаю управленческую и дизайнерскую экспертизу</strong> для создания цифровых продуктов от этапа брифинга клиента, исследований и планирования до проектирования, разработки, тестирования и запуска. Помимо этого, <strong>выполняю роль дизайн-лида</strong>: курирую работу
-								нескольких дизайнеров студии, планирую их загрузку в связке с внутренним заказчиком — отделом маркетинга, провожу дизайн-ревью и даю консультации по новым для сотрудников областям.
-							</p>
-						</div>
+<LayoutSiteSection title="Сергей Васильев: биография" headingTitle="Обо мне" description="Биография, опыт работы и достижения Сергея Васильева — продуктового дизайнера с опытом веб-разработки и управления медиа и IT-проектами из Пскова">
+	<section class="article-body">
+		<section id="aboutpage-intro" class="article-chapter wrapper--indentation">
+			<h2 class="article-chapter-title">Биография</h2>
+			<p class="article-text">
+				(Здесь будет краткое резюме).
+			</p>
+		</section>
+		<section id="about-experience" class="article-chapter about-experience wrapper--indentation">
+			<h2 class="article-chapter-title">Опыт работы</h2>
+			<section class="workplace">
+				<div class="workplace-container wrapper--indentation">
+					<div class="workplace-head">
+						<h3 class="workplace-name">CoffeeStudio</h3>
+						<span class="workplace-site"><a class="workplace-link" href="https://coffestudio.ru" title="Сайт агентства интернет-рекламы CoffeeStudio" target="_blank">coffestudio.ru</a></span>
 					</div>
-				</section>
+					<div class="workplace-story">
+						<span class="workplace-period">Август 2024 — по настоящее время</span>
+						<span class="workplace-position">Менеджер IT-проектов</span>
+					</div>
+					<div class="workplace-body">
+						<p class="article-text">
+							<strong>Совмещаю управленческую и дизайнерскую экспертизу</strong> для создания цифровых продуктов от этапа брифинга клиента, исследований и планирования до проектирования, разработки, тестирования и запуска. Помимо этого, <strong>выполняю роль дизайн-лида</strong>: курирую работу
+							нескольких дизайнеров студии, планирую их загрузку в связке с внутренним заказчиком — отделом маркетинга, провожу дизайн-ревью и даю консультации по новым для сотрудников областям.
+						</p>
+					</div>
+				</div>
 			</section>
 		</section>
-	</article>
-</Layout>
+		<section id="aboutpage-bio" class="article-chapter wrapper--indentation">
+			<h2 class="article-chapter-title">Моя история</h2>
+			<p class="article-text">
+				Я родился в Пскове в 1984 году в семье журналистов. В 90-е родители создали один из первых в стране частных издательско-полиграфических комплексов «Курсив», и всё детство я проводил в типографии. С 9 класса начал подрабатывать на каникулах в компьютерном цеху, верстал в тогда ещё Aldus PageMaker и осваивал компьютерную графику в CorelDraw и Adobe Photoshop 3&#8209;й версии.
+			</p>
+			<p class="article-text">Интерес к дизайну поддерживала и школа — я учился в классе отделения искусств по направлению изобразительного искусства и мировой художественной культуры.</p>
+			<p class="article-text">
+				Высшее образование получил на филологическом факультете Псковского государственного педагогического университета, который окончил с отличием в 2006 году. В вузе делал упор на изучение <strong>семиотики</strong> (науки о знаках и знаковых системах). В какой-то мере семиотические подходы к изучению различных аспектов коммуникации можно сравнить с декомпозицией дизайн-системы, определении её законов и ключевых токенов.
+			</p>
+			<p class="article-text">
+				Ещё в школе начал изучать программирование (Pascal, C++) и только зарождавшуюся тогда веб-разработку. Первые свои сайты написал в «Блокноте». Кстати, они уже тогда имели в меру адаптивный дизайн и модульную структуру. Подробнее об этом можно прочитать в разделе <strong><a href="/webdev" title="Раздел с кейсами в области веб-разработки">«Веб-разработка»</a></strong>.
+			</p>
+		</section>
+	</section>
+</LayoutSiteSection>
 
 <style>
 	.workplace {
-		& > .workplace-period {
-			font-size: var(--font-size-s);
-			font-family: var(--font-family-secondary);
-			display: block;
-			opacity: 0.5;
-			margin-block-end: var(--spacing-xxs);
-		}
 		& .workplace-head {
+			width: var(--content-width-main);
+			margin-inline: auto;
 			display: flex;
-			gap: var(--spacing-main);
-			align-items: baseline;
+			gap: var(--space-main);
+			align-items: center;
+			width: var(--content-width-main);
+			margin-inline: auto;
 		}
 		& .workplace-name {
-			&:after {
-				content: "/";
-				padding-inline-start: var(--spacing-main);
-				font-weight: var(--font-weight-regular);
+			&::before {
+				content: '●';
 				color: var(--color-brand-main);
+				margin-inline-end: var(--space-main);
 			}
 		}
+		.workplace-site {
+			font-family: var(--font-family-secondary);
+			font-size: var(--font-size-main);
+			color: var(--color-link) !important;
+			font-variation-settings: "opsz" 10, "wght" var(--font-weight-main), "GRAD" var(--font-grade-main);
+		}
+		& .workplace-story {
+			display: flex;
+			gap: var(--space-main);
+			align-items: baseline;
+			flex-wrap: wrap;
+			width: var(--content-width-main);
+			margin-inline: auto;
+		}
+		& .workplace-period {
+				font-family: var(--font-family-secondary);
+				color: var(--color-content-xxs);
+				font-size: var(--font-size-s);
+				&::after {
+					content: '>';
+					margin-inline-start: var(--space-main);
+				}
+			}
 		& .workplace-position {
 			background: var(--color-bg-xh);
 			border-radius: var(--radius-button-main);
-			padding-block: var(--spacing-xxs);
-			padding-inline: var(--spacing-xs);
+			padding-block: var(--space-xxs);
+			padding-inline: var(--space-xs);
+			font-variation-settings: "opsz" 8, "wght" var(--font-weight-semibold), "GRAD" var(--font-grade-chapter-subtitle);
 		}
 	}
 </style>

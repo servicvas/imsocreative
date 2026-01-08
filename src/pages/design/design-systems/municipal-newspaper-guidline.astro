@@ -37,7 +37,7 @@ for (let i = 0; i < imagePaths.length; i += 12) {
 		</p>
 	</section>
 	<section class="article-body">
-		<h3 class="article-section-title">Задача</h3>
+		<h2 class="article-section-title">Задача</h2>
 		<p class="article-text">Руководством государственного мениахолдинга, на базе которого планировалось объединение газет, передо мной была поставлена задача разработать такие дизайн-систему и унифицированный макет, которые позволили бы</p>
 		<section class="crosscrolling fullwidth">
 			{
@@ -57,11 +57,11 @@ for (let i = 0; i < imagePaths.length; i += 12) {
 	.crosscrolling {
 		overflow-x: clip;
 		white-space: nowrap;
-		margin-block: var(--spacing-xl);
+		margin-block: var(--space-xl);
 		& .scrollline {
 			display: flex;
-			gap: var(--spacing-main);
-			margin-block-end: var(--spacing-main);
+			gap: var(--space-main);
+			margin-block-end: var(--space-main);
 			animation: horizontal-scrolling-to-right linear forwards;
 			animation-timeline: view();
 			animation-range: entry 0% cover 90%;

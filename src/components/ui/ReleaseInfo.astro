@@ -43,7 +43,7 @@ const isExternalLink = (url: string): boolean => {
 <style is:global>
 	.release-info {
 		display: flex;
-		gap: var(--spacing-s);
+		gap: var(--space-s);
 		flex-wrap: wrap;
 		font-family: var(--font-family-secondary);
 		font-size: var(--font-size-s);
@@ -56,8 +56,8 @@ const isExternalLink = (url: string): boolean => {
 		& > * {
 			color: var(--color-content-main);
 			background: var(--color-bg-xh);
-			padding-inline: var(--spacing-s);
-			padding-block: var(--spacing-xxs);
+			padding-inline: var(--space-s);
+			padding-block: var(--space-xxs);
 			border-radius: var(--radius-button-xl);
 			transition: background 0.07s ease-in-out;
 			@supports (corner-shape: squircle) {

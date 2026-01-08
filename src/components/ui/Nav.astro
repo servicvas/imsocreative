@@ -8,16 +8,16 @@
 		<ul>
 			<li><a href="/design" title="Раздел с кейсами в области дизайна">Дизайн</a></li>
 			<li><a href="/webdev" title="Раздел с кейсами в области веб-разработки">Веб-разработка</a></li>
-			<li><a href="/media" title="Раздел с примерами работы в медиа: фото, тексты, видео">Медиа</a></li>
+			<!-- <li><a href="/media" title="Раздел с примерами работы в медиа: фото, тексты, видео">Медиа</a></li> -->
 			<li><a href="/about" title="Раздел с описанием биографии и списком мест работы и достижений">Обо мне</a></li>
 		</ul>
 	</nav>
   <section class="menu-contacts">
 		<div class="contact_phone">
-			<p>Телеграм: <a href="https://t.me/sergeyvasilyev" class="contact--link">@sergeyvasilyev</a></p>
+			<p>Телеграм: <a href="https://t.me/sergeyvasilyev" class="contact--link" title="Написать в Telegram">@sergeyvasilyev</a></p>
 		</div>
 		<div class="contact_phone">
-			<p>Почта: <a href="mailto:servicvas@ya.ru" class="contact--link">servicvas@ya.ru</a></p>
+			<p>Почта: <a href="mailto:servicvas@ya.ru" class="contact--link" title="Написать письмо на электронную почту">servicvas@ya.ru</a></p>
 		</div>
 	</section>
 </section>
@@ -37,7 +37,7 @@
 			right: 0;
       will-change: transform;
 			transform: translateX(103%);
-			padding: var(--spacing-l);
+			padding: var(--space-l);
 			color: var(--color-const-light);
       border-radius: 4rem 0 0 6rem;
 			transition: transform 0.4s cubic-bezier(0.74, 0.29, 0.33, 1.12);
@@ -49,7 +49,7 @@
 				padding-block: 4rem;
         & li {
           font-size: var(--font-size-l);
-          padding-block-end: var(--spacing-l);
+          padding-block-end: var(--space-l);
         }
 			}
 			& a {
@@ -64,11 +64,11 @@
     .menu-contacts {
 			display: flex;
 			flex-direction: column;
-			gap: var(--spacing-l);
+			gap: var(--space-l);
       & > * > p {
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-xs);
+        gap: var(--space-xs);
       }
 			& .contact--link {
 				font-family: var(--font-family-secondary);
@@ -149,15 +149,22 @@
 			}
 
 			& > ul {
+				height: 100%;
 				padding: 0;
 				margin: 0;
 				list-style: none;
 				display: flex;
+				& li {
+					padding-inline: 0.75rem;
+					display: grid;
+					place-items: center;
+					color: var(--color-link);
+				}
 			}
 
 			& a {
 				display: block;
-				padding: 0.75rem;
+				align-items: center;
 				text-decoration: none;
 				color: currentColor;
 				@media (hover: hover) and (pointer: fine) {
