@@ -1,0 +1,427 @@
+---
+// TableOfContents.astro
+---
+
+<div class="toc-widget" id="toc-widget">
+	<button class="toc-trigger" id="toc-trigger" popovertarget="toc-index">
+		<div class="toc-trigger__details">
+			<span class="toc-trigger__label">Содержание</span>
+			<span class="toc-progress"></span>
+		</div>
+	</button>
+
+	<div popover id="toc-index" class="toc-popover">
+		<div class="toc-contents">
+			<div class="toc-header">
+				<span class="toc-trigger__label">Содержание</span>
+				<span class="toc-progress"></span>
+			</div>
+			<nav class="toc-nav" aria-label="Содержание страницы">
+				<ol class="toc-list" id="toc-list"></ol>
+			</nav>
+		</div>
+	</div>
+</div>
+
+<style is:global>
+	/* Регистрация кастомного свойства для анимации целых чисел */
+	@property --progress {
+		syntax: "<integer>";
+		initial-value: 0;
+		inherits: true;
+	}
+
+	/* Анимация прогресса привязанная к скроллу страницы */
+	:root {
+		animation: scroll-progress linear;
+		animation-timeline: scroll(root);
+	}
+
+	@keyframes scroll-progress {
+		from {
+			--progress: 0;
+		}
+		to {
+			--progress: 100;
+		}
+	}
+
+	.toc-widget {
+		--toc-bg: var(--color-button-bg-main);
+		--toc-border: var(--color-separator-s);
+		--toc-text: var(--color-content-main);
+		--toc-text-muted: var(--color-content-xs);
+		--toc-accent: var(--color-link);
+		--toc-active-bg: var(--color-bg-xxh);
+		--toc-hover-bg: var(--color-link);
+		--toc-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+		--toc-radius: var(--radius-button-xxxl);
+		--toc-progress-bg: var(--color-link);
+
+		position: fixed;
+		left: var(--layout-padding-inline);
+		bottom: var(--space-main);
+		z-index: 1000;
+		font-family: var(--font-family-secondary);
+	}
+
+	.toc-trigger {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.75rem 1rem;
+		background: var(--toc-bg);
+		backdrop-filter: blur(0.5rem);
+		border-radius: var(--toc-radius);
+		cursor: pointer;
+		transition: all 0.2s ease;
+		@supports (corner-shape: squircle) {
+			corner-shape: squircle;
+		}
+	}
+
+	.toc-trigger:hover {
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+		transform: translateY(-1px);
+	}
+
+	.toc-trigger__details {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.toc-trigger__label {
+		font-size: var(font-size-s);
+		font-weight: var(--font-weight-medium);
+		color: var(--toc-text) !important;
+	}
+
+	/* Прогресс в процентах */
+	.toc-progress {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 3rem;
+		padding: 0.25rem 0.5rem;
+		background: var(--toc-progress-bg);
+		border-radius: var(--radius-button-xxxl);
+		font-size: var(--font-size-xxs);
+		font-weight: var(--font-weight-bold);
+		color: var(--color-const-light);
+		counter-reset: progress var(--progress);
+	}
+
+	.toc-progress::before {
+		font-variant-numeric: tabular-nums;
+		content: counter(progress) "%";
+	}
+
+	/* Popover позиционирование */
+	.toc-popover {
+		margin: 0;
+		padding: 0;
+		border: none;
+		background: transparent;
+		overflow: visible;
+		inset: auto auto 1.5rem 1.5rem;
+	}
+
+	.toc-popover::backdrop {
+		background: rgba(0, 0, 0, 0.05);
+	}
+
+	.toc-contents {
+		background: var(--toc-bg);
+		backdrop-filter: blur(3rem);
+		border-radius: var(--toc-radius);
+		box-shadow: var(--toc-shadow);
+		max-width: 320px;
+		min-width: 250px;
+		max-height: 70vh;
+		display: flex;
+		flex-direction: column;
+		animation: toc-slide-in 0.2s ease-out;
+	}
+
+	@keyframes toc-slide-in {
+		from {
+			opacity: 0;
+			transform: translateY(10px) scale(0.95);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+	}
+
+	.toc-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.75rem;
+		padding: 0.75rem 1rem;
+		border-bottom: 1px solid var(--toc-border);
+	}
+
+	.toc-nav {
+		padding: var(--space-s);
+		overflow-y: auto;
+		scrollbar-width: thin;
+		scrollbar-color: var(--toc-border) transparent;
+	}
+
+	.toc-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		font-size: var(--font-size-xs);
+		padding-inline-start: 0 !important;
+	}
+
+	.toc-list ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.toc-list li {
+		margin: 0;
+	}
+
+	.toc-list a {
+		display: block;
+		padding: var(--space-xs);
+		color: var(--toc-text-muted) !important;
+		text-decoration: none;
+		border-radius: var(--radius-button-xxl) !important;
+		transition: all 0.15s ease;
+		line-height: 1.4;
+		font-size: inherit;
+		@supports (corner-shape: squircle) {
+			corner-shape: squircle;
+		}
+	}
+
+	.toc-list a:hover {
+		background: var(--toc-hover-bg);
+		color: var(--color-const-light) !important;
+	}
+
+	.toc-list a.is-active {
+		background: var(--toc-active-bg);
+		color: var(--toc-accent);
+		font-weight: 500;
+	}
+
+	/* Уровень 1 (h2 и не h) */
+	.toc-list .toc-level-1 {
+		font-size: var(--font-size-s) !important;
+	}
+
+	/* Уровень 2 (h3) */
+	.toc-list .toc-level-2 {
+		padding-left: 1rem;
+	}
+
+	.toc-list .toc-level-2 > a {
+		font-size: var(--font-size-xs) !important;
+	}
+
+	/* Уровень 3 (h4) */
+	.toc-list .toc-level-3 {
+		padding-left: 2rem;
+	}
+
+	.toc-list .toc-level-3 > a {
+		font-size: var(--font-size-xs) !important;
+	}
+
+	/* Скрываем триггер когда popover открыт */
+	.toc-trigger.is-hidden {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	/* Адаптив для мобильных */
+	@media (max-width: 640px) {
+		.toc-widget {
+			left: 1rem;
+			bottom: 1rem;
+		}
+
+		.toc-popover {
+			inset: auto 1rem 1rem 1rem;
+		}
+
+		.toc-contents {
+			max-width: none;
+			width: 100%;
+		}
+	}
+</style>
+
+<script>
+	function initTableOfContents() {
+		const tocList = document.getElementById("toc-list");
+		const tocPopover = document.getElementById("toc-index") as HTMLElement | null;
+		const tocTrigger = document.getElementById("toc-trigger");
+		const tocWidget = document.getElementById("toc-widget");
+
+		if (!tocList || !tocPopover || !tocTrigger) return;
+
+		// Собираем все элементы с data-toc и id
+		const tocElements = document.querySelectorAll("[data-toc][id]");
+
+		if (tocElements.length === 0) {
+			if (tocWidget) tocWidget.style.display = "none";
+			return;
+		}
+
+		// Строим структуру оглавления
+		let currentLevel1: HTMLLIElement | null = null;
+		let currentLevel2: HTMLLIElement | null = null;
+
+		tocElements.forEach((element) => {
+			const id = element.id;
+			const text = element.getAttribute("data-toc") || element.textContent?.trim() || "";
+			const tagName = element.tagName.toLowerCase();
+
+			const link = document.createElement("a");
+			link.href = `#${id}`;
+			link.textContent = text;
+			link.dataset.tocTarget = id;
+
+			const li = document.createElement("li");
+			li.appendChild(link);
+
+			if (tagName === "h4") {
+				li.classList.add("toc-level-3");
+
+				if (currentLevel2) {
+					let nestedOl = currentLevel2.querySelector(":scope > ol");
+					if (!nestedOl) {
+						nestedOl = document.createElement("ol");
+						currentLevel2.appendChild(nestedOl);
+					}
+					nestedOl.appendChild(li);
+				} else if (currentLevel1) {
+					let nestedOl = currentLevel1.querySelector(":scope > ol");
+					if (!nestedOl) {
+						nestedOl = document.createElement("ol");
+						currentLevel1.appendChild(nestedOl);
+					}
+					nestedOl.appendChild(li);
+				} else {
+					tocList.appendChild(li);
+				}
+			} else if (tagName === "h3") {
+				li.classList.add("toc-level-2");
+				currentLevel2 = li;
+
+				if (currentLevel1) {
+					let nestedOl = currentLevel1.querySelector(":scope > ol");
+					if (!nestedOl) {
+						nestedOl = document.createElement("ol");
+						currentLevel1.appendChild(nestedOl);
+					}
+					nestedOl.appendChild(li);
+				} else {
+					tocList.appendChild(li);
+				}
+			} else {
+				li.classList.add("toc-level-1");
+				tocList.appendChild(li);
+				currentLevel1 = li;
+				currentLevel2 = null;
+			}
+		});
+
+		// Массив ссылок и целевых элементов для отслеживания
+		const tocLinks = tocList.querySelectorAll("a[data-toc-target]");
+		const targetElements = Array.from(tocElements);
+
+		// Функция подсветки активного пункта
+		function updateActiveLink() {
+			const scrollTop = window.scrollY;
+			const offset = 100;
+
+			let activeElement: Element | null = null;
+
+			for (let i = targetElements.length - 1; i >= 0; i--) {
+				const element = targetElements[i];
+				const rect = element.getBoundingClientRect();
+				const elementTop = rect.top + scrollTop;
+
+				if (scrollTop >= elementTop - offset) {
+					activeElement = element;
+					break;
+				}
+			}
+
+			tocLinks.forEach((link) => {
+				const targetId = (link as HTMLAnchorElement).dataset.tocTarget;
+				if (activeElement && targetId === activeElement.id) {
+					link.classList.add("is-active");
+				} else {
+					link.classList.remove("is-active");
+				}
+			});
+		}
+
+		// Throttle для скролла
+		let ticking = false;
+		function onScroll() {
+			if (!ticking) {
+				requestAnimationFrame(() => {
+					updateActiveLink();
+					ticking = false;
+				});
+				ticking = true;
+			}
+		}
+
+		window.addEventListener("scroll", onScroll, { passive: true });
+
+		// Начальное обновление
+		updateActiveLink();
+
+		// Управление видимостью триггера при открытии/закрытии popover
+		tocPopover.addEventListener("toggle", (event) => {
+			const popoverEvent = event as ToggleEvent;
+			if (popoverEvent.newState === "open") {
+				tocTrigger.classList.add("is-hidden");
+			} else {
+				tocTrigger.classList.remove("is-hidden");
+			}
+		});
+
+		// Закрытие и плавный скролл при клике на ссылку
+		tocLinks.forEach((link) => {
+			link.addEventListener("click", (e) => {
+				e.preventDefault();
+
+				const targetId = (link as HTMLAnchorElement).dataset.tocTarget;
+				const targetElement = targetId ? document.getElementById(targetId) : null;
+
+				if (targetElement) {
+					tocPopover.hidePopover();
+
+					targetElement.scrollIntoView({
+						behavior: "smooth",
+						block: "start",
+					});
+
+					history.pushState(null, "", `#${targetId}`);
+				}
+			});
+		});
+	}
+
+	// Инициализация
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initTableOfContents);
+	} else {
+		initTableOfContents();
+	}
+</script>

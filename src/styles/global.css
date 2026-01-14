@@ -63,7 +63,7 @@
 	--space-xxl: calc(5.25 * var(--space-main));
 
 	--space-article-gap: var(--space-s);
-	--space-sticky: 6rem;
+	--space-scrollpadding: 6rem;
 	--table-item--space: 0.8em;
 
 	--font-family-primary: "Roboto Flex Variable", system-ui, sans-serif;
@@ -210,6 +210,7 @@ body {
 	background: var(--color-bg-main);
 	height: auto;
 	interpolate-size: allow-keywords;
+	scroll-padding-top: var(--space-scrollpadding);
 }
 
 .hidden {
@@ -347,7 +348,7 @@ summary {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-main);
-	& :is(.article-head, .article-lid, .article-body, .article-chapter, .article-chapter-section:not(.wrapper-columns-two), .wrapper-sticky, :is(ul, ol):not(.breadcrumb)) {
+	& :is(.article-head, .article-lid, .article-body, .article-chapter, .article-chapter-section:not(.wrapper-columns-two), .wrapper-sticky, :is(ul, ol):not(.breadcrumb, .toc-list, .toc-list *)) {
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-article-gap);
@@ -462,7 +463,7 @@ summary {
 			}
 		}
 	}
-	& :is(ul, ol):not(.breadcrumb) {
+	& :is(ul, ol):not(.breadcrumb, .toc-list) {
 		width: var(--content-width-main);
 		margin-inline: auto;
 		padding-inline-start: var(--space-main) !important;
@@ -556,7 +557,7 @@ summary {
 .wrapper-sticky {
 	@media screen and (width > 960px) {
 		position: sticky;
-		top: var(--space-sticky);
+		top: var(--space-scrollpadding);
 	}
 }
 

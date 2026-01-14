@@ -1,5 +1,6 @@
 ---
 import Layout from "$layouts/Layout.astro";
+import TableOfContents from "../components/ui/TableOfContents.astro";
 import ScrollProgress from "$components/ui/ScrollProgress.astro";
 import Breadcrumbs from "$components/ui/Breadcrumbs.astro";
 import ReleaseInfo from "$components/ui/ReleaseInfo.astro";
@@ -47,6 +48,7 @@ if (!hasBreadcrumbLabels) {
 				}
 				{subtitle && <p class="article-subtitle">{subtitle}</p>}
 			</section>
+			<TableOfContents />
 		</section>
 		<slot />
 	</article>

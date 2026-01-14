@@ -5,20 +5,6 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from "$components/ui/tabs";
 const breadcrumbsLabels = {
 	"pln-redesign": "Редизайн ПЛН",
 };
-
-const imagePaths = Array.from({ length: 36 }, (_, i) => {
-	const index = String(i + 1).padStart(2, "0");
-	return `/assets/img/design/design-systems/municipal-newspaper/Municipal_newspaper_guidline_Page_${index}.webp`;
-});
-
-const chunks = [];
-for (let i = 0; i < imagePaths.length; i += 12) {
-	chunks.push(imagePaths.slice(i, i + 12));
-}
-
-const inboxIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 16H5V5h14v14z"/></svg>`;
-const sentIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>`;
-const draftIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h2.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>`;
 ---
 
 <LayoutArticle
@@ -46,7 +32,7 @@ const draftIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" f
 			<img src="/assets/img/design/design-systems/pln/cover-pln-2x.webp" class="pln-cover--img" alt="Создание дизайн-системы и редизайн сайта самого популярного онлайн-медиа Псковской области — «Псковской ленты новостей»" fetchpriority="high" />
 		</picture>
 	</section>
-	<section class="article-lid">
+	<section class="article-lid" data-toc="Введение" id="lid">
 		<p>
 			Лидирующее онлайн&#8209;медиа Псковской области — <a href="https://pln-pskov.ru" target="_blank" title="Сайт «Псковской ленты новостей»">«Псковская лента новостей»</a> (ПЛН) — к началу 2020&#8209;х годов столкнулось с необходимостью очередного редизайна. А ввиду общей разбалансированности визуальных коммуникаций бренда было решено начать процесс обновления с разработки фундаментальнх основ — дизайн&#8209;системы, которая была бы достаточно простой в использовании, но гибкой, вариативной и при этом обеспечивающей однозначную идентификацию бренда на фоне других новостных медиа.</p>
 		<p>
@@ -57,7 +43,7 @@ const draftIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" f
 	</section>
 	<section class="article-body">
 		<section class="article-chapter">
-			<h2 class="article-chapter-title">Исследования, контекст и ограничения</h2>
+			<h2 class="article-chapter-title" data-toc="Исследования, контекст и ограничения" id="custdev">Исследования, контекст и ограничения</h2>
 			<p class="article-text">
 				ПЛН уже более 18 лет в 2&#8209;2,5 раза опережает ближайших преследователей на региональном медиарынке по основным метрикам, в частности, по посещаемости. Ключевые метрики сайта <strong><a href="https://pln-pskov.ru" target="_blank" title="Сайт «Псковской ленты новостей»">pln-pskov.ru</a></strong> в 2022-2023 годах:
 			</p>
@@ -134,9 +120,9 @@ const draftIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" f
 			</ul>
 		</section>
 		<section class="article-chapter">
-			<h2 class="article-chapter-title">Дизайн-система</h2>
+			<h2 class="article-chapter-title" data-toc="Дизайн-система" id="ds">Дизайн-система</h2>
 			<div class="article-chapter-section">
-				<h3 class="article-chapter-subtitle">Базовые токены: типографика</h3>
+				<h3 class="article-chapter-subtitle" data-toc="Типографика" id="typography">Типографика</h3>
 				<p class="article-text">
 					<mark>Для сайта медиа (особенно медиа текстоцентричного) типографика — ключевой элемент дизайна</mark>. Именно она задёт тон, характер визаульного языка медиабренда, определяет ритм и иерархичность распределения информации на страницах материалов, отвечает за удобство восприятия информации читателем.
 				</p>
@@ -189,7 +175,7 @@ const draftIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" f
 				</div>
 			</div>
 			<div class="article-chapter-section">
-				<h3 class="article-chapter-subtitle">Базовые токены: палитра</h3>
+				<h3 class="article-chapter-subtitle" data-toc="Цвета" id="colors">Цветовая палитра</h3>
 				<p class="article-text">
 					<strong>У бренда была фирменная цветовая лакуна — оттенки бордо</strong>. Между тем, при каждом редизайне конкретный цвет бренда всякий раз слегка видоизменялся в заданных рамках, то есть жесткого канона не существовало. Поэтому, ввиду замечаний некоторых пользователей об ощущении слишком тёмного и даже «грязного» дизайна, было решено слегко освежить фирменный цвет, подняв и яркость, и насыщенность.
 				</p>
@@ -199,7 +185,7 @@ const draftIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" f
 				<img src="/assets/img/design/design-systems/pln/pln-ds-color.webp" class="article-img width-main wrapper-centered" alt="Таблица базовых цветовых токенов для редизайна «Псковской ленты новостей»" />
 			</div>
 			<div class="article-chapter-section">
-				<h3 class="article-chapter-subtitle">Логотипы</h3>
+				<h3 class="article-chapter-subtitle" data-toc="Логотипы" id="logos">Логотипы</h3>
 				<p class="article-text">
 					Предыдущая версия логотипа, существовавшая с 2013 года, была слегка доработана не только по цвету, но и по форме. Во-первых, был заменён шрифт букв, во-вторых, была убрана расшифровывающая надпись, поскольку исследования показали, что большинство пользователей воспринимает бренд именно в виде аббревиатуры, а с расшифровкой даже иногда путается, смешивая названия бренда и его основного конкурента. И, наконец, были скорректированы отступы между квадратами, сделав логотип более плотным.
 				</p>
@@ -234,8 +220,8 @@ const draftIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" f
 			</div>
 		</section>
 		<section class="article-chapter">
-			<h2 class="article-chapter-title">UX и UI</h2>
-			<h3 class="article-chapter-subtitle">Навигация</h3>
+			<h2 class="article-chapter-title" data-toc="UX и UI" id="ux_and_ui">UX и UI</h2>
+			<h3 class="article-chapter-subtitle" data-toc="Шапка и навигация" id="header_and_nav">Шапка и навигация</h3>
 		</section>
 		<section class="article-chapter">
 			<div class="article-chapter-section wrapper-columns-two width-reset wrapper-centered">
