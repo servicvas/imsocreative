@@ -3,7 +3,7 @@
 ---
 
 <section class="skills">
-	<h3>Ключевые навыки</h3>
+	<h2 class="skills-group-title">Ключевые навыки</h2>
 	<ul>
 		<li class="tag">дизайн-системы</li>
 		<li class="tag">UX / UI</li>
@@ -15,7 +15,7 @@
 		<li class="skills_more">ещё 7</li>
 	</ul>
 
-	<h3>Инструменты</h3>
+	<h2 class="skills-group-title">Инструменты</h2>
 	<ul>
 		<li class="tag">Яндекс Метрика</li>
 		<li class="tag">Figma</li>
@@ -30,7 +30,7 @@
 		<li class="skills_more">ещё 6</li>
 	</ul>
 
-	<h3>Исследования и проектировние</h3>
+	<h2 class="skills-group-title">Исследования и проектировние</h2>
 	<ul>
 		<li class="tag">CustDev</li>
 		<li class="tag">JTBD</li>
@@ -42,7 +42,7 @@
 		<li class="skills_more">ещё 4</li>
 	</ul>
 
-	<h3>Веб-разработка</h3>
+	<h2 class="skills-group-title">Веб-разработка</h2>
 	<ul>
 		<li class="tag">html</li>
 		<li class="tag">css</li>
@@ -63,7 +63,15 @@
 		@media screen and (width >= 1200px) {
 			text-align: right;
 		}
-		& h3 {
+		& .skills-group-title {
+			font-size: var(--font-size-l);
+			font-kerning: auto;
+			font-optical-sizing: auto;
+			letter-spacing: -0.005em;
+			line-height: 1.1;
+			font-variation-settings: "opsz" 13, "wght" var(--font-weight-extrabold), "GRAD" 0;
+			white-space: pre-wrap;
+			text-wrap: balance;
 			margin-block-end: var(--space-main);
 		}
 		& ul {
@@ -71,7 +79,7 @@
 			flex-wrap: wrap;
 			gap: var(--space-xs);
 			list-style-type: none;
-			margin-block-end: var(--space-main);
+			margin-block-end: var(--space-md);
 			@media screen and (width >= 1200px) {
 				justify-content: end;
 			}

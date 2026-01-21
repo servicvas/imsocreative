@@ -2,6 +2,7 @@
 // TableOfContents.astro
 ---
 
+<!-- Компонент ищет на странице все элементы с data-toc="" и id="". Все теги h2 и не h - становятся в содержании заголовками первого уровня. Все h3 - второго уровня. Все h4 - третьего уровня. Большая вложенность не предусмотрена. -->
 <div class="toc-widget" id="toc-widget">
 	<button class="toc-trigger" id="toc-trigger" popovertarget="toc-index">
 		<div class="toc-trigger__details">
@@ -31,7 +32,7 @@
 		inherits: true;
 	}
 
-	/* Анимация прогресса привязанная к скроллу страницы */
+	/* Анимация прогресса в процентах, привязанная к скроллу страницы */
 	:root {
 		animation: scroll-progress linear;
 		animation-timeline: scroll(root);
@@ -52,9 +53,9 @@
 		--toc-text: var(--color-content-main);
 		--toc-text-muted: var(--color-content-xs);
 		--toc-accent: var(--color-link);
-		--toc-active-bg: var(--color-bg-xxh);
+		--toc-active-bg: var(--color-button-bg-hover);
 		--toc-hover-bg: var(--color-link);
-		--toc-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+		--toc-shadow: 0 10px 40px var(--color-brand-softest);
 		--toc-radius: var(--radius-button-xxxl);
 		--toc-progress-bg: var(--color-link);
 
@@ -78,23 +79,37 @@
 		@supports (corner-shape: squircle) {
 			corner-shape: squircle;
 		}
-	}
-
-	.toc-trigger:hover {
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-		transform: translateY(-1px);
-	}
-
-	.toc-trigger__details {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
+		& .toc-trigger__details {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+		}
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				background: var(--color-button-bg-focus);
+				& .toc-trigger__label {
+					color: var(--color-const-light) !important;
+				}
+				& .toc-progress {
+					background: var(--color-link) !important;
+				}
+			}
+		}
+		&:focus {
+			background: var(--color-button-bg-focus);
+			& .toc-trigger__label {
+				color: var(--color-const-light) !important;
+			}
+			& .toc-progress {
+				background: var(--color-link) !important;
+			}
+		}
 	}
 
 	.toc-trigger__label {
 		font-size: var(font-size-s);
 		font-weight: var(--font-weight-medium);
-		color: var(--toc-text) !important;
+		color: var(--color-link) !important;
 	}
 
 	/* Прогресс в процентах */
@@ -103,18 +118,17 @@
 		align-items: center;
 		justify-content: center;
 		min-width: 3rem;
-		padding: 0.25rem 0.5rem;
+		padding: var(--space-xxs) var(--space-xs);
 		background: var(--toc-progress-bg);
 		border-radius: var(--radius-button-xxxl);
-		font-size: var(--font-size-xxs);
+		font-size: var(--font-size-xs);
 		font-weight: var(--font-weight-bold);
 		color: var(--color-const-light);
 		counter-reset: progress var(--progress);
-	}
-
-	.toc-progress::before {
-		font-variant-numeric: tabular-nums;
-		content: counter(progress) "%";
+		&::before {
+			font-variant-numeric: tabular-nums;
+			content: counter(progress) "%";
+		}
 	}
 
 	/* Popover позиционирование */
@@ -124,18 +138,18 @@
 		border: none;
 		background: transparent;
 		overflow: visible;
-		inset: auto auto 1.5rem 1.5rem;
+		inset: auto auto var(--space-main) var(--layout-padding-inline);
 	}
 
-	.toc-popover::backdrop {
-		background: rgba(0, 0, 0, 0.05);
-	}
+	/* .toc-popover::backdrop {
+		background: rgba(0, 0, 0, 0.03);
+	} */
 
 	.toc-contents {
 		background: var(--toc-bg);
 		backdrop-filter: blur(3rem);
 		border-radius: var(--toc-radius);
-		box-shadow: var(--toc-shadow);
+		filter: drop-shadow(1rem 1rem 3rem var(--toc-shadow));
 		max-width: 320px;
 		min-width: 250px;
 		max-height: 70vh;
@@ -196,16 +210,24 @@
 		text-decoration: none;
 		border-radius: var(--radius-button-xxl) !important;
 		transition: all 0.15s ease;
-		line-height: 1.4;
+		line-height: 1.1;
 		font-size: inherit;
 		@supports (corner-shape: squircle) {
 			corner-shape: squircle;
 		}
 	}
 
-	.toc-list a:hover {
-		background: var(--toc-hover-bg);
-		color: var(--color-const-light) !important;
+	.toc-list a {
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				background: var(--toc-hover-bg);
+				color: var(--color-const-light) !important;
+			}
+		}
+		&:focus {
+			background: var(--toc-hover-bg);
+			color: var(--color-const-light) !important;
+		}
 	}
 
 	.toc-list a.is-active {
@@ -221,7 +243,7 @@
 
 	/* Уровень 2 (h3) */
 	.toc-list .toc-level-2 {
-		padding-left: 1rem;
+		padding-inline-start: var(--space-main);
 	}
 
 	.toc-list .toc-level-2 > a {
@@ -230,14 +252,14 @@
 
 	/* Уровень 3 (h4) */
 	.toc-list .toc-level-3 {
-		padding-left: 2rem;
+		padding-inline-start: var(--space-l);
 	}
 
 	.toc-list .toc-level-3 > a {
 		font-size: var(--font-size-xs) !important;
 	}
 
-	/* Скрываем триггер когда popover открыт */
+	/* Скрываем триггер, когда popover открыт */
 	.toc-trigger.is-hidden {
 		opacity: 0;
 		pointer-events: none;
@@ -246,12 +268,12 @@
 	/* Адаптив для мобильных */
 	@media (max-width: 640px) {
 		.toc-widget {
-			left: 1rem;
-			bottom: 1rem;
+			inset-inline-start: var(--space-main);
+			inset-block-end: var(--space-main);
 		}
 
 		.toc-popover {
-			inset: auto 1rem 1rem 1rem;
+			inset: auto var(--space-main) var(--space-main) var(--space-main);
 		}
 
 		.toc-contents {

@@ -7,9 +7,11 @@ import Skills from "$components/blocks/Skills.astro";
 	<section class="hero_heading">
 		<p class="hero_heading--hello">Будем знакомы!</p>
 		<h1 class="hero_heading--title">Сергей Васильев</h1>
-		<p class="hero_heading--subtitle">
-			<mark class="subtitle_mark--first">мультидисциплинарный</mark><br /><mark class="subtitle_mark--second">продуктовый дизайнер</mark><br />с большим опытом управления командами, IT&#8209;проектами и медиа.<br />Я сам пишу код, поэтому хорошо понимаю особенности, возможности и ограничения реализации дизайн-концепций с точки зрения разработки, интересуюсь генеративным дизайном. Меня вдохновляют создание и развитие дизайн&#8209;систем, хорошая типографика и сложные пользовательские сценарии.
-		</p>
+		<div class="wrapper--indentation">
+			<p class="hero_heading--subtitle"><mark class="subtitle_mark--first">мультидисциплинарный</mark><br /><mark class="subtitle_mark--second">продуктовый и коммуникаций дизайнер</mark><br />с большим опытом управления командами, IT&#8209;проектами и медиа.</p>
+			<p class="hero_heading--subtitle">Я сам пишу код, поэтому хорошо понимаю особенности, возможности и ограничения реализации дизайн-концепций с точки зрения разработки, интересуюсь генеративным дизайном. Меня вдохновляют создание и развитие дизайн&#8209;систем, хорошая типографика и сложные пользовательские сценарии.
+			</p>
+		</div>
 		<svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;">
 			<defs>
 				<filter id="marker-shape">
@@ -103,7 +105,7 @@ import Skills from "$components/blocks/Skills.astro";
 		}
 	}
 	.hero_heading--subtitle {
-		font-size: var(--font-size-l);
+		font-size: var(--font-size-md);
 		letter-spacing: -0.002em;
 		font-variation-settings:
 			"opsz" 30,
@@ -115,7 +117,6 @@ import Skills from "$components/blocks/Skills.astro";
 	.hero_heading--subtitle mark {
 		position: relative;
 		background: none;
-		color: var(--color-content-main);
 		z-index: +1;
 	}
 
