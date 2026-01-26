@@ -4,13 +4,19 @@ import LayoutSiteSection from "$layouts/LayoutSiteSection.astro";
 
 <LayoutSiteSection title="Сергей Васильев: биография" headingTitle="Обо мне" description="Биография, опыт работы и достижения Сергея Васильева — продуктового дизайнера с опытом веб-разработки и управления медиа и IT-проектами из Пскова">
 	<section class="article-body">
-		<section id="aboutpage-intro" class="article-chapter wrapper--indentation">
-			<h2 class="article-chapter-title">Биография</h2>
-			<p class="article-text">(Здесь будет краткое резюме).</p>
+		<section id="aboutpage-intro" class="article-chapter wrapper--indentation animation-scroll-fadeup">
+			<h2 class="article-chapter-title">Коротко</h2>
+			<p class="article-text">Профессионально занимаюсь дизайном более 20 лет. Имею опыт работы и независимым дизайнером, и в студии, и в качестве ведущего продуктового дизайна для онлайн-медиа. У меня за плечами большой опыт управления проектами и командами.</p>
+			<p class="article-text">Также имею большой опыт преподавания:</p>
+			<ul>
+				<li>Порядка 10 лет был научным руководителем квалификационных работ студентов Псковского госуниверситета по направлениям «журналистика», а также «PR и связи с общественностью». Более 5 лет был председателем государственной экзаменационной комиссии вуза по этим направлениям.</li>
+				<li>Несколько потоков преподавал курс «Основы веб-разработки», а также модули по работе с Figma в CoffeSchool.</li>
+				<li>Порядка 10 лет преподавал на курсах основы композиции в фотографии и фоторепортажа</li>
+			</ul>
 		</section>
 		<section id="about-experience" class="article-chapter about-experience wrapper--indentation">
 			<h2 class="article-chapter-title">Опыт работы</h2>
-			<section class="workplace" id="CoffeeStudio">
+			<section class="workplace animation-scroll-fadeup" id="CoffeeStudio">
 				<div class="workplace-container wrapper--indentation">
 					<div class="workplace-head">
 						<h3 class="workplace-name">CoffeeStudio</h3>
@@ -22,7 +28,7 @@ import LayoutSiteSection from "$layouts/LayoutSiteSection.astro";
 					</div>
 					<div class="workplace-body wrapper--indentation">
 						<p class="article-text">
-							В студии интернет-маркетинга, специализирующейся на интернет-рекламе и заказной веб-разработке, <strong>совмещаю управленческую и дизайнерскую экспертизу</strong> для создания цифровых продуктов от этапа брифинга клиента, исследований и планирования до проектирования, разработки, тестирования
+							В студии интернет-маркетинга, специализирующейся на интернет-рекламе и заказной веб-разработке, <strong>совмещаю управленческую и дизайнерскую экспертизу</strong> для создания цифровых продуктов от этапа брифинга клиента, исследований и планирования до проектирования, разработки, тестирования
 							и запуска. Помимо этого <strong>выполняю роль дизайн-лида</strong>: курирую работу дизайнеров студии, планирую их загрузку в связке с внутренним заказчиком — отделом маркетинга, провожу дизайн&#8209;ревью и даю консультации по новым для сотрудников областям.
 						</p>
 						<section class="workplace-achievements">
@@ -68,7 +74,7 @@ import LayoutSiteSection from "$layouts/LayoutSiteSection.astro";
 					</div>
 				</div>
 			</section>
-			<section class="workplace" id="pln">
+			<section class="workplace animation-scroll-fadeup" id="pln">
 				<div class="workplace-container wrapper--indentation">
 					<div class="workplace-head">
 						<h3 class="workplace-name">Медиахолдинг «Гражданская пресса»</h3>
@@ -99,7 +105,7 @@ import LayoutSiteSection from "$layouts/LayoutSiteSection.astro";
 							<details class="achievements-item">
 								<summary class="achievements-short">Разработка, внедрение и производство новых медиаформатов и медиапродуктов</summary>
 								<p class="details-text">
-									Наладил потоковое производство с минимальными накладными расходами информационных и коммерческих лонгридов (лендингов) и инфографики с уникальным дизайном и интерактивными элементами, что расширило информационную палитру СМИ и стало дополнительным источником продаж в условиях
+									Наладил потоковое производство с минимальными накладными расходами информационных и коммерческих лонгридов (лендингов) и инфографики с уникальным дизайном и интерактивными элементами, что расширило информационную палитру СМИ и стало дополнительным источником продаж в условиях
 									технического ограничения рекламных носителей.
 								</p>
 							</details>
@@ -121,7 +127,7 @@ import LayoutSiteSection from "$layouts/LayoutSiteSection.astro";
 					</div>
 				</div>
 			</section>
-			<section class="workplace" id="mhpo">
+			<section class="workplace animation-scroll-fadeup" id="mhpo">
 				<div class="workplace-container wrapper--indentation">
 					<div class="workplace-head">
 						<h3 class="workplace-name">ГП ПО «Медиахолдинг Псковской области»</h3>
@@ -216,14 +222,14 @@ import LayoutSiteSection from "$layouts/LayoutSiteSection.astro";
 							<details class="achievements-item">
 								<summary class="achievements-short">Старт редизайна сайта</summary>
 								<p class="details-text">
-									Будучи ещё заместителем главного редактора, я по распоряжению учредителя приступил к процессу редизайна сайта: изучил архитектуру сайта и метрики, провел глубинные интервью с пользователями, спроектировал интерфейс, подготовил ТЗ и контролировал старт процесса разработки.
+									Будучи ещё заместителем главного редактора, я по распоряжению учредителя приступил к процессу редизайна сайта: изучил архитектуру сайта и метрики, провел глубинные интервью с пользователями, спроектировал интерфейс, подготовил ТЗ и контролировал старт процесса разработки.
 								</p>
 							</details>
 						</section>
 					</div>
 				</div>
 			</section>
-			<section class="workplace" id="pln-2010">
+			<section class="workplace animation-scroll-fadeup" id="pln-2010">
 				<div class="workplace-container wrapper--indentation">
 					<div class="workplace-head">
 						<h3 class="workplace-name">Медиахолдинг «Гражданская пресса»</h3>
@@ -234,26 +240,29 @@ import LayoutSiteSection from "$layouts/LayoutSiteSection.astro";
 						<span class="workplace-position">Заместитель главного редактора «Псковской ленты новостей»</span>
 					</div>
 					<div class="workplace-body wrapper--indentation">
-						<p class="article-text">В период моего первого периода работы в холдинге я <strong>совмещал редакторские и журналистские обязанности с функциями редакционного арт&#8209;директора</strong>: отвечал за иллюстративную часть работы, выполнял функции бильд&#8209;редактора, разрабатывал оформление рекламных материалов и новых проектов, а также подготовил редизайн сайта образца 2012 года.</p>
+						<p class="article-text">
+							В период моего первого периода работы в холдинге я <strong>совмещал редакторские и журналистские обязанности с функциями редакционного арт&#8209;директора</strong>: отвечал за иллюстративную часть работы, выполнял функции бильд&#8209;редактора, разрабатывал оформление рекламных
+							материалов и новых проектов, а также подготовил редизайн сайта образца 2012 года.
+						</p>
 						<section class="workplace-achievements">
 							<p class="workplace-achievements--title">Ключевые задачи и результаты:</p>
 							<details class="achievements-item">
 								<summary class="achievements-short">Редизайн сайта медиа</summary>
-								<p class="details-text">Были проанализированы жалобы пользователей, связанные с интерфейсом, проработаны дополнительные сценарии пограничных случаев, упрощена навигация и реализация ключевых пользовательских сценариев, осовременен визуальный стиль сайта, а также предусмотрены новые и более эффективные рекламные форматы. Редизайн продемонстрировал позитивное влияние на рост ключевых метрик: на глубину просмотра и снижение отказов, а также на общую посещаемость.
+								<p class="details-text">
+									Были проанализированы жалобы пользователей, связанные с интерфейсом, проработаны дополнительные сценарии пограничных случаев, упрощена навигация и реализация ключевых пользовательских сценариев, осовременен визуальный стиль сайта, а также предусмотрены новые и более эффективные
+									рекламные форматы. Редизайн продемонстрировал позитивное влияние на рост ключевых метрик: на глубину просмотра и снижение отказов, а также на общую посещаемость.
 								</p>
 							</details>
 							<details class="achievements-item">
 								<summary class="achievements-short">Систематизация внутреннего репозитория изображений и фото</summary>
-								<p class="details-text">
-									Реализовал проект по систематизации и каталогизации хранения редакционного фотоархива на отдельном сервере, что сократило время на поиск необходимых иллюстраций и позволило увеличить покрытие иллюстрациями выходящих материалов.
-								</p>
+								<p class="details-text">Реализовал проект по систематизации и каталогизации хранения редакционного фотоархива на отдельном сервере, что сократило время на поиск необходимых иллюстраций и позволило увеличить покрытие иллюстрациями выходящих материалов.</p>
 							</details>
 						</section>
 					</div>
 				</div>
 			</section>
 		</section>
-		<section id="aboutpage-bio" class="article-chapter wrapper--indentation">
+		<section id="aboutpage-bio" class="article-chapter wrapper--indentation animation-scroll-fadeup">
 			<h2 class="article-chapter-title">Моя история</h2>
 			<p class="article-text">
 				Я родился в Пскове в семье журналистов. В 90-е родители создали один из первых в стране частных издательско-полиграфических комплексов «Курсив», и всё детство я проводил в типографии. С 9 класса начал подрабатывать на каникулах в компьютерном цеху, верстал в тогда ещё Aldus PageMaker

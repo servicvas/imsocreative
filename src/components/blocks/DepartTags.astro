@@ -50,18 +50,17 @@
 
 	.depart_section {
 		height: 80rem;
-		perspective: 190rem;
+		perspective: 70rem;
 		transform-style: preserve-3d;
 		display: grid;
-		grid: repeat(4, 25dvh) / repeat(4, 25dvw);
+		grid: repeat(4, 25vh) / repeat(4, 25vw);
 		place-items: center;
 		position: absolute;
-		top: -6rem;
+		top: -16rem;
 		overflow: clip;
     pointer-events: none!important;
     @media screen and (width >= 1200px) {
       top: 5rem;
-      height: 80rem;
       perspective: 180rem;
     }
 		& > .depart_tag {

@@ -13,7 +13,7 @@ const breadcrumbsLabels = {
 	headingTitle="Cоздание дизайн‑системы и редизайн сайта самого посещаемого онлайн‑СМИ Псковской области — «Псковской ленты новостей»"
 	subtitle="Как обеспечить производственные потребности крупного медиа с большим количеством продуктов гибкой дизайн‑системой"
 	breadcrumbsLabels={breadcrumbsLabels}
-	date="2023–2025 годы"
+	date="2022–2025 годы"
 	customer="Медиахолдинг «Гражданская пресса»"
 	customerLink="/about#pln"
 	ogImage="/assets/img/design/design-systems/pln/ogcover-pln.webp">
@@ -32,20 +32,24 @@ const breadcrumbsLabels = {
 			<img src="/assets/img/design/design-systems/pln/cover-pln-2x.webp" class="pln-cover--img" alt="Создание дизайн-системы и редизайн сайта самого популярного онлайн-медиа Псковской области — «Псковской ленты новостей»" fetchpriority="high" />
 		</picture>
 	</section>
-	<section class="article-lid" data-toc="Введение" id="lid">
+	<section class="article-lid animation-scroll-fadeup" data-toc="Введение" id="lid">
 		<p>
-			Лидирующее онлайн&#8209;медиа Псковской области — <a href="https://pln-pskov.ru" target="_blank" title="Сайт «Псковской ленты новостей»">«Псковская лента новостей»</a> (ПЛН) — к началу 2020&#8209;х годов столкнулось с необходимостью очередного редизайна. А ввиду общей разбалансированности визуальных коммуникаций бренда было решено начать процесс обновления с разработки фундаментальнх основ — дизайн&#8209;системы, которая была бы достаточно простой в использовании, но гибкой, вариативной и при этом обеспечивающей однозначную идентификацию бренда на фоне других новостных медиа.</p>
+			Лидирующее онлайн&#8209;медиа Псковской области — <a href="https://pln-pskov.ru" target="_blank" title="Сайт «Псковской ленты новостей»">«Псковская лента новостей»</a> (ПЛН) — к началу 2020&#8209;х годов столкнулось с необходимостью очередного редизайна и создания дизайн&#8209;системы.
+		</p>
 		<p>
-			<mark>Предваряющие процесс разработки исследования — анализ метрик и пользовательского поведения, аудит интерфейса, серия глубинных интервью с постоянными и эпизодическими читателями, с сотрудниками редакции — помогли определить основные проблемные зоны</mark> в дизайне. Параллельно был проиведён анализ лучших российских и зарубежных практик в проектировании интерфейсов сайтов и приложений СМИ «общего интереса» с общественно-политическим и деловым уклоном — именно в этом сегменте традиционно работала ПЛН.</p>
+			<mark>Предваряющие процесс разработки исследования — анализ метрик и пользовательского поведения, аудит интерфейса, серия глубинных интервью с постоянными и эпизодическими читателями, с сотрудниками редакции — помогли определить основные проблемные зоны</mark> в дизайне. Анализ лучших практик в проектировании интерфейсов сайтов и приложений СМИ «общего интереса» с общественно-политическим и деловым уклоном — именно в этом сегменте традиционно работала ПЛН — позволил уточнить пул гипотез, которые были в последующем протестированы.
+		</p>
 		<p>
-			Непосредственная разработка дизайн&#8209;системы началась с определения базовых и семантических дизайн-токенов. На их основе я <mark>спрограммировал атомарные и функциональные компоненты, виджеты и шаблоны страниц. С помощью этого интструментария на базе фреймворка SvelteKit был сделан интерактивный адаптивный прототип с подгрузгой моковых данных, собранных в JSON&#8209;файлы для имитации взаимодействия с бэкендом и тестирования пограничных кейсов</mark>. Полученный интерактивный прототип стал базой для последующих итераций пользовательских исследований и тестирования концепции редизайна, её отладки и доработки. 
+			Непосредственная разработка дизайн&#8209;системы началась с определения базовых и семантических дизайн-токенов. На их основе я <mark> спрограммировал атомарные и функциональные компоненты, виджеты и шаблоны страниц. С помощью этого интструментария на базе фреймворка SvelteKit был сделан интерактивный адаптивный прототип с подгрузгой моковых данных, собранных в JSON&#8209;файлы для имитации взаимодействия с бэкендом и тестирования пограничных кейсов </mark>. Полученный интерактивный прототип стал базой для последующих итераций пользовательских исследований и тестирования концепции редизайна, её отладки и доработки.
 		</p>
 	</section>
 	<section class="article-body">
-		<section class="article-chapter">
+		<section class="article-chapter animation-scroll-fadeup">
 			<h2 class="article-chapter-title" data-toc="Исследования, контекст и ограничения" id="custdev">Исследования, контекст и ограничения</h2>
 			<p class="article-text">
-				ПЛН уже более 18 лет в 2&#8209;2,5 раза опережает ближайших преследователей на региональном медиарынке по основным метрикам, в частности, по посещаемости. Ключевые метрики сайта <strong><a href="https://pln-pskov.ru" target="_blank" title="Сайт «Псковской ленты новостей»">pln-pskov.ru</a></strong> в 2022-2023 годах:
+				ПЛН уже более 18 лет в 2&#8209;2,5 раза опережает ближайших преследователей на региональном медиарынке по основным метрикам, в частности, по посещаемости. Ключевые метрики сайта <strong>
+					<a href="https://pln-pskov.ru" target="_blank" title="Сайт «Псковской ленты новостей»">pln-pskov.ru</a>
+				</strong> в 2022-2023 годах:
 			</p>
 			<table class="table-main pln-metrics" id="table-pln-metrics">
 				<thead>
@@ -57,7 +61,7 @@ const breadcrumbsLabels = {
 				</thead>
 				<tbody>
 					<tr>
-						<th>Уникальных посетителей</th>
+						<th>Устройства</th>
 						<td>24,39&thinsp;%</td>
 						<td>72,50&thinsp;%</td>
 					</tr>
@@ -67,7 +71,7 @@ const breadcrumbsLabels = {
 						<td>1,87 <span class="table-indicator-shift">(&Delta; −51,43&thinsp;%)</span></td>
 					</tr>
 					<tr>
-						<th>Время на сайте</th>
+						<th>Время на сайте</th>
 						<td>5:15</td>
 						<td>1:48 <span class="table-indicator-shift">(&Delta; −65,71&thinsp;%)</span></td>
 					</tr>
@@ -100,7 +104,8 @@ const breadcrumbsLabels = {
 			</table>
 			<p class="article-text footnote" id="footnote--plnstat">* Цифры в таблице — по данным сервиса «Яндекс Метрика» за период с 1 марта 2022 года по 26 февраля 2023 года (среднее арифметическое) без учёта посещений роботов</p>
 			<p class="article-text">
-				При углубленном изучении пользовательского поведения были <strong>исследованы технические аспекты использования сайта</strong> (устройства, разрешения экрана, браузеры, наличие блокировкщиков рекламы etc.), <strong>уточнён портрет основных сегментов аудитории, в том числе ядра</strong> (группы пользователей, которые посещают сайт каждую неделю в течение месяца), <strong>проанализированы тепловые карты и карты скроллинга основных экранов, точки входа и данные по отказам</strong>.
+				При углубленном изучении пользовательского поведения были <strong>исследованы технические аспекты использования сайта</strong> (устройства, разрешения экрана, браузеры, наличие блокировщиков рекламы etc.), <strong>уточнён портрет основных сегментов аудитории, в том числе ядра</strong> (группы
+				пользователей, которые посещают сайт каждую неделю в течение месяца), <strong>проанализированы тепловые карты и карты скроллинга основных экранов, точки входа и данные по отказам</strong>.
 			</p>
 			<picture class="fullwidth">
 				<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/pln-analytics-m.webp" />
@@ -110,21 +115,25 @@ const breadcrumbsLabels = {
         (min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/pln-analytics-2x.webp" />
 				<img src="/assets/img/design/design-systems/pln/pln-analytics-2x.webp" class="article-img fullwidth" alt="Анализ метрик посещаемости сайта «Псковской ленты новостей»" />
 			</picture>
-			<p class="article-text"><strong>Некоторые наблюдения по резуальтатам анализа метрик:</strong></p>
+			<p class="article-text"><strong>Некоторые наблюдения по результатам анализа метрик:</strong></p>
 			<ul class="wrapper--indentation">
 				<li>тотальное доминирование пользователей, просматривающих сайт со смартфона (8 из 10), но при этом ядро аудитории — пользователи десктопов;</li>
-				<li>женская аудитория вдвое превышает мужскую (частично это коррелируется с демографической картиной активного населения региона, а также со структурой занятости в сфере госслужбы, к которой относится значительная часть ядра аудитории), но уступает ей по глубине просмотра на 11 % (или на 0,2 процентных пункта), и на 33,7 % (порядка 25 секунд) — по времени на сайте;</li>
-				<li>доминирующая возврастная группа — люди старше 35 лет, более половины всех пользователей — старше 55 лет;</li>
+				<li>
+					женская аудитория вдвое превышает мужскую (частично это коррелируется с демографической картиной активного населения региона, а также со структурой занятости в сфере госслужбы, к которой относится значительная часть ядра аудитории), но уступает ей по глубине просмотра на 11 % (или на 0,2
+					процентных пункта), и на 33,7 % (порядка 25 секунд) — по времени на сайте;
+				</li>
+				<li>доминирующая возрастная группа — люди старше 35 лет, более половины всех пользователей — старше 55 лет;</li>
 				<li>основная доля пользователей приходит на сайт через поисковый траффик и часто даже не видит главную страницу, однако на втором месте по источникам заходов — прямые переходы через закладки или набор url сайта;</li>
-				<li>низкий показатель доскролла главной страницы и фактического нефункционирования отдельных элементов интерфейса.</li>
+				<li>низкий показатель доскролла главной страницы и фактической невостребованности отдельных элементов интерфейса.</li>
 			</ul>
 		</section>
-		<section class="article-chapter">
+		<section class="article-chapter animation-scroll-fadeup">
 			<h2 class="article-chapter-title" data-toc="Дизайн-система" id="ds">Дизайн-система</h2>
-			<div class="article-chapter-section">
+			<section class="article-chapter-section">
 				<h3 class="article-chapter-subtitle" data-toc="Типографика" id="typography">Типографика</h3>
 				<p class="article-text">
-					<mark>Для сайта медиа (особенно медиа текстоцентричного) типографика — ключевой элемент дизайна</mark>. Именно она задёт тон, характер визаульного языка медиабренда, определяет ритм и иерархичность распределения информации на страницах материалов, отвечает за удобство восприятия информации читателем.
+					<mark>Для сайта медиа (особенно медиа текстоцентричного) типографика — ключевой элемент дизайна</mark>. Именно она задёт тон, характер визуального языка медиабренда, определяет ритм и иерархичность распределения информации на страницах материалов, отвечает за удобство восприятия информации
+					читателем.
 				</p>
 				<p class="article-text">
 					На старом сайте использовалась одна гарнитура — <strong>Roboto</strong>, то есть стандартный шрифт для ОС Android. И в этом было сразу несколько проблем.
@@ -136,123 +145,118 @@ const breadcrumbsLabels = {
 				<p class="article-text">
 					Эти проблемы были решены подбором пары гармоничных шрифтовых семейств — с засечками и без — из разряда гарнитур с открытой лицензией. Основными требованием к новым гарнитурам были их гармоничное сочетание, хорошая проработка кириллицы, большой набор начертаний (в том числе обязательно — курсивных начертаний) и дополнительных символов, которые могут понадобится медиа при оформлении специфичных материалов.
 				</p>
-			</div>	
-			</div>
-			<div class="article-chapter-section wrapper-columns-two width-xw wrapper-centered">
+			</section>
+			<section class="article-chapter-section wrapper-columns-two width-xw wrapper-centered">
 				<div class="wrapper-sticky">
 					<p class="article-text">
-						<strong>В качестве интерфейсного шрифтового семейства — без засечек — была выбрана гарнитура <a href="https://rsms.me/inter" title="Сайт гарнитуры Inter" target="_blank">Inter</a></strong></strong> авторства Расмуса Андрессона — пожалуй, лучший из доступных на момент старта работ по редизайну бесплатных неогротесков с прекрасной читабельностью текста в малых кеглях на экранах.
+						<strong>В качестве интерфейсного шрифтового семейства — без засечек — была выбрана гарнитура <a href="https://rsms.me/inter" title="Сайт гарнитуры Inter" target="_blank">Inter</a></strong> авторства Расмуса Андрессона — пожалуй, лучший из доступных на момент старта работ по редизайну бесплатных неогротесков с прекрасной читабельностью текста в малых кеглях на экранах.
 					</p>
-					<p class="article-text">
-						Отдельный плюс «Интера» — впечатляющие возможности стилизации и кастомизации текста за счет широкого спектра лигатур. Это позволило настроить нужный вариант отображения цифр, форму точек и запятых, соотносящихся с рубленым характером логотипа бренда. 
-					</p>
-				</div>	
-				<div class="wrapper-sticky">
-						<img src="/assets/img/design/design-systems/pln/font-inter-1.svg" class="img-bg" alt="Шрифт Inter" />
-						<img src="/assets/img/design/design-systems/pln/font-inter-2.svg" class="img-bg" alt="Шрифт Inter" />
+					<p class="article-text">Отдельный плюс «Интера» — впечатляющие возможности стилизации и кастомизации текста за счет широкого спектра лигатур. Это позволило настроить нужный вариант отображения цифр, форму точек и запятых, соотносящихся с рубленым характером логотипа бренда.</p>
 				</div>
-			</div>
-			<div class="article-chapter-section wrapper-columns-two width-xw wrapper-centered">
 				<div class="wrapper-sticky">
-					<p class="article-text">
-						<strong>А шрифтом с засечками — для основных массивов текста статей — стала специальная гарнитура <a href="https://github.com/stipub/stixfonts" title="Репозитарий гарнитуры Stix Two Text" target="_blank">Stix Two Text</a></strong></strong>, созданная в рамках STIX Project для научных, технических и медицинских публикаций в цифровой среде — с упором на удобство восприятия текста в небольших кеглях и на экранах разного качества.
-					</p>
-				</div>	
-				<div class="wrapper-sticky">
-					<img src="/assets/img/design/design-systems/pln/font-stix-1.svg" class="img-bg" alt="Шрифт Stix Two Text" />
-					<img src="/assets/img/design/design-systems/pln/font-stix-2.svg" class="img-bg" alt="Шрифт Stix Two Text" />
+					<img src="/assets/img/design/design-systems/pln/font-inter-1.svg" class="img-bg" alt="Шрифт Inter" />
+					<img src="/assets/img/design/design-systems/pln/font-inter-2.svg" class="img-bg" alt="Шрифт Inter" />
 				</div>
-			</div>
-			<div class="article-chapter-section wrapper-columns-two width-xw wrapper-centered">
-				<div class="wrapper-sticky">
-					<p class="article-text">
-						Для таблицы размеров текста был подобран <strong>набор базовых токенов на основе функции clamp()</strong>, гибко адаптирующей кегль шрифта в зависимости от размера экрана между двумя крайними значениями.
-					</p>
-				</div>	
-				<div class="wrapper-sticky">
-					<img src="/assets/img/design/design-systems/pln/pln-ds-typography.webp" class="article-img" alt="Таблица базовых токенов типографики для редизайна «Псковской ленты новостей»" />
-					</div>
-				</div>
-			</div>
-			<div class="article-chapter-section">
-				<h3 class="article-chapter-subtitle" data-toc="Цвета" id="colors">Цветовая палитра</h3>
-				<p class="article-text">
-					<strong>У бренда была фирменная цветовая лакуна — оттенки бордо</strong>. Между тем, при каждом редизайне конкретный цвет бренда всякий раз слегка видоизменялся в заданных рамках, то есть жесткого канона не существовало. Поэтому, ввиду замечаний некоторых пользователей об ощущении слишком тёмного и даже «грязного» дизайна, было решено слегко освежить фирменный цвет, подняв и яркость, и насыщенность.
-				</p>
-				<p class="article-text">
-					Также <strong>нужен был набор базовых цветовых токенов для оформления контента и интерфейса сразу в двух вариантах — для светлой и тёмной темы</strong>. Последнюю решено было внедрить для удобства предпочитающих именно тёмную тему пользователей. В результате получились наборы цветов для основного монотонного контента (текста, контуров иконок), для фона, для границ и разделителей. А уже затем с привязкой к базовым токенам были сформированы токены семантические — для конкретных элементов интерфейса.
-				</p>
-				<img src="/assets/img/design/design-systems/pln/pln-ds-color.webp" class="article-img width-main wrapper-centered" alt="Таблица базовых цветовых токенов для редизайна «Псковской ленты новостей»" />
-			</div>
-			<div class="article-chapter-section">
-				<h3 class="article-chapter-subtitle" data-toc="Логотипы" id="logos">Логотипы</h3>
-				<p class="article-text">
-					Предыдущая версия логотипа, существовавшая с 2013 года, была слегка доработана не только по цвету, но и по форме. Во-первых, был заменён шрифт букв, во-вторых, была убрана расшифровывающая надпись, поскольку исследования показали, что большинство пользователей воспринимает бренд именно в виде аббревиатуры, а с расшифровкой даже иногда путается, смешивая названия бренда и его основного конкурента. И, наконец, были скорректированы отступы между квадратами, сделав логотип более плотным.
-				</p>
-				<p class="article-text">
-					За счет увеличения эффекта плотностности и цельности логотипа впоследствии был использован приём использования эмблемы в шапке сайта и в промо-продукции как своего рода этикетки — без отступа от края слева.
-				</p>
-				<Tabs id="pln-logo-compare" class="tabs-container-main" defaultTab={1}>
-					<TabList label="Варианты логотипа ПЛН: старый и новый">
-						<Tab id="pln-logo-compare-tab-1" controls="pln-logo-compare-panel-q">Было</Tab>
-						<Tab id="pln-logo-compare-tab-2" controls="pln-logo-compare-panel-2" selected>Стало</Tab>
-					</TabList>
-					<TabPanels>
-						<TabPanel id="pln-logo-compare-panel-1" labelledby="pln-logo-compare-tab-1" selected>
-							<section class="pln-logo-compare">
-								<img src="/assets/img/design/design-systems/pln/pln-logo-old.svg" class="pln-logo-compare--img" alt="Старый логотип «Псковской ленты новостей» (2013-2020 годы)" />
-							</section>
-						</TabPanel>
-						<TabPanel id="pln-logo-compare-panel-2" labelledby="pln-logo-compare-tab-1">
-							<section class="pln-logo-compare">
-								<img src="/assets/img/design/design-systems/pln/pln-logo-new.svg" class="pln-logo-compare--img" alt="Новый логотип «Псковской ленты новостей» (с 2020 года)" />
-							</section>
-						</TabPanel>
-					</TabPanels>
-				</Tabs>
-				<p class="article-text">
-					Впоследствии на базе обновленного логотипа были разработаны или доработаны логотипы продуктов бренда, например, логотип радиостанции ПЛН-ФМ и логотип направления документальных фильмов и стримминговых передач ПЛН-ТВ.
-				</p>
-				<div class="wrapper-columns-grid width-main">
-					<img src="/assets/img/design/design-systems/pln/pln-tv-logo.svg" class="img-bg" alt="Шрифт Inter" />
-					<img src="/assets/img/design/design-systems/pln/pln-fm-logo.svg" class="img-bg" alt="Шрифт Inter" />
-				</div>
-			</div>
+			</section>	
 		</section>
-		<section class="article-chapter">
-			<h2 class="article-chapter-title" data-toc="UX и UI" id="ux_and_ui">UX и UI</h2>
-			<h3 class="article-chapter-subtitle" data-toc="Шапка и навигация" id="header_and_nav">Шапка и навигация</h3>
-		</section>
-		<section class="article-chapter">
-			<div class="article-chapter-section wrapper-columns-two width-reset wrapper-centered">
-				<div class="wrapper--indentation">
-					<p class="img-caption">Старая версия главной страницы:</p>
-					<div class="mockup-wrapper shadow-h">
-						<picture>
-							<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/pln-general-old-m.webp" />
-							<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-old-1x.webp" />
-							<source media="(min-width: 961px) and (resolution: 2dppx), 
-								(min-width: 961px) and (resolution: 3dppx),
-								(min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-old-2x.webp" />
-							<img src="/assets/img/design/design-systems/pln/pln-general-old-2x.webp" alt="Старая версия главной страницы «Псковской ленты новостей»" />
-						</picture>
-					</div>
-				</div>
-				<div class="wrapper--indentation">
-					<p class="img-caption">Прототип редизайна главной страницы:</p>
-					<div class="mockup-wrapper shadow-h">
-						<picture>
-							<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/pln-general-new-m.webp" />
-							<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-new-1x.webp" />
-							<source media="(min-width: 961px) and (resolution: 2dppx), 
-								(min-width: 961px) and (resolution: 3dppx),
-								(min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-new-2x.webp" />
-							<img src="/assets/img/design/design-systems/pln/pln-general-new-2x.webp" alt="Исходный концепт редизайна главной страницы «Псковской ленты новостей»" />
-						</picture>
-					</div>
+		<section class="article-chapter-section wrapper-columns-two width-xw wrapper-centered">
+			<div class="wrapper-sticky">
+				<p class="article-text">
+					<strong>А шрифтом с засечками — для основных массивов текста статей — стала специальная гарнитура <a href="https://github.com/stipub/stixfonts" title="Репозиторий гарнитуры Stix Two Text" target="_blank">Stix Two Text</a></strong>, созданная в рамках STIX Project для научных, технических и медицинских публикаций в цифровой среде — с упором на удобство восприятия текста в небольших кеглях и на экранах разного качества.
+				</p>
+			</div>
+			<div class="wrapper-sticky">
+				<img src="/assets/img/design/design-systems/pln/font-stix-1.svg" class="img-bg" alt="Шрифт Stix Two Text" />
+				<img src="/assets/img/design/design-systems/pln/font-stix-2.svg" class="img-bg" alt="Шрифт Stix Two Text" />
+			</div>
+		</section>	
+	</section>
+	<section class="article-chapter-section wrapper-columns-two width-xw wrapper-centered">
+		<div class="wrapper-sticky">
+			<p class="article-text">
+				Для таблицы размеров текста был подобран <strong>набор базовых токенов на основе функции clamp()</strong>, гибко адаптирующей кегль шрифта в зависимости от размера экрана между двумя крайними значениями.
+			</p>
+		</div>
+		<div class="wrapper-sticky">
+			<img src="/assets/img/design/design-systems/pln/pln-ds-typography.webp" class="article-img" alt="Таблица базовых токенов типографики для редизайна «Псковской ленты новостей»" />
+		</div>
+	</section>
+	<div class="article-chapter-section">
+		<h3 class="article-chapter-subtitle" data-toc="Цвета" id="colors">Цветовая палитра</h3>
+		<p class="article-text">
+			<strong>У бренда была фирменная цветовая лакуна — оттенки бордо</strong>. Между тем, при каждом редизайне конкретный цвет бренда всякий раз слегка видоизменялся в заданных рамках, то есть жесткого канона не существовало. Поэтому, ввиду замечаний некоторых пользователей об ощущении слишком
+			тёмного и даже «грязного» дизайна, было решено слегка освежить фирменный цвет, подняв и яркость, и насыщенность.
+		</p>
+		<p class="article-text">
+			Также <strong>нужен был набор базовых цветовых токенов для оформления контента и интерфейса сразу в двух вариантах — для светлой и тёмной темы</strong>. Последнюю решено было внедрить для удобства предпочитающих именно тёмную тему пользователей. В результате получились наборы цветов для
+			основного монотонного контента (в первую очередь текста и иконок), для фона, для границ и разделителей. А уже затем с привязкой к базовым были сформированы семантические токены для элементов интерфейса.
+		</p>
+		<img src="/assets/img/design/design-systems/pln/pln-ds-color.webp" class="article-img width-main wrapper-centered" alt="Таблица базовых цветовых токенов для редизайна «Псковской ленты новостей»" />
+	</div>
+	<div class="article-chapter-section">
+		<h3 class="article-chapter-subtitle" data-toc="Логотипы" id="logos">Логотипы</h3>
+		<p class="article-text">
+			Предыдущая версия логотипа, существовавшая с 2013 года, была слегка доработана не только по цвету, но и по форме. Во-первых, был заменён шрифт букв, во-вторых, была убрана расшифровывающая надпись, поскольку исследования показали, что большинство пользователей воспринимает бренд именно в виде
+			аббревиатуры, а с расшифровкой даже иногда путается, смешивая названия бренда и его основного конкурента. И, наконец, были скорректированы отступы между квадратами, сделав логотип более плотным.
+		</p>
+		<p class="article-text">За счет усиления эффекта плотности и цельности логотипа впоследствии был использован приём использования эмблемы в шапке сайта и в промо-продукции как своего рода этикетки — без отступа от левой границы фрейма.</p>
+		<Tabs id="pln-logo-compare" class="tabs-container-main" defaultTab={1}>
+			<TabList label="Варианты логотипа ПЛН: старый и новый">
+				<Tab id="pln-logo-compare-tab-1" controls="pln-logo-compare-panel-q">Было</Tab>
+				<Tab id="pln-logo-compare-tab-2" controls="pln-logo-compare-panel-2" selected>Стало</Tab>
+			</TabList>
+			<TabPanels>
+				<TabPanel id="pln-logo-compare-panel-1" labelledby="pln-logo-compare-tab-1" selected>
+					<section class="pln-logo-compare">
+						<img src="/assets/img/design/design-systems/pln/pln-logo-old.svg" class="pln-logo-compare--img" alt="Старый логотип «Псковской ленты новостей» (2013-2020 годы)" />
+					</section>
+				</TabPanel>
+				<TabPanel id="pln-logo-compare-panel-2" labelledby="pln-logo-compare-tab-1">
+					<section class="pln-logo-compare">
+						<img src="/assets/img/design/design-systems/pln/pln-logo-new.svg" class="pln-logo-compare--img" alt="Новый логотип «Псковской ленты новостей» (с 2020 года)" />
+					</section>
+				</TabPanel>
+			</TabPanels>
+		</Tabs>
+		<p class="article-text">Впоследствии на базе обновленного логотипа были разработаны или доработаны логотипы продуктов бренда, например, логотип радиостанции ПЛН-ФМ и логотип направления документальных фильмов и стримминговых передач ПЛН-ТВ.</p>
+		<div class="wrapper-columns-grid width-main">
+			<img src="/assets/img/design/design-systems/pln/pln-tv-logo.svg" class="img-bg" alt="Шрифт Inter" />
+			<img src="/assets/img/design/design-systems/pln/pln-fm-logo.svg" class="img-bg" alt="Шрифт Inter" />
+		</div>
+	</div>
+	<section class="article-chapter animation-scroll-fadeup">
+		<h2 class="article-chapter-title" data-toc="UX и UI" id="ux_and_ui">UX и UI</h2>
+		<h3 class="article-chapter-subtitle" data-toc="Шапка и навигация" id="header_and_nav">Шапка и навигация</h3>
+	</section>
+	<section class="article-chapter">
+		<div class="article-chapter-section wrapper-columns-two width-reset wrapper-centered">
+			<div class="wrapper--indentation">
+				<p class="img-caption">Старая версия главной страницы:</p>
+				<div class="mockup-wrapper shadow-h">
+					<picture>
+						<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/pln-general-old-m.webp" />
+						<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-old-1x.webp" />
+						<source media="(min-width: 961px) and (resolution: 2dppx), 
+									(min-width: 961px) and (resolution: 3dppx),
+									(min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-old-2x.webp" />
+						<img src="/assets/img/design/design-systems/pln/pln-general-old-2x.webp" alt="Старая версия главной страницы «Псковской ленты новостей»" />
+					</picture>
 				</div>
 			</div>
-		</section>
+			<div class="wrapper--indentation">
+				<p class="img-caption">Прототип редизайна главной страницы:</p>
+				<div class="mockup-wrapper shadow-h">
+					<picture>
+						<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/pln-general-new-m.webp" />
+						<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-new-1x.webp" />
+						<source media="(min-width: 961px) and (resolution: 2dppx), 
+									(min-width: 961px) and (resolution: 3dppx),
+									(min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-new-2x.webp" />
+						<img src="/assets/img/design/design-systems/pln/pln-general-new-2x.webp" alt="Исходный концепт редизайна главной страницы «Псковской ленты новостей»" />
+					</picture>
+				</div>
+			</div>
+		</div>
 	</section>
 </LayoutArticle>
 

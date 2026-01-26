@@ -3,8 +3,8 @@
 ---
 
 <section class="section_cards">
-	<h2 class="section_cards_subtitle">Дизайн-системы</h2>
-	<section class="section_cards_wrapper">
+	<h2 class="section_cards_subtitle animation-scroll-fadeup">Дизайн-системы</h2>
+	<section class="section_cards_wrapper animation-scroll-fadeup">
 		<a href="/design/design-systems/pln-redesign" class="page_card_linkwrapper">
 			<article class="page_card">
 				<div class="page_card_cover">
@@ -81,14 +81,6 @@
 			scroll-padding-inline: 1.2rem;
 			scrollbar-width: none;
 			position: relative;
-			animation: card--show 0.7s ease-in-out;
-			-webkit-animation: card--show 0.7s ease-in-out;
-			animation-timeline: view(block);
-			animation-range-start: cover 0%;
-			animation-range-end: cover 45%;
-			@starting-style {
-				transform: translateY(200px);
-			}
 		}
 	}
 	a.page_card_linkwrapper {
@@ -105,10 +97,10 @@
 					transform: scale(110%) rotate(15deg);
 				}
 				& .entry-to-left {
-					transform: translateX(-45%) translateY(-102%)!important;
+					transform: translateX(-45%) translateY(-102%) !important;
 				}
 				& .entry-to-right {
-					transform: translateX(0%) translateY(102%)!important;
+					transform: translateX(0%) translateY(102%) !important;
 				}
 				& .page_card_cover--secondary {
 					filter: blur(2px);
@@ -126,7 +118,7 @@
 		scroll-snap-align: start;
 		position: relative;
 		display: grid;
-    grid-template-rows: min-content min-content 1fr;
+		grid-template-rows: min-content min-content 1fr;
 		overflow: clip;
 		width: 100%;
 		min-width: 330px;
@@ -202,13 +194,19 @@
 			gap: var(--space-xs);
 		}
 		& .page_card_title {
-			font-variation-settings: "opsz" 13, "wght" var(--font-weight-bold), "GRAD" var(	--font-grade-chapter-subtitle) !important;
+			font-variation-settings:
+				"opsz" 13,
+				"wght" var(--font-weight-bold),
+				"GRAD" var(--font-grade-chapter-subtitle) !important;
 			line-height: 1.2;
 		}
 		& .page_card_subtitle {
 			font-size: var(--font-size-main);
-			font-variation-settings: "opsz" 16, "wght" var(--font-weight-main), "GRAD" var(--font-grade-medium) !important;
-			opacity: .7;
+			font-variation-settings:
+				"opsz" 16,
+				"wght" var(--font-weight-main),
+				"GRAD" var(--font-grade-medium) !important;
+			opacity: 0.7;
 			line-height: 1.45;
 		}
 		& .page_card_description {
@@ -238,17 +236,6 @@
 			border-radius: var(--radius-button-main);
 			-webkit-backdrop-filter: blur(2px);
 			backdrop-filter: blur(3px);
-		}
-	}
-
-	@keyframes card--show {
-		from {
-			opacity: 0;
-			transform: translateY(200px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0px);
 		}
 	}
 </style>

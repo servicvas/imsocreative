@@ -12,7 +12,7 @@ interface Props {
 	ogImage?: string;
 }
 
-const { title = "Серге Васильев: портфолио", description = "Мультидисциплинарный продуктовый дизайнер с опытом в веб-разработке, управлении медиа и ИТ-проектами", ogImage, ...rest } = Astro.props as Props;
+const { title = "Сергей Васильев: портфолио", description = "Мультидисциплинарный продуктовый дизайнер с опытом в веб-разработке, управлении медиа и ИТ-проектами", ogImage, ...rest } = Astro.props as Props;
 
 const fullDescription = description ? `${description} / портфолио Сергея Васильева` : "Портфолио Сергея Васильева";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);

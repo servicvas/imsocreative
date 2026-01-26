@@ -1,11 +1,12 @@
 ---
 import LayoutSiteSection from "$layouts/LayoutSiteSection.astro";
+import CardDev from "$components/ui/CardDev.astro";
 ---
 
 <LayoutSiteSection title="Сергей Васильев: веб-разработка" headingTitle="Веб-разработка" description="Описание проектов в области веб-разработки: первые сайты, примеры выполненных сайтов и лендингов, истории создания UI-китов">
 	<section class="article-body">
 		<section id="webdev-intro" class="article-chapter wrapper--indentation">
-			<h2 class="article-chapter-title">Если кратко...</h2>
+			<h2 class="article-chapter-title">Коротко</h2>
 			<p class="article-text">
 				Для понимания уровня моих навыков в веб-разработке: <mark>этот сайт — самописный, а не собранный на базе конструкторов</mark>. Я написал его самостоятельно, с минимальным использованием сторонних библиотек кроме необходимых служебных. Все анимации и эффекты на сайте настроены вручную. Сайт
 				написан на классическом стеке html / css / js на базе фреймворка Astro v5.x. Его код доступен в моем репозитории в GitHub.
@@ -16,17 +17,58 @@ import LayoutSiteSection from "$layouts/LayoutSiteSection.astro";
 			</p>
 		</section>
 		<section id="webdev-intro" class="article-chapter wrapper--indentation">
-			<h2 class="article-chapter-title">Примеры работ</h2>
+			<h2 class="article-chapter-title">Примеры заказной разработки сайтов</h2>
+			<p class="article-text">
+				Несколько примеров сайтов, в создании которых я принимал участие одновременно в качестве менеджера проекта, дизайнером и разработчика. В случае с мультиязычным сайтом художника и скульптора Наталии Вильвовской использовался классический стек на базе фремворка Astro с рендерингом карточек из
+				данных в json, остальные сайты — пример разработке на базе Tilda.
+			</p>
+		</section>
+		<section id="webdev-intro" class="article-chapter fullwidth wrapper--indentation animation-scroll-fadeup">
+			<div class="collection">
+				<CardDev cover="/assets/img/dev/screens/nvilvovskaya.webp" caption="Сайт Наталии Вильвовской" link="https://nvilvovskaya.com" />
+				<CardDev cover="/assets/img/dev/screens/kampoteks.webp" caption="Сайт швейной фабрики «Кампотекс»" link="https://kampoteks.ru" />
+				<CardDev cover="/assets/img/dev/screens/ag60.webp" caption="Сайт компании «Автономная газификация»" link="https://ag60.ru" />
+			</div>
+		</section>
+		<section id="webdev-intro" class="article-chapter wrapper--indentation">
+			<h2 class="article-chapter-title">Примеры лендингов / лонгридов</h2>
+			<p class="article-text">В «Псковской ленте новостей» (2020-2024):</p>
+		</section>
+		<section id="webdev-intro" class="article-chapter fullwidth wrapper--indentation animation-scroll-fadeup">
+			<div class="collection">
+				<CardDev cover="/assets/img/dev/screens/wedding.webp" caption="Свадьба от А до Я" link="https://home.pln24.ru/lngrd/142/index.html" />
+				<CardDev cover="/assets/img/dev/screens/covid.webp" caption="Коронный год: хроника развития пандемии" link="https://home.pln24.ru/ig/53/index.html" />
+				<CardDev cover="/assets/img/dev/screens/travel.webp" caption="В делёкие края: как отправится в путешествие" link="https://home.pln24.ru/lngrd/141/index.html" />
+				<CardDev cover="/assets/img/dev/screens/geely.webp" caption="Обзор купе-кроссовера Geely Tugella" link="https://home.pln24.ru/lngrd/182/index.html" />
+				<CardDev cover="/assets/img/dev/screens/yogurt.webp" caption="Сила живых бактерий" link="https://home.pln24.ru/lngrd/108/index.html" />
+				<CardDev cover="/assets/img/dev/screens/motherhood.webp" caption="Счастливое материнство: обзор-антистресс" link="https://home.pln24.ru/lngrd/167/index.html" />
+				<CardDev cover="/assets/img/dev/screens/vl-dynamic.webp" caption="Великолукская динамика: I квартал 2023" link="https://home.pln24.ru/lngrd/170/index.html" />
+				<CardDev cover="/assets/img/dev/screens/city-park.webp" caption="«Здесь будет город-парк»" link="https://home.pln24.ru/lngrd/81/index.html" />
+				<CardDev cover="/assets/img/dev/screens/gorvodokanal.webp" caption="Псковский горводоканал: 89 лет прогресса" link="https://home.pln24.ru/lngrd/176/index.html" />
+			</div>
+		</section>
+		<section id="webdev-intro" class="article-chapter wrapper--indentation">
+			<p class="article-text">В «Псковском агентстве информации» (2014-2020):</p>
+		</section>
+		<section id="webdev-intro" class="article-chapter fullwidth wrapper--indentation animation-scroll-fadeup">
+			<div class="collection">
+				<CardDev cover="/assets/img/dev/screens/turchak5years.webp" caption="Пятилетка Турчака" link="https://informpskov.ru/turchak5years" />
+				<CardDev cover="/assets/img/dev/screens/pskovtreasure.webp" caption="Псковские сокровища" link="https://informpskov.ru/pskovtreasure" />
+				<CardDev cover="/assets/img/dev/screens/pskov1917.webp" caption="Отречение" link="https://informpskov.ru/pskov1917" />
+				<CardDev cover="/assets/img/dev/screens/mobilemyth.webp" caption="Мобильные мифы" link="https://informpskov.ru/mobilemyth" />
+				<CardDev cover="/assets/img/dev/screens/pskovadventure.webp" caption="Приключения американца в России в 1920 году" link="https://informpskov.ru/pskovadventure" />
+				<CardDev cover="/assets/img/dev/screens/gerb_flag.webp" caption="10 вопросов о проекте флага и герба" link="https://informpskov.ru/gerb_flag" />
+			</div>
 		</section>
 		<section id="webdev-story" class="article-chapter wrapper--indentation">
 			<h2 class="article-chapter-title">Первые сайты</h2>
 			<p class="article-text">
 				Первые сайты я написал ещё учась в школе в обычном «Блокноте» в 2000&#8209;м году. Сначала был <strong><a href="https://pleskov.narod.ru/" rel="nofollow" target="_blank">сайт, посвящен моему родному городу — Пскову</a></strong>, а затем — уже настоящее <strong>
 					<a href="https://web.archive.org/web/20010603221923/http://province.hut.ru/files.shtml" rel="nofollow" target="_blank">онлайн&#8209;медиа под названием «Взгляд из провинции»</a>
-				</strong> — авторское СМИ, в котором под псевдонимом публиковались статьи моего отца — Виктора Васильева, работал форум и действовала рассылка. (Кстати, «Взгляд из провинции», фактически, был первым или одним из первых интернет&#8209;СМИ в истории Псковской области).
+				</strong> — авторское СМИ, в котором под псевдонимом публиковались статьи моего отца — Виктора Васильева, работал форум и действовала рассылка. (Кстати, «Взгляд из провинции», фактически, был первым или одним из первых интернет‑СМИ в истории Псковской области).
 			</p>
 			<p class="article-text">На удивление, без фронтенд-фреймворков, сборщиков и даже отдельных файлов CSS, с помощью табличной вёрстки мне тогда удалось сделать многостраничные адаптивные сайты, дизайн которых не разваливается даже на современных 4К&#8209;мониторах.</p>
-			<div id="first-site-examples">
+			<div id="first-site-examples" class="animation-scroll-fadeup">
 				<a href="https://pleskov.narod.ru/" title="Посмотреть сайт pleskov.narod.ru" target="_blank">
 					<img src="/assets/img/dev/old-site-pleskov.webp" id="old-site-pleskov" class="old-site-img" alt="Сайт pleskov.narod.ru" />
 				</a>
@@ -34,7 +76,7 @@ import LayoutSiteSection from "$layouts/LayoutSiteSection.astro";
 					<img src="/assets/img/dev/old-site-province.webp" id="old-site-province" class="old-site-img" alt="Сайт «Взгляд из провинции» province.hut.ru" />
 				</a>
 			</div>
-			<div class="article-inset article-inset--columns width-xw wrapper--indentation">
+			<div class="article-inset article-inset--columns width-xw wrapper--indentation animation-scroll-fadeup">
 				<p class="article-text">
 					Вообще, это было очень насыщенное переменами время: интернет был маленьким, так что мы с друзьями после школы делали сайты, которые упоминали на федеральном ТВ и в обзорах звёзд тогдашнего рунета! Не удивительно, что позднее, увидев документальный сериал об истории рунета, я задумал снять
 					нечто подобное, но на нашем псковском материале — об истории рунета в провинции. К сожалению, удалось выпустить только 1&#8209;й выпуск из подготовленного сценарного плана…
@@ -48,6 +90,10 @@ import LayoutSiteSection from "$layouts/LayoutSiteSection.astro";
 </LayoutSiteSection>
 
 <style>
+	.collection {
+		margin-block: var(--space-md);
+	}
+
 	#first-site-examples {
 		width: min(100%, 250rem);
 		margin-inline: auto;
