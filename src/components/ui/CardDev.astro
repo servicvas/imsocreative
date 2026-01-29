@@ -1,4 +1,6 @@
 ---
+// Компонент карточки веб-проекта / сайта
+
 interface Props {
 	link?: string;
 	cover?: string;
@@ -7,7 +9,7 @@ interface Props {
 
 const { link, cover, caption } = Astro.props;
 
-// Если link есть, используем 'a', если нет — 'Fragment' не создаст лишнего узла.
+// Если link есть, используем <a>, иначе обёртка через Fragment не создаст лишнего узла в DOM
 const Element = link ? "a" : Fragment;
 const attributes = link ? { href: link, class: "card-dev-linkwrapper", target: "_blank" } : {};
 ---
@@ -21,7 +23,13 @@ const attributes = link ? { href: link, class: "card-dev-linkwrapper", target: "
 				</div>
 			)
 		}
-		{caption && <figcaption>{caption}</figcaption>}
+		{
+			caption && (
+				<figcaption>
+					{caption}
+				</figcaption>
+			)
+		}
 		<div class="shine"></div>
 	</figure>
 </Element>
@@ -42,8 +50,8 @@ const attributes = link ? { href: link, class: "card-dev-linkwrapper", target: "
 			@supports (corner-shape: squircle) {
 				corner-shape: squircle;
 			}
-			outline: 3px solid var(--color-bg-xh);
-			outline-offset: var(--space-xxs);
+			outline: 4px solid var(--color-bg-xh);
+			/* outline-offset: var(--space-xxs); */
 			overflow: clip;
 			transition: scale 0.25s ease-in-out;
 			filter: drop-shadow(2px 14px 13px hsl(var(--shadow-color) / 0.53));
@@ -85,7 +93,6 @@ const attributes = link ? { href: link, class: "card-dev-linkwrapper", target: "
 	.card-dev-linkwrapper:focus {
 		& .card-dev-cover {
 			outline: 3px solid var(--color-link);
-			outline-offset: var(--space-xxs);
 		}
 	}
 

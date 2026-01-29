@@ -1,0 +1,136 @@
+---
+import LayoutArticle from "$layouts/LayoutArticle.astro";
+
+const breadcrumbsLabels = {
+	"pln-covers": "Обложки для публикаций в ПЛН",
+};
+
+import { Image } from "astro:assets";
+
+const imagePaths = Array.from({ length: 36 }, (_, i) => {
+	const index = String(i + 1).padStart(2, "0");
+	return `/assets/img/design/communications/pln-covers/pln_cover_${index}.webp`;
+});
+
+const chunks = [];
+for (let i = 0; i < imagePaths.length; i += 6) {
+	chunks.push(imagePaths.slice(i, i + 6));
+}
+---
+
+<LayoutArticle title="Обложки для статей, оформление передач и инфографика в медиа" description="Примеры коммуникационного дизайна: обложки журналистских материалов, инфографика, мерч, айдентика передач. 2020-2024 годы" headingTitle="Обложки для статей, оформление передач и инфографика в медиа" subtitle="Примеры коммуникационного дизайна: обложки журналистских материалов, инфографика, мерч, айдентика передача" breadcrumbsLabels={breadcrumbsLabels} date="2020-2024 годы" customer="Медиахолдинг «Гражданская пресса»" customerLink="/about#pln">
+	<section class="article-lid animation-scroll-fadeup" data-toc="Введение" id="lid">
+		<p>Работа в СМИ — это ежедневные срочные дизайн-задачи по созданию иллюстраций и инфографики, регулярные работы по брендированию новых медиапроектов, разработке их логотипов и айдентики, по разработке мерча, полиграфии, оформлению коммерческих предложений etc. Здесь — небольшая выжимка подобных работ для «Псковской ленты новостей».</p>
+	</section>
+	<section class="article-body">
+		<section class="article-chapter animation-scroll-fadeup">
+			<h2 class="article-chapter-title" data-toc="Иллюстрации для публикаций" id="illustrations">Иллюстрации для публикаций</h2>
+			<p class="article-text">Практически ежедневно в СМИ публиковалось по несколько статей и авторских колонок, которые чаще всего требовали креативной иллюстрации: для анонса на главной странице и в соцсетях. Как правило, редакционные процессы требовали изучить текст и подготовить для него иллюстрацию в экспресс-режиме.</p>
+		</section>
+		<section class="crosscrolling fullwidth">
+			{
+				chunks.map((chunk) => (
+					<div class="scrollline">
+						{chunk.map((src) => (
+							<Image src={src} alt="Пример обложки для публикации в «Псковской ленте новостей»" width={600} height={337} loading="eager" class="scrolline-item" />
+						))}
+					</div>
+				))
+			}
+		</section>
+		<section class="article-chapter animation-scroll-fadeup">
+			<h2 class="article-chapter-title" data-toc="Айдентика передач" id="identity">Айдентика передач</h2>
+			<p class="article-text">Отдельный пул работ: разработка логотипов и айдентики для передач, поскольку они не только звучали в радиоэфире, но и транслировались в видеостриммингах. В студии оформление передачи выводилось на экраны, каждый выпуск требовал индивидуальной обложке с указанием темы. Иногда обложки требовалось оформлять в виде тематических коллажей под конкретную тему выпуска.</p>
+		</section>
+		<section class="article-chapter fullwidth wrapper--indentation animation-scroll-fadeup">
+			<div class="collection collection-twoitems">
+				<img src="/assets/img/design/communications/radio-covers/kuznitsa.webp" class="collection-item" alt="Логотип и обложка для авторской передачи «Кузница» Любови Кузнецовой" title="Логотип и обложка для авторской передачи «Кузница» Любови Кузнецовой" loading="lazy" />
+				<img src="/assets/img/design/communications/radio-covers/delo_vkusa.webp" class="collection-item" alt="Обложка для авторской передачи Анны Машковой «Дело вкуса»" title="Обложка для авторской передачи Анны Машковой «Дело вкуса»" loading="lazy" />
+				<img src="/assets/img/design/communications/radio-covers/mudretsy.webp" class="collection-item" alt="Обложка передачи «Три мудреца»" title="Обложка передачи «Три мудреца»" loading="lazy" />
+				<img src="/assets/img/design/communications/radio-covers/vrubel.webp" class="collection-item" alt="Обложка еженедельной аналитической передачи об экономике «Врубель»" title="Обложка еженедельной аналитической передачи об экономике «Врубель»" loading="lazy" />
+				<img src="/assets/img/design/communications/radio-covers/ezhednevnik.webp" class="collection-item" alt="Логотип передачи «Ежедневник» на ПЛН-ФМ" title="Логотип передачи «Ежедневник» на ПЛН-ФМ" loading="lazy" />
+				<img src="/assets/img/design/communications/radio-covers/dabrishooting.webp" class="collection-item" alt="Обложка авторской передачи «Дабришутинг» с Диной Дабришюте" title="Обложка авторской передачи «Дабришутинг» с Диной Дабришюте" loading="lazy" />
+				<img src="/assets/img/design/communications/radio-covers/pressing.webp" class="collection-item" alt="Обложка передачи «Прессинг», посвящённой СМИ" title="Обложка передачи «Прессинг», посвящённой СМИ" loading="lazy" />
+				<img src="/assets/img/design/communications/radio-covers/gordozor.webp" class="collection-item" alt="Обложка урбанистической передачи «Гордозор»" title="Обложка урбанистической передачи «Гордозор»" loading="lazy" />
+				<img src="/assets/img/design/communications/radio-covers/war_chronicle.webp" class="collection-item" alt="Обложка исторической передачи «Летопись воинской славы Псковской земли»" title="Обложка исторической передачи «Летопись воинской славы Псковской земли»" loading="lazy" />
+				<img src="/assets/img/design/communications/radio-covers/family_values.webp" class="collection-item" alt="Обложка первого сезона передачи «Семейные ценности»" title="Обложка первого сезона передачи «Семейные ценности»" loading="lazy" />
+			</div>
+		</section>
+		<section class="article-chapter animation-scroll-fadeup">
+			<h2 class="article-chapter-title" data-toc="Инфографика" id="infographics">Инфографика</h2>
+			<p class="article-text">Примеры созданных публикаций с инфографикой. Как правило, я выполнял полный цикл производства: от поиска темы и сбора данных до оформления графики.</p>
+			<picture class="fullwidth inphographics-set">
+				<source media="(max-width: 960px)" srcset="/assets/img/design/communications/pln-communications/infographics-set-m.webp" />
+				<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/communications/pln-communications/infographics-set-1x.webp" />
+				<source media="(min-width: 961px) and (resolution: 2dppx), 
+        (min-width: 961px) and (resolution: 3dppx),
+        (min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/communications/pln-communications/infographics-set-2x.webp" />
+				<img src="/assets/img/design/communications/pln-communications/infographics-set-2x.webp" class="article-img fullwidth" alt="Пример инфографики для ПЛН" loading="lazy" />
+			</picture>
+		</section>
+		<section class="article-chapter animation-scroll-fadeup">
+			<h2 class="article-chapter-title" data-toc="Мерч" id="merch">Мерч</h2>
+			<p class="article-text">Примеры брендирования фирменной одежды. В принтах на этих майках транслируются ключевые тезисы позиционирования «Псковской ленты новостей»: идеи открытости, демократичности и ориентира на интересы читателей.</p>
+			<picture class="fullwidth">
+				<source media="(max-width: 960px)" srcset="/assets/img/design/communications/pln-communications/pln-tshirts-m.webp" />
+				<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/communications/pln-communications/pln-tshirts-1x.webp" />
+				<source media="(min-width: 961px) and (resolution: 2dppx), 
+        (min-width: 961px) and (resolution: 3dppx),
+        (min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/communications/pln-communications/pln-tshirts-2x.webp" />
+				<img src="/assets/img/design/communications/pln-communications/pln-tshirts-2x.webp" class="article-img fullwidth" alt="Пример мерча для сотрудников ПЛН" loading="lazy" />
+			</picture>
+		</section>
+	</section>
+</LayoutArticle>
+
+<style>
+	.collection {
+		margin-block: var(--space-md);
+	}
+	.crosscrolling {
+		overflow-x: clip;
+		white-space: nowrap;
+		margin-block: var(--space-xl);
+		& .scrollline {
+			display: flex;
+			width: max-content;
+			gap: var(--space-main);
+			margin-block-end: var(--space-main);
+			animation: covers-scrolling-to-right linear forwards;
+			animation-timeline: view();
+			animation-range: entry 0% cover 70%;
+			&:nth-child(even) {
+				animation: covers-scrolling-to-left linear forwards;
+				animation-timeline: view();
+				animation-range: entry 0% cover 70%;
+			}
+		}
+		& .scrolline-item {
+			@media screen and (width < 1200px) {
+				width: 360px;
+				height: 205px;
+			}
+		}
+	}
+
+	.inphographics-set {
+		border-block-end: 2px solid var(--color-separator-main);
+	}
+
+	@keyframes covers-scrolling-to-right {
+		from {
+			transform: translateX(300vw);
+		}
+		to {
+			transform: translateX(calc(-1 * (100% - (100vw - var(--space-main)))));
+		}
+	}
+	@keyframes covers-scrolling-to-left {
+		from {
+			transform: translateX(-150%);
+		}
+		to {
+			transform: translateX(var(--space-main));
+		}
+	}
+</style>

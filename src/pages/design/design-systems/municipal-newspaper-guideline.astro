@@ -18,20 +18,9 @@ for (let i = 0; i < imagePaths.length; i += 12) {
 }
 ---
 
-<LayoutArticle
-	title="Дизайн‑система для объединённой редакции 20+ газет"
-	description="Кейс разработки дизайн‑системы и унифицированного шаблона для объединения муниципальных газет Псковской области. 2019 год"
-	headingTitle="Разработка и внедрение дизайн‑системы и унифицированного шаблона для объединения муниципальных газет Псковской области"
-	subtitle="Как с помощью дизайн-системы сэкономить 2640 человекочасов в месяц"
-	breadcrumbsLabels={breadcrumbsLabels}
-	date="2019 год"
-	customer="АНО ИД «Медиа 60»"
-	customerLink="/about#mhpo"
->
+<LayoutArticle title="Дизайн‑система для объединённой редакции 20+ газет" description="Кейс разработки дизайн‑системы и унифицированного шаблона для объединения муниципальных газет Псковской области. 2019 год" headingTitle="Разработка и внедрение дизайн‑системы и унифицированного шаблона для объединения муниципальных газет Псковской области" subtitle="Как с помощью дизайн-системы сэкономить 2640 человекочасов в месяц" breadcrumbsLabels={breadcrumbsLabels} date="2019 год" customer="АНО ИД «Медиа 60»" customerLink="/about#mhpo">
 	<section class="article-lid animation-scroll-fadeup" data-toc="Введение" id="lid">
-		<p>
-			В конце 2018 года Администрация Псковской области запустила реформу муниципальных СМИ: все районные газеты (а их было 24 не считая муниципальных изданий городских округов) планировали объединить в государственный холдинг. При этом требовалось сократить производственные расходы на вёрстку и одновременно — повысить уровень визуального оформления газет.
-		</p>
+		<p>В конце 2018 года Администрация Псковской области запустила реформу муниципальных СМИ: все районные газеты (а их было 24 не считая муниципальных изданий городских округов) планировали объединить в государственный холдинг. При этом требовалось сократить производственные расходы на вёрстку и одновременно — повысить уровень визуального оформления газет.</p>
 	</section>
 	<section class="article-body">
 		<section class="article-chapter animation-scroll-fadeup">
@@ -45,7 +34,7 @@ for (let i = 0; i < imagePaths.length; i += 12) {
 				chunks.map((chunk) => (
 					<div class="scrollline">
 						{chunk.map((src) => (
-							<Image src={src} alt="Страница документации дизайн-системы и инструкций по использованию унифицированного шаблона муниципальных газет" width={283} height={400} loading="lazy" class="scrolline-item" />
+							<Image src={src} alt="Страница документации дизайн-системы и инструкций по использованию унифицированного шаблона муниципальных газет" width={283} height={400} loading="eager" class="scrolline-item" />
 						))}
 					</div>
 				))
@@ -61,15 +50,16 @@ for (let i = 0; i < imagePaths.length; i += 12) {
 		margin-block: var(--space-xl);
 		& .scrollline {
 			display: flex;
+			width: max-content;
 			gap: var(--space-main);
 			margin-block-end: var(--space-main);
-			animation: horizontal-scrolling-to-right linear forwards;
+			animation: pages-scrolling-to-right linear forwards;
 			animation-timeline: view();
-			animation-range: entry 0% cover 90%;
+			animation-range: entry 0% cover 80%;
 			&:nth-child(even) {
-				animation: horizontal-scrolling-to-left linear forwards;
+				animation: pages-scrolling-to-left linear forwards;
 				animation-timeline: view();
-				animation-range: entry 0% cover 90%;
+				animation-range: entry 0% cover 80%;
 			}
 		}
 		& .scrolline-item {
@@ -80,20 +70,20 @@ for (let i = 0; i < imagePaths.length; i += 12) {
 		}
 	}
 
-	@keyframes horizontal-scrolling-to-right {
+	@keyframes pages-scrolling-to-right {
 		from {
-			transform: translateX(90%);
+			transform: translateX(150vw);
 		}
 		to {
-			transform: translateX(-150%);
+			transform: translateX(calc(-1 * (100% - (100vw - var(--space-main)))));
 		}
 	}
-	@keyframes horizontal-scrolling-to-left {
+	@keyframes pages-scrolling-to-left {
 		from {
-			transform: translateX(-200%);
+			transform: translateX(-110%);
 		}
 		to {
-			transform: translateX(90%);
+			transform: translateX(var(--space-main));
 		}
 	}
 </style>
