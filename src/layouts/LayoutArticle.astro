@@ -21,8 +21,8 @@ const { title, description, headingTitle, ogImage, breadcrumbsLabels = {}, date,
 
 const hasBreadcrumbLabels = Object.keys(breadcrumbsLabels).length > 0;
 
-if (!title || !date || !customer || !customerLink) {
-	throw new Error("ArticleLayout требует: title, date, customer, customerLink");
+if (!title || !date ) {
+	throw new Error("ArticleLayout требует: title, date");
 }
 
 if (!hasBreadcrumbLabels) {

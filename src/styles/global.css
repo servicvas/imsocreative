@@ -107,6 +107,7 @@
 	--radius-button-xl: 1rem;
 	--radius-button-xxl: 1.2rem;
 	--radius-button-xxxl: 1.5rem;
+	--radius-button-largest: 2rem;
 
 	/* Semantic tokens */
 
@@ -194,7 +195,7 @@
 	--color-brand-softest: oklch(0.1 0.021 283.52);
 
 	--color-button-icon-controls: var(--color-link);
-	--color-button-bg-main: oklch(from var(--color-content-xxs) l c h / 25%);
+	--color-button-bg-main: oklch(from var(--color-bg-xh) l c h / 60%);
 	--color-button-bg-focus: oklch(from var(--color-brand-main) l c h / 90%);
 	--color-button-bg-hover: oklch(from var(--color-brand-main) l c h / 55%);
 	--color-button-bg-colored: oklch(from var(--color-brand-main) l c h / 75%);
@@ -371,7 +372,7 @@ summary {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-main);
-	& :is(.article-head, .article-lid, .article-body, .article-chapter, .article-chapter-section:not(.wrapper-columns-two), .wrapper-sticky, :is(ul, ol):not(.breadcrumb, .toc-list, .toc-list *)) {
+	& :is(.article-head, .article-lid, .article-body, .article-chapter, .article-chapter-section:not(.wrapper-columns-two), .wrapper-sticky) {
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-article-gap);
@@ -427,8 +428,11 @@ summary {
 		& p {
 			width: var(--content-width-w);
 			font-size: var(--font-size-l);
-			font-variation-settings: "opsz" 10, "wght" var(--font-weight-medium), "GRAD" 16;
+			font-variation-settings: "opsz" 10, "wght" var(--font-weight-medium), "GRAD" var(--font-grade-main);
 			margin-inline: auto;
+			& > strong {
+				font-variation-settings: "opsz" 10, "wght" var(--font-weight-extrabold), "GRAD" var(--font-grade-chapter-title);
+			}
 		}
 	}
 	& .article-chapter-title {
@@ -497,6 +501,7 @@ summary {
 		padding-inline-start: var(--space-main) !important;
 		& li {
 			padding-inline-start: 0.3em !important;
+			margin-block-end: var(--space-article-gap);
 			list-style-position: outside;
 		}
 	}
@@ -938,7 +943,7 @@ a.pagecard-linkwrapper {
 		color: var(--color-content-xxs);
 		background: var(--color-bg-h);
 		border-radius: var(--radius-button-main);
-		-webkit-backdrop-filter: blur(2px);
+		-webkit-backdrop-filter: blur(3px);
 		backdrop-filter: blur(3px);
 		box-shadow: var(--shadow-main);
 	}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" baseProfile="tiny" version="1.2" class="header_partner-logo a-zoom" id="cdi-logo" title="Центр Деловой Информации" overflow="visible" viewBox="0 0 295.7 107.672">
+<linearGradient id="b"><stop offset="0%" stop-color="#000e82"/><stop offset="100%" stop-color="#57a0ff"/></linearGradient>
+<linearGradient id="c"><stop offset="0%" stop-color="#ff4548"/><stop offset="100%" stop-color="#ff6232"/></linearGradient>
+<linearGradient id="d"><stop offset="0%" stop-color="#ff672f"/><stop offset="100%" stop-color="#ff8d13"/></linearGradient>
+<linearGradient id="e"><stop offset="0%" stop-color="#ff920f"/><stop offset="100%" stop-color="#ffa600"/></linearGradient>
+<linearGradient id="a"><stop offset="0%" stop-color="#ffa600"/><stop offset="100%" stop-color="#ff4548"/></linearGradient>
+<path fill="url(#a)" d="M90.444 62.62 72.763 44.939l50.549.227-.227 50.662-17.567-17.454S61.429 133.683 0 92.315c39.555-3.06 39.782-29.808 39.782-29.808l50.662.113z"/>
+<path fill="url(#b)" d="M72.763 44.939 90.444 62.62l-50.662-.113.227-50.662 17.567 17.454s44.089-55.309 105.518-13.941c-39.555 3.06-39.782 29.808-39.782 29.808l-50.549-.227z"/>
+<path fill="url(#c)" d="M190.975 86.647V45.505h-8.274v41.142h-20.174s-4.76-.227-4.76-9.407V45.505h-8.274V76.9s-.793 18.474 12.014 18.474h25.841v8.841h7.934V86.534l-4.307.113z"/>
+<path fill="url(#d)" d="M245.151 86.647V44.939l-26.181.567s-15.301.34-15.301 22.894v18.247h-3.4v17.68h7.934v-8.84h33.095v8.84h7.934v-17.68h-4.081zm-8.274 0h-24.934V66.586s1.133-12.921 10.087-12.921h14.847v32.982z"/>
+<path fill="url(#e)" d="M254.331 45.505v49.869h8.161v-8.5l24.934-17.227v25.727h8.274V45.505h-8.387v15.301l-24.821 17.228V45.505z"/>
+</svg>

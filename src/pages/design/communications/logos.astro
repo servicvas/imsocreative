@@ -1,0 +1,52 @@
+---
+import LayoutArticle from "$layouts/LayoutArticle.astro";
+
+import CardLogo from "$components/ui/Cardlogo.astro";
+
+const breadcrumbsLabels = {
+	logos: "Примеры разработанных логотипов",
+};
+---
+
+<LayoutArticle title="Логотипы | Портфолио Сергея Васильева" description="Выборка разноплановых эмблем, изготовленных с 2006 по настоящее время" headingTitle="Логотипы" subtitle="Выборка разноплановых эмблем, изготовленных с 2006 по настоящее время" breadcrumbsLabels={breadcrumbsLabels} date="2006-2024 годы">
+	<section class="article-body" data-toc="Подборка логотипов" id="logos">
+		<section class="article-chapter fullwidth wrapper--indentation animation-scroll-fadeup">
+			<div class="collection-logos">
+				<CardLogo logo="/assets/img/design/communications/logos/pushkinogorye-milk.svg" logo_bg="/assets/img/design/communications/logos/logos-bg/pushkinogorye-milk-bg.webp" caption="Концепт логотипа для бренда «Молочные продукты Пушкиногорья»" date="2024" />
+				<CardLogo logo="/assets/img/design/communications/logos/fjord-plaza.svg" logo_bg="/assets/img/design/communications/logos/logos-bg/fjord-plaza-bg.webp" caption="Концепт логотипа для ТРК Fjord Plaza в Пскове" date="2020" />
+				<CardLogo logo="/assets/img/design/communications/logos/media60.svg" logo_bg="/assets/img/design/communications/logos/logos-bg/media60-bg.webp" caption="Логотип медиахолдинга муниципальных газет «Медиа60»" date="2018" />
+				<CardLogo logo="/assets/img/design/communications/logos/yorsh-bar.svg" logo_bg="/assets/img/design/communications/logos/logos-bg/yorsh-bar-bg.webp" caption="Логотип пивного бара «Ёрш» в Гдове" date="2017" />
+				<CardLogo logo="/assets/img/design/communications/logos/art-estate.svg" logo_bg="/assets/img/design/communications/logos/logos-bg/art-estate-bg.webp" caption="Концепт логотипа агентства недвижимости Art Estate" date="2017" />
+				<CardLogo logo="/assets/img/design/communications/logos/fight-club.svg" logo_bg="/assets/img/design/communications/logos/logos-bg/fight-club-bg.webp" caption="Логотип школы единоборств «Бойцовский клуб» — суббренда сети фитнес-центров Xpress" date="2017" />
+				<CardLogo logo="/assets/img/design/communications/logos/tennis-academy-pskov.svg" logo_bg="/assets/img/design/communications/logos/logos-bg/tennis-academy-pskov-bg.webp" caption="Логотип Академии тенниса Пскова" date="2016" />
+				<CardLogo logo="/assets/img/design/communications/logos/xpress-fitness.svg" logo_bg="/assets/img/design/communications/logos/logos-bg/xpress-fitness-bg.webp" caption="Логотип сети фитнес-центров Xpress" date="2015" />
+				<CardLogo logo="/assets/img/design/communications/logos/izborsk-1150.svg" logo_bg="/assets/img/design/communications/logos/logos-bg/izborsk-1150-bg.webp" caption="Официальная эмблема празднования 1150-летия Изборска и Российской государственности" date="2011" />
+				<CardLogo logo="/assets/img/design/communications/logos/cdi-logo.svg" caption="Редизайн логотипа потребительского СМИ «Центр деловой информации»" date="2011" />
+				<CardLogo logo="/assets/img/design/communications/logos/pskov-honey.svg" logo_bg="/assets/img/design/communications/logos/logos-bg/pskov-honey-bg.webp" caption="Вариант логотипа на конкурс разработки айдентики для продукции псковских пчеловодов под маркой «Псковский мёд»" date="2011" />
+				<CardLogo logo="/assets/img/design/communications/logos/gardarika.svg" caption="Логотип фестиваля малых городов Псковской области «Гардарика»" date="2011" />
+				<CardLogo logo="/assets/img/design/communications/logos/pskov-tourist-logo.svg" logo_bg="/assets/img/design/communications/logos/logos-bg/pskov-tourist-logo-bg.webp" caption="Туристический логотип Псковской области в 2010-х годах" date="2010" />
+				<CardLogo logo="/assets/img/design/communications/logos/snow-city.svg" logo_bg="/assets/img/design/communications/logos/logos-bg/snow-city-bg.webp" caption="Логотип фестиваля зимних забав «Снежный град» в Пскове" date="2010" />
+				<CardLogo logo="/assets/img/design/communications/logos/public-press-center.svg" logo_bg="/assets/img/design/communications/logos/logos-bg/public-press-center-bg.webp" caption="Логотип Общественного пресс-центра Псковской ленты новостей" date="2010" />
+				<CardLogo logo="/assets/img/design/communications/logos/cifra-plus.svg" caption="Логотип центра цифровой печати «Цифра плюс»" date="2006" />
+			</div>
+		</section>
+	</section>
+</LayoutArticle>
+
+<style>
+	.collection-logos {
+		padding-inline: var(--layout-padding-inline);
+		margin-block: var(--space-md);
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: auto;
+		grid-auto-flow: dense;
+		gap: var(--space-main);
+		@media screen and (width > 960px) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+		@media screen and (width > 2400px) {
+			grid-template-columns: repeat(8, 1fr);
+		}
+	}
+</style>

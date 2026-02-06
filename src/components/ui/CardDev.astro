@@ -1,6 +1,4 @@
 ---
-// Компонент карточки веб-проекта / сайта
-
 interface Props {
 	link?: string;
 	cover?: string;
@@ -9,13 +7,12 @@ interface Props {
 
 const { link, cover, caption } = Astro.props;
 
-// Если link есть, используем <a>, иначе обёртка через Fragment не создаст лишнего узла в DOM
 const Element = link ? "a" : Fragment;
 const attributes = link ? { href: link, class: "card-dev-linkwrapper", target: "_blank" } : {};
 ---
 
 <Element {...attributes}>
-	<figure class="card-dev shine-overlay collection-item">
+	<figure class="card-dev collection-item">
 		{
 			cover && (
 				<div class="card-dev-cover">
@@ -23,14 +20,7 @@ const attributes = link ? { href: link, class: "card-dev-linkwrapper", target: "
 				</div>
 			)
 		}
-		{
-			caption && (
-				<figcaption>
-					{caption}
-				</figcaption>
-			)
-		}
-		<div class="shine"></div>
+		{caption && <figcaption>{caption}</figcaption>}
 	</figure>
 </Element>
 
@@ -43,6 +33,8 @@ const attributes = link ? { href: link, class: "card-dev-linkwrapper", target: "
 	.card-dev {
 		position: relative;
 		& .card-dev-cover {
+			position: relative;
+			overflow: clip;
 			width: 100%;
 			height: auto;
 			aspect-ratio: 16 / 9;
@@ -50,11 +42,29 @@ const attributes = link ? { href: link, class: "card-dev-linkwrapper", target: "
 			@supports (corner-shape: squircle) {
 				corner-shape: squircle;
 			}
-			outline: 4px solid var(--color-bg-xh);
-			/* outline-offset: var(--space-xxs); */
-			overflow: clip;
+			border: 4px solid var(--color-bg-xh);
 			transition: scale 0.25s ease-in-out;
-			filter: drop-shadow(2px 14px 13px hsl(var(--shadow-color) / 0.53));
+			box-shadow: var(--shadow-h);
+			&::after {
+				content: "";
+				position: absolute;
+				opacity: 0.5;
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.25) 75%, rgba(255, 255, 255, 0) 100%);
+				transform: skewX(30deg);
+				transition: none;
+			}
+			@media (hover: hover) and (pointer: fine) {
+				&:hover {
+					&::after {
+						left: 120%;
+						transition: all 0.5s ease-in-out;
+					}
+				}
+			}
 			& > .card-dev-cover--img {
 				width: 100%;
 				height: 100%;
@@ -65,16 +75,16 @@ const attributes = link ? { href: link, class: "card-dev-linkwrapper", target: "
 		& figcaption {
 			margin-block-start: var(--space-s);
 			font-family: var(--font-family-secondary);
-			font-size: var(--font-size-main);
+			font-size: var(--font-size-s);
 			font-kerning: auto;
 			font-optical-sizing: auto;
-			letter-spacing: -0.03em;
-			line-height: 1.1;
+			letter-spacing: -0.003em;
+			line-height: 1.2;
 			text-wrap: balance;
 			color: var(--color-content-s);
 			font-variation-settings:
 				"opsz" 8,
-				"wght" var(--font-weight-semibold),
+				"wght" var(--font-weight-regular),
 				"GRAD" var(--font-grade-chapter-subtitle);
 			position: relative;
 			z-index: +1;
@@ -85,51 +95,14 @@ const attributes = link ? { href: link, class: "card-dev-linkwrapper", target: "
 		.card-dev-linkwrapper:hover,
 		.card-dev-linkwrapper:focus {
 			& .card-dev-cover {
-				scale: 1.045;
+				scale: 1.05;
 			}
 		}
 	}
 
 	.card-dev-linkwrapper:focus {
 		& .card-dev-cover {
-			outline: 3px solid var(--color-link);
-		}
-	}
-
-	.shine-overlay {
-		position: relative;
-	}
-	.shine-overlay:hover .shine {
-		display: block;
-		scale: 1.045;
-	}
-	.shine {
-		display: none;
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		background: #fff;
-		background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
-		pointer-events: none;
-		z-index: 3;
-		opacity: 0;
-		transform: skew(30deg);
-		animation: shine 0.3s linear;
-	}
-	@keyframes shine {
-		0% {
-			left: -50%;
-			opacity: 0;
-		}
-		50% {
-			left: -10%;
-			opacity: 0.4;
-		}
-		100% {
-			left: 35%;
-			opacity: 0;
+			border: 3px solid var(--color-link);
 		}
 	}
 </style>
