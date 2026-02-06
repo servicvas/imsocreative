@@ -1,8 +1,8 @@
 {
-  "name": "Imsocreative.ru",
+  "name": "imsocreative",
   "description": "Портфолио Сергея Васильева — мультидисциплинарного продуктового и коммуникативного дизайнера из Пскова с бэкграундом в веб-разработке и управлении медиа и IT-проектами",
   "type": "module",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
