@@ -13,8 +13,8 @@ const imagePaths = Array.from({ length: 36 }, (_, i) => {
 });
 
 const chunks = [];
-for (let i = 0; i < imagePaths.length; i += 12) {
-	chunks.push(imagePaths.slice(i, i + 12));
+for (let i = 0; i < imagePaths.length; i += 6) {
+	chunks.push(imagePaths.slice(i, i + 6));
 }
 ---
 
@@ -72,18 +72,15 @@ for (let i = 0; i < imagePaths.length; i += 12) {
 
 	@keyframes pages-scrolling-to-right {
 		from {
-			transform: translateX(150vw);
+			transform: translateX(100%);
 		}
 		to {
-			transform: translateX(calc(-1 * (100% - (100vw - var(--space-main)))));
+			transform: translateX(calc(-1 * (100% - 100vw)));
 		}
 	}
 	@keyframes pages-scrolling-to-left {
 		from {
-			transform: translateX(-110%);
-		}
-		to {
-			transform: translateX(var(--space-main));
+			transform: translateX(-100%);
 		}
 	}
 </style>

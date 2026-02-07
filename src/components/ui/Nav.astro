@@ -4,15 +4,15 @@
 
 <section class="header-menu" id="menu">
 	<nav class="site-navigation" aria-labelledby="menu-title" role="navigation" aria-label="Меню с навигацией по сайту и контактными данными">
-    <span id="menu-title" hidden>Навигационное меню сайта</span>
+		<span id="menu-title" hidden>Навигационное меню сайта</span>
 		<ul>
 			<li><a href="/design" title="Раздел с кейсами в области дизайна">Дизайн</a></li>
-			<li><a href="/webdev" title="Раздел с кейсами в области веб-разработки">Веб-разработка</a></li>
+			<li><a href="/webdev" title="Раздел с кейсами в области веб-разработки">Веб&#x2060;-&#x2060;разработка</a></li>
 			<!-- <li><a href="/media" title="Раздел с примерами работы в медиа: фото, тексты, видео">Медиа</a></li> -->
 			<li><a href="/about" title="Раздел с описанием биографии и списком мест работы и достижений">Обо мне</a></li>
 		</ul>
 	</nav>
-  <section class="menu-contacts">
+	<section class="menu-contacts">
 		<div class="contact_phone">
 			<p>Телеграм: <a href="https://t.me/sergeyvasilyev" class="contact--link" title="Написать в Telegram">@sergeyvasilyev</a></p>
 		</div>
@@ -35,48 +35,50 @@
 			position: fixed;
 			top: 0;
 			right: 0;
-      will-change: transform;
+			will-change: transform;
 			transform: translateX(103%);
 			padding: var(--space-l);
 			color: var(--color-const-light);
-      border-radius: 4rem 0 0 6rem;
+			border-radius: 4rem 0 0 6rem;
 			transition: transform 0.4s cubic-bezier(0.74, 0.29, 0.33, 1.12);
-      @supports (corner-shape: squircle) {
-        corner-shape: squircle;
-      }
+			@supports (corner-shape: squircle) {
+				corner-shape: squircle;
+			}
 			& ul {
 				list-style: none;
 				padding-block: 4rem;
-        & li {
-          font-size: var(--font-size-l);
-          padding-block-end: var(--space-l);
-        }
-			}
-			& a {
-        all: unset;
-        cursor: pointer;
+				& li {
+					width: max-content;
+					font-size: var(--font-size-l);
+					padding-block-end: var(--space-l);
+					& a {
+						all: unset;
+						cursor: pointer;
+						width: max-content;
+					}
+				}
 			}
 			&.show_menu {
 				transform: translateX(3%);
 				box-shadow: -4px 0 40px rgba(1, 1, 1, 0.4);
 			}
 		}
-    .menu-contacts {
+		.menu-contacts {
 			display: flex;
 			flex-direction: column;
 			gap: var(--space-l);
-      & > * > p {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-xs);
-      }
+			& > * > p {
+				display: flex;
+				flex-direction: column;
+				gap: var(--space-xs);
+			}
 			& .contact--link {
 				font-family: var(--font-family-secondary);
 				font-size: var(--font-size-l);
-        font-weight: var(--font-weight-black);
+				font-weight: var(--font-weight-black);
 				color: var(--color-const-light);
 			}
-    }
+		}
 	}
 
 	@media screen and (width >= 1200px) {
@@ -94,9 +96,9 @@
 			}
 			&::before,
 			&::after {
-				content: '';
+				content: "";
 				position: absolute;
-        will-change: top, left, right, bottom;
+				will-change: top, left, right, bottom;
 				top: calc(anchor(bottom) - 0.15rem);
 				left: calc(anchor(left) + 0.9rem);
 				right: calc(anchor(right) + 0.9rem);
@@ -164,6 +166,7 @@
 
 			& a {
 				display: block;
+				width: max-content;
 				align-items: center;
 				text-decoration: none;
 				color: currentColor;
@@ -175,8 +178,8 @@
 				}
 			}
 		}
-    .menu-contacts {
-      display: none;
-    }
+		.menu-contacts {
+			display: none;
+		}
 	}
 </style>

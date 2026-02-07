@@ -13,8 +13,8 @@ const imagePaths = Array.from({ length: 36 }, (_, i) => {
 });
 
 const chunks = [];
-for (let i = 0; i < imagePaths.length; i += 6) {
-	chunks.push(imagePaths.slice(i, i + 6));
+for (let i = 0; i < imagePaths.length; i += 3) {
+	chunks.push(imagePaths.slice(i, i + 3));
 }
 ---
 
@@ -32,7 +32,7 @@ for (let i = 0; i < imagePaths.length; i += 6) {
 				chunks.map((chunk) => (
 					<div class="scrollline">
 						{chunk.map((src) => (
-							<Image src={src} alt="Пример обложки для публикации в «Псковской ленте новостей»" width={600} height={337} loading="eager" class="scrolline-item" />
+							<Image src={src} alt="Пример обложки для публикации в «Псковской ленте новостей»" width={360} height={205} loading="eager" class="scrolline-item" />
 						))}
 					</div>
 				))
@@ -59,7 +59,7 @@ for (let i = 0; i < imagePaths.length; i += 6) {
 		<section class="article-chapter animation-scroll-fadeup">
 			<h2 class="article-chapter-title" data-toc="Инфографика" id="infographics">Инфографика</h2>
 			<p class="article-text">Примеры созданных публикаций с инфографикой. Как правило, я выполнял полный цикл производства: от поиска темы и сбора данных до оформления графики.</p>
-			<picture class="fullwidth inphographics-set">
+			<picture class="fullwidth infographics-set">
 				<source media="(max-width: 960px)" srcset="/assets/img/design/communications/pln-communications/infographics-set-m.webp" />
 				<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/communications/pln-communications/infographics-set-1x.webp" />
 				<source media="(min-width: 961px) and (resolution: 2dppx), 
@@ -93,16 +93,24 @@ for (let i = 0; i < imagePaths.length; i += 6) {
 		margin-block: var(--space-xl);
 		& .scrollline {
 			display: flex;
-			width: max-content;
 			gap: var(--space-main);
+			padding-inline: var(--space-main);
 			margin-block-end: var(--space-main);
-			animation: covers-scrolling-to-right linear forwards;
-			animation-timeline: view();
-			animation-range: entry 0% cover 70%;
+			@media screen and (width < 1200px) {
+				width: max-content;
+			}
+			&:nth-child(odd) {
+				animation: covers-scrolling-to-right linear forwards;
+				animation-timeline: view();
+				animation-range: entry 0% cover 50%;
+				@media screen and (width < 1200px) {
+					animation: covers-scrolling-to-right-mobile linear forwards;
+				}
+			}
 			&:nth-child(even) {
 				animation: covers-scrolling-to-left linear forwards;
 				animation-timeline: view();
-				animation-range: entry 0% cover 70%;
+				animation-range: entry 0% cover 50%;
 			}
 		}
 		& .scrolline-item {
@@ -110,27 +118,37 @@ for (let i = 0; i < imagePaths.length; i += 6) {
 				width: 360px;
 				height: 205px;
 			}
+			@media screen and (width >= 1200px) {
+				flex: 1 1 auto;
+			}
 		}
 	}
 
-	.inphographics-set {
+	.infographics-set {
 		border-block-end: 2px solid var(--color-separator-main);
 	}
 
 	@keyframes covers-scrolling-to-right {
 		from {
-			transform: translateX(300vw);
-		}
-		to {
-			transform: translateX(calc(-1 * (100% - (100vw - var(--space-main)))));
+			transform: translateX(100%);
 		}
 	}
-	@keyframes covers-scrolling-to-left {
+
+	@keyframes covers-scrolling-to-right-mobile {
 		from {
-			transform: translateX(-150%);
+			transform: translateX(100%);
 		}
 		to {
-			transform: translateX(var(--space-main));
+			transform: translateX(calc(-1 * (100% - 100vw)));
 		}
+	}
+
+	@keyframes covers-scrolling-to-left {
+		from {
+			transform: translateX(-100%);
+		}
+		/* to {
+			transform: translateX(var(--space-main));
+		} */
 	}
 </style>
