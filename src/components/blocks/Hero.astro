@@ -5,13 +5,12 @@ import Skills from "$components/blocks/Skills.astro";
 
 <section class="hero">
 	<section class="hero_heading">
-		<p class="hero_heading--hello">Будем знакомы!</p>
+		<p class="hero_heading--subtitle hero_heading--hello">Будем знакомы!</p>
 		<h1 class="hero_heading--title">Сергей Васильев</h1>
 		<div class="wrapper--indentation">
-			<p class="hero_heading--subtitle"><mark class="subtitle_mark--first">мультидисциплинарный</mark><br /><mark class="subtitle_mark--second">продуктовый и коммуникационный дизайнер</mark><br />с большим опытом управления командами, IT&#x2060;-&#x2060;проектами и медиа.</p>
-			<p class="hero_heading--subtitle">
-				Я сам пишу код, поэтому хорошо понимаю особенности, возможности и ограничения реализации дизайн-концепций с точки зрения разработки, интересуюсь генеративным дизайном. Меня вдохновляют создание и развитие дизайн&#x2060;-&#x2060;систем, хорошая типографика и сложные пользовательские сценарии.
-			</p>
+			<p class="hero_heading--subtitle"><mark>мультидисциплинарный продуктовый и коммуникационный дизайнер</mark> с опытом управления медиа и IT&#x2060;-&#x2060;проектами.</p>
+			<p class="hero_heading--description">Разрабатываю дизайн на основе широкого исследования и анализа контекста, реализуя требования с учётом возможностей и ограничений. Пишу код, хорошо знаю нюансы реализации дизайн-решений в веб-разработке.</p>
+			<p class="hero_heading--description">Меня вдохновляют развитие дизайн&#x2060;-&#x2060;систем, хорошая типографика и техники генеративного дизайна.</p>
 		</div>
 		<svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;">
 			<defs>
@@ -83,39 +82,43 @@ import Skills from "$components/blocks/Skills.astro";
 	}
 
 	.hero_heading--hello {
-		font-size: var(--font-size-l);
-		letter-spacing: -0.002em;
-		font-variation-settings:
-			"opsz" 30,
-			"wght" var(--font-weight-main),
-			"GRAD" var(--font-grade-strong);
-		line-height: 1.3;
-		margin-block-end: var(--space-xxs);
+		margin-block-end: var(--space-s);
 	}
+
 	.hero_heading--title {
 		font-size: var(--font-size-xxl);
 		line-height: 1;
 		letter-spacing: -0.025em;
 		font-variation-settings:
-			"opsz" 12,
+			"opsz" 8,
 			"wght" var(--font-weight-extrabold),
 			"GRAD" 100;
-		margin-block-end: var(--space-xs);
+		/* margin-block-end: var(--space-xs); */
 		&:after {
 			content: ",";
 		}
 	}
 	.hero_heading--subtitle {
-		font-size: var(--font-size-md);
+		font-size: var(--font-size-l);
+		letter-spacing: 0.002em;
+		font-variation-settings:
+			"opsz" 12,
+			"wght" var(--font-weight-medium),
+			"GRAD" var(--font-grade-medium);
+		line-height: 1.3;
+	}
+
+	.hero_heading--description {
+		font-size: var(--font-size-main);
 		letter-spacing: -0.002em;
 		font-variation-settings:
 			"opsz" 30,
-			"wght" var(--font-weight-main),
+			"wght" var(--font-weight-regular),
 			"GRAD" var(--font-grade-strong);
 		line-height: 1.3;
 	}
 
-	.hero_heading--subtitle mark {
+	/* .hero_heading--subtitle mark {
 		position: relative;
 		background: none;
 		z-index: +1;
@@ -138,7 +141,7 @@ import Skills from "$components/blocks/Skills.astro";
 	}
 	mark.subtitle_mark--second:before {
 		filter: url(#marker-shape--second);
-	}
+	} */
 
 	.hero_skills {
 		grid-area: skills;

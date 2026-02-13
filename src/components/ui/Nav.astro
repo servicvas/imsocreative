@@ -29,6 +29,7 @@
 
 	@media screen and (width < 1200px) {
 		.header-menu {
+			view-transition-name: header-menu;
 			width: 90vw;
 			height: 100vh;
 			background: radial-gradient(circle at 90% 95%, var(--color-brand-xxs), var(--color-brand-xd) 90%);
@@ -87,8 +88,9 @@
 			height: var(--size-button-main);
 			margin: 0 auto;
 			background: var(--color-button-bg-main);
-			padding: 0.1rem;
-			border-radius: 0.5rem;
+			padding: var(--space-xxs);
+			border-radius: var(--radius-button-largest);
+			box-shadow: var(--shadow-main);
 			isolation: isolate;
 			anchor-name: --hovered-link;
 			& li:is(:hover, :focus) {
@@ -99,23 +101,23 @@
 				content: "";
 				position: absolute;
 				will-change: top, left, right, bottom;
-				top: calc(anchor(bottom) - 0.15rem);
-				left: calc(anchor(left) + 0.9rem);
-				right: calc(anchor(right) + 0.9rem);
+				top: calc(anchor(bottom) - 4px);
+				left: calc(anchor(left) + 12px);
+				right: calc(anchor(right) + 12px);
 				bottom: anchor(bottom);
-				border-radius: 0.7rem;
+				border-radius: 0.75rem;
 				position-anchor: --hovered-link;
 				transition: 500ms linear(0, 0.029 1.6%, 0.123 3.5%, 0.651 10.6%, 0.862 14.1%, 1.002 17.7%, 1.046 19.6%, 1.074 21.6%, 1.087 23.9%, 1.086 26.6%, 1.014 38.5%, 0.994 46.3%, 1);
 			}
 
 			&::before {
 				z-index: -1;
-				background: var(--color-button-bg-focus);
+				background: var(--color-button-bg-hover);
 			}
 
 			&::after {
 				z-index: -2;
-				background: var(--color-button-bg-focus);
+				background: var(--color-button-bg-hover);
 			}
 
 			&:has(a:is(:hover, :focus))::before,
@@ -127,26 +129,26 @@
 
 				@supports (corner-shape: squircle) {
 					corner-shape: squircle;
-					border-radius: 2rem;
+					border-radius: var(--radius-button-largest);
 				}
 			}
 
 			&:has(li:first-of-type a:is(:hover, :focus))::before,
 			&:has(li:first-of-type a:is(:hover, :focus))::after {
 				@supports (corner-shape: squircle) {
-					border-radius: 2rem;
+					border-radius: var(--radius-button-largest);
 				}
 			}
 
 			&:has(li:last-of-type a:is(:hover, :focus))::before,
 			&:has(li:last-of-type a:is(:hover, :focus))::after {
 				@supports (corner-shape: squircle) {
-					border-radius: 2rem;
+					border-radius: var(--radius-button-largest);
 				}
 			}
 
 			@supports (corner-shape: squircle) {
-				border-radius: 2rem;
+				border-radius: var(--radius-button-largest);
 				corner-shape: squircle;
 			}
 

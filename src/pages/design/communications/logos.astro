@@ -8,7 +8,7 @@ const breadcrumbsLabels = {
 };
 ---
 
-<LayoutArticle title="Логотипы | Портфолио Сергея Васильева" description="Выборка разноплановых эмблем, изготовленных с 2006 по настоящее время" headingTitle="Логотипы" subtitle="Выборка разноплановых эмблем, изготовленных с 2006 по настоящее время" breadcrumbsLabels={breadcrumbsLabels} date="2006-2024 годы">
+<LayoutArticle title="Логотипы | Портфолио Сергея Васильева" description="Примеры разработанных эмблем разных лет" headingTitle="Логотипы" subtitle="Примеры разработанных эмблем разных лет" breadcrumbsLabels={breadcrumbsLabels} date="2006-2024 годы">
 	<section class="article-body" data-toc="Подборка логотипов" id="logos">
 		<section class="article-chapter fullwidth wrapper--indentation animation-scroll-fadeup">
 			<div class="collection-logos">
@@ -42,7 +42,7 @@ const breadcrumbsLabels = {
 		grid-template-rows: auto;
 		grid-auto-flow: dense;
 		gap: var(--space-main);
-		@media screen and (width > 960px) {
+		@media screen and (width >= 960px) {
 			grid-template-columns: repeat(4, 1fr);
 		}
 		@media screen and (width > 2400px) {

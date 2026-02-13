@@ -12,12 +12,13 @@ import AsciiArt from "$components/ui/AsciiArt.astro";
 		</div>
 	</section>
 	<div class="footer-bg">
-    <AsciiArt />
+		<AsciiArt />
 	</div>
 </footer>
 
 <style is:global>
 	footer.footer {
+		view-transition-name: footer;
 		flex-shrink: 0;
 		padding-inline: var(--layout-padding-inline);
 		border-block-start: var(--color-brand-main) 1px solid;
@@ -27,10 +28,10 @@ import AsciiArt from "$components/ui/AsciiArt.astro";
 			display: flex;
 			flex-direction: column;
 			gap: var(--space-main);
-      margin-block: var(--space-l);
-      @media screen and (width > 1200px) {
-        margin-block: var(--space-xxl);
-      }
+			margin-block: var(--space-l);
+			@media screen and (width > 1200px) {
+				margin-block: var(--space-xxl);
+			}
 			& p {
 				font-weight: var(--font-weight-bold);
 			}
@@ -42,20 +43,20 @@ import AsciiArt from "$components/ui/AsciiArt.astro";
 		& .footer-bg {
 			position: absolute;
 			width: min(100%, 70rem);
-      max-height: 100%;
+			max-height: 100%;
 			inset-inline-end: 0;
 			inset-block-end: 0;
 			display: flex;
 			justify-content: end;
-      @media screen and (width < 960px) {
-        inset-block-start: 4rem;
-      }
+			@media screen and (width < 960px) {
+				inset-block-start: 4rem;
+			}
 			@media screen and (width > 1050px) {
-        inset-block-start: -1rem;
-      }
-      @media screen and (width > 1360px) {
-        inset-block-start: -3rem;
-      }
+				inset-block-start: -1rem;
+			}
+			@media screen and (width > 1360px) {
+				inset-block-start: -3rem;
+			}
 		}
 	}
 </style>

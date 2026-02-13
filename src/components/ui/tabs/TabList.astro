@@ -8,12 +8,12 @@ export interface Props {
 const { label, class: className = "" } = Astro.props;
 ---
 
-<div role="tablist" aria-label={label} class:list={["tabs__list", className]}>
+<div role="tablist" aria-label={label} class:list={["tabs-list", className]}>
 	<slot />
 </div>
 
 <style>
-	.tabs__list {
+	.tabs-list {
 		width: fit-content;
 		display: flex;
 		align-self: center;
@@ -23,6 +23,9 @@ const { label, class: className = "" } = Astro.props;
 		margin: 0;
 		list-style: none;
 		background: var(--tabs-bg);
+		-webkit-backdrop-filter: blur(4px);
+		backdrop-filter: blur(4px);
+		box-shadow: var(--shadow-main);
 		border-radius: calc(var(--tabs-radius) + var(--tabs-padding-to-wrapper));
 		@supports (corner-shape: squircle) {
 			corner-shape: squircle;
@@ -30,20 +33,20 @@ const { label, class: className = "" } = Astro.props;
 	}
 
 	/* Default variant */
-	:global(.tabs--default) .tabs__list {
+	:global(.tabs--default) .tabs-list {
 		background: var(--tabs-bg);
 		/* border: 1px solid var(--tabs-border-color); */
 	}
 
 	/* Pills variant */
-	:global(.tabs--pills) .tabs__list {
+	:global(.tabs--pills) .tabs-list {
 		background: transparent;
 		border: none;
 		padding: 0;
 	}
 
 	/* Underline variant */
-	:global(.tabs--underline) .tabs__list {
+	:global(.tabs--underline) .tabs-list {
 		background: transparent;
 		border: none;
 		border-bottom: 2px solid var(--tabs-border-color);
@@ -53,7 +56,7 @@ const { label, class: className = "" } = Astro.props;
 	}
 
 	/* Vertical variant */
-	:global(.tabs--vertical) .tabs__list {
+	:global(.tabs--vertical) .tabs-list {
 		flex-direction: column;
 		flex-shrink: 0;
 		width: auto;
@@ -65,11 +68,11 @@ const { label, class: className = "" } = Astro.props;
 	}
 
 	/* Full width tabs */
-	:global(.tabs--full-width) .tabs__list {
+	:global(.tabs--full-width) .tabs-list {
 		width: 100%;
 	}
 
-	:global(.tabs--full-width) .tabs__list > :global(*) {
+	:global(.tabs--full-width) .tabs-list > :global(*) {
 		flex: 1;
 	}
 </style>

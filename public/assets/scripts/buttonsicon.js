@@ -1,13 +1,13 @@
 window.addEventListener("DOMContentLoaded", () => {
-	// Получаем мета-тег theme-color
+	// Получение значения метатега theme-color
 	const metaThemeColor = document.querySelector('meta[name="theme-color"]');
 
-	// Функция для получения текущего состояния темы
+	// Получение текущего состояния темы
 	function getThemeState() {
 		return localStorage.getItem("theme") || "light";
 	}
 
-	// Функция для сохранения состояния темы
+	// Сохранение состояния темы
 	function saveThemeState(theme) {
 		localStorage.setItem("theme", theme);
 	}

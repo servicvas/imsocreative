@@ -6,24 +6,8 @@
 	<button type="button" role="button" aria-label="Переключить тему (светлая/тёмная)" id="theme-toggle" class="button_smilicon button_themetoggle" title="Переключить тему (светлая/тёмная)">
 		<svg version="1.2" baseProfile="tiny" id="icon--themetoggle" class="smilicon icon--themetoggle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 128" overflow="visible" xml:space="preserve">
 			<path d="M 83 14 C 111 24 127.88 60.47 111 90 C 91 125 48 124 26 102 C 26 102 62 91 75 74 C 85.95 59.68 87 37 83 14 M 62 28 L 62 42 M 46 76 L 46 62 M 53 69 L 39 69 M 55 35 L 69 35 M 9 55 L 23 55 M 16 62 L 16 48 M 29 13 L 29 27 M 22 20 L 36 20">
-				<animate
-					id="sun"
-					class="close"
-					begin="indefinite"
-					fill="freeze"
-					attributeName="d"
-					dur="0.25s"
-					to="M 83 14 C 111 24 127.88 60.47 111 90 C 91 125 48 124 26 102 C 26 102 62 91 75 74 C 85.95 59.68 87 37 83 14 M 62 28 L 62 42 M 46 76 L 46 62 M 53 69 L 39 69 M 55 35 L 69 35 M 9 55 L 23 55 M 16 62 L 16 48 M 29 13 L 29 27 M 22 20 L 36 20">
-				</animate>
-				<animate
-					id="moon"
-					class="open"
-					begin="indefinite"
-					fill="freeze"
-					attributeName="d"
-					dur="0.25s"
-					to="M 64 27.5 C 84.16 27.5 100.5 43.84 100.5 64 C 100.5 84.16 84.16 100.5 64 100.5 C 43.84 100.5 27.5 84.16 27.5 64 C 27.5 43.84 43.84 27.5 64 27.5 M 106.43 21.57 L 96.53 31.47 M 124 64 L 110 64 M 106.43 106.43 L 96.53 96.53 M 64 110 L 64 124 M 31.47 96.53 L 21.57 106.43 M 4 64 L 18 64 M 31.47 31.47 L 21.57 21.57 M 64 18 L 64 4">
-				</animate>
+				<animate id="sun" class="close" begin="indefinite" fill="freeze" attributeName="d" dur="0.25s" to="M 83 14 C 111 24 127.88 60.47 111 90 C 91 125 48 124 26 102 C 26 102 62 91 75 74 C 85.95 59.68 87 37 83 14 M 62 28 L 62 42 M 46 76 L 46 62 M 53 69 L 39 69 M 55 35 L 69 35 M 9 55 L 23 55 M 16 62 L 16 48 M 29 13 L 29 27 M 22 20 L 36 20"></animate>
+				<animate id="moon" class="open" begin="indefinite" fill="freeze" attributeName="d" dur="0.25s" to="M 64 27.5 C 84.16 27.5 100.5 43.84 100.5 64 C 100.5 84.16 84.16 100.5 64 100.5 C 43.84 100.5 27.5 84.16 27.5 64 C 27.5 43.84 43.84 27.5 64 27.5 M 106.43 21.57 L 96.53 31.47 M 124 64 L 110 64 M 106.43 106.43 L 96.53 96.53 M 64 110 L 64 124 M 31.47 96.53 L 21.57 106.43 M 4 64 L 18 64 M 31.47 31.47 L 21.57 21.57 M 64 18 L 64 4"></animate>
 			</path>
 		</svg>
 	</button>
@@ -39,10 +23,11 @@
 
 <style>
 	.header_controls {
+		view-transition-name: header-controls;
 		display: flex;
 		justify-content: end;
 		gap: var(--space-s);
-    z-index: +1;
+		z-index: +1;
 	}
 
 	@media screen and (width >= 1200px) {
@@ -54,10 +39,11 @@
 	.button_smilicon {
 		width: var(--size-button-main);
 		height: var(--size-button-main);
-		border-radius: var(--radius-button-main);
+		border-radius: var(--radius-button-largest);
 		cursor: pointer;
 		padding: calc(var(--space-s) * 1.1);
 		background: var(--color-button-bg-main);
+		box-shadow: var(--shadow-main);
 		@media (hover: hover) and (pointer: fine) {
 			&:hover {
 				background: var(--color-button-bg-focus);
@@ -68,7 +54,6 @@
 		}
 		@supports (corner-shape: squircle) {
 			corner-shape: squircle;
-			border-radius: calc(var(--size-button-main) / 2);
 		}
 	}
 	.button_smilicon svg path {
@@ -79,7 +64,7 @@
 		stroke-linejoin: round;
 		stroke-miterlimit: var(--icon-stroke);
 	}
-  .button_smilicon.button_smilicon--onmenu svg path {
-    stroke: var(--color-const-light);
-  }
+	.button_smilicon.button_smilicon--onmenu svg path {
+		stroke: var(--color-const-light);
+	}
 </style>

@@ -18,7 +18,7 @@ for (let i = 0; i < imagePaths.length; i += 3) {
 }
 ---
 
-<LayoutArticle title="Обложки для статей, оформление передач и инфографика в медиа" description="Примеры коммуникационного дизайна: обложки журналистских материалов, инфографика, мерч, айдентика передач. 2020-2024 годы" headingTitle="Обложки для статей, оформление передач и инфографика в медиа" subtitle="Примеры коммуникационного дизайна: обложки журналистских материалов, инфографика, мерч, айдентика передача" breadcrumbsLabels={breadcrumbsLabels} date="2020-2024 годы" customer="Медиахолдинг «Гражданская пресса»" customerLink="/about#pln">
+<LayoutArticle title="Дизайн-поддержка в медиа" description="Примеры коммуникационного дизайна: обложки журналистских материалов, инфографика, мерч, айдентика передач. 2020-2024 годы" headingTitle="Дизайн-поддержка в медиа" subtitle="Примеры коммуникационного дизайна: обложки статей и авторских колонок, айдентика передача, инфографика, мерч" breadcrumbsLabels={breadcrumbsLabels} date="2020-2024 годы" customer="«Псковская лента новостей»" customerLink="/about#pln">
 	<section class="article-lid animation-scroll-fadeup" data-toc="Введение" id="lid">
 		<p>Работа в СМИ — это ежедневные срочные дизайн-задачи по созданию иллюстраций и инфографики, регулярные работы по брендированию новых медиапроектов, разработке их логотипов и айдентики, по разработке мерча, полиграфии, оформлению коммерческих предложений etc. Здесь — небольшая выжимка подобных работ для «Псковской ленты новостей».</p>
 	</section>
@@ -105,12 +105,19 @@ for (let i = 0; i < imagePaths.length; i += 3) {
 				animation-range: entry 0% cover 50%;
 				@media screen and (width < 1200px) {
 					animation: covers-scrolling-to-right-mobile linear forwards;
+					animation-timeline: view();
+					animation-range: entry 0% cover 80%;
 				}
 			}
 			&:nth-child(even) {
 				animation: covers-scrolling-to-left linear forwards;
 				animation-timeline: view();
 				animation-range: entry 0% cover 50%;
+				@media screen and (width < 1200px) {
+					animation: covers-scrolling-to-left linear forwards;
+					animation-timeline: view();
+					animation-range: entry 0% cover 80%;
+				}
 			}
 		}
 		& .scrolline-item {
