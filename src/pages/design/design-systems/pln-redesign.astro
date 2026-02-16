@@ -1,6 +1,7 @@
 ---
 import LayoutArticle from "$layouts/LayoutArticle.astro";
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "$components/ui/tabs";
+import { Tour, TourPoint } from "$components/ui/tour";
 import CardColor from "$components/ui/CardColor.astro";
 
 const breadcrumbsLabels = {
@@ -119,7 +120,7 @@ const breadcrumbsLabels = {
 					<p class="article-text article-accent">
 						<strong>Некоторые проблемы, выявленные в ходе технического и UX&#x2060;-&#x2060;аудита</strong>
 					</p>
-					<ul class="article-text wrapper--indentation">
+					<ul class="article-text wrapper-indentation">
 						<li>Критическая несогласованность в пользовательских путях и навигации между десктопной и мобильной версиями.</li>
 						<li>Интерфейсные тупики в ключевых шаблонах мобильной версии приводили к почти двукратному росту показателей отказов.</li>
 						<li>Дизайн содержал нарушения требований доступности по спецификации WCAG 2.1, такие как недостаточный цветовой контраст и передача информации только цветом без дублирования.</li>
@@ -130,11 +131,11 @@ const breadcrumbsLabels = {
 					<p class="article-text article-accent">
 						<strong>Основные выводы количественного анализа</strong>
 					</p>
-					<ul class="article-text wrapper--indentation">
+					<ul class="article-text wrapper-indentation">
 						<li>
 							Ключевые <strong>пользовательские когорты</strong>:
 						</li>
-						<ol class="wrapper--indentation">
+						<ol class="wrapper-indentation">
 							<li>госслужащие и офисные работники, преимущественно пользователи десктопов, женщины 45+ лет;</li>
 							<li>социальные и политические активисты, участники публичных дискуссий в соцсетях, 30+ лет;</li>
 							<li>люди, интересующиеся деловыми и экономическими новостями, предприниматели — преимущественно пользователи десктопов, мужчины 40+</li>
@@ -157,7 +158,7 @@ const breadcrumbsLabels = {
 				<p class="article-text">
 					<mark>Ключевые инсайты</mark>
 				</p>
-				<ul class="article-text">
+				<ul class="article-text wrapper-indentation">
 					<li>
 						<strong>Проблема с типографикой и проблемы со зрением</strong><br />Более половины респондентов отмечали неудобство чтения текста, особенно в мобильной версии, ссылаясь на слишком мелкий шрифт и отключённое системное масштабирование. Последующий анализ подтвердил критическую важность этого фактора, учитывая возраст ядра аудитории (45+) и превышающую среднероссийские показатели <a href="https://pln-pskov.ru/society/482606.html" title="Более 60% псковичек носят очки или контактные линзы — аналитики / ПЛН, 2023">распространённость проблем со зрением в регионе, особенно среди женщин</a>.
 					</li>
@@ -198,7 +199,7 @@ const breadcrumbsLabels = {
 					<p class="article-text">
 						В качестве интерфейсного шрифтового семейства была выбрана гарнитура <strong><a href="https://rsms.me/inter" title="Сайт гарнитуры Inter" target="_blank">Inter</a></strong> дизайнера Расмуса Андрессона — один из лучших на момент старта работ бесплатных неогротесков с исключительной читаемостью в малых кеглях на экранах.
 					</p>
-					<div class="article-inset wrapper--indentation animation-scroll-fadeup">
+					<div class="article-inset wrapper-indentation animation-scroll-fadeup">
 						<p class="article-text">
 							<strong>Ключевые преимущества:</strong>
 						</p>
@@ -221,7 +222,7 @@ const breadcrumbsLabels = {
 					<p class="article-text">
 						Для основного текста статей была выбрана специальная гарнитура <strong><a href="https://github.com/stipub/stixfonts" title="Репозиторий гарнитуры Stix Two Text" target="_blank">Stix Two Text</a></strong>, созданная в рамках STIX Project для научных, технических и медицинских публикаций в цифровой среде.
 					</p>
-					<div class="article-inset wrapper--indentation animation-scroll-fadeup">
+					<div class="article-inset wrapper-indentation animation-scroll-fadeup">
 						<p class="article-text"><strong>Ключевые преимущества:</strong></p>
 						<ul>
 							<li class="article-text">Оптимизирована для удобного восприятия длинных текстов на цифровых носителях.</li>
@@ -251,17 +252,17 @@ const breadcrumbsLabels = {
 					<strong>Бренд традиционно использовал в качестве фирменной палитры оттенки бордо</strong>, однако жёсткого канона не существовало — с каждым редизайном конкретный тон незначительно менялся в рамках этой гаммы. Учитывая, что около 25&#8239;% участников глубинных интервью отмечали неприятные ассоциации с текущим цветом (<q>как будто грязный</q>, <q>немного мрачно</q>), было принято решение его освежить. Финальный оттенок отличается увеличенной на 6&#8239;% насыщенностью и на 15&#8239;% — яркостью.
 				</p>
 				<section class="wrapper-columns-two width-main wrapper-centered">
-					<div class="wrapper--indentation">
+					<div class="wrapper-indentation">
 						<p class="color-data-description">Старый фирменный цвет</p>
 						<CardColor sample="#aa2020" hex="#aa2020" rbg="170 32 32" hsb="359° 81 % 67 %" oklch="48.01 % 0.1737 26.81" />
 					</div>
-					<div class="wrapper--indentation">
+					<div class="wrapper-indentation">
 						<p class="color-data-description">Новый фирменный цвет</p>
 						<CardColor sample="#d01b1f" hex="#d01b1f" rbg="208 27 31" hsb="0° 87 % 82 %" oklch="54.89 % 0.211 27.32" />
 					</div>
 				</section>
 				<p class="article-text">
-					Также был подобран <strong>«цифровой» фон с палитрой, основанной на обновлённом и прошлом фирменных цветах</strong>. Этот фон стал базой для оформления многих заставок, полиграфической продукции, стал ещё одним из стилеобразоующих элементов.
+					Также был подобран <strong>«цифровой» фон с палитрой, основанной на обновлённом и прошлом фирменных цветах</strong>. Этот фон стал базой для оформления многих заставок, полиграфической продукции, стал ещё одним из стилеобразующих элементов.
 				</p>
 			</section>
 			<section class="article-chapter-section fullwidth maxwidth">
@@ -298,7 +299,7 @@ const breadcrumbsLabels = {
 				<section class="article-chapter-section wrapper-columns-two width-xw wrapper-centered">
 					<div class="wrapper-columns--sticky">
 						<p class="article-text">
-							Благодаря усилению эффекта цельности, обновлённую эмблему стало возможно использовать в шапке сайта и на промо-материалах <strong>с дополнительным стилеобзразующим приёмом — без отступа от левой границы контейнера</strong> (то есть по принципу бирки).
+							Благодаря усилению эффекта цельности, обновлённую эмблему стало возможно использовать в шапке сайта и на промо-материалах <strong>с дополнительным стилеобразующим приёмом — без отступа от левой границы контейнера</strong> (то есть по принципу бирки).
 						</p>
 					</div>
 					<div class="wrapper-columns--sticky">
@@ -313,7 +314,7 @@ const breadcrumbsLabels = {
 					</div>
 				</section>
 				<p class="article-text">На базе обновленного логотипа были разработаны или доработаны логотипы продуктов бренда, например, логотип радиостанции ПЛН&#x2060;-&#x2060;ФМ и логотип направления документальных фильмов и стримминговых передач ПЛН&#x2060;-&#x2060;ТВ.</p>
-				<div class="width-xs wrapper-centered wrapper--indentation">
+				<div class="width-xs wrapper-centered wrapper-indentation">
 					<img src="/assets/img/design/design-systems/pln/pln-tv-logo.svg" class="logo-present" alt="Логотип ПЛН ТВ" />
 					<img src="/assets/img/design/design-systems/pln/pln-fm-logo.svg" class="logo-present" alt="Логотип ПЛН ФМ" />
 				</div>
@@ -343,82 +344,180 @@ const breadcrumbsLabels = {
 					<p class="article-text">При этом, несмотря на расширение контентной области, в шаблоне статьей и новостей сохранился значительный объём «воздуха» и комфортная для чтения длина основных строк, не превышающая 65 знаков.</p>
 				</div>
 				<div class="wrapper-columns--sticky">
-					<picture>
-						<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/pln-article-m.webp" />
-						<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/pln-article-1x.webp" />
-						<source media="(min-width: 961px) and (resolution: 2dppx), 
-							(min-width: 961px) and (resolution: 3dppx),
-							(min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/pln-article-2x.webp" />
-						<img src="/assets/img/design/design-systems/pln/pln-article-2x.webp" class="article-img" alt="Пример оформления статьи на сайте ПЛН" />
-					</picture>
+					<Tour>
+						<picture>
+							<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/pln-article-m.webp" />
+							<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/pln-article-1x.webp" />
+							<source media="(min-width: 961px) and (resolution: 2dppx), 
+								(min-width: 961px) and (resolution: 3dppx),
+								(min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/pln-article-2x.webp" />
+							<img src="/assets/img/design/design-systems/pln/pln-article-2x.webp" class="article-img" alt="Пример оформления статьи на сайте ПЛН" />
+						</picture>
+						<TourPoint id="article-template-p1" x="10%" y="22%" title="Оформление лида">
+							Культура оформления лида (или иначе <em>вводки</em>) традиционно играла в СМИ очень важную роль, однако в период цифрового перехода многие медиа по разным причинам перестали уделять этому элементу должное внимание. Для новой версии сайта я подготовил стиль с броским визуалом, подкреплённым буквицей в фирменном стиле бренда, который используется только для оформления статей, интервью и блогов, отделяя их от новостных заметок
+						</TourPoint>
+						<TourPoint id="article-template-p2" x="10%" y="82%" title="Рваный край и комфортная ширина">
+							Для облегчения чтения больших массивов текста тестировались (путём изучения субъективных оценок респондентов, когнитивных тестов на понимание текста, 5&#x2060;-&#x2060;секундных тестов etc.) различные варианты оформления статей. В результате наилучшие результаты показала схема с рваным левым краем (за счет разной ширины блоков непосредственно с текстом и блоков с подзаголовками, врезами, вставками, изображениями) с шириной текстовой зоны, не превышающей 65 знаков.
+						</TourPoint>
+						<TourPoint id="article-template-p3" x="80%" y="22%" title="Липкий блок с рекламой">
+							В прошлой версии сайта рекламные блоки на боковой панели имели плохую видимость ввиду того, что из-за перегруженности верхней части страницы 2/3 пользователй начинали скролл в первую секунду после отрисовки шаблона страницы — и баннеры пропадали из видимости ещё до того, как на них могли обратить внимание. В новоей версии блок с баннерами липко закреплён на своём месте и сменяется подборкой других материалов только после скролла нескольких экранов.
+						</TourPoint>
+					</Tour>
 				</div>
 			</section>
 			<section class="article-chapter-section wrapper-columns-two width-xw wrapper-centered">
 				<div class="wrapper-columns--sticky">
-					<h3 class="article-chapter-subtitle">Упрощение и акцентирование вводной части статьей</h3>
-					<p class="article-text">В шаблоне статьей и новостей несмотря на расширение контентной области сохранился значительный объём «воздуха» и комфортная для чтения длина основных строк, не превышающая 65 знаков.</p>
-					<p class="article-text">Преимущественно неиспользуемые блоки расшаривания материалов в соцсетях и получения html-кода для встраивания (рудимент времён ЖЖ) скрыли, а формат вывода даты сделали более понятным: с указанием месяца словом и акцентирования даты публикации как наиболее важного показателя для новостей.</p>
+					<h3 class="article-chapter-subtitle">Упрощение и акцентирование вводной части статей</h3>
+					<p class="article-text">В прошлой версии вводная часть шаблона публикаций была перегружена лишними элементами, в ней не было акцентов.</p>
+					<p class="article-text">Преимущественно неиспользуемые блоки шеринга материалов в соцсетях и получения html&#x2060;-&#x2060;кода для встраивания (рудимент времён ЖЖ) скрыли, а формат вывода даты публикации сделали более ясным.</p>
 				</div>
 				<div class="wrapper-columns--sticky">
-					<picture>
-						<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/pln-lid-m.webp" />
-						<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/pln-lid-1x.webp" />
-						<source media="(min-width: 961px) and (resolution: 2dppx), 
-							(min-width: 961px) and (resolution: 3dppx),
-							(min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/pln-lid-2x.webp" />
-						<img src="/assets/img/design/design-systems/pln/pln-lid-2x.webp" class="article-img" alt="Пример оформления вводной части статьи на сайте ПЛН" />
-					</picture>
+					<Tour>
+						<picture slot="media">
+							<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/pln-lid-m.webp" />
+							<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/pln-lid-1x.webp" />
+							<source media="(min-width: 961px) and (resolution: 2dppx), 
+								(min-width: 961px) and (resolution: 3dppx),
+								(min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/pln-lid-2x.webp" />
+							<img src="/assets/img/design/design-systems/pln/pln-lid-2x.webp" class="article-img" alt="Пример оформления вводной части статьи на сайте ПЛН" />
+						</picture>
+						<TourPoint id="article-heading-p1" x="4%" y="22%" title="Убрали лишнее">
+							Избыточные линии, а также фактически невостребованный блок шеринга и получения кода страницы в прошлой версии лишь захламляли заглавный блок шаблона материалов, расфокусируя внимание пользователя — от всего лишнего в новой версии мы избавились 
+						</TourPoint>
+						<TourPoint id="article-heading-p2" x="10%" y="56%" title="Гуманизировали формат даты и расставили акценты">
+							В новой версии сайта предусмотрели два важных изменения в указании даты и времени публикации: акцентировали и вынесли вперёд время публикации (поскольку новости «живут» всего несколько часов) и изменили форматирование даты на написание месяца словом
+						</TourPoint>
+					</Tour>
 				</div>
 			</section>
 			<section class="article-chapter-section wrapper-columns-two width-xw wrapper-centered">
 				<div class="wrapper-columns--sticky">
 					<h3 class="article-chapter-subtitle">Шапка и навигация</h3>
 					<p class="article-text">Прошлая версия шапки сайта насчитывала 30 интерактивных навигационных элементов, в том числе 21 ссылку на специальные разделы и тематические рубрики, разделённые на две строки.</p>
-					<p class="article-text">В новой версии меню существенно упростили и рассортировали по трём выпадающим спискам. Это позволило вывести на главной дополнительную строку для удобной навигации на вторую по популярности страницу сайта — «Лента новостей», а в верхней строке разместить дополнительные ссылки-логотипы на другие важные продукты холдинга и опциональный блок для своего рода дудла — уникальных двусоставных баннеров, которые должны были публиковаться по тем или иным инфоповодам (как правило — календарным или маркетинговым).</p>
+					<p class="article-text">В новой версии меню было упрощено и рассортировано по трём выпадающим спискам. Это не только облегчило пользователям первичное сканирование шапки, но и позволило реализовать сразу 3 фичи:</p> 
+					<ol class="wrapper-indentation">
+						<li>предусмотреть возможность вывода опционального блока для своего рода <strong>дудла</strong>: баннеров, анимирующихся при фокусе и наведении путём трансформации переднего и заднего плана, которые должны были публиковаться к инфоповодам (к сожалению, перед запуском сайта редакция волнюнтаристски пересмотрела спроектированную задачу компонента и превратила его в 2 константных баннера ежедневной и еженедельной рубрики);</li>
+						<li>разместить <strong>ссылки-логотипы на другие продукты холдинга</strong> (радио, видеопродакшн, партнёрское СМИ потребительской направленности);</li>
+						<li>вывести <strong>табы переключения на страницы, альтернативные главной:</strong> на вторую по популярности точку входа — «Ленту новостей» (более 10&#8239;% входов не из поиска), и на проектировавшуюся в обновлённой карте сайта страницу «Выбор редакции» (она должна была выступать альтернативой витриной: исследования показали существенную потребность одновременно аудитории, редакции и рекламного отдела в изменении структуры и подачи материалов, однако редакция опасалась неприятия ядром аудитории существенных перемен и снижения лояльности, поэтому в качестве компромисса была предложена концепция «альтернативной главной» с более гибкой структурой и б&#769;ольшим редакторским взносом в «добавленную стоимость» медиапродукта; к сожалению, её проработка и реализация были остановлены редакцией по внутренним причинам).</li> 
+					</ol>
+				</div>
+				<div class="wrapper-columns--sticky">
+					<Tour>
+						<video slot="media" autoplay loop muted playsinline width="640">
+							<source src="/assets/img/design/design-systems/pln/pln-nav-video.webm" type="video/webm" />
+							<source src="/assets/img/design/design-systems/pln/pln-nav-video.mp4" type="video/mp4" />
+							К сожалению, ваш браузер не поддерживает используемый формат видео.
+						</video>
+						<TourPoint id="menu-animation-p1" x="23%" y="12%" label="1" title="Дудл">
+							Пример дудла на годовщину подвига Александра Матросова под Великими Луками, который в течение дня должен был напоминать о событии и вести на обзорную публикацию, рассказывающую о самом подвиге и о памятных мероприятиях в этот день.
+						</TourPoint>
+						<TourPoint id="menu-animation-p2" x="48%" y="12%" label="2" title="Ссылки на смежные продукты">
+							Холдингу требовалась более активная подсветка смежных проектов в рамках развития собственной экосистемы медиапродуктов.
+						</TourPoint>
+						<TourPoint id="menu-animation-p3" x="88%" y="22%" label="3" title="Навигация по альтернативным витринам">
+							Исследования показали, что многие постоянные пользователи предпочитают регулярно посещать именно страницу ленты новостей, а не главную страницу — требовалась простая и понятная навигация между ними, а также способ переключаться на страницу «Выбор редакции», которая задумывалась как более динамичный и гибкий новостной дашборд. 
+						</TourPoint>
+					</Tour>
+				</div>
+			</section>
+			<section class="article-chapter-section wrapper-columns-two width-xw wrapper-centered">
+				<div class="wrapper-columns--sticky">
+					<h3 class="article-chapter-subtitle">Система анимируемых иконок с управлением через токены</h3>
+					<p class="article-text">К моменту разработки js&#x2060;-&#x2060;библиотеки morph&#x2060;-&#x2060;анимации svg&#x2060;-&#x2060;иконок наподобии GSAP ещё не были в бесплатном публичном доступе, в связи с чем я выбрал нативную технологию <strong>SMIL&#x2060;-&#x2060;анимации svg&#x2060;-&#x2060;путей в иконках</strong> с отличной поддержкой в браузерах. Для реализации анимации потребовалось лишь обеспечить одинаковое количество точек в обоих состояниях иконки.</p>
+					<p class="article-text">В связи с этим все иконки на проекте построены на основе путей, а не фигур (шейпов). Они встраиваются инлайн для оптимизации рендеринга и сохранения полного контроля над элементами их DOM. Их внешний вид (толщина линий, цвет и т. п.) управляется через CSS с помощью специальных токенов.</p>  
 				</div>
 				<div class="wrapper-columns--sticky">
 					<video autoplay loop muted playsinline width="640">
-						<source src="/assets/img/design/design-systems/pln/pln-nav-video.webm" type="video/webm" />
-						<source src="/assets/img/design/design-systems/pln/pln-nav-video.mp4" type="video/mp4" />
-						Ваш браузер не поддерживает требуемые форматы видео (((
+						<source src="/assets/img/design/design-systems/pln/smil-icons.webm" type="video/webm" />
+						<source src="/assets/img/design/design-systems/pln/smil-icons.mp4" type="video/mp4" />
+						К сожалению, ваш браузер не поддерживает используемый формат видео.
 					</video>
 				</div>
 			</section>
 		</section>
 		<section class="article-chapter animation-scroll-fadeup">
-			<h2 class="article-chapter-title" data-toc="Результат" id="ux_and_ui">Результат</h2>
-			<Tabs id="pln-logo-compare" defaultTab={1}>
-				<TabList label="Варианты дизайна главной страницы ПЛН: до редизайна 2025 года и после" class="wrapper-sticky">
-					<Tab id="pln-logo-compare-tab-1" controls="pln-logo-compare-panel-q">Было</Tab>
-					<Tab id="pln-logo-compare-tab-2" controls="pln-logo-compare-panel-2" selected>Стало</Tab>
-				</TabList>
-				<TabPanels>
-					<TabPanel id="pln-logo-compare-panel-1" labelledby="pln-logo-compare-tab-1" selected>
-						<div class="mockup-wrapper shadow-h">
-							<picture>
-								<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/pln-general-old-m.webp" />
-								<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-old-1x.webp" />
-								<source media="(min-width: 961px) and (resolution: 2dppx), 
-										(min-width: 961px) and (resolution: 3dppx),
-										(min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-old-2x.webp" />
-								<img src="/assets/img/design/design-systems/pln/pln-general-old-2x.webp" alt="Старая версия главной страницы «Псковской ленты новостей»" />
-							</picture>
-						</div>
-					</TabPanel>
-					<TabPanel id="pln-logo-compare-panel-2" labelledby="pln-logo-compare-tab-1">
-						<div class="mockup-wrapper shadow-h">
-							<picture>
-								<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/pln-general-new-m.webp" />
-								<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-new-1x.webp" />
-								<source media="(min-width: 961px) and (resolution: 2dppx), 
-										(min-width: 961px) and (resolution: 3dppx),
-										(min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-new-2x.webp" />
-								<img src="/assets/img/design/design-systems/pln/pln-general-new-2x.webp" alt="Исходный концепт редизайна главной страницы «Псковской ленты новостей»" />
-							</picture>
-						</div>
-					</TabPanel>
-				</TabPanels>
-			</Tabs>
+			<h2 class="article-chapter-title" data-toc="Результат" id="outcome">Результат</h2>
+			<section class="article-chapter-section">
+				<h3 class="article-chapter-subtitle" data-toc="Редизайн главной" id="outcome-redesign">Редизайн главной</h3>
+				<Tabs id="pln-logo-compare" defaultTab={1}>
+					<TabList label="Варианты дизайна главной страницы ПЛН: до редизайна 2025 года и после" class="wrapper-sticky">
+						<Tab id="pln-logo-compare-tab-1" controls="pln-logo-compare-panel-q">Было</Tab>
+						<Tab id="pln-logo-compare-tab-2" controls="pln-logo-compare-panel-2" selected>Стало</Tab>
+					</TabList>
+					<TabPanels>
+						<TabPanel id="pln-logo-compare-panel-1" labelledby="pln-logo-compare-tab-1" selected>
+							<div class="mockup-wrapper shadow-h">
+								<picture>
+									<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/pln-general-old-m.webp" />
+									<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-old-1x.webp" />
+									<source media="(min-width: 961px) and (resolution: 2dppx), 
+											(min-width: 961px) and (resolution: 3dppx),
+											(min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-old-2x.webp" />
+									<img src="/assets/img/design/design-systems/pln/pln-general-old-2x.webp" alt="Старая версия главной страницы «Псковской ленты новостей»" />
+								</picture>
+							</div>
+						</TabPanel>
+						<TabPanel id="pln-logo-compare-panel-2" labelledby="pln-logo-compare-tab-1">
+							<div class="mockup-wrapper shadow-h">
+								<Tour>
+									<picture>
+										<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/pln-general-new-m.webp" />
+										<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-new-1x.webp" />
+										<source media="(min-width: 961px) and (resolution: 2dppx), 
+											(min-width: 961px) and (resolution: 3dppx),
+											(min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/pln-general-new-2x.webp" />
+										<img src="/assets/img/design/design-systems/pln/pln-general-new-2x.webp" alt="Исходный концепт редизайна главной страницы «Псковской ленты новостей»" />
+									</picture>
+									<TourPoint id="plnmockup-p1" x="9%" y="3.7%" title="Блок главных материалов">
+										Прежний дизайн жестко ограничивал блок главных материалов тремя, что иногда создавало проблемы редакции, когда один или несколько слотов были заняты коммерческой публикацией, но происходили резонансные события, требующую акцентирования нескольких важных публикаций. В новом дизайне можно добавлять неограниченное количество публикаций в блок главных
+									</TourPoint>
+									<TourPoint id="plnmockup-p2" x="80%" y="3.7%" title="Независимая прокрутка ленты новостей">
+										Лента последних новостей имеет независимую от остальных блоков основного раздела главной страницы прокрутку
+									</TourPoint>
+									<TourPoint id="plnmockup-p3" x="1.2%" y="9.85%" title="Подзаголовки">
+										Для крупных форм (статей, интервью) были предусмотрены стили оформления подзаголовков, которые в сочетании с заголовком иного формата (например, игровой заголовок и информативный подзаголовок) дают лучшую конверсию
+									</TourPoint>
+									<TourPoint id="plnmockup-p4" x="56.7%" y="9.85%" title="Иерархичность материалов">
+										Для акцентирования крупных форм (статей, репортажей, интервью, авторских колонок) было предусмотрено выделение в ленте заголовка размером и возможность вывода подзаголовка. Материалы, имеющие внутри видео или фоторепортаж, как наиболее виральные, акцентируются соответсвующими иконками
+									</TourPoint>
+									<TourPoint id="plnmockup-p5" x="23.7%" y="12.9%" title="Новый блок для анонсов радиоэфиров">
+										В новый блок вынесли кнопки прослушивания подкастов и просмотра прямых видеотрансляций радиоэфиров, анонса эфира онлайн и вывода поборки прошедших эфиров
+									</TourPoint>
+									<TourPoint id="plnmockup-p6" x="56.7%" y="19.4%" title="Переработанный инфобаннеры">
+										В прежней версии (см. закладку «Было») инфобаннеры были мельче, затемнены полупрозрачной тёмной плашкой, которая пропадала только при фокусировке, а надписи на них редакции приходилось наносить вручную в графическом редакторе. Обновлённая версия инфобаннеров позволяет задавать текст как для двух, так и для одной строки непосредственно в CMS, независимость текста и изображения технически позволила анимировать баннеры при наведении и подставлять в качестве фона видео, что расширило рекламные возможности платформы
+									</TourPoint>
+									<TourPoint id="plnmockup-p7" x="18%" y="22.35%" title="Виджет самых популярных материалов">
+										Как и в прошлой версии, логика виджетов в блоке резонанса в виде табов была сохранена, но серьёзно изменён UI. Для блока популярных и комментируемых материалов в качестве фона вынесли числа — у популярных это порядок рейтинга, у комментируемых — количество комментариев.
+									</TourPoint>
+									<TourPoint id="plnmockup-p8" x="75.4%" y="22.35%" title="Виджет канала в мессенджере">
+										За счёт перехода на полноразмерный шаблон с максимально эффективным использованием доступного пространства появилась возможность добавить в раздел виджет одного из ключевых продуктов — телеграм-канала — с интерактивным отображеним последних постов.
+									</TourPoint>
+									<TourPoint id="plnmockup-p9" x="39.8%" y="68.5%" title="Обложки у колонок">
+										Ключевое изменение блока авторских колонок — появление у сниппетов обложек для увеличения конверсии авторских материалов, на которые расходуются серьёзные ресурсы редакции
+									</TourPoint>
+									<TourPoint id="plnmockup-p10" x="29.8%" y="81.4%" title="Объединённый блок мультимедиа">
+										Всю мультимедиа-графику (фото, видео, инфографику) и интерактивные лонгриды объединили в единый блок с возможностью фильтрации, чтобы сосредоточить в одном месте визуально-привлекательный контент и повысить шансы блока на доскролл. Кроме того, ранее пользователь мог видеть лишь одну обложку каждого типа контента. При этом некоторые из них (например, фото) обновлялись часто, а ресурсоёмкие форматы — гораздо реже, что создавало диспропорции. Теперь же пользователи видят наиболее свежие материалы, но при необходимости могут посмотреть последние 6 материалов определённого формата. 
+									</TourPoint>
+								</Tour>
+							</div>
+						</TabPanel>
+					</TabPanels>
+				</Tabs>
+			</section>
+			<section class="article-chapter-section">
+				<h3 class="article-chapter-subtitle" data-toc="Влияние на метрики" id="outcome-metrics">Влияние на метрики</h3>
+				<p class="article-text">
+					Даже после моего ухода из холдинга я оказывал консультативную помощь своей бывшей компании на этапе внедрения редизайна.
+				</p>
+				<p class="article-text">
+					Сайт в обновлённом дизайне был запущен накануне новогодних каникул — 25 декабря 2025 года. Наблюдения за метриками по итогам первого полноценного месяца после окончания каникул (данные приводятся на 16 февраля 2026 года) уже продемонстрировали значимый эффект для вовлечённости пользователей:
+				</p>
+				<ul class="article-text wrapper-indentation">
+					<li>удалось сбить продолжавшуюся более 2 лет тенденцию к снижению показателей глубины и времени просмотра; они <a href="https://www.liveinternet.ru/stat/pln-pskov.ru/index.html?id=ratio&period=week" title="Статистика посещаемости сайта ПЛН по данныйм Liveinternet" target="_blank">начали расти</a> и успели прибавить в среднем 20&#8239;%;</li>
+					<li>наметилась устойчивая тенденция снижения посещений с глубиной 1 за счёт увеличения доли посещений с просмотром как минимум нескольких страниц: с 15&#8239;&#8239;% до 20&#8239;% выросла доля посещений с глубиной 2&#x2060;-&#x2060;3, с 6,4&#8239;% до 8,3&#8239;% — с глубиной от 4 до 7 страниц, с 4,2&#8239;% до 5,6&#8239;% — с глубиной от 8 до 20 страниц;</li>
+					<li>более чем на 50&#8239;% выросла доля посещений страницы «Лента новостей».</li>
+				</ul>
+			</section>
 		</section>
 	</section>
 </LayoutArticle>

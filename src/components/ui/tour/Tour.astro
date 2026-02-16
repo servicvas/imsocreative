@@ -1,0 +1,27 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {}
+const { class: className, ...rest } = Astro.props;
+---
+
+<div class:list={["tour-container", className]} {...rest}>
+	<div class="media-wrapper">
+		<slot name="media" />
+	</div>
+	<slot />
+</div>
+
+<style is:global>
+	.tour-container {
+		position: relative;
+		display: inline-block;
+		width: 100%;
+	}
+
+	.media-wrapper img,
+	.media-wrapper video {
+		display: block;
+		width: 100%;
+		height: auto;
+		max-width: 100%;
+	}
+</style>

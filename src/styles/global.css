@@ -39,7 +39,7 @@
 	--color-brand-softest: oklch(0.95 0.008 290.4); /* #eeedf3 / rgb(238, 237, 243) */
 
 	--color-button-icon-controls: var(--color-link);
-	--color-button-bg-main: oklch(from var(--color-bg-xxh) l c h / 30%);
+	--color-button-bg-main: oklch(from var(--color-bg-xh) l c h / 60%);
 	--color-button-bg-focus: oklch(from var(--color-brand-main) l c h / 90%);
 	--color-button-bg-hover: oklch(from var(--color-brand-main) l c h / 40%);
 	--color-button-bg-colored: oklch(from var(--color-brand-main) l c h / 75%);
@@ -85,7 +85,7 @@
 	--font-size-md: clamp(1.1rem, 1.05rem + 0.25vw, 1.3rem);
 	--font-size-main: clamp(1rem, 0.9rem + 0.3vw, 1.15rem);
 	--font-size-s: clamp(0.9rem, 0.87rem + 0.15vw, 1.05rem);
-	--font-size-xs: clamp(0.7rem, 0.66rem + 0.2vw, 0.9rem);
+	--font-size-xs: clamp(0.75rem, 0.66rem + 0.2vw, 0.9rem);
 	--font-size-xxs: clamp(0.6rem, 0.56rem + 0.2vw, 0.8rem);
 	--font-size-xxxs: clamp(0.5rem, 0.46rem + 0.2vw, 0.7rem);
 
@@ -588,11 +588,11 @@ mark {
 	margin-inline: auto;
 }
 
-.wrapper--inlinepadding {
+.wrapper-inlinepadding {
 	padding-inline: var(--layout-padding-inline);
 }
 
-.wrapper--indentation {
+.wrapper-indentation {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-indentation);
@@ -630,6 +630,9 @@ mark {
 .wrapper-sticky {
 		position: sticky;
 		top: var(--space-scrollpadding-s);
+		&.tabs-list {
+			z-index: +1!important;
+		}
 }
 
 /* Таблицы */
@@ -796,6 +799,10 @@ details {
     object-fit: cover;
     overflow: auto;
 		cursor: ns-resize;
+	}
+	& img, video {
+		width: 100%;
+		height: auto;
 	}
 }
 

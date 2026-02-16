@@ -1,0 +1,114 @@
+---
+import { BREADCRUMB_LABELS, BREADCRUMB_ANCHORS } from './breadcrumbs.config';
+
+interface Props {
+	breadcrumbsLabels?: Record<string, string>;
+	breadcrumbsAnchors?: Record<string, string>;
+}
+
+const { breadcrumbsLabels = {}, breadcrumbsAnchors = {} } = Astro.props;
+
+// Объединяем импортированные конфиги с пропсами
+const ALL_LABELS = { ...BREADCRUMB_LABELS, ...breadcrumbsLabels };
+const ALL_ANCHORS = { ...BREADCRUMB_ANCHORS, ...breadcrumbsAnchors };
+
+const path = Astro.url.pathname;
+const segments = path.split("/").filter((s) => s && s !== "index");
+
+const breadcrumbs = segments.map((segment, index) => {
+	const isLast = index === segments.length - 1;
+	
+	// Если для сегмента есть якорь в конфиге — берем его, иначе строим путь
+	const href = ALL_ANCHORS[segment] || "/" + segments.slice(0, index + 1).join("/");
+	const label = ALL_LABELS[segment] || decodeURIComponent(segment);
+
+	return { href, label, isLast };
+});
+---
+
+<nav aria-label="Хлебные крошки" class="breadcrumb--wrapper">
+	<ol class="breadcrumb" itemscope itemtype="https://schema.org">
+		<li itemprop="itemListElement" itemscope itemtype="https://schema.org">
+			<a href="/" itemprop="item" class="icon-home--wrapper">
+				<svg role="img" aria-label="Главная" xmlns="http://www.w3.org" fill="none" viewBox="0 0 32 32" class="icon-home">
+					<title>Главная</title>
+					<path class="icon-home--patch" d="M29.17,18.98c-3.67,4.42-10.77,10.37-17.4,10.12-5.67,0-10.23-4.96-10.26-10.15C1.21,10.04,11.74-1.32,21.89,2.14c6.96,2.64,4.71,12.09.42,16.02-3.82,4.19-11.4,7.88-14.19,3.15-2.93-4.97,2.98-11.45,7.49-13.26,2.07-.83,4.96-1.19,4.98,1.57.02,2.24-3.07,3.6-5.02,3.94"></path>
+				</svg>
+			</a>
+			<meta itemprop="position" content="1" />
+		</li>
+
+		{breadcrumbs.map((crumb, index) => (
+			<li itemprop="itemListElement" itemscope itemtype="https://schema.org">
+				{crumb.isLast ? (
+					<span title={crumb.label} itemprop="name">{crumb.label}</span>
+				) : (
+					<a href={crumb.href} title={crumb.label} itemprop="item">
+						<span itemprop="name">{crumb.label}</span>
+					</a>
+				)}
+				<meta itemprop="position" content={String(index + 2)} />
+			</li>
+		))}
+	</ol>
+</nav>
+
+<style>
+	.breadcrumb--wrapper {
+		/* align-self: start; */
+	}
+
+	.breadcrumb {
+    width: 100%;
+		font-family: var(--font-family-secondary);
+		font-size: var(--font-size-s);
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+	}
+
+	.icon-home {
+		width: 2ch;
+		& path {
+			fill: none;
+			stroke: var(--color-link);
+			stroke-miterlimit: 2.5;
+			stroke-width: 2.5;
+		}
+	}
+
+	.breadcrumb li {
+		display: flex;
+		align-items: center;
+		font-size: inherit;
+		&:last-child {
+			display: none;
+		}
+	}
+
+	.breadcrumb a {
+		text-decoration: none;
+		@media (hover: hover) and (pointer: fine) {
+			&:hover,
+			&:focus {
+				& span {
+					color: var(--color-const-light) !important;
+				}
+			}
+			&:has(svg) {
+				background: none !important;
+			}
+		}
+	}
+
+	.breadcrumb span {
+		font-size: inherit;
+		color: var(--color-link);
+	}
+
+	.breadcrumb li:not(:last-child)::after {
+		content: " > ";
+		margin: 0 0.5rem;
+		color: var(--color-content-xxxs);
+	}
+</style>
