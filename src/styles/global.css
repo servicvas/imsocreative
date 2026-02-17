@@ -45,6 +45,9 @@
 	--color-button-bg-colored: oklch(from var(--color-brand-main) l c h / 75%);
 	--color-button-inactive: var(--color-brand-s);
 
+	--color-popover-bg-main: oklch(from var(--color-brand-xxxs) l c h / 80%);
+	--color-popover-border: oklch(from var(--color-bg-xh) l c h / 90%);
+
 	--color-safe-main: #379f37;
 	--color-danger-main: #df1f1f;
 
@@ -140,6 +143,8 @@
 	--shadow-s: 0.1px 0.9px 0.8px hsl(var(--shadow-color) / 0.2), 0.5px 3.6px 3.3px -4px hsl(var(--shadow-color) / 0.05);
 	--shadow-main: 0.1px 0.6px 0.8px hsl(var(--shadow-color) / 0.2), 0.5px 4px 4px -2px hsl(var(--shadow-color) / 0.1), 2px 8px 4px -4px hsl(var(--shadow-color) / 0.03);
 	--shadow-h: 0.5px 1px 1px -2px hsl(var(--shadow-color) / 0.2), 0.6px 4.6px 4.2px -4px hsl(var(--shadow-color) / 0.15), 2px 14px 13px -6px hsl(var(--shadow-color) / 0.1), 6px 38px 35px -3px hsl(var(--shadow-color) / 0.05), 12px 84px 76px -10px hsl(var(--shadow-color) / 0.03);
+	--shadow-filter: drop-shadow(0.1px 0.6px 0.8px hsl(var(--shadow-color) / 0.2)) drop-shadow(0.5px 4px 4px hsl(var(--shadow-color) / 0.1)) drop-shadow(2px 8px 4px hsl(var(--shadow-color) / 0.03));
+
 }
 
 :focus-visible {

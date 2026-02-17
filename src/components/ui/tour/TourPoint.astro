@@ -110,11 +110,11 @@ const anchorName = `--anchor-${id}`;
 		@supports (corner-shape: squircle) {
 			corner-shape: squircle;
 		}
-		background: var(--color-button-bg-main);
+		background: var(--color-popover-bg-main);
 		backdrop-filter: blur(8px);
-		border: none;
+		border: 1px solid var(--color-popover-border);
 		box-shadow: var(--shadow-main);
-		max-width: 340px;
+		width: min(100%, 420px);
 		color: var(--color-content-main);
 		font-size: var(--font-size-s);
     font-family: var(--font-family-secondary);
