@@ -97,6 +97,17 @@ const ogImageUrl = new URL(imagePath, siteOrigin).href;
 				import("https://unpkg.com/@oddbird/css-anchor-positioning");
 			}
 		</script>
+		<script type="module">
+			if (!window.ScrollTimeline && !window.ViewTimeline) {
+				import("https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js")
+					.then(() => {
+						console.log("Полифил для scroll-timeline загружен");
+					})
+					.catch((err) => {
+						console.error("Ошибка загрузки полифила для scroll-timeline", err);
+					});
+			}
+		</script>
 	</head>
 	<body>
 		<Intro />

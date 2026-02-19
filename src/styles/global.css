@@ -475,6 +475,9 @@ mark {
 			}
 		}
 	}
+	& .article-chapter {
+		margin-block-end: var(--space-md);
+	}
 	& .article-chapter-title {
 		width: var(--content-width-w);
 		margin-inline: auto;
@@ -822,21 +825,28 @@ details {
 		margin-block-end: var(--space-xs);
 	}
 	& .section-cards-wrapper {
-		padding-block: var(--space-s);
-		display: flex;
-		flex-direction: row;
-		gap: var(--space-main);
-		@media screen and (width > 1200px) {
+		@media screen and (width <= 1200px) {
+			padding-block: var(--space-s);
+			display: flex;
+			flex-direction: row;
+			gap: var(--space-l)!important;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			scroll-behavior: smooth;
+			overscroll-behavior-x: contain;
+			transition: scroll 0.5s ease;
+			scroll-padding-inline: 1.2rem;
+			scrollbar-width: none;
+			position: relative;
 			gap: var(--space-l);
 		}
-		overflow-x: auto;
-		scroll-snap-type: x mandatory;
-		scroll-behavior: smooth;
-		overscroll-behavior-x: contain;
-		transition: scroll 0.5s ease;
-		scroll-padding-inline: 1.2rem;
-		scrollbar-width: none;
-		position: relative;
+		@media screen and (width > 1200px) {
+			padding-block: var(--space-main);
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+			grid-template-rows: auto;
+			gap: var(--space-l);
+		}
 	}
 }
 
@@ -883,8 +893,7 @@ a.pagecard-linkwrapper {
 	grid-template-rows: min-content min-content 1fr;
 	overflow: clip;
 	width: 100%;
-	min-width: 330px;
-	max-width: 600px;
+	min-width: 360px;
 	height: 100%;
 	background: var(--color-bg-xh);
 	border-radius: var(--radius-button-xxxl);
@@ -1011,26 +1020,29 @@ a.pagecard-linkwrapper {
 }
 
 /* Анимации */
-
-.animation-scroll-fadeup {
-	animation: card--show 0.7s ease-in-out;
-	-webkit-animation: card--show 0.7s ease-in-out;
-	animation-timeline: view(block);
-	animation-range-start: cover 0%;
-	animation-range-end: 55vh;
-	@starting-style {
-		transform: translateY(25vh);
-	}
-}
-
-@keyframes card--show {
-	from {
-		opacity: 0;
-		transform: translateY(200px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0px);
+@supports (animation-timeline: scroll()) and (animation-range: entry-crossing) {
+	@media (prefers-reduced-motion: no-preference) {
+		.animation-scroll-fadeup {
+			animation: card--show 0.7s ease-in-out;
+			-webkit-animation: card--show 0.7s ease-in-out;
+			animation-timeline: view(block);
+			animation-range-start: cover 0%;
+			animation-range-end: 55vh;
+			@starting-style {
+				transform: translateY(25vh);
+			}
+		}
+		
+		@keyframes card--show {
+			from {
+				opacity: 0;
+				transform: translateY(200px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0px);
+			}
+		}
 	}
 }
 

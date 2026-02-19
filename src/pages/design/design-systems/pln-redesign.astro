@@ -571,22 +571,28 @@ const breadcrumbsLabels = {
 	#footnote--plnstat {
 		margin-block-end: var(--space-indentation);
 	}
-	@keyframes horizontal-scrolling-to-right {
-		from {
-			transform: translateX(90%);
-		}
-		to {
-			transform: translateX(-150%);
+
+	@supports (animation-timeline: scroll()) and (animation-range: entry-crossing) {
+		@media (prefers-reduced-motion: no-preference) {
+			@keyframes horizontal-scrolling-to-right {
+				from {
+					transform: translateX(90%);
+				}
+				to {
+					transform: translateX(-150%);
+				}
+			}
+			@keyframes horizontal-scrolling-to-left {
+				from {
+					transform: translateX(-200%);
+				}
+				to {
+					transform: translateX(90%);
+				}
+			}
 		}
 	}
-	@keyframes horizontal-scrolling-to-left {
-		from {
-			transform: translateX(-200%);
-		}
-		to {
-			transform: translateX(90%);
-		}
-	}
+	
 	.logo-present {
 		background: var(--color-const-light);
 		padding: var(--space-xl);

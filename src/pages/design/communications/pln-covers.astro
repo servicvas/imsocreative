@@ -99,24 +99,28 @@ for (let i = 0; i < imagePaths.length; i += 3) {
 			@media screen and (width < 1200px) {
 				width: max-content;
 			}
-			&:nth-child(odd) {
-				animation: covers-scrolling-to-right linear forwards;
-				animation-timeline: view();
-				animation-range: entry 0% cover 50%;
-				@media screen and (width < 1200px) {
-					animation: covers-scrolling-to-right-mobile linear forwards;
-					animation-timeline: view();
-					animation-range: entry 0% cover 80%;
-				}
-			}
-			&:nth-child(even) {
-				animation: covers-scrolling-to-left linear forwards;
-				animation-timeline: view();
-				animation-range: entry 0% cover 50%;
-				@media screen and (width < 1200px) {
-					animation: covers-scrolling-to-left linear forwards;
-					animation-timeline: view();
-					animation-range: entry 0% cover 80%;
+			@supports (animation-timeline: scroll()) and (animation-range: entry-crossing) {
+				@media (prefers-reduced-motion: no-preference) {
+					&:nth-child(odd) {
+						animation: covers-scrolling-to-right linear forwards;
+						animation-timeline: view();
+						animation-range: entry 0% cover 50%;
+						@media screen and (width < 1200px) {
+							animation: covers-scrolling-to-right-mobile linear forwards;
+							animation-timeline: view();
+							animation-range: entry 0% cover 80%;
+						}
+					}
+					&:nth-child(even) {
+						animation: covers-scrolling-to-left linear forwards;
+						animation-timeline: view();
+						animation-range: entry 0% cover 50%;
+						@media screen and (width < 1200px) {
+							animation: covers-scrolling-to-left linear forwards;
+							animation-timeline: view();
+							animation-range: entry 0% cover 80%;
+						}
+					}
 				}
 			}
 		}

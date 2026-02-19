@@ -74,13 +74,17 @@ for (let i = 0; i < imagePaths.length; i += 6) {
 			width: max-content;
 			gap: var(--space-main);
 			margin-block-end: var(--space-main);
-			animation: pages-scrolling-to-right linear forwards;
-			animation-timeline: view();
-			animation-range: entry 0% cover 80%;
-			&:nth-child(even) {
-				animation: pages-scrolling-to-left linear forwards;
-				animation-timeline: view();
-				animation-range: entry 0% cover 80%;
+			@supports (animation-timeline: scroll()) and (animation-range: entry-crossing) {
+				@media (prefers-reduced-motion: no-preference) {
+					animation: pages-scrolling-to-right linear forwards;
+					animation-timeline: view();
+					animation-range: entry 0% cover 80%;
+					&:nth-child(even) {
+						animation: pages-scrolling-to-left linear forwards;
+						animation-timeline: view();
+						animation-range: entry 0% cover 80%;
+					}
+				}
 			}
 		}
 		& .scrolline-item {
