@@ -4,7 +4,7 @@ import Skills from "$components/blocks/Skills.astro";
 ---
 
 <section class="hero">
-	<section class="hero_heading">
+	<section class="hero_heading parallax-item" data-parallax="0.1">
 		<p class="hero_heading--subtitle hero_heading--hello">Будем знакомы!</p>
 		<h1 class="hero_heading--title">Сергей Васильев</h1>
 		<div class="wrapper-indentation">
@@ -54,7 +54,7 @@ import Skills from "$components/blocks/Skills.astro";
 			"cover"
 			"heading"
 			"skills";
-		gap: var(--space-l);
+		gap: var(--space-xxl);
 		margin-block-end: var(--space-l);
 		@media screen and (width >= 1200px) {
 			padding-block: var(--space-l);

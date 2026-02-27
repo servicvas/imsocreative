@@ -4,21 +4,29 @@ import CardPage from "$components/ui/CardPage.astro";
 
 <section class="section-cards">
 	<h2 class="section-cards-title animation-scroll-fadeup">Коммуникационный дизайн</h2>
-	<section class="section-cards-wrapper animation-scroll-fadeup">
-		<CardPage link="/design/communications/pln-covers" timeline="2020-2024 годы" title="Дизайн-поддержка в медиа" subtitle="Примеры обложек статей, айдентики передач, инфографики и мерча" tags={["Графдизайн", "Креативные концепции", "Инфографика"]}>
-			<img src="/assets/img/design/communications/pln-communications/pln-communications-cover.webp" class="pagecard-cover--zoom" alt="Коммуникационный дизайн для ПЛН" />
-		</CardPage>
-		<CardPage link="/design/communications/logos" timeline="2006-2024 годы" title="Логотипы" subtitle="Подборка образцов коммерческой разработки логотипов" tags={["Графдизайн", "Креативные концепции", "Брендинг"]}>
-			<img src="/assets/img/design/communications/logos/logos-bg/logos-cover.webp" class="pagecard-cover--zoom" alt="Подборка разработанных логотипов" />
-		</CardPage>
-		<CardPage link="/webdev" timeline="2014-2025 годы" title="Веб-дизайн и разработка" subtitle="Примеры дизайна и вёрстки сайтов различной направленности и сложности: от лендингов до корпоративных сайтов" tags={["UX", "UI", "Веб-разработка", "Графдизайн", "Сторителлинг"]}>
-			<img src="/assets/img/dev/screens/dev-cover.webp" class="pagecard-cover--zoom" alt="Скрины разработанных лендингов и сайтов" />
-		</CardPage>
-		<CardPage link="/design/communications/reports" timeline="2011, 2018-2019 годы" title="Отчёты, буклеты, выставочные стенды" subtitle="Примеры разработки полиграфических буклетов для отчётности бизнеса, государственных и муниципальных органов, оформления стендов на выставках" tags={["Дизайн и вёрстка", "Ретушь", "Полиграфия"]}>
-			<div class="pagecard-cover--entrywrapper">
-				<img src="/assets/img/design/communications/reports/reports-line1.webp" class="pagecard-cover--entry entry-to-left" alt="Примеры разработанной полиграфической отчётности" />
-				<img src="/assets/img/design/communications/reports/reports-line2.webp" class="pagecard-cover--entry entry-to-right" alt="Примеры разработанной полиграфической отчётности" />
-			</div>
-		</CardPage>
-	</section>
+	<ul class="section-cards-wrapper animation-scroll-fadeup">
+			<li>
+				<CardPage link="/design/communications/pln-covers" timeline="2020-2024 годы" title="Дизайн-поддержка в медиа" subtitle="Примеры обложек статей, айдентики передач, инфографики и мерча" tags={["Графдизайн", "Креативные концепции", "Инфографика"]}>
+					<img src="/assets/img/design/communications/pln-communications/pln-communications-cover.webp" class="pagecard-cover--zoom" alt="Коммуникационный дизайн для ПЛН" />
+				</CardPage>
+			</li>
+			<li>
+				<CardPage link="/design/communications/logos" timeline="2006-2024 годы" title="Логотипы" subtitle="Подборка образцов коммерческой разработки логотипов" tags={["Графдизайн", "Креативные концепции", "Брендинг"]}>
+					<img src="/assets/img/design/communications/logos/logos-bg/logos-cover.webp" class="pagecard-cover--zoom" alt="Подборка разработанных логотипов" />
+				</CardPage>
+			</li>
+			<li>
+				<CardPage link="/webdev" timeline="2014-2025 годы" title="Веб-дизайн и разработка" subtitle="Примеры дизайна и вёрстки сайтов различной направленности и сложности: от лендингов до корпоративных сайтов" tags={["UX", "UI", "Веб-разработка", "Графдизайн", "Сторителлинг"]}>
+					<img src="/assets/img/dev/screens/dev-cover.webp" class="pagecard-cover--zoom" alt="Скрины разработанных лендингов и сайтов" />
+				</CardPage>
+			</li>
+			<li>
+				<CardPage link="/design/communications/reports" timeline="2011, 2018-2019 годы" title="Отчёты, буклеты, выставочные стенды" subtitle="Примеры разработки полиграфических буклетов для отчётности бизнеса, государственных и муниципальных органов, оформления стендов на выставках" tags={["Дизайн и вёрстка", "Ретушь", "Полиграфия"]}>
+					<div class="pagecard-cover--entrywrapper">
+						<img src="/assets/img/design/communications/reports/reports-line1.webp" class="pagecard-cover--entry entry-to-left" alt="Примеры разработанной полиграфической отчётности" />
+						<img src="/assets/img/design/communications/reports/reports-line2.webp" class="pagecard-cover--entry entry-to-right" alt="Примеры разработанной полиграфической отчётности" />
+					</div>
+				</CardPage>
+			</li>
+		</ul>
 </section>

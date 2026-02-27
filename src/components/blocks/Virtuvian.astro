@@ -2,7 +2,7 @@
 
 ---
 
-<div class="virtuvian_cover">
+<div class="virtuvian_cover parallax-item" data-parallax="0.05">
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" class="virtuvian_bg" fetchpriority="high">
 		<defs>
 			<style>
@@ -34,7 +34,7 @@
 		<source media="(min-width: 961px) and (resolution: 2dppx), 
             (min-width: 961px) and (resolution: 3dppx),
             (min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/main/sv_virtuvian_uhd.webp" />
-		<img src="/assets/img/main/sv_virtuvian_uhd.webp" class="virtuvian_cover--img" alt="Сергей Васильев — мультидисциплинарный продуктовый дизайнер с опытом в веб-разработке, медиа и менеджменте IT-проектов" fetchpriority="high"/>
+		<img src="/assets/img/main/sv_virtuvian_uhd.webp" class="virtuvian_cover--img" alt="Сергей Васильев — мультидисциплинарный продуктовый дизайнер с опытом в веб-разработке, медиа и менеджменте IT-проектов" fetchpriority="high" />
 	</picture>
 </div>
 
@@ -44,16 +44,16 @@
 		height: auto;
 		aspect-ratio: 1 / 1;
 		position: relative;
-    @media screen and (width >= 1200px) {
+		@media screen and (width >= 1200px) {
 			width: min(100%, 80vh);
 		}
 		@media screen and (width >= 1600px) {
 			width: min(100%, 90vh);
 		}
 	}
-  .virtuvian_cover svg {
-    overflow: visible;
-  }
+	.virtuvian_cover svg {
+		overflow: visible;
+	}
 	.virtuvian_cover--img,
 	.virtuvian_bg {
 		position: absolute;
@@ -61,13 +61,13 @@
 		width: 100%;
 		height: 100%;
 	}
-  .virtuvian_bg * {
-    stroke: var(--color-brand-main);
-    stroke-width: 3;
+	.virtuvian_bg * {
+		stroke: var(--color-brand-main);
+		stroke-width: 3;
 		stroke-miterlimit: 3;
-    @media screen and (width >= 1200px) {
-      stroke-width: 1.5;
-      stroke-miterlimit: 1.5;
-    }
-  }
+		@media screen and (width >= 1200px) {
+			stroke-width: 1.5;
+			stroke-miterlimit: 1.5;
+		}
+	}
 </style>

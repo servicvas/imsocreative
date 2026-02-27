@@ -1,32 +1,33 @@
 ---
 
 ---
+
 <section class="depart_section">
-  <div class="depart_tag">User flow</div>
-  <div class="depart_tag">JTBD</div>
-  <div class="depart_tag">исследования</div>
-  <div class="depart_tag">html</div>
-  <div class="depart_tag">JSON</div>
-  <div class="depart_tag">design tokens</div>
-  <div class="depart_tag">дизайн-системы</div>
-  <div class="depart_tag">метрики</div>
-  <div class="depart_tag">арт-дирекшн</div>
-  <div class="depart_tag">Storybook</div>
-  <div class="depart_tag">веб-разработка</div>
-  <div class="depart_tag">AI</div>
-  <div class="depart_tag">UJM</div>
-  <div class="depart_tag">прототип</div>
-  <div class="depart_tag">Token Studio</div>
-  <div class="depart_tag">Яндекс Метрика</div>
-  <div class="depart_tag">Figma</div>
-  <div class="depart_tag">менторство</div>
-  <div class="depart_tag">гайдлайн</div>
-  <div class="depart_tag">сторителлинг</div>
-  <div class="depart_tag">анимации</div>
-  <div class="depart_tag">css</div> 
-  <div class="depart_tag">UX</div>
-  <div class="depart_tag">UI</div>
-  <div class="depart_tag">медиа</div>
+	<div class="depart_tag">User flow</div>
+	<div class="depart_tag">JTBD</div>
+	<div class="depart_tag">исследования</div>
+	<div class="depart_tag">html</div>
+	<div class="depart_tag">JSON</div>
+	<div class="depart_tag">design tokens</div>
+	<div class="depart_tag">дизайн-системы</div>
+	<div class="depart_tag">метрики</div>
+	<div class="depart_tag">арт-дирекшн</div>
+	<div class="depart_tag">Storybook</div>
+	<div class="depart_tag">веб-разработка</div>
+	<div class="depart_tag">AI</div>
+	<div class="depart_tag">UJM</div>
+	<div class="depart_tag">прототип</div>
+	<div class="depart_tag">Token Studio</div>
+	<div class="depart_tag">Яндекс Метрика</div>
+	<div class="depart_tag">Figma</div>
+	<div class="depart_tag">менторство</div>
+	<div class="depart_tag">гайдлайн</div>
+	<div class="depart_tag">сторителлинг</div>
+	<div class="depart_tag">анимации</div>
+	<div class="depart_tag">css</div>
+	<div class="depart_tag">UX</div>
+	<div class="depart_tag">UI</div>
+	<div class="depart_tag">медиа</div>
 </section>
 
 <style>
@@ -49,27 +50,28 @@
 	}
 
 	.depart_section {
-		height: 80rem;
-		perspective: 70rem;
+		top: -5rem;
+		height: 120rem;
+		perspective: 180rem;
 		transform-style: preserve-3d;
 		display: grid;
 		grid: repeat(4, 25vh) / repeat(4, 25vw);
 		place-items: center;
 		position: absolute;
-		top: -16rem;
 		overflow: clip;
-    pointer-events: none!important;
-    @media screen and (width >= 1200px) {
-      top: 5rem;
-      perspective: 180rem;
-    }
+		pointer-events: none !important;
+		@media screen and (width >= 1200px) {
+			top: 14rem;
+			height: 160vh;
+			perspective: 50rem;
+		}
 		& > .depart_tag {
-      font-family: var(--font-family-secondary);
-      font-size: var(--font-size-l);
-      color: var(--color-brand-s);
+			font-family: var(--font-family-secondary);
+			font-size: var(--font-size-l);
+			color: var(--color-brand-s);
 			transform-style: preserve-3d;
-      opacity: 0;
-      transition: opacity 0.3s;
+			opacity: 0;
+			transition: opacity 0.3s;
 			@supports (animation-timeline: scroll()) and (animation-range: entry-crossing) {
 				@media (prefers-reduced-motion: no-preference) {
 					animation: fly-depart linear both;
