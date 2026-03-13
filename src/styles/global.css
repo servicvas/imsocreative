@@ -538,7 +538,7 @@ mark {
 			}
 		}
 	}
-	& :is(ul, ol):not(.breadcrumb, .toc-list) {
+	& :is(ul, ol):not(.breadcrumb, .toc-list, .collection) {
 		margin-inline: auto;
 		padding-inline-start: var(--space-main) !important;
 		& li {
@@ -772,20 +772,54 @@ details {
 
 .collection {
 	padding-inline: var(--layout-padding-inline);
+	& li {
+		list-style: none; 
+		padding: 0;
+		margin: 0; 
+		flex: 0 0 auto;
+	}
 	@media screen and (width < 960px) {
+		position: relative;
 		display: flex;
 		gap: var(--space-md);
 		overflow-x: auto;
-		padding-block: var(--space-s);
+		/* padding-block: var(--space-s); */
 		scroll-padding-inline: var(--layout-padding-inline);
 		scroll-snap-type: x mandatory;
 		scroll-behavior: smooth;
 		overscroll-behavior-x: contain;
 		transition: scroll 0.5s ease;
 		scrollbar-width: none;
+		scroll-marker-group: after;
 		& .collection-item {
 			width: min(440px, 87vw);
 			scroll-snap-align: start;
+		}
+		&::scroll-marker-group {
+			position: relative;
+			/* width: 100vw; */
+			align-items: center;
+			justify-content: center;
+			margin-block: var(--space-s);
+			padding-inline: var(--layout-padding-inline);
+			display: flex;
+			gap: var(--space-s);
+		}
+		li::scroll-marker {
+			content: '';
+			width: .6rem;
+			height: .6rem;
+			aspect-ratio: 1 / 1;
+			background: var(--color-content-softest);
+			border-radius: 100%;
+			cursor: pointer;
+			transition: transform 0.2s ease;
+		}
+		
+		li::scroll-marker:target-current {
+			anchor-name: --active-target;
+			background: var(--color-link);
+			transform: translateY(-0.5rem);
 		}
 	}
 	@media screen and (width >= 960px) {
@@ -833,7 +867,7 @@ details {
 		margin-block-end: var(--space-xs);
 	}
 	& .section-cards-wrapper {
-		width: 100dvw;
+		width: 100vw;
 		& li {
 			list-style: none; 
 			padding: 0;
@@ -855,18 +889,18 @@ details {
 			scroll-marker-group: after;
 			&::scroll-marker-group {
 				position: relative;
-				width: 100vw;
+				/* width: 100vw; */
 				align-items: center;
 				justify-content: center;
-				margin-block-start: 1rem;
+				margin-block-start: var(--space-md);
 				padding-inline: var(--layout-padding-inline);
 				display: flex;
 				gap: var(--space-s);
 			}
 			li::scroll-marker {
 				content: '';
-				width: 1rem;
-				height: 1rem;
+				width: .75rem;
+				height: .75rem;
 				aspect-ratio: 1 / 1;
 				background: var(--color-content-softest);
 				border-radius: 100%;
@@ -1071,26 +1105,34 @@ a.pagecard-linkwrapper {
 @supports (animation-timeline: scroll()) and (animation-range: entry-crossing) {
 	@media (prefers-reduced-motion: no-preference) {
 		.animation-scroll-fadeup {
-			animation: card--show 0.7s ease-in-out;
-			-webkit-animation: card--show 0.7s ease-in-out;
+			will-change: transform, opacity;
+			animation: card--show ease-in-out forwards;
+			-webkit-animation: card--show ease-in-out forwards;
 			animation-timeline: view(block);
-			animation-range-start: cover 0%;
-			animation-range-end: 55vh;
-			/* @starting-style {
-				transform: translateY(25vh);
-			} */
+			animation-range: entry 0% cover 45vh; 
 		}
-		
-		@keyframes card--show {
-			from {
-				opacity: 0;
-				transform: translateY(25vh);
-			}
-			to {
-				opacity: 1;
-				transform: translateY(0px);
-			}
-		}
+	}
+}
+
+@keyframes card--show {
+	from {
+		opacity: 0;
+		transform: translateY(25vh);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+@keyframes palette-item-show {
+	from {
+		opacity: 0;
+		transform: scale(0.2);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
 	}
 }
 
