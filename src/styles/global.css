@@ -600,6 +600,10 @@ mark {
 	padding-inline: var(--layout-padding-inline);
 }
 
+.wrapper-marginblockstart-md {
+	margin-block-start: var(--space-md);
+}
+
 .wrapper-marginblockend-md {
 	margin-block-end: var(--space-md);
 }

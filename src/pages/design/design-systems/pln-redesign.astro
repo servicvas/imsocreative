@@ -513,23 +513,109 @@ const breadcrumbsLabels = {
 					</TabPanels>
 				</Tabs>
 			</section>
-			<section class="article-chapter-section">
+			<section class="article-chapter-section wrapper-marginblockend-md">
 				<h3 class="article-chapter-subtitle" data-toc="Влияние на метрики" id="outcome-metrics">Влияние на метрики</h3>
 				<p class="article-text">Даже после моего ухода из холдинга я оказывал консультативную помощь своей бывшей компании на этапе внедрения редизайна.</p>
 				<p class="article-text">Сайт в обновлённом дизайне был запущен накануне новогодних каникул — 25 декабря 2025 года. Наблюдения за метриками по итогам первого полноценного месяца после окончания каникул (данные приводятся на 16 февраля 2026 года) уже продемонстрировали значимый эффект для вовлечённости пользователей:</p>
-				<ul class="article-text wrapper-indentation">
+				<!-- <ul class="article-text wrapper-indentation">
 					<li>удалось сбить продолжавшуюся более 2 лет тенденцию к снижению показателей глубины и времени просмотра; они <a href="https://www.liveinternet.ru/stat/pln-pskov.ru/index.html?id=ratio&period=week" title="Статистика посещаемости сайта ПЛН по данным Liveinternet" target="_blank">начали расти</a> и успели прибавить в среднем 20&#8239;%;</li>
 					<li>наметилась устойчивая тенденция снижения посещений с глубиной 1 за счёт увеличения доли посещений с просмотром как минимум нескольких страниц: с 15&#8239;&#8239;% до 20&#8239;% выросла доля посещений с глубиной 2&#x2060;-&#x2060;3, с 6,4&#8239;% до 8,3&#8239;% — с глубиной от 4 до 7 страниц, с 4,2&#8239;% до 5,6&#8239;% — с глубиной от 8 до 20 страниц;</li>
 					<li>более чем на 50&#8239;% выросла доля посещений страницы «Лента новостей»;</li>
 					<li>на 15&#8239;% снизилась доля отказов;</li>
 					<li>на 7&#8239;% выросла доля пользователей, просматривающих страницы дольше 15 секунд.</li>
-				</ul>
+				</ul> -->
+				<div class="results wrapper-centered width-xw wrapper-marginblockstart-md">
+					<div class="result-item">
+						<div class="result-item-main">
+							<p class="result-caption">Рост глубины просмотра и времени на сайте</p>
+							<p class="result-digits">+ 20&#8239;%</p>
+						</div>
+						<p class="result-description">Удалось сбить продолжавшуюся более 2 лет тенденцию к снижению показателей глубины и времени просмотра: они почти сразу <a href="https://www.liveinternet.ru/stat/pln-pskov.ru/index.html?id=ratio&period=week" title="Статистика посещаемости сайта ПЛН по данным Liveinternet" target="_blank">начали уверенно расти</a>.</p>
+						<p>
+					</div>
+					<div class="result-item">
+						<div class="result-item-main">
+							<p class="result-caption">Рост посещений с просмотром нескольких страниц</p>
+							<p class="result-digits">+ 33&#8239;%</p>
+						</div>
+						<p class="result-description">Наметилась устойчивая тенденция снижения посещений с глубиной 1 за счёт увеличения доли посещений с просмотром как минимум нескольких страниц: с 15&#8239;&#8239;% до 20&#8239;% выросла доля посещений с глубиной 2&#x2060;-&#x2060;3, с 6,4&#8239;% до 8,3&#8239;% — с глубиной от 4 до 7 страниц, с 4,2&#8239;% до 5,6&#8239;% — с глубиной от 8 до 20 страниц</p>
+						<p>
+					</div>
+					<div class="result-item">
+						<div class="result-item-main">
+							<p class="result-caption">Рост посещений страницы «Лента новостей»</p>
+							<p class="result-digits">+ 54&#8239;%</p>
+						</div>
+					</div>
+					<div class="result-item">
+						<div class="result-item-main">
+							<p class="result-caption">Снижение доли отказов (просмотров короче 15 секунд)</p>
+							<p class="result-digits">- 15&#8239;%</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="article-chapter-section">
+				<h3 class="article-chapter-subtitle" data-toc="Отзыв заказчика" id="gratitude">Отзыв заказчика</h3>
+				<div class="width-w wrapper-centered">
+					<picture>
+						<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/pln-gratitude-m.webp" />
+						<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/pln-gratitude-1x.webp" />
+						<source media="(min-width: 961px) and (resolution: 2dppx), 
+							(min-width: 961px) and (resolution: 3dppx),
+							(min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/pln-gratitude-2x.webp" />
+						<img src="/assets/img/design/design-systems/pln/pln-gratitude-2x.webp" alt="Благодарность от директора «Гражданской прессы» Костикова М. Э." id="pln-gratitude" />
+					</picture>
+				</div>
 			</section>
 		</section>
 	</section>
 </LayoutArticle>
 
 <style>
+
+	.results {
+		display: flex;
+		gap: var(--space-md);
+		flex-wrap: wrap;
+		justify-content: center;
+		& > .result-item {
+			width: min(500px, 100%);
+			flex: 0 1 auto;
+			background: var(--color-bg-h);
+			padding: var(--space-md);
+			position: relative;
+			border-radius: var(--radius-button-xxl);
+			border: 1px solid var(--color-bg-xh);
+			overflow: clip;
+			@supports (corner-shape: squircle) {
+				corner-shape: squircle;
+			}
+			& > .result-item-main {
+				margin-block-end: var(--space-md);
+				& > .result-caption {
+					font-size: var(--font-size-l);
+					font-variation-settings:
+						"opsz" 9,
+						"wght" var(--font-weight-medium),
+						"GRAD" var(--font-grade-chapter-subtitle) !important;
+					line-height: 1.1;
+				}
+				& > .result-digits {
+					font-size: var(--font-size-xxxl);
+					font-variation-settings:
+						"opsz" 14,
+						"wght" var(--font-weight-bold),
+						"GRAD" var(--font-grade-chapter-subtitle) !important;
+					line-height: 1.1;
+				}
+			}
+			& .result-description {
+				
+			}
+		}
+	}
+
 	.article-cover--pln {
 		position: relative;
 		/* overflow: hidden; */
@@ -609,5 +695,10 @@ const breadcrumbsLabels = {
 			corner-shape: squircle;
 		}
 		box-shadow: var(--shadow-h);
+	}
+
+	#pln-gratitude {
+		margin-block-start: var(--space-main);
+		box-shadow: var(--shadow-main);
 	}
 </style>
