@@ -10,9 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "3.7.1",
+    "@astrojs/sitemap": "3.7.2",
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
     "@fontsource-variable/roboto-flex": "^5.2.8",
-    "astro": "6.0.4"
+    "astro": "6.1.2"
   }
 }

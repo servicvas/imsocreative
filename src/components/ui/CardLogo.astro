@@ -98,15 +98,16 @@ const { logo, logo_bg, caption, date, link } = Astro.props;
 				font-family: var(--font-family-secondary);
 				font-size: var(--font-size-xxs);
 				padding-inline: 0.6em;
-				padding-block: 0.2em;
+				padding-block: 0.5em;
 				position: absolute;
-				top: -1em;
+				top: -1.3em;
 				left: var(--description-padding-inline);
 				background: var(--color-button-bg-main);
 				-webkit-backdrop-filter: blur(6px);
 				backdrop-filter: blur(6px);
 				border: 1px solid var(--color-button-bg-main);
 				border-radius: var(--radius-button-l);
+				text-box: trim-both cap alphabetic;
 				@supports (corner-shape: squircle) {
 					corner-shape: squircle;
 				}
