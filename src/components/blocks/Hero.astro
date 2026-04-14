@@ -99,12 +99,14 @@ import Skills from "$components/blocks/Skills.astro";
 		}
 	}
 	.hero_heading--subtitle {
+		font-family: var(--font-family-secondary);
+    font-style: italic;
 		font-size: var(--font-size-l);
 		letter-spacing: 0.002em;
-		font-variation-settings:
+		/* font-variation-settings:
 			"opsz" 12,
 			"wght" var(--font-weight-medium),
-			"GRAD" var(--font-grade-medium);
+			"GRAD" var(--font-grade-medium); */
 		line-height: 1.3;
 	}
 
@@ -112,38 +114,13 @@ import Skills from "$components/blocks/Skills.astro";
 		font-size: var(--font-size-main);
 		letter-spacing: -0.002em;
 		font-variation-settings:
-			"opsz" 30,
-			"wght" var(--font-weight-regular),
+			"opsz" 20,
+			"wght" var(--font-weight-medium),
 			"GRAD" var(--font-grade-strong);
 		line-height: 1.3;
 	}
 
-	/* .hero_heading--subtitle mark {
-		position: relative;
-		background: none;
-		z-index: +1;
-	}
-
-	.hero_heading--subtitle mark:before {
-		position: absolute;
-		left: -0.25em;
-		top: 0.1em;
-		z-index: -1;
-		content: "";
-		rotate: -0.6deg;
-		background-color: var(--color-mark);
-		width: 105%;
-		height: 1.25em;
-	}
-
-	mark.subtitle_mark--first:before {
-		filter: url(#marker-shape);
-	}
-	mark.subtitle_mark--second:before {
-		filter: url(#marker-shape--second);
-	} */
-
-	.hero_skills {
+		.hero_skills {
 		grid-area: skills;
 		display: flex;
 		flex-direction: column;

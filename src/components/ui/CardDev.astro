@@ -27,7 +27,7 @@ const attributes = link ? { href: link, class: "card-dev-linkwrapper", target: "
 <style is:global>
 	.card-dev-linkwrapper {
 		all: unset;
-		cursor: pointer;
+		cursor: var(--cursor-pointer, pointer);
 	}
 
 	.card-dev {

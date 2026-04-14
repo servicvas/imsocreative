@@ -79,7 +79,7 @@
 	--table-item--space: 0.8em;
 
 	--font-family-primary: "Roboto Flex Variable", system-ui, sans-serif;
-	--font-family-secondary: "JetBrains Mono Variable", monospace, system-ui;
+	--font-family-secondary: "Cascadia Mono Variable", "JetBrains Mono Variable", ui-monospace,monospace, system-ui;
 
 	--font-size-xxxl: clamp(2rem, 1.7rem + 2vw, 3rem);
 	--font-size-xxl: clamp(1.75rem, 1.4rem + 2vw, 2.25rem);
@@ -278,12 +278,13 @@ label[for],
 summary,
 select,
 .clickable,
+.pagecard-linkwrapper,
 input[type="submit"],
 input[type="button"],
 input[type="reset"],
 input[type="checkbox"],
 input[type="radio"] {
-	cursor: var(--cursor-pointer)!important;
+	cursor: var(--cursor-pointer, pointer);
 }
 
 html,
@@ -521,15 +522,17 @@ mark {
 		text-wrap: balance;
 	}
 	& .article-subtitle {
+		font-family: var(--font-family-secondary);
+		font-style: italic;
 		font-size: var(--font-size-xl);
 		font-kerning: auto;
 		font-optical-sizing: auto;
 		letter-spacing: -0.005em;
 		line-height: 1.3;
-		font-variation-settings:
+		/* font-variation-settings:
 			"opsz" 11,
 			"wght" var(--font-weight-medium),
-			"GRAD" -50 !important;
+			"GRAD" -50 !important; */
 		white-space: normal;
 		text-wrap: balance;
 		color: var(--color-content-xxs);
@@ -817,7 +820,7 @@ details {
 		padding-inline-end: var(--space-l);
 		position: relative;
 		font-weight: var(--font-weight-bold);
-		cursor: pointer;
+		cursor: var(--cursor-pointer, pointer);
 		&::marker {
 			content: none;
 		}
@@ -916,7 +919,7 @@ details {
 			aspect-ratio: 1 / 1;
 			background: var(--color-content-softest);
 			border-radius: 100%;
-			cursor: pointer;
+			cursor: var(--cursor-pointer, pointer);
 			transition: transform 0.2s ease;
 		}
 
@@ -1009,7 +1012,7 @@ details {
 				aspect-ratio: 1 / 1;
 				background: var(--color-content-softest);
 				border-radius: 100%;
-				cursor: pointer;
+				cursor: var(--cursor-pointer, pointer);
 				transition: transform 0.2s ease;
 			}
 
@@ -1035,7 +1038,7 @@ details {
 /* Карточки страниц */
 a.pagecard-linkwrapper {
 	all: unset;
-	cursor: pointer;
+	cursor: var(--cursor-pointer, pointer);
 	@media (hover: hover) and (pointer: fine) {
 		&:hover,
 		&:focus {
@@ -1065,6 +1068,9 @@ a.pagecard-linkwrapper {
 			outline: 4px solid var(--color-link);
 			outline-offset: 4px;
 		}
+	}
+	& * {
+		cursor: var(--cursor-pointer, pointer)!important;
 	}
 }
 
@@ -1173,11 +1179,13 @@ a.pagecard-linkwrapper {
 		line-height: 1.1;
 	}
 	& .pagecard-subtitle {
+		font-family: var(--font-family-secondary);
+		font-style: italic;
 		font-size: var(--font-size-main);
-		font-variation-settings:
+		/* font-variation-settings:
 			"opsz" 16,
 			"wght" var(--font-weight-regular),
-			"GRAD" var(--font-grade-medium) !important;
+			"GRAD" var(--font-grade-medium) !important; */
 		opacity: 0.7;
 		line-height: 1.45;
 	}

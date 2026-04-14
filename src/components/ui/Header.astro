@@ -33,10 +33,10 @@ import ProgressiveBlur from "$components/atoms/ProgressiveBlur.astro";
 	.sv_signature {
 		width: min(16rem, 58vw);
 		filter: drop-shadow(0.1rem 0.5rem 0.5rem var(--color-bg-main));
-		cursor: var(--cursor-pointer);
+		cursor: var(--cursor-pointer, pointer);
 		& * {
 			pointer-events: none;
-			cursor: var(--cursor-pointer);
+			cursor: var(--cursor-pointer, pointer);
 		}
 	}
 </style>

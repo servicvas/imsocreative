@@ -75,7 +75,7 @@
 		backdrop-filter: blur(0.5rem);
 		border-radius: var(--toc-radius);
 		box-shadow: var(--shadow-main);
-		cursor: pointer;
+		cursor: var(--cursor-pointer, pointer);
 		transition: all 0.2s ease;
 		@supports (corner-shape: squircle) {
 			corner-shape: squircle;
@@ -90,6 +90,7 @@
 				background: var(--color-button-bg-focus);
 				& .toc-trigger__label {
 					color: var(--color-const-light) !important;
+					cursor: var(--cursor-pointer, pointer);
 				}
 				& .toc-progress {
 					background: var(--color-link) !important;
