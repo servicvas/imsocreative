@@ -502,6 +502,9 @@ mark {
 	& .article-img-block {
 		margin-block: var(--space-md);
 	}
+	& .article-head {
+		z-index: +1;
+	}
 	& .article-heading {
 		width: var(--content-width-w);
 		margin-inline: auto;
@@ -1061,6 +1064,12 @@ a.pagecard-linkwrapper {
 			& .pagecard-cover--secondary {
 				filter: blur(2px);
 			}
+			& .pagecard-logo {
+				transform: translateY(5px) scale(110%);
+			}
+			& .pagecard-cover-bg:has(~ .pagecard-logo) {
+				transform: translateY(-10px) scale(103%);
+			}
 		}
 	}
 	&:focus {
@@ -1093,11 +1102,23 @@ a.pagecard-linkwrapper {
 		grid-area: 1 / 1 / 2 / 2;
 		position: relative;
 		aspect-ratio: 3 / 2;
+		overflow: clip;
 		border-radius: var(--radius-button-xxxl) var(--radius-button-xxxl) 0 0;
 		@supports (corner-shape: squircle) {
 			corner-shape: squircle;
 		}
-		overflow: clip;
+		& .pagecard-logo {
+			transition: transform 0.25s, scale 0.25s;
+			&.pagecard-logo--top {
+				width: 50%;
+				position: absolute;
+				top: 18%;
+				inset-inline-start: 25%;
+			}
+		}
+		& .pagecard-cover-bg:has(~ .pagecard-logo) {
+			transition: transform 0.35s, scale 0.30s;
+		}
 		& .pagecard-cover--primary {
 			width: 100%;
 			height: 100%;
@@ -1148,8 +1169,8 @@ a.pagecard-linkwrapper {
 			height: 100%;
 			object-fit: cover;
 		}
-		& .pagecard-cover-mask {
-			mask: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 25%, rgb(0, 0, 0) 100%);
+		& .pagecard-cover--mask {
+			mask: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .3) 20%, rgba(0, 0, 0, .8) 35%, rgba(0, 0, 0, 1) 75%);
 		}
 	}
 	& .pagecard-timeline {
@@ -1181,20 +1202,20 @@ a.pagecard-linkwrapper {
 	& .pagecard-subtitle {
 		font-family: var(--font-family-secondary);
 		font-style: italic;
-		font-size: var(--font-size-main);
+		font-size: var(--font-size-s);
 		/* font-variation-settings:
 			"opsz" 16,
 			"wght" var(--font-weight-regular),
 			"GRAD" var(--font-grade-medium) !important; */
 		opacity: 0.7;
-		line-height: 1.45;
+		line-height: 1.4;
 	}
 	& .pagecard-description {
 		grid-area: 2 / 1 / -1 / -1;
 		display: grid;
 		grid-template-rows: 1fr min-content;
 		gap: var(--space-main);
-		margin-block-start: var(--space-s);
+		margin-block-start: calc((var(--space-s)) * -1);
 		padding-block-end: var(--space-md);
 		padding-inline: var(--space-md);
 		@media screen and (width > 1200px) {

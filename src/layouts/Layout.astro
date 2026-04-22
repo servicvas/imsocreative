@@ -152,5 +152,10 @@ const ogImageUrl = new URL(imagePath, siteOrigin).href;
 		width: 100%;
 		background: var(--color-bg-main);
 		flex-grow: 1;
+		box-shadow: var(--shadow-h);
+    border-radius: 0 0 5rem 5rem;
+		@supports (corner-shape: squircle) {
+			corner-shape: squircle;
+		}
 	}
 </style>

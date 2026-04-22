@@ -21,7 +21,7 @@ import AsciiArt from "$components/ui/AsciiArt.astro";
 		view-transition-name: footer;
 		flex-shrink: 0;
 		padding-inline: var(--layout-padding-inline);
-		border-block-start: var(--color-brand-main) 1px solid;
+		/* border-block-start: var(--color-brand-main) 1px solid; */
 		color: var(--color-content-main);
 		position: relative;
 		& .contacts {
@@ -52,10 +52,7 @@ import AsciiArt from "$components/ui/AsciiArt.astro";
 				inset-block-start: 4rem;
 			}
 			@media screen and (width > 1050px) {
-				inset-block-start: -1rem;
-			}
-			@media screen and (width > 1360px) {
-				inset-block-start: -3rem;
+				inset-block-start: 0;
 			}
 		}
 	}

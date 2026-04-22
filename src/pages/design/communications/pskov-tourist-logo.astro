@@ -1,0 +1,83 @@
+---
+import LayoutArticle from "$layouts/LayoutArticle.astro";
+
+const breadcrumbsLabels = {
+	values: "Территориальный брендинг Псковской области",
+};
+---
+
+<LayoutArticle title="Территориальный брендинг Псковской области | Портфолио Сергея Васильева" description="Туристический логотип Псковской области в 2010‑х годах, призванный сделать позиционирование региона более универсальным" headingTitle="Территориальный брендинг Псковской области" subtitle="Туристический логотип Псковской области в 2010‑х годах, призванный сделать позиционирование региона более универсальным" breadcrumbsLabels={breadcrumbsLabels} date="2010 год">
+	<section class="article-cover fullwidth" id="pskovtouristlogo-cover">
+		<picture class="parallax-item" id="pskovtouristlogo-cover-img" data-parallax="0.1">
+			<source media="(max-width: 960px)" srcset="/assets/img/design/communications/pskov-tourist-logo/pskov-tourist-logo-cover-m.webp" />
+			<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/communications/pskov-tourist-logo/pskov-tourist-logo-cover-1x.webp" />
+			<source media="(min-width: 961px) and (resolution: 2dppx), 
+        (min-width: 961px) and (resolution: 3dppx),
+        (min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/communications/pskov-tourist-logo/pskov-tourist-logo-cover-2x.webp" />
+			<img src="/assets/img/design/communications/pskov-tourist-logo/pskov-tourist-logo-cover-2x.webp" alt="Фоновое изображение для обложки кейса создания туристического логотипа Псковской области: папа туристов стоят на поле льна и фотографируют что-то вдали" fetchpriority="high" />
+		</picture>
+		<div class="article-cover-logo--wrapper">
+			<img src="/assets/img/design/communications/logos/pskov-tourist-logo.svg" class="article-cover-logo parallax-item" data-parallax="0.4" id="pskovtouristlogo-logo" alt="Туристический логотип Псковской области в 2010-х годах" />
+		</div>
+	</section>
+	<section class="article-lid animation-scroll-fadeup" data-toc="Введение" id="lid">
+		<p>В 2010 году я выполнял ряд задач по разработке различной полиграфической продукции в интересах госкомитета Псковской области по туризму и инвестициям. На тот момент у Псковской области не было туристического логотипа, а для одного из буклетов требовалось яркое обозначение региона. В инициативном порядке я разработал эмблему в соответствии с бытовавшими в тот момент трендами территориального брендинга: с фокусом на ненарочитость исполнения, яркие акценты и продвижение эмоциональных образов, чтобы подчеркнуть транслировавшуюся тогда профильным комитетом идею: Псковская область — это не только сосредоточение памятников крепостного и церковного зодчества, но и место с большим количеством мероприятий в сфере событийного и сельского туризма, с самобытной природой русского Северо-Запада.</p>
+		<p>Разработанный знак так понравился заказчику, что стал официальным туристическим логотипом региона на протяжении всего десятилетия, использовался на выставках, в полиграфиеской продукции и интернет-рекламе, при производстве мерча.</p>
+	</section>
+	<section class="article-body">
+		<section class="article-chapter animation-scroll-fadeup">
+			<h2 class="article-chapter-title" data-toc="Концепция знака" id="campaign-concept">Концепция знака</h2>
+			<p class="article-text">Кейс в разработке, скоро здесь появятся подробности.</p>	
+		</section>
+	</section>
+</LayoutArticle>
+
+<style>
+	#pskovtouristlogo-cover {
+		position: relative;
+		@media screen and (width <= 1100px) {
+			display: flex;
+			flex-direction: column;
+			margin-block-start: 1rem;
+		}
+		@media screen and (width > 1100px) {
+			margin-block-start: -10rem;
+		}
+		@media screen and (width > 1400px) {
+			margin-block-start: -14rem;
+		}
+		@media screen and (width > 1600px) {
+			margin-block-start: -18rem;
+		}
+	}
+
+	#pskovtouristlogo-cover-img {
+		mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 12%, rgba(0, 0, 0, 0.8) 22%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 1) 65%, rgba(0, 0, 0, 0.8) 78%, rgba(0, 0, 0, 0.3) 88%, rgba(0, 0, 0, 0.1) 94%, rgba(0, 0, 0, 0) 99%);
+		@media screen and (640px < width < 1100px) {
+			margin-block-start: -4rem;
+		}
+	}
+
+	.article-cover-logo--wrapper {
+		width: 100%;
+		height: 100%;
+		display: grid;
+		place-items: center;
+		@media screen and (width <= 1100px) {
+			order: -1;
+			margin-block-end: -4rem;
+		}
+		@media screen and (width > 1100px) {
+			position: absolute;
+			inset: 0;
+		}
+	}
+
+	#pskovtouristlogo-logo {
+		padding-inline: var(--space-main);
+		width: min(90%, 500px);
+		@media screen and (width > 1400px) {
+			margin-block-start: -4rem;
+		}
+	}
+</style>
