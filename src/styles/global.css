@@ -709,14 +709,14 @@ mark {
 }
 
 .wrapper-indentation {
-	display: flex!important;
-	flex-direction: column!important;
+	display: flex;
+	flex-direction: column;
 	gap: var(--space-indentation)!important;
 }
 
 .wrapper-indentation-xl {
-	display: flex!important;
-	flex-direction: column!important;
+	display: flex;
+	flex-direction: column;
 	gap: var(--space-xl)!important;
 }
 
