@@ -473,7 +473,7 @@ const breadcrumbsLabels = {
 					<p class="article-text">В связи с этим все иконки на проекте построены на основе путей, а не фигур (шейпов). Они встраиваются инлайн для оптимизации рендеринга и сохранения полного контроля над элементами их DOM. Их внешний вид (толщина линий, цвет и т. п.) управляется через CSS с помощью специальных токенов.</p>
 				</div>
 				<div class="wrapper-columns--sticky">
-					<video autoplay loop muted playsinline width="640">
+					<video autoplay loop muted playsinline width="640" class="wrapper-rounded">
 						<source src="/assets/img/design/design-systems/pln/smil-icons.webm" type="video/webm" />
 						<source src="/assets/img/design/design-systems/pln/smil-icons.mp4" type="video/mp4" />
 						К сожалению, ваш браузер не поддерживает используемый формат видео.
@@ -546,42 +546,48 @@ const breadcrumbsLabels = {
 				<p class="article-text footnote">* Ввиду того, что запуск редизайна происходил уже после моего перехода на другую работу, я не имею доступа к детальной статистике и привожу доступные данные по открытым источникам</p>
 				<div class="results wrapper-centered width-xw wrapper-marginblockstart-md">
 					<div class="result-item">
-						<div class="result-item-main">
-							<p class="result-caption">Рост глубины просмотра и времени на сайте</p>
-							<p class="result-digits">+ 12&#8239;% / + 7,1&#8239;%</p>
+						<div class="result-item-title">
+							<p class="result-title-text">Рост глубины просмотра и времени на сайте</p>
+							<p class="result-title-digits">+ 12&#8239;% / + 7,1&#8239;%</p>
 						</div>
-						<p class="result-description">Удалось сбить продолжавшуюся более 2&#x2060;-&#x2060;х лет тенденцию к снижению показателей глубины и времени просмотра: они почти сразу <a href="https://www.liveinternet.ru/stat/pln-pskov.ru/index.html?id=ratio&period=week" title="Статистика посещаемости сайта ПЛН по данным Liveinternet" target="_blank">начали согласованно расти</a>.<p>
-						<div class="result-item-metrics">
-							<Fragment set:html={PlnMetricsTimeDepth} />
-						</div>
-					</div>
-					<div class="result-item">
-						<div class="result-item-main">
-							<p class="result-caption">Рост посещений страниц с комментариями</p>
-							<p class="result-digits">+ 16&#8239;%</p>
-						</div>
-						<p class="result-description">После редизайна <a href="https://www.liveinternet.ru/stat/pln-pskov.ru/dirs.html?id=848972&period=week" title="Статистика посещаемости сайта ПЛН по данным Liveinternet" target="_blank">наблюдается</a> устойчивая тенденция к росту посещений раздела /forum (страниц с комментариями).<p>
-						<div class="result-item-metrics">
-							<Fragment set:html={PlnMetricsForum} />
+						<div class="result-item-caption">
+							<p class="result-description">Удалось сбить продолжавшуюся более 2&#x2060;-&#x2060;х лет тенденцию к снижению показателей глубины и времени просмотра: они почти сразу <a href="https://www.liveinternet.ru/stat/pln-pskov.ru/index.html?id=ratio&period=week" title="Статистика посещаемости сайта ПЛН по данным Liveinternet" target="_blank">начали согласованно расти</a>.<p>
+							<div class="result-item-metrics">
+								<Fragment set:html={PlnMetricsTimeDepth} />
+							</div>
 						</div>
 					</div>
 					<div class="result-item">
-						<div class="result-item-main">
-							<p class="result-caption">Рост посещений страницы «Лента новостей»</p>
-							<p class="result-digits">+ 54&#8239;%</p>
+						<div class="result-item-title">
+							<p class="result-title-text">Рост посещений страниц с комментариями</p>
+							<p class="result-title-digits">+ 16&#8239;%</p>
+						</div>
+						<div class="result-item-caption">
+							<p class="result-description">После редизайна <a href="https://www.liveinternet.ru/stat/pln-pskov.ru/dirs.html?id=848972&period=week" title="Статистика посещаемости сайта ПЛН по данным Liveinternet" target="_blank">наблюдается</a> устойчивая тенденция к росту посещений раздела /forum (страниц с комментариями).</p>
+							<div class="result-item-metrics">
+								<Fragment set:html={PlnMetricsForum} />
+							</div>
 						</div>
 					</div>
 					<div class="result-item">
-						<div class="result-item-main">
-							<p class="result-caption">Снижение доли отказов (просмотров короче 15 секунд)</p>
-							<p class="result-digits">- 15&#8239;%</p>
+						<div class="result-item-title">
+							<p class="result-title-text">Рост посещений страницы «Лента новостей»</p>
+							<p class="result-title-digits">+ 54&#8239;%</p>
 						</div>
 					</div>
 					<div class="result-item">
-						<div class="result-item-main">
-							<p class="result-caption">Улучшение количества и качества рекламных зон</p>
+						<div class="result-item-title">
+							<p class="result-title-text">Снижение доли отказов (просмотров короче 15 секунд)</p>
+							<p class="result-title-digits">- 15&#8239;%</p>
 						</div>
-						<p class="result-description">В&nbsp;результате редизайна увеличились продажи медийной рекламы за&nbsp;счёт увеличения размера ключевых баннеров и&nbsp;более удобного размещения рекламных зон, которые при скролле дольше остаются на&nbsp;виду, но&nbsp;не&nbsp;используют тёмные паттерны и&nbsp;не&nbsp;мешают потреблению контента.<p>
+					</div>
+					<div class="result-item">
+						<div class="result-item-title">
+							<p class="result-title-text">Улучшение количества и качества рекламных зон</p>
+						</div>
+						<div class="result-item-caption">
+							<p class="result-description">В&nbsp;результате редизайна увеличились продажи медийной рекламы за&nbsp;счёт увеличения размера ключевых баннеров и&nbsp;более удобного размещения рекламных зон, которые при скролле дольше остаются на&nbsp;виду, но&nbsp;не&nbsp;используют тёмные паттерны и&nbsp;не&nbsp;мешают потреблению контента.</p>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -603,51 +609,6 @@ const breadcrumbsLabels = {
 </LayoutArticle>
 
 <style>
-
-	.results {
-		display: flex;
-		gap: var(--space-md);
-		flex-wrap: wrap;
-		justify-content: center;
-		& > .result-item {
-			width: min(500px, 100%);
-			flex: 0 1 auto;
-			background: var(--color-bg-h);
-			padding: var(--space-md);
-			position: relative;
-			border-radius: var(--radius-button-xxl);
-			border: 1px solid var(--color-bg-xh);
-			overflow: clip;
-			@supports (corner-shape: squircle) {
-				corner-shape: squircle;
-			}
-			& > .result-item-main {
-				margin-block-end: var(--space-md);
-				& > .result-caption {
-					font-size: var(--font-size-l);
-					font-variation-settings:
-						"opsz" 9,
-						"wght" var(--font-weight-medium),
-						"GRAD" var(--font-grade-chapter-subtitle) !important;
-					line-height: 1.1;
-				}
-				& > .result-digits {
-					font-family: var(--font-family-seondary);
-					font-size: var(--font-size-xxxl);
-					font-variation-settings:
-						"opsz" 14,
-						"wght" var(--font-weight-bold),
-						"GRAD" var(--font-grade-chapter-subtitle) !important;
-					line-height: 1.1;
-					font-variant-numeric: tabular-nums;
-				}
-			}
-			& .result-item-metrics {
-				margin-block-start: var(--space-main);
-			}
-		}
-	}
-
 	.article-cover--pln {
 		position: relative;
 		width: 100%;
