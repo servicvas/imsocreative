@@ -64,6 +64,9 @@
 		bottom: var(--space-main);
 		z-index: 1000;
 		font-family: var(--font-family-secondary);
+		/* & * {
+			cursor: var(--cursor-pointer, pointer);
+		} */
 	}
 
 	.toc-trigger {
@@ -75,7 +78,6 @@
 		backdrop-filter: blur(0.5rem);
 		border-radius: var(--toc-radius);
 		box-shadow: var(--shadow-main);
-		cursor: var(--cursor-pointer, pointer);
 		transition: all 0.2s ease;
 		@supports (corner-shape: squircle) {
 			corner-shape: squircle;
@@ -84,6 +86,7 @@
 			display: flex;
 			align-items: center;
 			gap: 0.75rem;
+			cursor: var(--cursor-pointer, pointer);
 		}
 		@media (hover: hover) and (pointer: fine) {
 			&:hover {
@@ -127,9 +130,11 @@
 		font-weight: var(--font-weight-bold);
 		color: var(--color-const-light);
 		counter-reset: progress var(--progress);
+		cursor: var(--cursor-pointer, pointer);
 		&::before {
 			font-variant-numeric: tabular-nums;
 			content: counter(progress) "%";
+			cursor: var(--cursor-pointer, pointer);
 		}
 	}
 
@@ -158,6 +163,12 @@
 		display: flex;
 		flex-direction: column;
 		animation: toc-slide-in 0.2s ease-out;
+		& .toc-progress {
+			cursor: var(--cursor-default);
+			&::before {
+				cursor: inherit;
+			}
+		}
 	}
 
 	@keyframes toc-slide-in {
@@ -224,6 +235,8 @@
 			&:hover {
 				background: var(--toc-hover-bg);
 				color: var(--color-const-light) !important;
+				padding-inline: 0.3em !important;
+				margin-inline: 0.3em !important;
 			}
 		}
 		&:focus {
