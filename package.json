@@ -13,6 +13,6 @@
     "@astrojs/sitemap": "3.7.2",
     "@fontsource-variable/cascadia-mono": "^5.2.2",
     "@fontsource-variable/roboto-flex": "^5.2.8",
-    "astro": "6.1.2"
+    "astro": "6.1.10"
   }
 }

@@ -51,6 +51,8 @@
 	--color-safe-main: #379f37;
 	--color-danger-main: #df1f1f;
 
+	--color-demo: var(--color-brand-d);
+
 	--color-mark: var(--color-brand-xxxs);
 	--color-link: var(--color-brand-main);
 
@@ -171,24 +173,24 @@
 }
 
 [data-theme="dark"] {
-	--color-content-main: oklch(0.99 0 0); /*  */
-	--color-content-s: oklch(0.982 0 0); /*  */
-	--color-content-xs: oklch(0.952 0 0); /*  */
-	--color-content-xxs: oklch(0.88 0 0); /*  */
+	--color-content-main: oklch(0.99 0 0); 
+	--color-content-s: oklch(0.982 0 0); 
+	--color-content-xs: oklch(0.952 0 0); 
+	--color-content-xxs: oklch(0.88 0 0); 
 	--color-content-xxxs: oklch(0.8 0 0); /* #abaeb1 */
-	--color-content-softest: oklch(0.65 0 0); /*  */
+	--color-content-softest: oklch(0.65 0 0); 
 
 	--color-separator-s: var(--color-bg-xh);
 	--color-separator-main: var(--color-bg-xxh);
 	--color-separator-h: var(--color-bg-xxxh);
 
-	--color-bg-xxxh: oklch(0.75 0.005 240); /*  */
-	--color-bg-xxh: oklch(0.54 0.006 240); /*  */
-	--color-bg-xh: oklch(0.4 0.005 240); /*  */
-	--color-bg-h: oklch(0.3 0.004 240); /*  */
+	--color-bg-xxxh: oklch(0.75 0.005 240); 
+	--color-bg-xxh: oklch(0.54 0.006 240); 
+	--color-bg-xh: oklch(0.4 0.005 240); 
+	--color-bg-h: oklch(0.3 0.004 240); 
 	--color-bg-main: oklch(0.25 0.003 240); /* #151617 */
-	--color-bg-s: oklch(0.14 0.001 240); /*  */
-	--color-bg-xs: oklch(0 0 0); /*  */
+	--color-bg-s: oklch(0.14 0.001 240);
+	--color-bg-xs: oklch(0 0 0); 
 
 	--color-brand-hardest: oklch(0.92 0.058 290.4);
 	--color-brand-xxxd: oklch(0.88 0.063 289.86);
@@ -211,6 +213,8 @@
 
 	--color-safe-main: #61c21c;
 	--color-danger-main: #f12828;
+
+	--color-demo: var(--color-brand-xxd);
 
 	--color-mark: var(--color-brand-xxd);
 	--color-link: var(--color-brand-xd);
@@ -705,9 +709,15 @@ mark {
 }
 
 .wrapper-indentation {
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-indentation);
+	display: flex!important;
+	flex-direction: column!important;
+	gap: var(--space-indentation)!important;
+}
+
+.wrapper-indentation-xl {
+	display: flex!important;
+	flex-direction: column!important;
+	gap: var(--space-xl)!important;
 }
 
 .wrapper-columns-grid {
@@ -757,6 +767,13 @@ mark {
 	@supports (corner-shape: squircle) {
 		corner-shape: squircle;
 	}
+}
+
+.heading-bg-img {
+	position: absolute;
+	width: 94vw;
+	top: 1rem;
+	opacity: .2;
 }
 
 /* Таблицы */
@@ -1290,6 +1307,12 @@ a.pagecard-linkwrapper {
 .mask-gradient-block {
 	-webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 75%, transparent);
 	mask-image: linear-gradient(to bottom, transparent, black 15%, black 75%, transparent);
+}
+
+.fontpreview {
+	& path {
+		fill: var(--color-demo, #c3c1db);
+	}
 }
 
 /* NB! - golden cannon grid */
