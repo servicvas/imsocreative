@@ -2,8 +2,8 @@ const parallaxItems = new Map();
 let virtualScroll = window.pageYOffset;
 let smoothScroll = window.pageYOffset;
 
-const LERP_FACTOR = 0.08;
-const SPEED_DIVIDER = 0.25;
+const LERP_FACTOR = 0.5;
+const SPEED_DIVIDER = 0.5;
 
 // 1. Оптимизированное чтение скролла (пассивный слушатель)
 window.addEventListener(

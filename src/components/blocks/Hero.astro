@@ -4,26 +4,15 @@ import Skills from "$components/blocks/Skills.astro";
 ---
 
 <section class="hero">
-	<section class="hero_heading parallax-item" data-parallax="0.1">
+	<section class="hero_heading parallax-item" data-parallax="0.6">
 		<p class="hero_heading--subtitle hero_heading--hello">Будем знакомы!</p>
 		<h1 class="hero_heading--title">Сергей Васильев</h1>
 		<div class="wrapper-indentation">
-			<p class="hero_heading--subtitle"><mark>мультидисциплинарный продуктовый и коммуникационный дизайнер</mark> с опытом в веб&#8209;разработке, управления IT&#x2060;-&#x2060;проектами и крупными медиа.</p>
-			<p class="hero_heading--description">Разрабатываю дизайн на основе широкого исследования и анализа контекста, реализуя требования с учётом возможностей и ограничений. Пишу код, хорошо знаю нюансы реализации дизайн-решений в веб-разработке.</p>
-			<p class="hero_heading--description">Меня вдохновляют развитие дизайн&#x2060;-&#x2060;систем, хорошая типографика и техники генеративного дизайна.</p>
+			<p class="hero_heading--subtitle"><mark>мультидисциплинарный продуктовый и коммуникационный дизайнер</mark> с опытом веб&#8209;разработки, управления ИТ&#x2060;-&#x2060;проектами и СМИ.</p>
+			<p class="hero_heading--description">Разрабатываю дизайн на основе глубинных исследований и анализа контекста.</p>
+			<p class="hero_heading--description">Сам пишу код — хорошо знаю нюансы, возможности и ограничения реализации дизайн-решений в разработке.</p>
+			<p class="hero_heading--description">Меня вдохновляет развитие дизайн&#x2060;-&#x2060;систем, классическая типографика и техники генеративного дизайна.</p>
 		</div>
-		<svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;">
-			<defs>
-				<filter id="marker-shape">
-					<feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1" result="warp"></feTurbulence>
-					<feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warp"></feDisplacementMap>
-				</filter>
-				<filter id="marker-shape--second">
-					<feTurbulence type="fractalNoise" baseFrequency="0 0.18" numOctaves="1" result="warp"></feTurbulence>
-					<feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="28" in="SourceGraphic" in2="warp"></feDisplacementMap>
-				</filter>
-			</defs>
-		</svg>
 	</section>
 	<section class="hero_cover">
 		<Virtuvian />
@@ -100,7 +89,7 @@ import Skills from "$components/blocks/Skills.astro";
 	}
 	.hero_heading--subtitle {
 		font-family: var(--font-family-secondary);
-    font-style: italic;
+		font-style: italic;
 		font-size: var(--font-size-l);
 		letter-spacing: 0.002em;
 		/* font-variation-settings:
@@ -120,7 +109,7 @@ import Skills from "$components/blocks/Skills.astro";
 		line-height: 1.3;
 	}
 
-		.hero_skills {
+	.hero_skills {
 		grid-area: skills;
 		display: flex;
 		flex-direction: column;

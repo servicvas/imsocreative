@@ -28,7 +28,6 @@ export default defineConfig({
 		build: {
       // Отключаем встраивание CSS в HTML
       cssCodeSplit: true,
-      // Минимизируем CSS
       minify: true,
       // Настройки для долгосрочных имён файлов
       rollupOptions: {
