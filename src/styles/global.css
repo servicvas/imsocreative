@@ -57,7 +57,7 @@
 	--color-link: var(--color-brand-main);
 
 	--color-scrollbar-thumb: var(--color-brand-main);
-	--color-scrollbar-track: var(--color-bg-main);
+	--color-scrollbar-track: transparent;
 
 	accent-color: var(--color-brand-main);
 
@@ -241,6 +241,7 @@
 :root::view-transition-new(root) {
 	animation: 0.3s ease-in-out both zoomIn;
 }
+
 
 * {
 	scrollbar-width: thin;
