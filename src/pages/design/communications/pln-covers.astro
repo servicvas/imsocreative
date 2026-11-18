@@ -104,82 +104,95 @@ for (let i = 0; i < imagePaths.length; i += 3) {
 </LayoutArticle>
 
 <style>
-	.collection {
-		margin-block: var(--space-md);
-	}
-	.crosscrolling {
-		overflow-x: clip;
-		white-space: nowrap;
-		margin-block: var(--space-xl);
-		& .scrollline {
-			display: flex;
-			gap: var(--space-main);
-			padding-inline: var(--space-main);
-			margin-block-end: var(--space-main);
-			@media screen and (width < 1200px) {
-				width: max-content;
-			}
-			@supports (animation-timeline: scroll()) and (animation-range: entry-crossing) {
-				@media (prefers-reduced-motion: no-preference) {
-					&:nth-child(odd) {
-						animation: covers-scrolling-to-right linear forwards;
-						animation-timeline: view();
-						animation-range: entry 0% cover 50%;
-						@media screen and (width < 1200px) {
-							animation: covers-scrolling-to-right-mobile linear forwards;
-							animation-timeline: view();
-							animation-range: entry 0% cover 80%;
-						}
-					}
-					&:nth-child(even) {
-						animation: covers-scrolling-to-left linear forwards;
-						animation-timeline: view();
-						animation-range: entry 0% cover 50%;
-						@media screen and (width < 1200px) {
-							animation: covers-scrolling-to-left linear forwards;
-							animation-timeline: view();
-							animation-range: entry 0% cover 80%;
-						}
-					}
-				}
-			}
-		}
-		& .scrolline-item {
-			@media screen and (width < 1200px) {
-				width: 360px;
-				height: 205px;
-			}
-			@media screen and (width >= 1200px) {
-				flex: 1 1 auto;
-			}
-		}
+.collection {
+	margin-block: var(--space-md);
+}
+
+.infographics-set {
+	border-block-end: 2px solid var(--color-separator-main);
+}
+
+
+.crosscrolling {
+	overflow-x: clip;   
+	white-space: nowrap;
+	margin-block: var(--space-xl);
+}
+
+.crosscrolling .scrollline {
+	display: flex;
+	gap: var(--space-main);
+	padding-inline: var(--space-main);
+	margin-block-end: var(--space-main);
+}
+
+@media screen and (width < 1200px) {
+	.crosscrolling .scrollline {
+		width: max-content;
 	}
 
-	.infographics-set {
-		border-block-end: 2px solid var(--color-separator-main);
+	.crosscrolling .scrolline-item {
+		width: 360px;
+		height: 205px;
+		flex: 0 0 auto;  
 	}
+}
 
-	@keyframes covers-scrolling-to-right {
-		from {
-			transform: translateX(100%);
-		}
+@media screen and (width >= 1200px) {
+	.crosscrolling .scrolline-item {
+		flex: 1 1 auto;
 	}
+}
 
-	@keyframes covers-scrolling-to-right-mobile {
-		from {
-			transform: translateX(100%);
+@supports (animation-timeline: view()) {
+	@media (prefers-reduced-motion: no-preference) {
+		.crosscrolling .scrollline:nth-child(odd) {
+			animation-name: covers-scrolling-to-right;
+			animation-duration: auto;
+			animation-timing-function: linear;
+			animation-fill-mode: both;
+			animation-timeline: view();
+			animation-range: entry 0% cover 50%;
 		}
-		to {
-			transform: translateX(calc(-1 * (100% - 100vw)));
-		}
-	}
 
-	@keyframes covers-scrolling-to-left {
-		from {
-			transform: translateX(-100%);
+		.crosscrolling .scrollline:nth-child(even) {
+			animation-name: covers-scrolling-to-left;
+			animation-duration: auto;
+			animation-timing-function: linear;
+			animation-fill-mode: both;
+			animation-timeline: view();
+			animation-range: entry 0% cover 50%;
 		}
-		/* to {
-			transform: translateX(var(--space-main));
-		} */
 	}
+}
+
+@media screen and (width < 1200px) {
+	@supports (animation-timeline: view()) {
+		@media (prefers-reduced-motion: no-preference) {
+			.crosscrolling .scrollline:nth-child(odd) {
+				animation-name: covers-scrolling-to-right-mobile;
+				animation-range: entry 0% cover 80%;
+			}
+
+			.crosscrolling .scrollline:nth-child(even) {
+				animation-range: entry 0% cover 80%;
+			}
+		}
+	}
+}
+
+@keyframes covers-scrolling-to-right {
+	from { transform: translateX(100%); }
+	to   { transform: translateX(0); }   /* было неявным — сделано явным */
+}
+
+@keyframes covers-scrolling-to-right-mobile {
+	from { transform: translateX(100%); }
+	to   { transform: translateX(calc(-1 * (100% - 100vw))); }
+}
+
+@keyframes covers-scrolling-to-left {
+	from { transform: translateX(-100%); }
+	to   { transform: translateX(0); }
+}
 </style>

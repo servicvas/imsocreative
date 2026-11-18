@@ -661,19 +661,22 @@ const breadcrumbsLabels = {
 		margin-block-end: var(--space-indentation);
 	}
 
-	@supports (animation-timeline: scroll()) and (animation-range: entry-crossing) {
+	#pln-pattern path {
+		transform-box: fill-box;
+		transform-origin: center;
+	}
+
+	@supports (animation-timeline: view()) {
 		@media (prefers-reduced-motion: no-preference) {
-			#pln-pattern {
-				& path {
-					opacity: 0;
-					transform: scale(0.2);
-					transform-origin: center;
-					transform-box: fill-box;
-					will-change: transform, opacity;
-					animation: palette-item-show linear forwards;
-					animation-timeline: view();
-					animation-range: entry 0% cover 80%;
-				}
+			#pln-pattern path {
+				opacity: 0;
+				transform: scale(0.2);
+				animation-name: palette-item-show;
+				animation-duration: auto;
+				animation-timing-function: linear;
+				animation-fill-mode: forwards;
+				animation-timeline: view();
+				animation-range: entry 0% cover 80%;
 			}
 		}
 	}

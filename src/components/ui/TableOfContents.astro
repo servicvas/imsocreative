@@ -32,19 +32,18 @@
 		inherits: true;
 	}
 
-	/* Анимация прогресса в процентах, привязанная к скроллу страницы */
-	:root {
-		animation: scroll-progress linear;
-		animation-timeline: scroll(root);
+	@supports (animation-timeline: scroll()) {
+		:root {
+			animation-name: scroll-progress;
+			animation-duration: auto;
+			animation-timing-function: linear;
+			animation-timeline: scroll(root);
+		}
 	}
 
 	@keyframes scroll-progress {
-		from {
-			--progress: 0;
-		}
-		to {
-			--progress: 100;
-		}
+		from { --progress: 0; }
+		to   { --progress: 100; }
 	}
 
 	.toc-widget {
