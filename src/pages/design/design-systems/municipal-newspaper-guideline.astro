@@ -94,7 +94,7 @@ for (let i = 0; i < imagePaths.length; i += 6) {
 				animation-timing-function: linear;
 				animation-fill-mode: forwards;
 				animation-timeline: view();
-				animation-range: entry 0% cover 80%;
+				animation-range: entry 0% cover 85vh;
 			}
 
 			.crosscrolling .scrollline:nth-child(even) {
@@ -104,12 +104,12 @@ for (let i = 0; i < imagePaths.length; i += 6) {
 	}
 
 	@keyframes pages-scrolling-to-right {
-		from { transform: translateX(100%); }
-		to   { transform: translateX(calc(-1 * (100% - 100vw))); }
+		from { transform: translateX(100vw); }
+		to   { transform: translateX(calc((-1 * (100% - 100vw)) - var(--space-xl))); }
 	}
 
 	@keyframes pages-scrolling-to-left {
 		from { transform: translateX(-100%); }
-		to   { transform: translateX(calc(100% - 100vw)); }
+		to   { transform: translateX(var(--space-xl)); }
 	}
 </style>

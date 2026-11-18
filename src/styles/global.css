@@ -1345,7 +1345,7 @@ a.pagecard-linkwrapper {
 			animation-timing-function: ease-in-out;
 			animation-fill-mode: both;
 			animation-timeline: view(block);
-			animation-range: entry 0% cover 35%;
+			animation-range: cover 0% cover 20vh;
 		}
 	}
 }
