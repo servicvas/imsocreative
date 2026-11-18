@@ -3,30 +3,52 @@ import Virtuvian from "$components/blocks/Virtuvian.astro";
 import Skills from "$components/blocks/Skills.astro";
 ---
 
-<section class="hero">
+<section class="hero" id="hero-section">
 	<section class="hero_heading">
-		<p class="hero_heading--subtitle hero_heading--hello">Будем знакомы!</p>
-		<h1 class="hero_heading--title">Сергей Васильев</h1>
+		<p class="hero_heading--subtitle hero_heading--hello" style="--step: 0">Будем знакомы!</p>
+		<h1 class="hero_heading--title" style="--step: 1">Сергей Васильев</h1>
 		<div class="wrapper-indentation">
-			<p class="hero_heading--subtitle"><mark>мультидисциплинарный продуктовый и коммуникационный дизайнер</mark> с опытом веб&#8209;разработки, управления ИТ&#x2060;-&#x2060;проектами и СМИ.</p>
-			<p class="hero_heading--description">Разрабатываю дизайн на основе глубинных исследований и анализа контекста.</p>
-			<p class="hero_heading--description">Сам пишу код — хорошо знаю нюансы, возможности и ограничения реализации дизайн-решений в разработке.</p>
-			<p class="hero_heading--description">Меня вдохновляет развитие дизайн&#x2060;-&#x2060;систем, классическая типографика и техники генеративного дизайна.</p>
+			<p class="hero_heading--subtitle" style="--step: 2"><mark>мультидисциплинарный продуктовый и коммуникационный дизайнер</mark> с опытом веб&#8209;разработки, управления ИТ&#x2060;-&#x2060;проектами и СМИ.</p>
+			<p class="hero_heading--description" style="--step: 3">Разрабатываю дизайн на основе глубинных исследований и анализа контекста.</p>
+			<p class="hero_heading--description" style="--step: 4">Сам пишу код — хорошо знаю нюансы, возможности и ограничения реализации дизайн-решений в разработке.</p>
+			<p class="hero_heading--description" style="--step: 5">Меня вдохновляет развитие дизайн&#x2060;-&#x2060;систем, классическая типографика и техники генеративного дизайна.</p>
 		</div>
 	</section>
 	<section class="hero_cover">
 		<Virtuvian />
 	</section>
 	<section class="hero_skills">
-		<Skills />
+		<div class="hero_skills--inner" style="--step: 3">
+			<Skills />
+		</div>
 	</section>
-	<!-- <div class="golden-grid">
-      <div class="padding-inline-start"></div>
-      <div class="padding-inline-end"></div>
-      <div class="padding-block-start"></div>
-      <div class="padding-block-end"></div>
-    </div> -->
 </section>
+
+<script>
+	const hero = document.getElementById("hero-section");
+	const intro = document.getElementById("intro");
+
+	const startHeroAnimations = async () => {
+		if ("fonts" in document) {
+			await document.fonts.ready;
+		}
+		requestAnimationFrame(() => {
+			hero?.classList.add("is-ready");
+		});
+	};
+
+	if (!intro || intro.classList.contains("intro--quick-fade")) {
+		startHeroAnimations();
+	} else {
+		const observer = new MutationObserver(() => {
+			if (intro.classList.contains("intro--out") || !document.body.contains(intro)) {
+				observer.disconnect();
+				setTimeout(startHeroAnimations, 300);
+			}
+		});
+		observer.observe(intro, { attributes: true, attributeFilter: ["class"] });
+	}
+</script>
 
 <style>
 	.hero {
@@ -55,6 +77,7 @@ import Skills from "$components/blocks/Skills.astro";
 			grid-template-columns: 3fr 5fr 3fr;
 		}
 	}
+
 	.hero_heading {
 		grid-area: heading;
 		height: 100%;
@@ -82,21 +105,44 @@ import Skills from "$components/blocks/Skills.astro";
 			"opsz" 8,
 			"wght" var(--font-weight-extrabold),
 			"GRAD" 100;
-		/* margin-block-end: var(--space-xs); */
 		&:after {
 			content: ",";
 		}
 	}
+
 	.hero_heading--subtitle {
 		font-family: var(--font-family-secondary);
 		font-style: italic;
 		font-size: var(--font-size-l);
 		letter-spacing: 0.002em;
-		/* font-variation-settings:
-			"opsz" 12,
-			"wght" var(--font-weight-medium),
-			"GRAD" var(--font-grade-medium); */
 		line-height: 1.3;
+	}
+
+	.hero_heading--subtitle mark {
+		--mark-bg: var(--color-brand-main, #6667ab);
+		--mark-text-active: var(--color-const-light, #fcfcfc);
+		--mark-text-initial: var(--color-content-main, #1a1a1a);
+
+		color: transparent;
+		background-color: transparent;
+		background-image:
+			linear-gradient(to right, var(--mark-text-active), var(--mark-text-active)),
+			linear-gradient(to right, var(--mark-text-initial), var(--mark-text-initial)),
+			linear-gradient(to right, var(--mark-bg), var(--mark-bg));
+		background-repeat: no-repeat;
+		background-position: 0 0, 0 0, 0 0;
+		background-size: 0% 100%, 100% 100%, 0% 100%;
+		-webkit-background-clip: text, text, border-box;
+		background-clip: text, text, border-box;
+		padding-inline: 0.2em;
+		margin-inline: -0.2em;
+		border-radius: 0.15em;
+		-webkit-box-decoration-break: clone;
+		box-decoration-break: clone;
+	}
+
+	.hero.is-ready .hero_heading--subtitle mark {
+		animation: highlight-mark 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.75s forwards;
 	}
 
 	.hero_heading--description {
@@ -116,6 +162,103 @@ import Skills from "$components/blocks/Skills.astro";
 		justify-content: center;
 		@media screen and (width >= 1200px) {
 			align-items: end;
+		}
+	}
+
+	.hero_skills--inner {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		@media screen and (width >= 1200px) {
+			align-items: end;
+		}
+	}
+
+	.hero_heading [style*="--step"],
+	.hero_skills--inner {
+		opacity: 0;
+		translate: 0 1.25rem;
+		will-change: translate, opacity, filter;
+	}
+
+	.hero.is-ready {
+		& .hero_heading [style*="--step"],
+		& .hero_skills--inner {
+			animation: hero-text-appear 0.75s cubic-bezier(0.22, 1, 0.36, 1) calc(0.1s + var(--step, 0) * 0.09s) forwards;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.hero_heading [style*="--step"],
+		.hero_skills--inner {
+			animation: none !important;
+			opacity: 1 !important;
+			translate: none !important;
+			filter: none !important;
+		}
+
+		.hero_heading--subtitle mark {
+			animation: none !important;
+			background-size: 100% 100%, 100% 100%, 100% 100% !important;
+		}
+	}
+
+	@supports (animation-timeline: view()) {
+		@media (prefers-reduced-motion: no-preference) {
+			.hero_heading :is(p, h1, span),
+			.hero_skills :global(:is(p, span, li, h2, h3)) {
+				will-change: translate, scale, opacity, filter;
+			}
+
+			.hero.is-ready .hero_heading [style*="--step"] {
+				animation-name: hero-text-appear, hero-scroll-blur;
+				animation-duration: 0.75s, auto;
+				animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1), linear;
+				animation-delay: calc(0.1s + var(--step, 0) * 0.09s), 0s;
+				animation-fill-mode: forwards, both;
+				animation-timeline: auto, view(block);
+				animation-range: normal, cover 80% exit 100%;
+			}
+
+			.hero.is-ready .hero_skills :global(:is(p, span)) {
+				animation-name: hero-scroll-blur;
+				animation-duration: auto;
+				animation-timing-function: linear;
+				animation-fill-mode: both;
+				animation-timeline: view(block);
+				animation-range: cover 80% exit 100%;
+			}
+		}
+	}
+
+	@keyframes hero-text-appear {
+		0% {
+			opacity: 0;
+			translate: 0 1.25rem;
+		}
+		100% {
+			opacity: 1;
+			translate: 0 0;
+		}
+	}
+
+	@keyframes highlight-mark {
+		0% {
+			background-size: 0% 100%, 100% 100%, 0% 100%;
+		}
+		100% {
+			background-size: 100% 100%, 100% 100%, 100% 100%;
+		}
+	}
+
+	@keyframes hero-scroll-blur {
+		0% {
+			filter: blur(0px) opacity(1);
+			scale: 1;
+		}
+		100% {
+			filter: blur(12px) opacity(0);
+			scale: 0.97;
 		}
 	}
 </style>

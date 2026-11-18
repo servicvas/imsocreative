@@ -1,11 +1,8 @@
----
-
----
-
 <pre
 	id="ascii-art"
 	class="ascii-art"
-	aria-label="Фрагмент фрески Микеланджело Буонаротти «Сотворение Адама» в виде ASCII-art">
+	role="img"
+	aria-label="Фрагмент фрески Микеланджело Буонарроти «Сотворение Адама» в виде ASCII-art">
                                                                                                                                                          /((*,
                                                                                                                                                      #/**,**,(
                                                                                                                                                 (%(*/*/.,*/*,*
@@ -27,98 +24,176 @@
 </pre>
 
 <script>
-// Получаем элемент с ASCII-art
 const asciiArtElement = document.getElementById('ascii-art');
-const originalText = asciiArtElement.textContent;
-// Символы для временной замены
-const replacementSymbols = ['*', '&', '^', '%', '$', '#', '@', '!', '<', '>', '[', ']', '{', '}', '\\', '/', '_', '-'];
-// Задержка для анимации каждого символа (в миллисекундах)
-const animationDelay = 55;
-// Задержка для каждой последующей строки (в миллисекундах)
-const rowDelay = 50;
-// Задержка между стартом анимации последовательных символов (в миллисекундах)
-const symbolDelay = 25;
-// Флаг для проверки, запущена ли анимация
-let isAnimating = false;
-// Функция для анимации символов в строке
-function animateRow(rowIndex, textArray, originalRows) {
-    let index = 0;
-    function replaceChars(startIndex) {
-        if (startIndex >= textArray.length) {
-            // Восстанавливаем исходную строку после завершения анимации
-            asciiArtElement.textContent = originalRows.join('\n');
-            isAnimating = false;
-            return;
-        }
-        // Определяем границы для анимации трёх символов
-        const endIndex = Math.min(startIndex + 3, textArray.length);
-        // Анимируем каждый из трёх символов с задержкой
-        for (let i = startIndex; i < endIndex; i++) {
-            setTimeout(() => {
-                const char = textArray[i];
-                if (char !== ' ' && char !== '\n') {
-                    // Заменяем символ на случайный из списка replacementSymbols
-                    const newChar = replacementSymbols[Math.floor(Math.random() * replacementSymbols.length)];
-                    textArray[i] = newChar;
-                    // Обновляем только текущую строку в элементе
-                    originalRows[rowIndex] = textArray.join('');
-                    asciiArtElement.textContent = originalRows.join('\n');
-                    // Устанавливаем таймер для восстановления исходного символа
-                    setTimeout(() => {
-                        textArray[i] = char;
-                        originalRows[rowIndex] = textArray.join('');
-                        asciiArtElement.textContent = originalRows.join('\n');
-                    }, animationDelay);
-                }
-            }, (i - startIndex) * symbolDelay);
-        }
-        // Переходим к следующим трём символам
-        replaceChars(endIndex);
-    }
-    replaceChars(index);
-}
-// Функция для анимации текста
-function animateText() {
-    if (isAnimating) return;
-    isAnimating = true;
-    // Разделяем текст на строки
-    const originalRows = originalText.split('\n');
-    let currentDelay = 0;
-    originalRows.forEach((row, rowIndex) => {
-        // Создаём копию строки для анимации
-        const textArray = row.split('');
-        // Запускаем анимацию для строки с учётом задержки
-        setTimeout(() => {
-            animateRow(rowIndex, textArray, originalRows);
-        }, currentDelay);
-        // Увеличиваем задержку для следующей строки
-        currentDelay += rowDelay;
-    });
-}
-// Функция для проверки видимости элемента
-function isElementInView(element) {
-    const rect = element.getBoundingClientRect();
-    const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-    return rect.top < viewHeight && rect.bottom >= viewHeight * 0.5;
-}
-// Обработчик события scroll
-let scrollTimeout;
-window.addEventListener('scroll', () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-        if (isElementInView(asciiArtElement) && !isAnimating) {
-            setTimeout(animateText, 200); // Задержка в 0.2 секунды
-        }
-    }, 100); // Задержка перед проверкой видимости, чтобы уменьшить частоту вызовов
-});
-// Добавляем обработчики событий для наведения и ухода курсора
-asciiArtElement.addEventListener('mouseover', animateText);
-asciiArtElement.addEventListener('mouseout', () => {
-    // Восстанавливаем исходный текст при уходе курсора
-    asciiArtElement.textContent = originalText;
-    isAnimating = false;
-});
 
+if (asciiArtElement) {
+	const originalText = asciiArtElement.textContent;
+	const originalGrid = originalText.split('\n').map(row => row.split(''));
+
+	// ASCII-градиент яркости: от самых разреженных символов к самым плотным
+	const brightnessRamp = ['.', ',', ':', ';', '+', '*', '?', '%', '#', '@'];
+
+	// Координаты точки соприкосновения пальцев (строка 11, колонка 86)
+	const SPARK_ROW = 11;
+	const SPARK_COL = 86;
+
+	// Тайминги фаз анимации (в миллисекундах)
+	const CONVERGE_DURATION = 650;  // Длительность встречной волны от краев к пальцам
+	const SPARK_START = 600;        // Момент вспышки искры
+	const SPARK_DURATION = 380;     // Длительность горения искры
+	const RIPPLE_SPEED = 8;         // Скорость расходящейся ударной волны (меньше = быстрее)
+	const CELL_GLOW_TIME = 240;     // Время свечения одного символа по градиенту
+	const STEP_INTERVAL = 33;       // Частота обновления (~30 FPS для четкого ретро-эффекта)
+
+	// Магнитуда для нормализации встречной волны
+	let maxDistFromSpark = 1;
+	const activeCells = [];
+
+	// 1. Индексируем непробельные символы рук
+	originalGrid.forEach((row, r) => {
+		row.forEach((char, c) => {
+			if (char !== ' ' && char !== '\r') {
+				// Умножаем разницу по строкам на 2.5, т.к. символы в шрифте выше, чем шире
+				const dist = Math.hypot((r - SPARK_ROW) * 2.5, c - SPARK_COL);
+				if (dist > maxDistFromSpark) maxDistFromSpark = dist;
+
+				activeCells.push({ r, c, dist });
+			}
+		});
+	});
+
+	// Предвычисляем тайминги для каждой ячейки
+	let totalDuration = 0;
+	activeCells.forEach(cell => {
+		// Фаза 1: чем дальше от центра, тем раньше стартует (волна идет с краев к пальцам)
+		cell.convergeStart = (1 - cell.dist / maxDistFromSpark) * CONVERGE_DURATION;
+		// Фаза 3: после искры волна расходится от пальцев обратно к краям
+		cell.rippleStart = SPARK_START + 100 + cell.dist * RIPPLE_SPEED;
+
+		const end = cell.rippleStart + CELL_GLOW_TIME;
+		if (end > totalDuration) totalDuration = end;
+	});
+
+	// 2. Создаем ячейки для самой «Искры» в пустом пространстве между пальцами
+	const sparkCells = [];
+	for (let r = SPARK_ROW - 2; r <= SPARK_ROW + 2; r++) {
+		for (let c = SPARK_COL - 4; c <= SPARK_COL + 4; c++) {
+			if (originalGrid[r] && originalGrid[r][c] === ' ') {
+				const dist = Math.hypot((r - SPARK_ROW) * 2.2, c - SPARK_COL);
+				if (dist <= 4.2) {
+					sparkCells.push({ r, c, dist });
+				}
+			}
+		}
+	}
+
+	let rafId = null;
+
+	// Функция вычисления символа из ASCII-градиента по прогрессу (0..1)
+	// Используем треугольную кривую: 0 -> 1 (пик яркости '@') -> 0
+	function getGradientChar(progress) {
+		const intensity = 1 - Math.abs(2 * progress - 1);
+		const index = Math.min(
+			brightnessRamp.length - 1,
+			Math.floor(intensity * brightnessRamp.length)
+		);
+		return brightnessRamp[index];
+	}
+
+	function stopAnimation() {
+		if (rafId !== null) {
+			cancelAnimationFrame(rafId);
+			rafId = null;
+		}
+		asciiArtElement.classList.remove('is-animating', 'is-sparking');
+		asciiArtElement.textContent = originalText;
+	}
+
+	function animateText() {
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+		if (rafId !== null) return;
+
+		asciiArtElement.classList.add('is-animating');
+		const startTimestamp = performance.now();
+		let lastUpdate = 0;
+
+		function tick(now) {
+			const elapsed = now - startTimestamp;
+
+			if (elapsed >= totalDuration) {
+				stopAnimation();
+				return;
+			}
+
+			if (now - lastUpdate >= STEP_INTERVAL) {
+				lastUpdate = now;
+
+				// Клонируем сетку для текущего кадра
+				const currentGrid = originalGrid.map(row => row.slice());
+
+				// Подсветка в CSS в момент искры
+				if (elapsed >= SPARK_START && elapsed <= SPARK_START + SPARK_DURATION) {
+					asciiArtElement.classList.add('is-sparking');
+				} else {
+					asciiArtElement.classList.remove('is-sparking');
+				}
+
+				// Обрабатываем символы рук (Встречная волна + Расходящийся импульс)
+				for (let i = 0; i < activeCells.length; i++) {
+					const { r, c, convergeStart, rippleStart } = activeCells[i];
+
+					// Проверка Фазы 1 (Встречная волна к пальцам)
+					if (elapsed >= convergeStart && elapsed <= convergeStart + CELL_GLOW_TIME * 0.7) {
+						const progress = (elapsed - convergeStart) / (CELL_GLOW_TIME * 0.7);
+						currentGrid[r][c] = getGradientChar(progress * 0.75);
+					}
+					// Проверка Фазы 3 (Мощная ударная волна от искры)
+					else if (elapsed >= rippleStart && elapsed <= rippleStart + CELL_GLOW_TIME) {
+						const progress = (elapsed - rippleStart) / CELL_GLOW_TIME;
+						currentGrid[r][c] = getGradientChar(progress);
+					}
+				}
+
+				// Обрабатываем Фазу 2 (Вспышка искры между пальцами)
+				if (elapsed >= SPARK_START && elapsed <= SPARK_START + SPARK_DURATION) {
+					const sparkProgress = (elapsed - SPARK_START) / SPARK_DURATION;
+					for (let i = 0; i < sparkCells.length; i++) {
+						const { r, c, dist } = sparkCells[i];
+						// В центре искры яркость максимальная, к краям — затухает
+						const localProgress = Math.max(0, sparkProgress - (dist * 0.08));
+						if (localProgress > 0 && localProgress < 1) {
+							currentGrid[r][c] = getGradientChar(localProgress);
+						}
+					}
+				}
+
+				// Единое обновление DOM за кадр
+				asciiArtElement.textContent = currentGrid.map(row => row.join('')).join('\n');
+			}
+
+			rafId = requestAnimationFrame(tick);
+		}
+
+		rafId = requestAnimationFrame(tick);
+	}
+
+	// Запуск при появлении в области видимости
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				animateText();
+			} else {
+				stopAnimation();
+			}
+		});
+	}, { threshold: 0.5 });
+
+	observer.observe(asciiArtElement);
+
+	// Запуск при наведении курсора
+	asciiArtElement.addEventListener('mouseenter', animateText);
+	asciiArtElement.addEventListener('mouseleave', stopAnimation);
+}
 </script>
 
 <style is:global>
@@ -131,13 +206,26 @@ asciiArtElement.addEventListener('mouseout', () => {
 		padding: 0;
 		color: var(--color-link);
 		font-family: monospace;
-		font-family: var(--font-family-secondary);
+		font-family: var(--font-family-secondary, monospace);
 		font-size: clamp(0.3rem, 0.28rem + 0.2vw, 0.5rem);
+		transition: text-shadow 0.25s ease, filter 0.25s ease;
+
 		@media screen and (width > 450px) {
 			font-size: var(--font-size-xxxs);
 		}
 		@media screen and (width > 850px) {
 			font-size: var(--font-size-xxs);
 		}
+	}
+
+	/* Мягкое свечение во время работы анимации */
+	.ascii-art.is-animating {
+		text-shadow: 0 0 4px color-mix(in srgb, currentColor 35%, transparent);
+	}
+
+	/* Пиковый импульс свечения в момент проскакивания искры между пальцами */
+	.ascii-art.is-sparking {
+		text-shadow: 0 0 8px color-mix(in srgb, currentColor 75%, transparent);
+		filter: brightness(1.2);
 	}
 </style>
