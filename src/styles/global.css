@@ -738,7 +738,7 @@ mark {
 	gap: var(--space-main);
 	grid-template-columns: 1fr;
 	align-items: start;
-	@media screen and (width > 1200px) {
+	@media screen and (width > 960px) {
 		gap: var(--space-l);
 		grid-template-columns: 1fr 1fr;
 	}
@@ -1355,12 +1355,53 @@ a.pagecard-linkwrapper {
 	}
 }
 
-.parallax-item {
+/* .parallax-item {
 	will-change: transform;
 	pointer-events: none;
 	-webkit-backface-visibility: hidden;
 	&:not(:has(p, h1, h2, h3, h4)) {
 		user-select: none;
+	}
+} */
+
+@property --parallax-speed {
+	syntax: "<number>";
+	inherits: true;
+	initial-value: 0;
+}
+
+.parallax-item {
+	--parallax-start: cover 0%;
+	--parallax-end: cover 100%;
+}
+
+@supports (animation-timeline: view()) {
+	.parallax-item {
+		--parallax-amplitude: calc((100vh + 100%) * var(--parallax-speed));
+
+		animation-name: parallax-y;
+		animation-duration: auto;
+		animation-timing-function: cubic-bezier(.2, .6, .3, 1);
+		animation-fill-mode: both;
+		animation-timeline: view();
+		animation-range-start: var(--parallax-start);
+		animation-range-end: var(--parallax-end);
+	}
+
+	@keyframes parallax-y {
+		from {
+			translate: 0 calc(var(--parallax-amplitude) * -0.5);
+		}
+
+		to {
+			translate: 0 calc(var(--parallax-amplitude) * 0.5);
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.parallax-item {
+		animation: none;
 	}
 }
 

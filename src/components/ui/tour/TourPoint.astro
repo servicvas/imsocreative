@@ -38,7 +38,6 @@ const anchorName = `--anchor-${id}`;
   </div>
 </div>
 
-<!-- Сброс фокуса для предотвращения повторного открытия поповера при клике на крестик на мобилках -->
 <script>
   document.querySelectorAll('[data-tour-point]').forEach(popover => {
     popover.addEventListener('toggle', (event: any) => {
@@ -51,7 +50,6 @@ const anchorName = `--anchor-${id}`;
 </script>
 
 <style>
-	/* Маркер */
 	.tour-marker {
 		--tourmarker-size: 1.5rem;
     position: absolute;
@@ -89,6 +87,7 @@ const anchorName = `--anchor-${id}`;
     border-radius: 50%;
     box-shadow: 0 0 0 0 var(--color-brand-xxd);;
     animation: pulse 2s infinite;
+		cursor: var(--cursor-pointer, pointer);
   }
 
 	@keyframes pulse {

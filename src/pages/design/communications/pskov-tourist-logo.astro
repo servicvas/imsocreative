@@ -8,7 +8,7 @@ const breadcrumbsLabels = {
 
 <LayoutArticle title="Территориальный брендинг Псковской области | Портфолио Сергея Васильева" description="Туристический логотип Псковской области в 2010‑х годах, призванный сделать позиционирование региона более универсальным" headingTitle="Территориальный брендинг Псковской области" subtitle="Туристический логотип Псковской области в 2010‑х годах, призванный сделать позиционирование региона более универсальным" breadcrumbsLabels={breadcrumbsLabels} date="2010 год">
 	<section class="article-cover fullwidth" id="pskovtouristlogo-cover">
-		<picture class="parallax-item" id="pskovtouristlogo-cover-img" data-parallax="0.1">
+		<picture class="parallax-item" id="pskovtouristlogo-cover-img" style="--parallax-speed: .15">
 			<source media="(max-width: 960px)" srcset="/assets/img/design/communications/pskov-tourist-logo/pskov-tourist-logo-cover-m.webp" />
 			<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/communications/pskov-tourist-logo/pskov-tourist-logo-cover-1x.webp" />
 			<source media="(min-width: 961px) and (resolution: 2dppx), 
@@ -17,7 +17,7 @@ const breadcrumbsLabels = {
 			<img src="/assets/img/design/communications/pskov-tourist-logo/pskov-tourist-logo-cover-2x.webp" alt="Фоновое изображение для обложки кейса создания туристического логотипа Псковской области: папа туристов стоят на поле льна и фотографируют что-то вдали" fetchpriority="high" />
 		</picture>
 		<div class="article-cover-logo--wrapper">
-			<img src="/assets/img/design/communications/logos/pskov-tourist-logo.svg" class="article-cover-logo parallax-item" data-parallax="0.4" id="pskovtouristlogo-logo" alt="Туристический логотип Псковской области в 2010-х годах" />
+			<img src="/assets/img/design/communications/logos/pskov-tourist-logo.svg" class="article-cover-logo parallax-item" style="--parallax-speed: .1" id="pskovtouristlogo-logo" alt="Туристический логотип Псковской области в 2010-х годах" />
 		</div>
 	</section>
 	<section class="article-lid animation-scroll-fadeup" data-toc="Введение" id="lid">
@@ -35,6 +35,7 @@ const breadcrumbsLabels = {
 <style>
 	#pskovtouristlogo-cover {
 		position: relative;
+		padding-block-end: 4rem;
 		@media screen and (width <= 1100px) {
 			display: flex;
 			flex-direction: column;

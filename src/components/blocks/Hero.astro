@@ -8,10 +8,10 @@ import Skills from "$components/blocks/Skills.astro";
 		<p class="hero_heading--subtitle hero_heading--hello" style="--step: 0">Будем знакомы!</p>
 		<h1 class="hero_heading--title" style="--step: 1">Сергей Васильев</h1>
 		<div class="wrapper-indentation">
-			<p class="hero_heading--subtitle" style="--step: 2"><mark>мультидисциплинарный продуктовый и коммуникационный дизайнер</mark> с опытом веб&#8209;разработки, управления ИТ&#x2060;-&#x2060;проектами и СМИ.</p>
-			<p class="hero_heading--description" style="--step: 3">Разрабатываю дизайн на основе глубинных исследований и анализа контекста.</p>
-			<p class="hero_heading--description" style="--step: 4">Сам пишу код — хорошо знаю нюансы, возможности и ограничения реализации дизайн-решений в разработке.</p>
-			<p class="hero_heading--description" style="--step: 5">Меня вдохновляет развитие дизайн&#x2060;-&#x2060;систем, классическая типографика и техники генеративного дизайна.</p>
+			<p class="hero_heading--subtitle" style="--step: 2"><mark>мультидисциплинарный продуктовый и коммуникационный дизайнер</mark> с опытом веб&#8209;разработки, управления ИТ&#x2060;-&#x2060;проектами и СМИ.</p>
+			<p class="hero_heading--description" style="--step: 3">Разрабатываю дизайн на основе глубинных исследований и анализа контекста.</p>
+			<p class="hero_heading--description" style="--step: 4">Сам пишу код — хорошо знаю нюансы, возможности и ограничения реализации дизайн-решений в разработке.</p>
+			<p class="hero_heading--description" style="--step: 5">Меня вдохновляет развитие дизайн&#x2060;-&#x2060;систем, классическая типографика и техники генеративного дизайна.</p>
 		</div>
 	</section>
 	<section class="hero_cover">
@@ -91,6 +91,9 @@ import Skills from "$components/blocks/Skills.astro";
 		grid-area: cover;
 		display: grid;
 		place-items: center;
+		@media (width < 640px) {
+			padding-block-end: 4rem;
+		}
 	}
 
 	.hero_heading--hello {
@@ -217,7 +220,7 @@ import Skills from "$components/blocks/Skills.astro";
 				animation-delay: calc(0.1s + var(--step, 0) * 0.09s), 0s;
 				animation-fill-mode: forwards, both;
 				animation-timeline: auto, view(block);
-				animation-range: normal, cover 80% exit 100%;
+				animation-range: normal, cover 90% exit 100%;
 			}
 
 			.hero.is-ready .hero_skills :global(:is(p, span)) {

@@ -19,18 +19,18 @@ const breadcrumbsLabels = {
 
 <LayoutArticle title="Редизайн «Псковской ленты новостей»" description="Кейс cоздания дизайн-системы и редизайна сайта самого посещаемого онлайн-СМИ Псковской области — «Псковской ленты новостей»" headingTitle="Дизайн‑система и редизайн сайта самого посещаемого онлайн‑СМИ Псковской области — «Псковской ленты новостей»" subtitle="Как подготовить редизайн для медиа общего интереса с консервативной возрастной аудиторией и MAU более 500 000 человек, чтобы не вызвать отторжения нововведениями и заметно улучшить метрики вовлечённости" breadcrumbsLabels={breadcrumbsLabels} date="2022–2025 годы" customer="Медиахолдинг «Гражданская пресса»" customerLink="/about#pln" ogImage="/assets/img/design/design-systems/pln/ogcover-pln.webp">
 	<section class="article-cover article-cover--pln fullwidth">
-		<picture class="pln-cover--bg parallax-item" data-parallax="0.2">
+		<picture data-id="pln-cover-bg">
 			<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/bg-pln-m.webp" />
 			<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/bg-pln-1x.webp" />
-			<img src="/assets/img/design/design-systems/pln/bg-pln-1x.webp" alt="Дизайн-токены и фрагмент кода нового сайта ПЛН" fetchpriority="high" />
+			<img class="pln-cover--bg parallax-item" style="--parallax-speed: .2" src="/assets/img/design/design-systems/pln/bg-pln-1x.webp" alt="Дизайн-токены и фрагмент кода нового сайта ПЛН" fetchpriority="high" />
 		</picture>
-		<picture class="pln-cover--img">
+		<picture data-id="pln-cover-frontimg">
 			<source media="(max-width: 960px)" srcset="/assets/img/design/design-systems/pln/cover-pln-m.webp" />
 			<source media="(min-width: 961px) and (resolution: 1dppx)" srcset="/assets/img/design/design-systems/pln/cover-pln-1x.webp" />
 			<source media="(min-width: 961px) and (resolution: 2dppx), 
         (min-width: 961px) and (resolution: 3dppx),
         (min-width: 961px) and (resolution: 4dppx)" srcset="/assets/img/design/design-systems/pln/cover-pln-2x.webp" />
-			<img src="/assets/img/design/design-systems/pln/cover-pln-2x.webp" alt="Создание дизайн-системы и редизайн сайта самого популярного онлайн-медиа Псковской области — «Псковской ленты новостей»" fetchpriority="high" />
+			<img class="pln-cover--img" src="/assets/img/design/design-systems/pln/cover-pln-2x.webp" alt="Создание дизайн-системы и редизайн сайта самого популярного онлайн-медиа Псковской области — «Псковской ленты новостей»" fetchpriority="high" />
 		</picture>
 	</section>
 	<section class="article-lid animation-scroll-fadeup" data-toc="Введение" id="lid">
@@ -270,11 +270,11 @@ const breadcrumbsLabels = {
 				</p>
 				<section class="wrapper-columns-two wrapper-columns-two-mobile width-main wrapper-centered">
 					<div class="wrapper-indentation">
-						<p class="color-data-description">Старый фирменный цвет</p>
+						<p class="color-data-description">Старый цвет</p>
 						<CardColor sample="#aa2020" hex="#aa2020" rbg="170 32 32" hsb="359° 81 % 67 %" oklch="48.01 % 0.1737 26.81" />
 					</div>
 					<div class="wrapper-indentation">
-						<p class="color-data-description">Новый фирменный цвет</p>
+						<p class="color-data-description">Новый цвет</p>
 						<CardColor sample="#d01b1f" hex="#d01b1f" rbg="208 27 31" hsb="0° 87 % 82 %" oklch="54.89 % 0.211 27.32" />
 					</div>
 				</section>
@@ -373,7 +373,7 @@ const breadcrumbsLabels = {
 					</div>
 				</section>
 				<p class="article-text">На базе обновленного логотипа были разработаны или доработаны логотипы продуктов бренда, например, логотип радиостанции ПЛН&#x2060;-&#x2060;ФМ и логотип направления документальных фильмов и стримминговых передач ПЛН&#x2060;-&#x2060;ТВ.</p>
-				<div class="width-xs wrapper-centered wrapper-indentation">
+				<div class="width-xw wrapper-columns-two wrapper-centered wrapper-indentation">
 					<img src="/assets/img/design/design-systems/pln/pln-tv-logo.svg" class="logo-present" alt="Логотип ПЛН ТВ" />
 					<img src="/assets/img/design/design-systems/pln/pln-fm-logo.svg" class="logo-present" alt="Логотип ПЛН ФМ" />
 				</div>
@@ -550,7 +550,7 @@ const breadcrumbsLabels = {
 							<p class="result-title-digits">+ 12&#8239;% / + 7,1&#8239;%</p>
 						</div>
 						<div class="result-item-caption">
-							<div class="result-description">Удалось сбить продолжавшуюся более 2&#x2060;-&#x2060;х лет тенденцию к снижению показателей глубины и времени просмотра: они почти сразу <a href="https://www.liveinternet.ru/stat/pln-pskov.ru/index.html?id=ratio&period=week" title="Статистика посещаемости сайта ПЛН по данным Liveinternet" target="_blank">начали согласованно расти</a>.</div>p>
+							<p class="result-description">Удалось сбить продолжавшуюся более 2&#x2060;-&#x2060;х лет тенденцию к снижению показателей глубины и времени просмотра: они почти сразу <a href="https://www.liveinternet.ru/stat/pln-pskov.ru/index.html?id=ratio&period=week" title="Статистика посещаемости сайта ПЛН по данным Liveinternet" target="_blank">начали согласованно расти</a>.</p>
 							<div class="result-item-metrics">
 								<Fragment set:html={PlnMetricsTimeDepth} />
 							</div>
@@ -682,6 +682,7 @@ const breadcrumbsLabels = {
 		background: var(--color-const-light);
 		padding: var(--space-xl);
 		border-radius: var(--radius-button-xxl);
+		height: 100%;
 		@supports (corner-shape: squircle) {
 			corner-shape: squircle;
 		}
